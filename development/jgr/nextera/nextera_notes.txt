@@ -89,7 +89,7 @@ mh4-1: used tips (col 1)
 HYB SETUP
 
 start
-b6: clean tips (col -n if >10)
+b1: clean tips (col -n if >10)
 b2: clean tips (col 1-2 and -n if <11)
 b4: samples tt
 b5: empty tt
