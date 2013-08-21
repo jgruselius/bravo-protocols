@@ -4,8 +4,8 @@ var path = "C:/VWorks Workspace/Protocol Files/development/jgr/nextera";
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
-var runsetMode;		// Alt settings for library prep runset (true/false)
-var formMode;		// Sets Nextera RC (1) or XT (0) mode
+var runsetMode = false;	// Alt settings for library prep runset (true/false)
+var formMode;			// Sets Nextera RC (1) or XT (0) mode
 formColumns = parseInt(formColumns, 10);
 
 var purif = {};
