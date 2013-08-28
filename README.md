@@ -1,11 +1,16 @@
-Joel Gruselius<br />
+2013-08-23<br />
+Joel Gruselius ([joel.gruselius@scilifelab.se](mailto:joel.gruselius@scilifelab.se))<br />
 Science for Life Laboratory, Stockholm<br />
-2013-08-20
 
-# VWorks file repository for SciLifeLab
+## VWorks file repository for SciLifeLab
 
-## Description
+### Description
+This repository contains files for VWorks Automation Control used to control the Agilent NGS Workstation. These protocols and supporting files are neccessary to run the automated laboratory protocols used at Science for Life Laboratory in Stockholm.
 
-## Installation
+The repository is a way to backup, track versions and share these protocols through a easily accessable resource. The repo is maintained by Joel Gruselius.
 
-## Licence
+### Installation
+Clone the repository and place the files and folders of the resulting <code>bravo-protocols/</code> into <code>VWorks Workspace/Protocol Files/</code>. Note that for many protocols the appropriate device files are required under <code>VWorks Workspace/Device Files/</code> 
+
+### Licence
+Licensed under the Apache License, Version 2.0; See **LICENSE** file or [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
