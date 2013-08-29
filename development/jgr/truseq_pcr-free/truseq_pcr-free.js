@@ -1,85 +1,53 @@
 runset.clear();
 
-var path = "C:/VWorks Workspace/Protocol Files/development/jgr/truseq_pcr-free";
+var path = "C:/VWorks Workspace/Protocol Files/development/jgr/truseq_pcr-free/";
+var form = "truseq_pcr-free.VWForm"
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
 
+var presets = {};
+presets["End repair"] = {tipColumn:1,reagentColumn:1,sampleVolume:50,reagentVolume:50,incubationTime:1800,doOffDeckIncubation:true};
+presets["A-tailing"] = {tipColumn:2,reagentColumn:2,sampleVolume:15,reagentVolume:15,incubationTime:1800,doOffDeckIncubation:true};
+presets["Ligation"] = {tipColumn:3,reagentColumn:3,sampleVolume:30,reagentVolume:5,incubationTime:600,doOffDeckIncubation:true};
+presets["Stop ligation"] = {tipColumn:4,reagentColumn:4,sampleVolume:35,reagentVolume:5,incubationTime:0,doOffDeckIncubation:false};
 
-var truseq = {};
-var purif = {};
+presets["Fragmentation cleanup"] = {sampleVolume:50,beadVolume:80,elutionVolume:50};
+presets["Size selection"] = {sampleVolume:100,beadVolume1:95,beadVolume2:30,bindVolume:160,transferVolume:150,elutionVolume:15};
+presets["Ligation cleanup 1"] = {sampleVolume:37.5,beadVolume:42.5,elutionVolume:50};
+presets["Ligation cleanup 2"] = {sampleVolume:50,beadVolume:50,elutionVolume:20};
 
-var truseqPresets = {};
-truseqPresets["End repair"] = {tipColumn:1,reagentColumn:1,sampleVolume:50,reagentVolume:50,incubationTime:1800,doOffDeckIncubation:true};
-truseqPresets["A-tailing"] = {tipColumn:2,reagentColumn:2,sampleVolume:15,reagentVolume:15,incubationTime:1800,doOffDeckIncubation:true};
-truseqPresets["Ligation"] = {tipColumn:3,reagentColumn:3,sampleVolume:30,reagentVolume:5,incubationTime:600,doOffDeckIncubation:true};
-truseqPresets["Stop ligation"] = {tipColumn:4,reagentColumn:4,sampleVolume:35,reagentVolume:5,incubationTime:0,doOffDeckIncubation:false};
+var fileNames = {};
+fileNames["End repair"] = "truseq_reaction_NEXT.pro";
+fileNames["A-tailing"] = "truseq_reaction_NEXT.pro";
+fileNames["Ligation"] = "truseq_reaction_NEXT.pro";
+fileNames["Stop ligation"] = "truseq_reaction_NEXT.pro";
+fileNames["Fragmentation cleanup"] = "illumina_spri.pro";
+fileNames["Size selection"] = "illumina_double-spri.pro";
+fileNames["Ligation cleanup 1"] = "illumina_spri.pro";
+fileNames["Ligation cleanup 2"] = "illumina_spri.pro";
+fileNames["Library prep"] = "truseq_pcr-free.rst";
 
-var purifPresets = {};
-purifPresets["Fragmentation cleanup"] = {sampleVolume:50,beadVolume:80,elutionVolume:50};
-purifPresets["Size selection"] = {sampleVolume:100,beadVolume1:95,beadVolume2:30,bindVolume:160,transferVolume:150,elutionVolume:15};
-purifPresets["Ligation cleanup 1"] = {sampleVolume:37.5,beadVolume:42.5,elutionVolume:50};
-purifPresets["Ligation cleanup 2"] = {sampleVolume:50,beadVolume:50,elutionVolume:20};
+if(formProtocol === "Library prep") {
+	runsetMode = true;
+	runset.openRunsetFile(path+fileNames[formProtocol], form);
+	updateSettings("End repair");
+} else {
+	runset.appendProtocolFileToRunset(path+fileNames[formProtocol], 1, "", form);
+	updateSettings[formProtocol];
+}
 
-// Allow to run individually??
-switch(formProtocol) {
-	case "Bead purification":
-		// Expand to nextera_spri_setup + nextera_spri runset?
-		runset.appendProtocolFileToRunset(path+"/illumina_spri.pro", 1, "", "truseq_pcr-free.VWForm");
-		var settings = purifPresets[formPurificationMode];
-		purif.sampleVolume = settings.sampleVolume;
-		purif.beadVolume = settings.beadVolume;
-		purif.eluteVolume = settings.elutionVolume;
-		break;
-	case "Library prep":
-		formMode = 1;
-		var settings = purifPresets["Tagmentation cleanup"];
-		purif.sampleVolume = settings.sampleVolume;
-		purif.beadVolume = settings.beadVolume;
-		purif.eluteVolume = settings.elutionVolume;
-		runsetMode = true;
-		runset.openRunsetFile(path+"/truseq_pcr-free.rst", "truseq_pcr-free.VWForm");
-		break;
-	case "End repair":
-		var settings = truseqPresets["End repair"];
-		truseq.tipColumn = settings.tipColumn;
-		truseq.reagentColumn = settings.reagentColumn;
-		truseq.sampleVolume = settings.sampleVolume;
-		truseq.reagentVolume = settings.reagentVolume;
-		truseq.incubationTime = settings.incubationTime;
-		truseq.doOffDeckIncubation = settings.doOffDeckIncubation;
-		runset.appendProtocolFileToRunset(path+"/truseq_reaction_NEXT.pro", 1, "", "truseq_pcr-free.VWForm");
-		break;
-	case "A-tailing":
-		var settings = truseqPresets["A-tailing"];
-		truseq.tipColumn = settings.tipColumn;
-		truseq.reagentColumn = settings.reagentColumn;
-		truseq.sampleVolume = settings.sampleVolume;
-		truseq.reagentVolume = settings.reagentVolume;
-		truseq.incubationTime = settings.incubationTime;
-		truseq.doOffDeckIncubation = settings.doOffDeckIncubation;
-		runset.appendProtocolFileToRunset(path+"/truseq_reaction_NEXT.pro", 1, "", "truseq_pcr-free.VWForm");
-		break;
-	case "Ligation":
-		var settings = truseqPresets["Ligation"];
-		truseq.tipColumn = settings.tipColumn;
-		truseq.reagentColumn = settings.reagentColumn;
-		truseq.sampleVolume = settings.sampleVolume;
-		truseq.reagentVolume = settings.reagentVolume;
-		truseq.incubationTime = settings.incubationTime;
-		truseq.doOffDeckIncubation = settings.doOffDeckIncubation;
-		runset.appendProtocolFileToRunset(path+"/truseq_reaction_NEXT.pro", 1, "", "truseq_pcr-free.VWForm");
-		break;
-	case "Stop ligation":
-		var settings = truseqPresets["Stop ligation"];
-		truseq.tipColumn = settings.tipColumn;
-		truseq.reagentColumn = settings.reagentColumn;
-		truseq.sampleVolume = settings.sampleVolume;
-		truseq.reagentVolume = settings.reagentVolume;
-		truseq.incubationTime = settings.incubationTime;
-		truseq.doOffDeckIncubation = settings.doOffDeckIncubation;
-		runset.appendProtocolFileToRunset(path+"/truseq_reaction_NEXT.pro", 1, "", "truseq_pcr-free.VWForm");
-		break;
+function updateSettings(protocol) {
+	if(protocol in presets) {
+		// Define globally:
+		settings = {};
+		for(var s in presets[protocol]) {
+			settings[s] = presets[protocol][s];
+		}
+	} else {
+		throw "EXCEPTION__UndefinedSetting:"+protocol;
+	}
+	print(protocol + " preset loaded");
 }
