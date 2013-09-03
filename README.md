@@ -13,4 +13,4 @@ The repository is a way to backup, track versions and share these protocols thro
 Clone the repository and place the files and folders of the resulting <code>bravo-protocols/</code> into <code>VWorks Workspace/Protocol Files/</code>. Note that for many protocols the appropriate device files are required under <code>VWorks Workspace/Device Files/</code> 
 
 ### Licence
-Licensed under the Apache License, Version 2.0; See **LICENSE** file or [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+Licensed under the GNU General Public License v2; See **LICENSE** file or [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
