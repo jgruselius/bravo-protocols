@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='564f54b24b13bee436917628e6776217' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='f39a437b7fe51ece4b68440269578dae' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\Documents and Settings\joel\My Documents\vworks_protocols\dev\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -111,18 +111,6 @@ global.statusString = &quot;End repair started&quot;;' />
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferSample' />
 					</Parameters>
 				</Task>
-				<Task Name='BuiltIn::Upstack' >
-					<Devices >
-						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 3' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >1</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='SamplePlate' />
 					<Parameter Name='Plate type' Value='96 Eppendorf Twin.tec PCR' />
@@ -145,21 +133,6 @@ global.statusString = &quot;End repair started&quot;;' />
 			</Process>
 			<Process >
 				<Minimized >0</Minimized>
-				<Task Name='BuiltIn::Downstack' >
-					<Devices >
-						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >1</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Free empty stackers' Value='1' />
-					</Parameters>
-				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='5' />
@@ -222,19 +195,6 @@ global.statusString = &quot;End repair started&quot;;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='SetTemperature' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='SetTemperature' />
 					</Parameters>
 				</Task>
@@ -274,20 +234,6 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 						<Parameter Category='' Name='Only show the first time' Value='' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
-					</Parameters>
-				</Task>
-				<Task Name='BuiltIn::Place Plate' >
-					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='6' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='6' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
@@ -372,27 +318,6 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 			</Process>
 			<Process >
 				<Minimized >0</Minimized>
-				<Task Name='BuiltIn::Unload' >
-					<Devices >
-						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >1</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='unloadFrom' Value='' />
-					</Parameters>
-					<Parameter >
-						<RemoveFromGroups Name='RemoveFromGroups' Value='0' />
-						<AssignedLocations_Node >
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 1, slot 1' />
-						</AssignedLocations_Node>
-					</Parameter>
-				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='2' />
@@ -419,25 +344,6 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AliquotMix' />
 					</Parameters>
 				</Task>
-				<Task Name='BuiltIn::Load' >
-					<Devices >
-						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >1</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='loadIntoByLocation' Value='' />
-						<Parameter Category='' Name='loadIntoByGroup' Value='' />
-					</Parameters>
-					<Parameter >
-						<useOriginalLocations Name='useOriginalLocations' Value='1' />
-					</Parameter>
-				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='ReagentTips' />
 					<Parameter Name='Plate type' Value='96 V11 LT250 Tip Box 19477.002' />
@@ -460,27 +366,6 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 			</Process>
 			<Process >
 				<Minimized >0</Minimized>
-				<Task Name='BuiltIn::Unload' >
-					<Devices >
-						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >1</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='unloadFrom' Value='' />
-					</Parameters>
-					<Parameter >
-						<RemoveFromGroups Name='RemoveFromGroups' Value='0' />
-						<AssignedLocations_Node >
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 1, slot 2' />
-						</AssignedLocations_Node>
-					</Parameter>
-				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='8' />
@@ -512,7 +397,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >1</Task_Disabled>
+					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -523,7 +408,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
 					</Parameters>
 					<Parameter >
-						<useOriginalLocations Name='useOriginalLocations' Value='1' />
+						<useOriginalLocations Name='useOriginalLocations' Value='0' />
 					</Parameter>
 				</Task>
 				<Task Name='BuiltIn::Spawn Process' >
@@ -564,7 +449,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 1' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >1</Task_Disabled>
+					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -599,18 +484,6 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferSample' />
 					</Parameters>
-				</Task>
-				<Task Name='BuiltIn::Upstack' >
-					<Devices >
-						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 4' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >1</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='SampleTips' />
