@@ -1,56 +1,75 @@
-Needed labware:
-New tipboxes: 7 (8) (BenchCel-1)
-New Eppendorfs: 7 (8) (BenchCel-A)
-New Nuncs: 4 (5) (-)
+﻿Åtgång:
+	Tipboxes: 7 (8) (BenchCel-1)
+	Eppendorfs: 7 (8) (BenchCel-2)
+	Nuncs: 4 (5) (-)
 
-Constant labware:
-Bravo-1: Waste
-Bravo-9: ReagentPlate
+Fyllda positioner:
+	Bravo-1: Waste
+	Bravo-9: ReagentPlate
 
-BenchCel stash:
 	BenchCel-1: New tipboxes
-	BenchCel-2: 
+	BenchCel-2: New Eppendorfs
 	BenchCel-3: Used tip boxes
 	BenchCel-4: Used Eppendorfs
 
-Start setup
-
+	MiniHub-1: (SPRI)
+		5: EthanolPlate
+		4: 
+		3:
+		2: ElutionBufferPlate
+		1: BeadPlate
+	MiniHub-2:
+		5: 
+		4:
+		3:
+		2: 
+		1: UsedTips
+	MiniHub-3: (Double-SPRI)
+		5: BindPlate2
+		4:
+		3:
+		2: BindPlate1
+		1: BindPlate2
+	MiniHub-4:
+		5:
+		4:
+		3:
+		2: ReagentTips
+		1: BindPlate (1)
 
 Förflyttningar
 
 Post-fragmentation cleanup >> End repair
-	BindTips (Bravo-2 > BenchCel-C)
+	BindTips (Bravo-2 > BenchCel-3)
 	FinalPlate (Bravo-4 > Bravo-7)
-	EthanolPlate (Bravo-6 > MiniHub-A)
-	ElutionBufferPlate (Bravo-8 > MiniHub-E)
-	BindPlate (Bravo-7 > BenchCel-B)
+	EthanolPlate (Bravo-6 > MiniHub-1:5)
+	ElutionBufferPlate (Bravo-8 > MiniHub-1:2)
+	BindPlate (Bravo-7 > BenchCel-4:1)
 
-	ReagentTips (MiniHub-B > Bravo-2)
-	ReactionPlate (BenchCel-A > Bravo-5)
-	UsedTips (MiniHub-C > Bravo-8)
+	ReagentTips (BenchCel-1 > Bravo-2)
+	ReactionPlate (BenchCel-2 > Bravo-5)
+	UsedTips (MiniHub-?:1 > Bravo-8)
 
 End repair >> Size selection
-	ReagentTips (Bravo-2 > MiniHub-B)
+	ReagentTips (Bravo-2 > MiniHub-4:2)
 	ReactionPlate (Bravo-5 > Bravo-7)
 	SampleTips (Bravo-8 > Stash/Discard)
 
 	BindTips (BenchCel-1 > Bravo-2)
-	BeadPlate (MiniHub-D > Bravo-4)
-	BindPlate ( > Bravo-5)
+	BeadPlate (MiniHub-1:1 > Bravo-4)
+	BindPlate1 ( > Bravo-5)
 	EthanolPlate (MiniHub-A > Bravo-6)
 	ElutionBufferPlate (MiniHub-E > Bravo-8)
-	FinalPlate ( BenchCel-A > MiniHub-1:5) *
-	BindPlate2 ( > MiniHub-1:2) *
 
 Size selection >> A-tailing
-	BindTips (Bravo-2 > BenchCel-C)
+	BindTips (Bravo-2 > BenchCel-3)
 	FinalPlate (Bravo-4 > Bravo-6)
 	EthanolPlate (Bravo-6 > MiniHub-A)
 	ElutionBufferPlate (Bravo-8 > MiniHub-E)
 	BindPlate2 (Bravo-7 > BenchCel-B)
 
 	ReagentTips (MiniHub-B > Bravo-2)
-	ReactionPlate (BenchCel-A > Bravo-5)
+	ReactionPlate (BenchCel-2 > Bravo-5)
 	UsedTips (MiniHub-C > Bravo-8)
 	
 
@@ -68,13 +87,13 @@ Ligation >> Stop ligation
 
 
 Stop ligation >> Post-ligation cleanup #1
-	ReagentTips (Bravo-2 > BenchCel-C)
+	ReagentTips (Bravo-2 > BenchCel-3)
 	ReactionPlate (Bravo-5 > Bravo-7)
-	SampleTips > (Bravo-8 > BenchCel-C)
+	SampleTips > (Bravo-8 > BenchCel-3)
 	
 	BindTips (BenchCel-1 > Bravo-2)
 	BindPlate ( > Bravo-5)
-	BeadPlate (MiniHub-D > Bravo-4)
+	BeadPlate (MiniHub-1:1 > Bravo-4)
 	EthanolPlate (MiniHub-A > Bravo-6)
 	ElutionBufferPlate (MiniHub-E > Bravo-8)
 	FinalPlate ( > MiniHub-1:5) *
@@ -85,7 +104,7 @@ Post-ligation cleanup #1 >> Post-ligation cleanup #2
 	BindPlate (Bravo-7 > BenchCel-B)
 
 	BindTips (BenchCel-1 > Bravo-2)
-	BeadPlate (MiniHub-D > Bravo-4)
+	BeadPlate (MiniHub-1:1 > Bravo-4)
 	FinalPlate ( > MiniHub-1:5) *
 	BindPlate (BenchCel-D > Bravo-5)
 
@@ -93,4 +112,4 @@ Post-ligation cleanup #2 >> End
 	BindTips (Bravo-2 > BenchCel-C)
 	BindPlate (Bravo-7 > BenchCel-B)
 
-* Maybe change protocol 
+* Måste ändras
