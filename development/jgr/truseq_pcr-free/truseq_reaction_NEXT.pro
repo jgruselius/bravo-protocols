@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='dc7a03ba755769b8479125acc86b4f20' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='11975df99560504a9dbcdfc4ba4c3d4e' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -19,6 +19,7 @@ var preAspMedium = 10;
 var preAspSmall = 5;
 // Get protocol parameters from global scope:
 var global = GetGlobalObject();
+if(global.runsetMode) global.updateRunset();
 var columns = global.truseq.columns;
 var headMode = &quot;1,2,1,&quot; + columns;
 var tipColumn = global.truseq.tipColumn || 1;
