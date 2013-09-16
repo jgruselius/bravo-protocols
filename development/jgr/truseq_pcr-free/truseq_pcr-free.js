@@ -19,6 +19,8 @@ presets["Size selection"] = {sampleVolume:100,beadVolume1:95,beadVolume2:30,bind
 presets["Ligation cleanup 1"] = {sampleVolume:37.5,beadVolume:42.5,elutionVolume:50};
 presets["Ligation cleanup 2"] = {sampleVolume:50,beadVolume:50,elutionVolume:20};
 
+var settings = {};
+
 var fileNames = {};
 fileNames["End repair"] = "truseq_reaction_NEXT.pro";
 fileNames["A-tailing"] = "truseq_reaction_NEXT.pro";
@@ -45,20 +47,18 @@ if(formProtocol === "Library prep") {
 	runsetMode = true;
 	runsetOrder = ["Ligation","Stop ligation"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
-} else if(formProtocol === "Ligation cleanup) {
+} else if(formProtocol === "Ligation cleanup") {
 	runsetMode = true;
 	runsetOrder = ["Ligation cleanup 1","Ligation cleanup 2"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
 } else {
 	runsetMode = false;
 	runset.appendProtocolFileToRunset(path+fileNames[formProtocol], 1, "", form);
-	updateSettings[formProtocol];
+	updateSettings(formProtocol);
 }
 
 function updateSettings(protocol) {
 	if(protocol in presets) {
-		// Define globally:
-		settings = {};
 		for(var s in presets[protocol]) {
 			settings[s] = presets[protocol][s];
 		}
