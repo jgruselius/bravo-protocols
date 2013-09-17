@@ -1,0 +1,42 @@
+er sample : B6 : BC3
+er mix : (MH1_5) BC2 : B4
+er mm : B9
+mix tips new : MH1_1
+mix tips old : MH1_2
+er tips : BC1 : BC4
+
+CA
+sample (er mix) : B4 : BC3
+tips : BC1 : BC4
+beads : MH4_1 : MH4_1
+precip : MH4_2 : MH4_2
+wash : MH3_1 : MH3_1
+eb : MH3_2 : MH3_2
+final (ad sample) : (MH4_5) BC2 : B4
+waste : MH2_1 : MH2_1
+
+
+ad sample (ca finished) : B4 : BC3
+ad mix : (MH1_4) BC2 : B4
+mix tips new : MH1_1
+mix tips old : MH1_2
+ad tips : BC1 : BC4
+
+lig sample (ad mix) : B4 : BC3
+lig mix : (MH2_5) BC2 : BC3
+lig adp : (MH2_4) MH2_5 : BC3
+lig stop : (MH2_3) BC2 : B4
+mix tips new : MH1_1
+mix tips old : MH1_2
+lig tips : BC1 : BC4
+
+* PAUSE *
+
+CA
+sample (lig stop) : B4 : BC3
+tips : BC1 : BC4
+beads : MH4_1 : ?		<--
+precip : MH4_2 : MH4_2
+wash : MH3_1 : MH3_1
+eb : MH3_2 : MH3_2
+final (ad sample) : MH4_5 : B4  <--

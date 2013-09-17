@@ -1,0 +1,21 @@
+ca prep v1111
+
+tips: B8
+eres: B2 > MH1:1
+pres: B4 > MH2:1
+wres: B6 > MH3:1
+ebuf: BC1 > MH1:2
+prec: BC1 > MH2:2
+etoh: BC1 > MH3:2
+
+ca purif v1111
+
+tips: B8
+bead: B5 > B7
+samp: B9
+ebuf: MH1:2 > MH1:2
+prec: MH2:2 > MH2:2
+etoh: MH3:2 > MH3:2
+wste: B1
+finl: MH1:5 > B4
+

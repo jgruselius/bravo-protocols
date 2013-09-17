@@ -1,0 +1,18 @@
+plate_sample (tt): B8 -> BC3
+plate_bind (tt): BC2 -> BC3
+plate_wash (N): MH3_1
+plate_elute (tt): BC2 -> BC3
+plate_rebind (tt): BC2 -> BC3
+plate_frag (tt): BC2 -> BC3
+plate_synth1 (tt): BC2 -> BC3
+plate_synth2 (tt): BC2 -> B5
+plate_rinse (N): MH3_2 -> B6
+plate_waste (W): B1
+plate_reagents (N): B9 -> MH3_5
+tips_bind (T): BC1 -> BC4
+tips_elute (T): BC1 -> BC4
+tips_frag (T): BC1 -> BC4
+tips_reagent (T): BC1 -> MH1_1
+tips_used (T): MH1_2
+reservoir_wash (R): B4 -> MH4_1
+reservoir_rinse (R): B6 -> MH4_2

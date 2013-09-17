@@ -1,0 +1,142 @@
+
+/*
+ ca_init_script.js
+*/
+var userSettings = {};
+userSettings["error"] = false; 
+userSettings["filePath"] = "C:\\VWorks Workspace\\Protocol Files\\development\\jgr\\ca_settings.cfg";
+userSettings["columnsOfSamples"] = new Setting("Number of columns of samples", 1, 12, 12);
+userSettings["sampleVolume"] = new Setting("Volume of sample", 5, 150, 50);
+userSettings["beadVolume"] = new Setting("Volume of beads", 5, 150, 50);
+userSettings["precipVolume"] = new Setting("Volume of precipitation buffer", 10, 500, 100);
+userSettings["beadResuspVolume"] = new Setting("Volume of bead resupsension", 5, 100, 10);
+userSettings["elutionVolume"] = new Setting("Volume to elute sample in", 10, 150, 50);
+userSettings["beadWashVolume"] = new Setting("Volume to wash beads in", 5, 500, 100);
+userSettings["dnaWashVolume"] = new Setting("Volume to wash beads/DNA in", 50, 500, 200);
+userSettings["rinseVolume"] = new Setting("Volume to rinse tips in", 10, 160, 100);
+userSettings["bindTime"] = new Setting("Time to incubate binding in min", 1, 30, 10);
+userSettings["elutionTime"] = new Setting("Time to incubate elution in min", 1, 30, 2);
+userSettings["bindMixInterval"] = new Setting("Time between binding mixes in min", 0.5, 30, 2);
+userSettings["beadWashRepeats"] = new Setting("Number of times to wash beads", 1, 5, 1);
+userSettings["dnaWashRepeats"] = new Setting("Number of times to wash beads/DNA", 1, 5, 1);
+
+/*
+ CA startup
+*/
+try {
+   settings = loadSettings(userSettings.filePath);
+} catch(e) {
+   print(e);
+   userSettings.error = true;
+}
+
+// Alt 1:
+for(setting in settings) {
+   try {
+      userSettings[setting] = settings[setting];
+   } catch(e) {
+      print(e);
+      userSettings.error = true;
+   }
+}
+var columnsOfSamples = userSettings["columnsOfSamples"];
+var sampleVolume = userSettings["sampleVolume"];
+var beadVolume = userSettings["beadVolume"];
+var precipVolume = userSettings["precipVolume"];
+var beadResuspVolume = userSettings["beadResuspVolume"];
+var elutionVolume = userSettings["elutionVolume"];
+var beadWashVolume = userSettings["beadWashVolume"];
+var dnaWashVolume = userSettings["dnaWashVolume"];
+var rinseVolume = userSettings["rinseVolume"];
+var bindTime = userSettings["bindTime"];
+var elutionTime = userSettings["elutionTime"];
+var beadMixInterval = userSettings["beadMixInterval"];
+var beadWashRepeats = userSettings["beadWashRepeats"];
+var dnaWashRepeats = userSettings["dnaWashRepeats"];
+
+// Alt 2:
+for(setting in settings) {
+   try {
+      userSettings[setting].setValue(settings[setting]);
+   } catch(e) {
+      print(e);
+      userSettings.error = true;
+   }
+}
+var columnsOfSamples = userSettings["columnsOfSamples"].getValue();
+var sampleVolume = userSettings["sampleVolume"].getValue();
+var beadVolume = userSettings["beadVolume"].getValue();
+var precipVolume = userSettings["precipVolume"].getValue();
+var beadResuspVolume = userSettings["beadResuspVolume"].getValue();
+var elutionVolume = userSettings["elutionVolume"].getValue();
+var beadWashVolume = userSettings["beadWashVolume"].getValue();
+var dnaWashVolume = userSettings["dnaWashVolume"].getValue();
+var rinseVolume = userSettings["rinseVolume"].getValue();
+var bindTime = userSettings["bindTime"].getValue();
+var elutionTime = userSettings["elutionTime"].getValue();
+var beadMixInterval = userSettings["beadMixInterval"].getValue();
+var beadWashRepeats = userSettings["beadWashRepeats"].getValue();
+var dnaWashRepeats = userSettings["dnaWashRepeats"].getValue();
+
+// Set constants:
+//...
+
+
+/*
+ CA preparation
+*/
+// At start of protocol:
+var columnsOfSamples = GetGlobalObject().columnsOfSamples;
+
+// At end:
+var fpath = "C:\\VWorks Workspace\\Protocol Files\\development\\jgr\\ca_settings.cfg";
+var caSettings = ["columnsOfSamples="+columnsOfSamples,
+                  "sampleVolume=100",
+                  "beadVolume=50",
+                  "precipVolume=200",
+                  "beadResuspVolume=20",
+                  "elutionVolume=15",
+                  "bindTime=10"];
+try {
+   saveSettings(caSettings, fpath);
+} catch(e) {
+   print(e);
+}
+
+/*
+ Library prep skript:
+*/
+/*
+ Writes settings for CA purification protocol, parameter 'type'
+ specifies which settings should be stored
+*/
+var configPath = "C:\\VWorks Workspace\\Protocol Files\\development\\jgr\\ca_settings.cfg";
+function updateSettings(type) {
+    var settingTable = {};
+    
+    settingTable["end_repair"] = ["columnsOfSamples="+columnsOfSamples,
+                                  "sampleVolume=100",
+                                  "beadVolume=50",
+                                  "precipVolume=200",
+                                  "beadResuspVolume=20",
+                                  "elutionVolume=15",
+                                  "bindTime=10"];
+    
+    settingTable["ligation"] = ["columnsOfSamples="+columnsOfSamples,
+                                "sampleVolume=40",
+                                "beadVolume=50",
+                                "precipVolume=100",
+                                "beadResuspVolume=20",
+                                "elutionVolume=22.5",
+                                "bindTime=10"];
+    
+    var caSettings = settingTable[type];
+    if(typeof caSettings === "undefined") {
+        print("UndefinedSettingsType");
+    }
+    try {
+        saveSettings(caSettings, configPath);
+    } catch(e) {
+        print(e);
+    }
+}
