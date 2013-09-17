@@ -33,7 +33,7 @@ Fyllda positioner:
 	MiniHub-4:
 		5:
 		4:
-		3:
+		3: IndexPlate
 		2: ReagentTips
 		1: BindPlate (1)
 

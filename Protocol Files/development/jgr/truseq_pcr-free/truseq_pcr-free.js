@@ -22,10 +22,10 @@ presets["Ligation cleanup 2"] = {sampleVolume:50,beadVolume:50,elutionVolume:20}
 var settings = {};
 
 var fileNames = {};
-fileNames["End repair"] = "truseq_reaction_NEXT.pro";
-fileNames["A-tailing"] = "truseq_reaction_NEXT.pro";
-fileNames["Ligation"] = "truseq_reaction_NEXT.pro";
-fileNames["Stop ligation"] = "truseq_reaction_NEXT.pro";
+fileNames["End repair"] = "truseq_pcr-free_reaction.pro";
+fileNames["A-tailing"] = "truseq_pcr-free_reaction.pro";
+fileNames["Ligation"] = "truseq_pcr-free_ligation.pro";
+fileNames["Stop ligation"] = "truseq_pcr-free_reaction.pro";
 fileNames["Fragmentation cleanup"] = "illumina_spri.pro";
 fileNames["Size selection"] = "illumina_double-spri.pro";
 fileNames["Ligation cleanup 1"] = "illumina_spri.pro";
