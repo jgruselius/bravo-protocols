@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='1f21810c317dc18c8d7473d82a6ee446' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='757389cbbe0738d726d9072eeedfe006' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -18,14 +18,14 @@ var columns = global.formColumns || 1;
 var headMode = &quot;1,2,1,&quot; + columns;
 var beadVolume1 = global.settings.beadVolume1 || 95;
 var beadVolume2 = global.settings.beadVolume2 || 30;
-var bindVol = global.settings.bindVolume || 160;
-var beadDiluentVol = beadVolume1 - bindVol1;
+var bindVolume1 = global.settings.bindVolume || 160;
+var beadDiluteVolume =  bindVolume1 - beadVolume1;
 var sampleVolume = global.settings.sampleVolume || 50;
-var transferVol = global.settings.transferVolume || 150;
+var transferVolume = global.settings.transferVolume || 150;
 var washVolume = 200;
 var washes = 2;
 var elutionVolume = global.settings.elutionVolume || 25;
-var maxVol = 175;
+var maxVolume = 175;
 var maxMixVolume = 160;
 var preAsp = 5;
 var preAspLarge = 15;
@@ -37,7 +37,7 @@ var pelletTimeShort = 30;
 var pelletTimeLong = 180;
 
 // For testing:
-print(&quot;beadVolume=&quot;+beadVolume+&quot;;sampleVolume=&quot;+sampleVolume+&quot;;elutionVolume=&quot;+elutionVolume);
+print(&quot;beadVolume1=&quot;+beadVolume1+&quot;;sampleVolume=&quot;+sampleVolume+&quot;;elutionVolume=&quot;+elutionVolume);
 /*
 columns = 1;
 headMode = &quot;1,2,1,&quot; + columns;
@@ -387,6 +387,62 @@ pelletTimeLong = 180;
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferBeads1' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::Storage Incubate' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='incubateAtLocation' Value='' />
+						<Parameter Category='' Name='newIncubationTime' Value='0' />
+					</Parameters>
+					<Parameter >
+						<IncubationTime Incubation_Time_MS='10' />
+						<RelativeTiming bRelative_Timing='0' />
+						<AssignedLocations_Node >
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 1, slot 1' />
+						</AssignedLocations_Node>
+					</Parameter>
+				</Task>
+				<Task Name='BuiltIn::Spawn Process' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Process to spawn' Value='SamplePlate' />
+						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Signal' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Waitfors_To_Signal >
+						<Waitfor Name='signal1' />
+					</Waitfors_To_Signal>
+				</Task>
+				<Task Name='BuiltIn::Place Plate' >
+					<Devices >
+						<Device Device_Name='Bravo - 1' Location_Name='4' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
+						<Parameter Category='' Name='Location to use' Value='4' />
+					</Parameters>
+				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -441,7 +497,7 @@ pelletTimeLong = 180;
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Process to spawn' Value='SamplePlate' />
+						<Parameter Category='' Name='Process to spawn' Value='FinalPlate' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
 					</Parameters>
 				</Task>
@@ -468,6 +524,9 @@ pelletTimeLong = 180;
 			<Process >
 				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Unload' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
@@ -736,16 +795,12 @@ pelletTimeLong = 180;
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 				</Task>
-				<Task Name='BuiltIn::Spawn Process' >
+				<Task Name='BuiltIn::Wait For' Waitfor='signal1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Process to spawn' Value='FinalPlate' />
-						<Parameter Category='' Name='Spawn as subroutine' Value='' />
-					</Parameters>
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='SamplePlate' />
@@ -1295,17 +1350,17 @@ pelletTimeLong = 180;
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVol;
+					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
-var mTipSelection = [[1,1]];
+var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_normal_large_vol&quot;;
 var mPreAspVolume = preAsp;
-var mTransferVolume = 65;
+var mTransferVolume = beadDiluteVolume;
 var mAspDistance = 1;
 var mDispDistance = 2;
 var mBlowoutHeight = 5;
@@ -1317,7 +1372,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Headmode = mHeadMode;' />
 					<Parameters >
@@ -1335,7 +1390,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -1347,9 +1402,9 @@ var mTouchRetract = -4;' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;4bf12d97ad8297b1189862b35fa4ba86&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;2&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -1357,7 +1412,7 @@ var mTouchRetract = -4;' />
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='2' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -1635,7 +1690,7 @@ var mLiquidClass = &quot;j_extra_slow_mixing&quot;;
 var mPreAspVolume = preAspLarge;
 var mIncubationTime = bindTime;
 var mTimerCycles = 3;
-var mMixVolume = bindMixVol;
+var mMixVolume = bindMixVolume;
 var mAspDistance = 1.25;
 var mDispDistance = 1.25;
 var mBlowoutHeight = 8;
@@ -2001,8 +2056,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var bindMixVol = 0.8 * (transferVol + beadVolume2);
-bindMixVol = (bindMixVol &gt; maxMixVolume) ? maxMixVolume : bindMixVol;' />
+					<TaskScript Name='TaskScript' Value='var bindMixVolume = 0.8 * (transferVolume + beadVolume2);
+bindMixVolume = (bindMixVolume &gt; maxMixVolume) ? maxMixVolume : bindMixVolume;' />
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
@@ -2020,7 +2075,7 @@ var mLiquidClass = &quot;j_extra_slow_mixing&quot;;
 var mPreAspVolume = preAspLarge;
 var mIncubationTime = bindTime;
 var mTimerCycles = 3;
-var mMixVolume = bindMixVol;
+var mMixVolume = bindMixVolume;
 var mAspDistance = 1.25;
 var mDispDistance = 1.25;
 var mBlowoutHeight = 8;
@@ -2386,7 +2441,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVol;
+					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
@@ -2853,7 +2908,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVol;
+					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
@@ -3146,7 +3201,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVol;
+					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
@@ -3154,7 +3209,7 @@ var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_slow_medium_vol&quot;;
 var mPreAspVolume = preAspLarge;
-var mTransferVolume = transferVol + beadVolume2 + 10;
+var mTransferVolume = transferVolume + beadVolume2 + 10;
 var mAspDistance = 0.75;
 var mDispDistance = 30;
 var mBlowoutHeight = 30;
@@ -3477,7 +3532,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVol;
+					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
@@ -3485,10 +3540,10 @@ var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_slow_large_vol&quot;;
 var mPreAspVolume = 15;
-var mTransferVolume = 95;
+var mTransferVolume = beadVolume1;
 var mAspDistance = 1;
 var mDispDistance = 1;
-var mMixVolume = (0.8 * beadVolume &gt; maxMixVolume) ? maxMixVolume : 0.8 * beadVolume;
+var mMixVolume = (0.8 * beadVolume1 &gt; maxMixVolume) ? maxMixVolume : 0.8 * beadVolume1;
 var mMixLiquidClass = &quot;j_normal_mixing&quot;;
 var mMixCycles = 5;
 var mMixAspDistance = 1;
@@ -3861,7 +3916,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVol;
+					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
@@ -3872,7 +3927,7 @@ var mPreAspVolume = 15;
 var mTransferVolume = beadVolume2;
 var mAspDistance = 1;
 var mDispDistance = 1;
-var mMixVolume = (0.8 * beadVolume2 &gt; maxMixVolume) ? maxMixVolume : 0.8 * beadVolume;
+var mMixVolume = (0.8 * beadVolume2 &gt; maxMixVolume) ? maxMixVolume : 0.8 * beadVolume2;
 var mMixLiquidClass = &quot;j_normal_mixing&quot;;
 var mMixCycles = 5;
 var mMixAspDistance = 1;
@@ -4257,7 +4312,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVol;
+					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
@@ -4265,7 +4320,7 @@ var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_slow_medium_vol&quot;;
 var mPreAspVolume = preAspLarge;
-var mTransferVolume = transferVol;
+var mTransferVolume = transferVolume;
 var mAspDistance = 0.75;
 var mDispDistance = 30;
 var mBlowoutHeight = 30;
@@ -4481,7 +4536,7 @@ task.Whichsidestousefortiptouch = &quot;South/North&quot;;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='BindPlate2' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
-						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=bindMixVol1;' Value='' />
+						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=bindMixVolume;' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_mixing' />
@@ -4627,8 +4682,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var bindMixVol = 0.8 * (bindVol1);
-bindMixVol = (bindMixVol &gt; maxMixVolume) ? maxMixVolume : bindMixVol;' />
+					<TaskScript Name='TaskScript' Value='var bindMixVolume = 0.8 * (bindVolume1);
+bindMixVolume = (bindMixVolume &gt; maxMixVolume) ? maxMixVolume : bindMixVolume;' />
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
@@ -4757,7 +4812,7 @@ bindMixVol = (bindMixVol &gt; maxMixVolume) ? maxMixVolume : bindMixVol;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='BindPlate1' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
-						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=bindMixVol;' Value='' />
+						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=bindMixVolume;' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_mixing' />
@@ -4980,7 +5035,7 @@ bindMixVol = (bindMixVol &gt; maxMixVolume) ? maxMixVolume : bindMixVol;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var steps = Math.ceil(washVolume / maxVol);' />
+					<TaskScript Name='TaskScript' Value='var steps = Math.ceil(washVolume / maxVolume);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -5131,7 +5186,7 @@ bindMixVol = (bindMixVol &gt; maxMixVolume) ? maxMixVolume : bindMixVol;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='steps = Math.ceil((washVolume + 10) / maxVol);' />
+					<TaskScript Name='TaskScript' Value='steps = Math.ceil((washVolume + 10) / maxVolume);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
