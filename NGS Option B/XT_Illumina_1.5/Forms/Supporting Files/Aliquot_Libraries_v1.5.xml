@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='ASCII' ?>
+<Velocity11 file='V11Object' md5sum='4672c5997157a28a2e4a7a0f20eda903' version='1.0' >
+	<ObjectInstance >
+		<BaseObjectDescription BackEndRoot='C:\VWorks Workspace\VWorks\Tip Box States\Process Tip Boxes, Default\' BackEndType='1' ObjectNamesAreCaseSensitive='0' ObjectPlural='Tip States' ObjectType='Tip State' objectplural='tip states' objecttype='tip state' >
+			<Categories >
+				<ObjectParameterCategory Name='Tip tracking info' >
+					<Parameters >
+						<Parameter Name='Full file path' Scriptable='1' Style='0' Type='1' Value='C:\VWorks Workspace\NGS Option B\XT_Illumina_1.5\Protocol Files\Aliquot_Libraries_v1.5.pro' />
+					</Parameters>
+				</ObjectParameterCategory>
+				<ObjectParameterCategory Description='Tip states related to instances of &quot;New tips&quot;.' Name='New tips' >
+					<Parameters >
+						<Parameter Description='Tip state of all instances of process tipbox &quot;New tips&quot; when they are sourced into the system.' Name='State' Scriptable='1' Style='0' Type='23' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;c4d383644d8dd78aa64982b7afcdc6e0&apos; version=&apos;1.0&apos; &gt;
+	&lt;TipBoxState NumWells=&apos;96&apos; &gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;1&apos; /&gt;
+		&lt;TipPositions &gt;
+			&lt;TipPosition State=&apos;0&apos; &gt;
+				&lt;Wells &gt;
+					&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+				&lt;/Wells&gt;
+			&lt;/TipPosition&gt;
+		&lt;/TipPositions&gt;
+	&lt;/TipBoxState&gt;
+&lt;/Velocity11&gt;' />
+					</Parameters>
+				</ObjectParameterCategory>
+				<ObjectParameterCategory Description='Tip states related to instances of &quot;Used tips&quot;.' Name='Used tips' >
+					<Parameters >
+						<Parameter Description='Tip state of all instances of process tipbox &quot;Used tips&quot; when they are sourced into the system.' Name='State' Scriptable='1' Style='0' Type='23' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;f3535479b5267ffdf6d019d30f8eda6c&apos; version=&apos;1.0&apos; &gt;
+	&lt;TipBoxState NumWells=&apos;96&apos; &gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;1&apos; /&gt;
+	&lt;/TipBoxState&gt;
+&lt;/Velocity11&gt;' />
+					</Parameters>
+				</ObjectParameterCategory>
+			</Categories>
+		</BaseObjectDescription>
+	</ObjectInstance>
+</Velocity11>
