@@ -25,13 +25,11 @@ var fileNames = {};
 fileNames["End repair"] = "truseq_pcr-free_reaction.pro";
 fileNames["A-tailing"] = "truseq_pcr-free_reaction.pro";
 fileNames["Ligation"] = "truseq_pcr-free_ligation.pro";
-fileNames["Stop ligation"] = "truseq_pcr-free_reaction.pro";
 fileNames["Fragmentation cleanup"] = "illumina_spri.pro";
 fileNames["Size selection"] = "illumina_double-spri.pro";
 fileNames["Ligation cleanup 1"] = "illumina_spri.pro";
 fileNames["Ligation cleanup 2"] = "illumina_spri.pro";
 fileNames["Library prep"] = "truseq_pcr-free.rst";
-fileNames["Ligation-stop"] = "truseq_pcr-free_ligation.rst";
 fileNames["Ligation cleanup"] = "truseq_pcr-free_cleanup.rst";
 
 var runsetOrder = [];
@@ -39,14 +37,10 @@ var runsetOrder = [];
 if(formProtocol === "Library prep") {
 	runsetMode = true;
 	runsetOrder = ["Fragmentation cleanup","End repair","Size selection",
-			"A-tailing","Ligation","Stop ligation","Ligation cleanup 1",
+			"A-tailing","Ligation","Ligation cleanup 1",
 			"Ligation cleanup 2"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
 	updateSettings("End repair");
-} else if(formProtocol === "Ligation-stop") {
-	runsetMode = true;
-	runsetOrder = ["Ligation","Stop ligation"];
-	runset.openRunsetFile(path+fileNames[formProtocol], form);
 } else if(formProtocol === "Ligation cleanup") {
 	runsetMode = true;
 	runsetOrder = ["Ligation cleanup 1","Ligation cleanup 2"];
