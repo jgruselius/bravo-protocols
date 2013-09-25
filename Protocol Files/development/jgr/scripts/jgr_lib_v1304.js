@@ -224,6 +224,11 @@ function parseTransfers(str) {
 	rowArray.sort(function(row1, row2) {
 		var a_id = row1[0].toLowerCase();
 		var b_id = row2[0].toLowerCase();
+		// If plate ID is a number, convert from string to int/double:
+		if(isNumber(a_id) && isNumber(b_id)) {
+			a_id = readNumeral(a_id);
+			b_id = readNumeral(b_id);
+		}
 		if(a_id !== b_id) {
 			return (a_id < b_id) ? -1 : (a_id > b_id ? 1 : 0);
 		} else {
