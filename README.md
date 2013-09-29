@@ -1,7 +1,3 @@
-2013-08-23<br />
-Joel Gruselius ([joel.gruselius@scilifelab.se](mailto:joel.gruselius@scilifelab.se))<br />
-Science for Life Laboratory, Stockholm<br />
-
 ## VWorks file repository for SciLifeLab
 
 ### Description
@@ -14,3 +10,7 @@ Clone the repository and place the files and folders of the resulting <code>brav
 
 ### Licence
 Licensed under the GNU General Public License v2; See **LICENSE** file or [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
+
+### Contact
+Joel Gruselius ([joel.gruselius@scilifelab.se](mailto:joel.gruselius@scilifelab.se))<br />
+Science for Life Laboratory, Stockholm ([details](https://addy.com/joelg))<br />
