@@ -13,4 +13,4 @@ Licensed under the GNU General Public License v2; See **LICENSE** file or [http:
 
 ### Contact
 Joel Gruselius ([joel.gruselius@scilifelab.se](mailto:joel.gruselius@scilifelab.se))<br />
-Science for Life Laboratory, Stockholm ([details](https://addy.com/joelg))<br />
+Science for Life Laboratory, Stockholm ([details](https://addy.co/joelg))<br />
