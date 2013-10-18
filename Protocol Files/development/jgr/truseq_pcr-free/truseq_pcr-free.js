@@ -36,8 +36,7 @@ var runsetOrder = [];
 if(formProtocol === "Library prep") {
 	runsetMode = true;
 	runsetOrder = ["Fragmentation cleanup","End repair","Size selection",
-			"A-tailing","Ligation","Ligation cleanup 1",
-			"Ligation cleanup 2"];
+			"A-tailing","Ligation","Ligation cleanup 1","Ligation cleanup 2"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
 	updateSettings("End repair");
 } else if(formProtocol === "Ligation cleanup") {
