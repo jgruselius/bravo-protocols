@@ -54,6 +54,7 @@ End repair >> Size selection
 	ReagentTips (Bravo-2 > MiniHub-4:2)
 	ReactionPlate (Bravo-5 > Bravo-7)
 	SampleTips (Bravo-8 > BenchCel-3)
+	FinalPlate (Bravo-6 > BenchCel-4)
 
 	BindTips (BenchCel-1 > Bravo-2)
 	BeadPlate (MiniHub-1:1 > Bravo-4)
@@ -74,22 +75,17 @@ Size selection >> A-tailing
 	
 
 A-tailing >> Ligation
-	SampleTips (Bravo-8 > Stash/Discard) 
+	SampleTips (Bravo-8 > BenchCel-3) 
 	UsedTips (MiniHub-2:1 > Bravo-8)
 	ReactionPlate (Bravo-5 > Bravo-6)
 	ReactionPlate (BenchCel-2 > Bravo-5)
+	SamplePlate (Bravo-6 > BenchCel-3)
 
-	
-Ligation >> Stop ligation
-	SampleTips (Bravo-8 > BenchCel-3) 
-	UsedTips (MiniHub-2:1 > Bravo-8)
-	ReactionPlate (Bravo-5 > Bravo-6)	
-
-
-Stop ligation >> Post-ligation cleanup #1
+Ligation >> Post-ligation cleanup #1
 	ReagentTips (Bravo-2 > BenchCel-3)
 	ReactionPlate (Bravo-5 > Bravo-7)
 	SampleTips > (Bravo-8 > BenchCel-3)
+	SamplePlate (Bravo-6 > BenchCel-3)
 	
 	BindTips (BenchCel-1 > Bravo-2)
 	BindPlate ( MiniHub-4:5 > Bravo-5)
