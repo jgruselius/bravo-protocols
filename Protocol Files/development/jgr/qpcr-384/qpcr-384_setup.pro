@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='5df58c44b7bafbe164198ba6032852ae' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='9a21f9ed05ff1f196687b31607002846' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -114,7 +114,7 @@ var volumes = {
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >0</Minimized>
+				<Minimized >1</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='4' />
@@ -529,7 +529,7 @@ var volumes = {
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >0</Minimized>
+				<Minimized >1</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='6' />
@@ -542,6 +542,17 @@ var volumes = {
 					<Parameters >
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='6' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Spawn Process' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Process to spawn' Value='AssayPlate' />
+						<Parameter Category='' Name='Spawn as subroutine' Value='' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
@@ -627,11 +638,14 @@ var volumes = {
 					<TaskScript Name='TaskScript' Value='' />
 				</Task>
 				<Task Name='BuiltIn::Load' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -1051,7 +1065,7 @@ var volumes = {
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='9' />
@@ -1376,7 +1390,7 @@ var mTouchRetract = 0;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -1776,7 +1790,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='50' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -1869,11 +1883,12 @@ if(mDoTipTouch) {
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = 4 * volumes.reagent + 4;	// Volume to dispense per well
 var maxTipVolume = 170;	// Tip capacity
+var columnsToDo = columns + 1;
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 2;		// Extra liquid volume to aspirate
 
 // Total volume to transfer:
-var transferVolume = aliquotVolume * columns;
+var transferVolume = aliquotVolume * columnsToDo;
 // Number of aspirations necessary:
 var aspirateSteps = Math.ceil(transferVolume / (maxTipVolume - deadVolume));' />
 				</Task>
@@ -1941,7 +1956,7 @@ var aspirateSteps = Math.ceil(transferVolume / (maxTipVolume - deadVolume));' />
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Volume left to transfer:
-var volumeLeft = (columns - columnsDone) * aliquotVolume;
+var volumeLeft = (columnsToDo - columnsDone) * aliquotVolume;
 // The total volume of the largest number of aliquots that fit in one tip:
 var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
 // The actual volume to aspirate:
@@ -2045,7 +2060,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(columns == columnsDone) {
 	task.Performtiptouch = true;
@@ -2420,17 +2435,17 @@ task.Volume = volumes.assay;' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;03d013ccdc8e793fe08cecbc9407f202&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;11&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;1&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='11' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -2466,7 +2481,7 @@ task.Volume = volumes.assay;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='11' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
@@ -2525,7 +2540,7 @@ task.Volume = volumes.assay;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='11' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Loop End' >
@@ -2540,7 +2555,7 @@ task.Volume = volumes.assay;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='12' />
+						<Setting Name='Estimated time' Value='13' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2568,7 +2583,7 @@ task.Volume = volumes.assay;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='11' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -2585,17 +2600,17 @@ task.Volume = volumes.assay;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;03d013ccdc8e793fe08cecbc9407f202&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;11&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;1&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='11' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Group End' >
@@ -2711,7 +2726,7 @@ var mTouchRetract = -7;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='4' />
+						<Setting Name='Estimated time' Value='3' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0) {
    task.skip();
@@ -3028,11 +3043,11 @@ if(mDoTipTouch) {
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;9757f6c2d2ffcd4028d388c9a706d5ea&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;e40d77cec27995402c98ee40e9913607&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;1&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;1&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -3056,7 +3071,7 @@ var i = 0;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='127' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = 4 * volumes.reagent + 2;' />
 					<Parameters >
@@ -3104,7 +3119,7 @@ var i = 0;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='15' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [wells[i++]];' />
 					<Parameters >
@@ -3147,7 +3162,7 @@ var i = 0;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='21' />
+						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -3192,11 +3207,11 @@ var i = 0;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;9757f6c2d2ffcd4028d388c9a706d5ea&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;e40d77cec27995402c98ee40e9913607&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;1&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;1&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -3466,7 +3481,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='129' />
+						<Setting Name='Estimated time' Value='128' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
    mMixVolume = maxVolume * 0.8;
@@ -3544,9 +3559,9 @@ if(mDoTipTouch) {
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;3125596f5673ded718f77bdee62730ba&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;11&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -3730,7 +3745,7 @@ var i = 0;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [wells[i++]];' />
 					<Parameters >

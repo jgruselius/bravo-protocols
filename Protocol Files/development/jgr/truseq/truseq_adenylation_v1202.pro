@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='704745bc1b5219d74034186c7eb0ca9e' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='c3cadb1e90f60f961c941fcd6898ee71' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -1183,7 +1183,7 @@ task.skip();' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_small_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.3' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.4' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -1299,7 +1299,7 @@ task.Volume = 0.9 *(vol_sample + vol_ad_mix);' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_medium_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.1' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.3' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -1337,7 +1337,7 @@ task.Dynamictipretraction = 4 / (0.9 * (vol_sample + vol_ad_mix));' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_small_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.1' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.3' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />

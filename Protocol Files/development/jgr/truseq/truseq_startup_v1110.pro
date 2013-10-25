@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='63ba1a32170408019a241e0fce0f44d7' version='2.0' >
-	<File_Info AllowSimultaneousRun='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/development/jgr/truseq/truseq_startup_v1201.js&apos;);
+<Velocity11 file='Protocol_Data' md5sum='25b92bf2bf80797add4b38e0240d4042' version='2.0' >
+	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/development/jgr/truseq/truseq_startup_v1201.js&apos;);
 ' Use_Global_JS_Context='1' />
 	<Processes >
 		<Startup_Processes >
@@ -15,9 +15,8 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Get columns of samples value from form:
 var n_columns = formColumns;
-print(&quot;truseq_startup::n_columns=&quot; + n_columns);
 
-run(&quot;C:/Program Files/MySQL/MySQL Server 5.0/bin/clear_minihub.bat&quot;, true);
+print(&quot;truseq_startup::n_columns=&quot; + n_columns);
 
 var time_mod = 1; // Incubation time multiplier for testing
 var temp_rt = 20;
@@ -57,6 +56,7 @@ var statusString = &quot;Preparing runset&quot;;' />
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='2c75eb2f1f89157b30ea28c65663d03c' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='04f3a328380cc3b2711f07693c95b590' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -214,6 +214,19 @@ global.statusString = &quot;Ligation started...&quot;;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='DivideMix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DivideMix' />
 					</Parameters>
 				</Task>
@@ -327,19 +340,6 @@ global.statusString = &quot;Ligation started...&quot;;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='DivideMix2' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DivideMix2' />
 					</Parameters>
@@ -1028,7 +1028,7 @@ task.Volume = vol_lig_mix;' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
-						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_medium_vol' />
+						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 10 - 50ul aq' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
@@ -1065,7 +1065,7 @@ task.Volume = vol_lig_mix;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
-						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_medium_vol' />
+						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 10 - 50ul aq' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.25' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />

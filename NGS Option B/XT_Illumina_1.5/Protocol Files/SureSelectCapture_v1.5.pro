@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='b1bb19d4ebc31306db86e7e2e102da2d' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='7770d0799c68f99a682486f5f8e7b3f4' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\NGS Option B\XT_Illumina_1.5\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='C:\VWorks Workspace\NGS Option B\XT_Illumina_1.5\Forms\SureSelectXT_Illumina_v1.5.VWForm' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open(&quot;C:\\VWorks Workspace\\NGS Option B\\XT_Illumina_1.5\\Scripts\\tiptracking.js&quot;)
 open(&quot;C:\\VWorks Workspace\\NGS Option B\\XT_Illumina_1.5\\Scripts\\file_operations.js&quot;)' Use_Global_JS_Context='1' />
 	<Processes >
@@ -280,6 +280,19 @@ Click Continue if this is intended.  Abort the protocol if the box should not be
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Transfer Hyb. Soln' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Transfer Hyb. Soln' />
 					</Parameters>
