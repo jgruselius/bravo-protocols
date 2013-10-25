@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='MacroLibrary_Data' md5sum='8dd8ee92a3330dde5945b2b51aae6b5b' version='1.0' >
+<Velocity11 file='MacroLibrary_Data' md5sum='a4e6ef82114f55ff469200acab958ff9' version='1.0' >
 	<Macros >
-		<Macro Device_Type='Bravo' Icon_Bit='0' Icon_Data='' Icon_Height='0' Icon_Plane='0' Icon_Width='0' Macro_Type='4' Name='dispenseMacro' Version_Number='1' >
+		<Macro Device_Type='Bravo' Icon_Bit='0' Icon_Data='' Icon_Height='0' Icon_Plane='0' Icon_Width='0' Macro_Type='4' Name='dispenseMacro' Version_Number='4' >
 			<Task Name='BuiltIn::Group Begin' >
 				<Enable_Backup >0</Enable_Backup>
 				<Task_Disabled >0</Task_Disabled>
@@ -14,29 +14,27 @@
 				<Task_Disabled >0</Task_Disabled>
 				<Has_Breakpoint >0</Has_Breakpoint>
 				<Advanced_Settings >
-					<Setting Name='Estimated time' Value='0' />
+					<Setting Name='Estimated time' Value='5.0' />
 				</Advanced_Settings>
-				<TaskScript Name='TaskScript' Value='// Volume to dispense per well:
-var aliquotVolume = 20;
-// Tip capacity:
-var maxTipVolume = 170;
- // Total number of columns to process:
-var columns = 12;
-// Number of columns dispensed so far:
-var columnsDone = 0;
+				<TaskScript Name='TaskScript' Value='var aliquotVolume;	// Volume to dispense per well
+var maxTipVolume;	// Tip capacity
+var columns;		// Total number of columns to process
+var columnsDone;	// Number of columns dispensed so far
+var deadVolume;		// Extra liquid volume to aspirate
 
 // Total volume to transfer:
-var totalVolume = aliquotVolume * columns;
+var transferVolume = aliquotVolume * columns;
+// The total volume of the largest number of aliquots that fit in one tip:
+var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
-var aspirateSteps = Math.ceil(totalVolume / maxTipVolume);
-' />
+var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 			</Task>
 			<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 				<Enable_Backup >0</Enable_Backup>
 				<Task_Disabled >0</Task_Disabled>
 				<Has_Breakpoint >0</Has_Breakpoint>
 				<Advanced_Settings >
-					<Setting Name='Estimated time' Value='0' />
+					<Setting Name='Estimated time' Value='5.0' />
 				</Advanced_Settings>
 				<TaskScript Name='TaskScript' Value='' />
 				<Parameters >
@@ -54,7 +52,7 @@ var aspirateSteps = Math.ceil(totalVolume / maxTipVolume);
 				<Task_Disabled >0</Task_Disabled>
 				<Has_Breakpoint >0</Has_Breakpoint>
 				<Advanced_Settings >
-					<Setting Name='Estimated time' Value='9' />
+					<Setting Name='Estimated time' Value='5.0' />
 				</Advanced_Settings>
 				<TaskScript Name='TaskScript' Value='' />
 				<Parameters >
@@ -92,23 +90,21 @@ var aspirateSteps = Math.ceil(totalVolume / maxTipVolume);
 				<Task_Disabled >0</Task_Disabled>
 				<Has_Breakpoint >0</Has_Breakpoint>
 				<Advanced_Settings >
-					<Setting Name='Estimated time' Value='0' />
+					<Setting Name='Estimated time' Value='5.0' />
 				</Advanced_Settings>
 				<TaskScript Name='TaskScript' Value='// Volume left to transfer:
 var volumeLeft = (columns - columnsDone) * aliquotVolume;
-// The total volume of the largest number of aliquots that fit in one tip:
-var maxVolume = aliquotVolume * Math.floor(maxTipVolume / aliquotVolume);
 // The actual volume to aspirate:
-var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume : volumeLeft;
+var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
 // The number of aliquots to dispense from the aspirated volume: 
-var dispenseSteps = tipVolume / aliquotVolume;' />
+var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 			</Task>
 			<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 				<Enable_Backup >0</Enable_Backup>
 				<Task_Disabled >0</Task_Disabled>
 				<Has_Breakpoint >0</Has_Breakpoint>
 				<Advanced_Settings >
-					<Setting Name='Estimated time' Value='8' />
+					<Setting Name='Estimated time' Value='5.0' />
 				</Advanced_Settings>
 				<TaskScript Name='TaskScript' Value='' />
 				<Parameters >
@@ -156,7 +152,7 @@ var dispenseSteps = tipVolume / aliquotVolume;' />
 				<Task_Disabled >0</Task_Disabled>
 				<Has_Breakpoint >0</Has_Breakpoint>
 				<Advanced_Settings >
-					<Setting Name='Estimated time' Value='6' />
+					<Setting Name='Estimated time' Value='5.0' />
 				</Advanced_Settings>
 				<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,++columnsDone]];' />
 				<Parameters >
@@ -194,6 +190,46 @@ var dispenseSteps = tipVolume / aliquotVolume;' />
 				<Advanced_Settings />
 				<TaskScript Name='TaskScript' Value='' />
 			</Task>
+			<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
+				<Enable_Backup >0</Enable_Backup>
+				<Task_Disabled >0</Task_Disabled>
+				<Has_Breakpoint >0</Has_Breakpoint>
+				<Advanced_Settings >
+					<Setting Name='Estimated time' Value='5.0' />
+				</Advanced_Settings>
+				<TaskScript Name='TaskScript' Value='if(columns == columnsDone) {
+	task.Performtiptouch = true;
+	task.Whichsidestousefortiptouch = &quot;None&quot;;
+	task.Tiptouchretractdistance = -14.5;
+}' />
+				<Parameters >
+					<Parameter Category='' Name='Location, plate' Value='' />
+					<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+					<Parameter Category='Volume' Name='Empty tips' Value='1' />
+					<Parameter Category='Volume' Name='Volume' Value='0' />
+					<Parameter Category='Volume' Name='Blowout volume' Value='0' />
+					<Parameter Category='Properties' Name='Liquid class' Value='j_normal_large_vol' />
+					<Parameter Category='Properties' Name='Distance from well bottom' Value='15' />
+					<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
+					<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
+					<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
+					<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
+					<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
+					<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;74e9d6ec2462268e981d0ec1413d81db&apos; version=&apos;1.0&apos; &gt;
+	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;Wells &gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+		&lt;/Wells&gt;
+	&lt;/WellSelection&gt;
+&lt;/Velocity11&gt;' />
+					<Parameter Category='Properties' Name='Pipette technique' Value='' />
+				</Parameters>
+				<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+					<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='0' SubsetType='1' TipType='0' />
+				</PipetteHead>
+			</Task>
 			<Task Name='BuiltIn::Loop End' >
 				<Enable_Backup >0</Enable_Backup>
 				<Task_Disabled >0</Task_Disabled>
@@ -206,7 +242,7 @@ var dispenseSteps = tipVolume / aliquotVolume;' />
 				<Task_Disabled >0</Task_Disabled>
 				<Has_Breakpoint >0</Has_Breakpoint>
 				<Advanced_Settings >
-					<Setting Name='Estimated time' Value='7' />
+					<Setting Name='Estimated time' Value='5.0' />
 				</Advanced_Settings>
 				<TaskScript Name='TaskScript' Value='' />
 				<Parameters >
@@ -235,6 +271,11 @@ var dispenseSteps = tipVolume / aliquotVolume;' />
 				<Advanced_Settings />
 				<TaskScript Name='TaskScript' Value='' />
 			</Task>
+			<Notes >
+				<Note CurrentVersion='2' PreviousVersion='1' Value='Added aspiration of dead volume' />
+				<Note CurrentVersion='3' PreviousVersion='2' Value='Added tip touch to last blowout' />
+				<Note CurrentVersion='4' PreviousVersion='3' Value='Fixed calculation of the number of aspirations to make' />
+			</Notes>
 		</Macro>
 		<Macro Device_Type='Bravo' Macro_Type='4' Name='distributeMacro' Version_Number='1' >
 			<Task Name='BuiltIn::Group Begin' >
