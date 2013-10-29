@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='74c6bf7e224e43d2dbfdeedd41e7fccd' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='952ee5d23392f68f670f3aa01b2b758b' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Main_Processes >
@@ -163,7 +163,7 @@
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='EthanolPlate' />
-					<Parameter Name='Plate type' Value='96 Nunc Deep Well 1 mL' />
+					<Parameter Name='Plate type' Value='96 Deep Well PP Sqr Well V Btm' />
 					<Parameter Name='Simultaneous plates' Value='1' />
 					<Parameter Name='Plates have lids' Value='0' />
 					<Parameter Name='Plates enter the system sealed' Value='0' />

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='8e470dd4bdd52c4566e677a23ddc3908' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='f7b12a845987611caba452efcbd9c842' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -514,14 +514,7 @@ var transferVolume = aliquotVolume * columns;
 // The total volume of the largest number of aliquots that fit in one tip:
 var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
-var aspirateSteps = Math.ceil(transferVolume / maxVolume);
-
-// Volume left to transfer:
-var volumeLeft = (columns - columnsDone) * aliquotVolume;
-// The actual volume to aspirate:
-var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
-// The number of aliquots to dispense from the aspirated volume: 
-var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
+var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
@@ -588,11 +581,11 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Update volumes:
 // Volume left to transfer:
-volumeLeft = (columns - columnsDone) * aliquotVolume;
+var volumeLeft = (columns - columnsDone) * aliquotVolume;
 // The actual volume to aspirate:
-tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
+var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
 // The number of aliquots to dispense from the aspirated volume: 
-dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
+var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
@@ -809,14 +802,7 @@ var transferVolume = aliquotVolume * columns;
 // The total volume of the largest number of aliquots that fit in one tip:
 var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
-var aspirateSteps = Math.ceil(transferVolume / maxVolume);
-
-// Volume left to transfer:
-var volumeLeft = (columns - columnsDone) * aliquotVolume;
-// The actual volume to aspirate:
-var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
-// The number of aliquots to dispense from the aspirated volume: 
-var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
+var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
@@ -883,11 +869,11 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Update volumes:
 // Volume left to transfer:
-volumeLeft = (columns - columnsDone) * aliquotVolume;
+var volumeLeft = (columns - columnsDone) * aliquotVolume;
 // The actual volume to aspirate:
-tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
+var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
 // The number of aliquots to dispense from the aspirated volume: 
-dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
+var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
