@@ -201,7 +201,7 @@
       <Property name="Name">operatorConsoleButton1</Property>
       <Property name="TextImageRelation">ImageBeforeText</Property>
       <Property name="ForeColor">40, 40, 40</Property>
-      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="runset.appendProtocolFileToRunset(&quot;C:/VWorks Workspace/Protocol Files/development/jgr/general_transfer.pro&quot;, 1, &quot;&quot;, &quot;general_transfer.VWForm&quot;)" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="runset.appendProtocolFileToRunset(&quot;C:/VWorks Workspace/Protocol Files/facility/misc/general_transfer.pro&quot;, 1, &quot;&quot;, &quot;general_transfer.VWForm&quot;)" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the Script above will always execute in the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Icon" Description="A graphical image file to display in the button" Type="9" Value="" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp;*.ico)|*.jpg;*.png;*.bmp;*.ico||" Hide_if="" />
       <Parameter Name="Disable when running" Description="the button is disabled whenever a protocol is running" Type="0" Value="1" ValueToDisplay="" Hide_if="" />

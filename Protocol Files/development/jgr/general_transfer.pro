@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='3d5c2a13eebc6a9ef47359c4c4c125a8' version='2.0' >
-	<File_Info AllowSimultaneousRun='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
+<Velocity11 file='Protocol_Data' md5sum='aae819bbd88e1b5e577aac5c217088e4' version='2.0' >
+	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
 			<Process >
@@ -18,7 +18,7 @@
 var MIX_CYCLES = 6;
 var PRE_ASP_VOLUME = 10;
 var MAX_VOLUME = 170;
-var DISP_HEIGHT = 2;
+var DISP_HEIGHT = 1;
 
 // Labware types:
 var plateMap = {&quot;Eppendorf&quot;:&quot;96 Eppendorf Twin.tec PCR&quot;,
@@ -142,6 +142,7 @@ var settingsValid =
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -202,6 +203,7 @@ var settingsValid =
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -262,6 +264,7 @@ var settingsValid =
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -322,6 +325,7 @@ var settingsValid =
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -379,7 +383,7 @@ var mixVolume = (transferVolume &lt; MAX_VOLUME) ? 0.8*transferVolume : 0.8*MAX_
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(!settingsValid) { task.skip(); }
 task.Wellselection = tipSelection;' />
@@ -388,17 +392,17 @@ task.Wellselection = tipSelection;' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;ab3eacb778d368f5295190f6c86e308a&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;8&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;4&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='8' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -406,7 +410,7 @@ task.Wellselection = tipSelection;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Pre-aspiration
 if(!settingsValid) { task.skip(); }
@@ -436,7 +440,7 @@ task.Wellselection = sourceWellSelection;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='8' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Loop' >
@@ -456,7 +460,7 @@ task.Wellselection = sourceWellSelection;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(!settingsValid) { task.skip(); }
 task.Wellselection = sourceWellSelection;
@@ -486,7 +490,7 @@ task.Volume = transferVolume / Math.ceil(transferVolume / MAX_VOLUME);' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='8' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -494,7 +498,7 @@ task.Volume = transferVolume / Math.ceil(transferVolume / MAX_VOLUME);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='10' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(!settingsValid) { task.skip(); }
 task.Wellselection = destinationWellSelection;' />
@@ -523,7 +527,7 @@ task.Wellselection = destinationWellSelection;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='8' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Loop End' >
@@ -608,7 +612,7 @@ task.Wellselection = destinationWellSelection;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='8' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -627,17 +631,17 @@ task.Wellselection = (putTipsIn == &quot;newTips&quot;) ? tipSelection : [[1,1]]
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;ab3eacb778d368f5295190f6c86e308a&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;8&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;4&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='8' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Group End' >
@@ -652,14 +656,14 @@ task.Wellselection = (putTipsIn == &quot;newTips&quot;) ? tipSelection : [[1,1]]
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='3' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Location' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='8' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Devices >
