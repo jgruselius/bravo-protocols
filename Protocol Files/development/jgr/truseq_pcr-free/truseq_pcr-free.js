@@ -40,7 +40,6 @@ if(formProtocol === "Library prep") {
 	runsetOrder = ["Fragmentation cleanup","End repair","Size selection "+formInsertSize,
 			"A-tailing","Ligation","Ligation cleanup 1","Ligation cleanup 2"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
-	updateSettings("End repair");
 } else if(formProtocol === "Size selection") {
 	runsetMode = false;
 	runset.appendProtocolFileToRunset(path+fileNames[formProtocol+" "+formInsertSize], 1, "", form);
