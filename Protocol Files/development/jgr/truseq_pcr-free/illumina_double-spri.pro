@@ -25,10 +25,10 @@ var transferVolume = global.settings.transferVolume || 150;
 var washVolume = 200;
 var washes = 2;
 var elutionVolume = global.settings.elutionVolume || 25;
-var maxVolume = 175;
-var maxMixVolume = 160;
-var preAsp = 5;
-var preAspLarge = 15;
+var MAX_VOLUME = 175;
+var MAX_MIX_VOLUME = 160;
+var PRE_ASP = 5;
+var PRE_ASP_LARGE = 15;
 
 var testMode = (global.testMode) ? true : false;
 var bindTime = testMode ? 1 : 5 * 60;
@@ -1030,14 +1030,14 @@ pelletTimeLong = 180;
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
+					<TaskScript Name='TaskScript' Value='var MAX_VOLUME = MAX_VOLUME;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_normal_large_vol&quot;;
-var mPreAspVolume = preAsp;
+var mPreAspVolume = PRE_ASP;
 var mTransferVolume = beadDiluteVolume;
 var mAspDistance = 1;
 var mDispDistance = 2;
@@ -1142,7 +1142,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_VOLUME);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -1364,7 +1364,7 @@ var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_extra_slow_mixing&quot;;
-var mPreAspVolume = preAspLarge;
+var mPreAspVolume = PRE_ASP_LARGE;
 var mIncubationTime = bindTime;
 var mTimerCycles = 3;
 var mMixVolume = bindMixVolume;
@@ -1733,7 +1733,7 @@ if(mDoTipTouch) {
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var bindMixVolume = 0.8 * (transferVolume + beadVolume2);
-bindMixVolume = (bindMixVolume &gt; maxMixVolume) ? maxMixVolume : bindMixVolume;' />
+bindMixVolume = (bindMixVolume &gt; MAX_MIX_VOLUME) ? MAX_MIX_VOLUME : bindMixVolume;' />
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
@@ -1748,7 +1748,7 @@ var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_extra_slow_mixing&quot;;
-var mPreAspVolume = preAspLarge;
+var mPreAspVolume = PRE_ASP_LARGE;
 var mIncubationTime = bindTime;
 var mTimerCycles = 3;
 var mMixVolume = bindMixVolume;
@@ -2116,14 +2116,14 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
+					<TaskScript Name='TaskScript' Value='var MAX_VOLUME = MAX_VOLUME;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_normal_medium_vol&quot;;
-var mPreAspVolume = preAspLarge;
+var mPreAspVolume = PRE_ASP_LARGE;
 var mTransferVolume = elutionVolume;
 var mAspDistance = 1;
 var mDispDistance = 0.75;
@@ -2228,7 +2228,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_VOLUME);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -2342,7 +2342,7 @@ var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_normal_mixing&quot;;
-var mPreAspVolume = preAsp;
+var mPreAspVolume = PRE_ASP;
 var mIncubationTime = elutionTime;
 var mTimerCycles = 5;
 var mMixVolume = elutionVolume * 0.8;
@@ -2583,14 +2583,14 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
+					<TaskScript Name='TaskScript' Value='var MAX_VOLUME = MAX_VOLUME;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_slow_small_vol&quot;;
-var mPreAspVolume = preAsp;
+var mPreAspVolume = PRE_ASP;
 var mTransferVolume = elutionVolume;
 var mAspDistance = 0.4;
 var mDispDistance = 0.5;
@@ -2647,7 +2647,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_VOLUME);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -2875,14 +2875,14 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
+					<TaskScript Name='TaskScript' Value='var MAX_VOLUME = MAX_VOLUME;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_slow_medium_vol&quot;;
-var mPreAspVolume = preAspLarge;
+var mPreAspVolume = PRE_ASP_LARGE;
 var mTransferVolume = transferVolume + beadVolume2 + 10;
 var mAspDistance = 0.75;
 var mDispDistance = 30;
@@ -2987,7 +2987,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_VOLUME);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -3205,7 +3205,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
+					<TaskScript Name='TaskScript' Value='var MAX_VOLUME = MAX_VOLUME;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
@@ -3216,7 +3216,7 @@ var mPreAspVolume = 15;
 var mTransferVolume = beadVolume1;
 var mAspDistance = 1;
 var mDispDistance = 1;
-var mMixVolume = (0.8 * beadVolume1 &gt; maxMixVolume) ? maxMixVolume : 0.8 * beadVolume1;
+var mMixVolume = (0.8 * beadVolume1 &gt; MAX_MIX_VOLUME) ? MAX_MIX_VOLUME : 0.8 * beadVolume1;
 var mMixLiquidClass = &quot;j_normal_mixing&quot;;
 var mMixCycles = 5;
 var mMixAspDistance = 1;
@@ -3322,8 +3322,8 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='24' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
-   mMixVolume = maxVolume * 0.8;
+					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; MAX_VOLUME) {
+   mMixVolume = MAX_VOLUME * 0.8;
 }
 task.Volume = mMixVolume;
 task.Mixcycles = mMixCycles;
@@ -3419,7 +3419,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_VOLUME);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -3588,7 +3588,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
+					<TaskScript Name='TaskScript' Value='var MAX_VOLUME = MAX_VOLUME;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
@@ -3599,7 +3599,7 @@ var mPreAspVolume = 15;
 var mTransferVolume = beadVolume2;
 var mAspDistance = 1;
 var mDispDistance = 1;
-var mMixVolume = (0.8 * beadVolume2 &gt; maxMixVolume) ? maxMixVolume : 0.8 * beadVolume2;
+var mMixVolume = (0.8 * beadVolume2 &gt; MAX_MIX_VOLUME) ? MAX_MIX_VOLUME : 0.8 * beadVolume2;
 var mMixLiquidClass = &quot;j_normal_mixing&quot;;
 var mMixCycles = 5;
 var mMixAspDistance = 1;
@@ -3705,8 +3705,8 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='18' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
-   mMixVolume = maxVolume * 0.8;
+					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; MAX_VOLUME) {
+   mMixVolume = MAX_VOLUME * 0.8;
 }
 task.Volume = mMixVolume;
 task.Mixcycles = mMixCycles;
@@ -3802,7 +3802,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_VOLUME);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -3983,14 +3983,14 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = maxVolume;
+					<TaskScript Name='TaskScript' Value='var MAX_VOLUME = MAX_VOLUME;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_slow_medium_vol&quot;;
-var mPreAspVolume = preAspLarge;
+var mPreAspVolume = PRE_ASP_LARGE;
 var mTransferVolume = transferVolume;
 var mAspDistance = 0.75;
 var mDispDistance = 2;
@@ -4095,7 +4095,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_VOLUME);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -4353,7 +4353,7 @@ if(mDoTipTouch) {
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var bindMixVolume = 0.8 * (bindVolume1);
-bindMixVolume = (bindMixVolume &gt; maxMixVolume) ? maxMixVolume : bindMixVolume;' />
+bindMixVolume = (bindMixVolume &gt; MAX_MIX_VOLUME) ? MAX_MIX_VOLUME : bindMixVolume;' />
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
@@ -4406,7 +4406,7 @@ bindMixVolume = (bindMixVolume &gt; maxMixVolume) ? maxMixVolume : bindMixVolume
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='20' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Preaspiratevolume = preAspLarge;' />
+					<TaskScript Name='TaskScript' Value='task.Preaspiratevolume = PRE_ASP_LARGE;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='SamplePlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -4517,7 +4517,7 @@ bindMixVolume = (bindMixVolume &gt; maxMixVolume) ? maxMixVolume : bindMixVolume
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='12' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = preAspLarge;' />
+					<TaskScript Name='TaskScript' Value='task.Volume = PRE_ASP_LARGE;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='BindPlate1' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -4672,7 +4672,7 @@ bindMixVolume = (bindMixVolume &gt; maxMixVolume) ? maxMixVolume : bindMixVolume
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='EthanolPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
-						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=preAsp;' Value='' />
+						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=PRE_ASP;' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_large_vol' />
@@ -4704,7 +4704,7 @@ bindMixVolume = (bindMixVolume &gt; maxMixVolume) ? maxMixVolume : bindMixVolume
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var steps = Math.ceil(washVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var steps = Math.ceil(washVolume / MAX_VOLUME);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -4804,7 +4804,7 @@ bindMixVolume = (bindMixVolume &gt; maxMixVolume) ? maxMixVolume : bindMixVolume
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='20' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = (washVolume * 0.8 &gt; maxMixVolume) ? maxMixVolume : washVolume * 0.8;' />
+					<TaskScript Name='TaskScript' Value='task.Volume = (washVolume * 0.8 &gt; MAX_MIX_VOLUME) ? MAX_MIX_VOLUME : washVolume * 0.8;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='BindPlate2' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -4855,7 +4855,7 @@ bindMixVolume = (bindMixVolume &gt; maxMixVolume) ? maxMixVolume : bindMixVolume
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='steps = Math.ceil((washVolume + 10) / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='steps = Math.ceil((washVolume + 10) / MAX_VOLUME);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -4960,7 +4960,7 @@ bindMixVolume = (bindMixVolume &gt; maxMixVolume) ? maxMixVolume : bindMixVolume
 						<Parameter Category='' Name='Location, plate' Value='Waste' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
-						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=preAsp;' Value='' />
+						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=PRE_ASP;' Value='' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_blowout' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='30' />

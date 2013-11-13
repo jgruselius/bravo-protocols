@@ -15,7 +15,7 @@
 					<TaskScript Name='TaskScript' Value='var global = GetGlobalObject();
 var columns = global.formColumns || 1;
 var runsetMode = global.runsetMode;
-var maxTipVolume = 175;
+var MAX_TIP_VOLUME = 175;
 var reagentVolume = global.pcr.reagentVolume || 20;
 var primerVolume = global.pcr.primerVolume || 10; // Total primer volume
 var sampleVolume = global.pcr.sampleVolume || 20;' />
@@ -437,7 +437,7 @@ var deadVolume = 3;		// Extra liquid volume to aspirate
 // Total volume to transfer:
 var transferVolume = aliquotVolume * columns;
 // The total volume of the largest number of aliquots that fit in one tip:
-var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
+var maxVolume = aliquotVolume * Math.floor((MAX_TIP_VOLUME - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
 var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 				</Task>

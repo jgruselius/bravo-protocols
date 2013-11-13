@@ -31,11 +31,11 @@
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Constants:
-var maxVolume = 170;
-var maxMixVolume = 150;
-var preAspLarge = 15;
-var preAspMedium = 10;
-var preAspSmall = 5;
+var MAX_VOLUME = 170;
+var MAX_MIX_VOLUME = 150;
+var PRE_ASP_LARGE = 15;
+var PRE_ASP_MEDIUM = 10;
+var PRE_ASP_SMALL = 5;
 // Get protocol parameters from global scope:
 var global = GetGlobalObject();
 if(global.runsetMode) global.updateRunset();
@@ -1093,21 +1093,21 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = bufferVolume;	// Volume to dispense per well
-var maxTipVolume = maxVolume;	// Tip capacity
+var maxTipVolume = MAX_VOLUME;	// Tip capacity
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 3;		// Extra liquid volume to aspirate
 
 // Total volume to transfer:
 var transferVolume = aliquotVolume * columns;
 // The total volume of the largest number of aliquots that fit in one tip:
-var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
+var MAX_VOLUME = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
-var aspirateSteps = Math.ceil(transferVolume / maxVolume);
+var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 
 // Volume left to transfer:
 var volumeLeft = (columns - columnsDone) * aliquotVolume;
 // The actual volume to aspirate:
-var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
+var tipVolume = (volumeLeft &gt; MAX_VOLUME) ?  MAX_VOLUME + deadVolume : volumeLeft + deadVolume;
 // The number of aliquots to dispense from the aspirated volume: 
 var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				</Task>
@@ -1178,7 +1178,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 // Volume left to transfer:
 volumeLeft = (columns - columnsDone) * aliquotVolume;
 // The actual volume to aspirate:
-tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
+tipVolume = (volumeLeft &gt; MAX_VOLUME) ?  MAX_VOLUME + deadVolume : volumeLeft + deadVolume;
 // The number of aliquots to dispense from the aspirated volume: 
 dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				</Task>
@@ -1388,16 +1388,16 @@ if(columns == columnsDone) {
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = reagentVolume;	// Volume to dispense per well
-var maxTipVolume = maxVolume;	// Tip capacity
+var maxTipVolume = MAX_VOLUME;	// Tip capacity
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 3;		// Extra liquid volume to aspirate
 
 // Total volume to transfer:
 var transferVolume = aliquotVolume * columns;
 // The total volume of the largest number of aliquots that fit in one tip:
-var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
+var MAX_VOLUME = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
-var aspirateSteps = Math.ceil(transferVolume / maxVolume);
+var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 ' />
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
@@ -1467,7 +1467,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);
 // Volume left to transfer:
 var volumeLeft = (columns - columnsDone) * aliquotVolume;
 // The actual volume to aspirate:
-var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
+var tipVolume = (volumeLeft &gt; MAX_VOLUME) ?  MAX_VOLUME + deadVolume : volumeLeft + deadVolume;
 // The number of aliquots to dispense from the aspirated volume: 
 var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				</Task>
@@ -1887,7 +1887,7 @@ task.Temperature = incubationTemperature;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = preAspSmall;' />
+					<TaskScript Name='TaskScript' Value='task.Volume = PRE_ASP_SMALL;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='SamplePlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -1996,8 +1996,8 @@ task.Temperature = incubationTemperature;' />
 						<Setting Name='Estimated time' Value='17' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mix_vol = 0.8 * (sampleVolume + adapterVolume);
-if(mix_vol &gt; maxMixVolume) {
-	mix_vol = maxMixVolume;
+if(mix_vol &gt; MAX_MIX_VOLUME) {
+	mix_vol = MAX_MIX_VOLUME;
 }
 task.Volume = mix_vol;' />
 					<Parameters >
@@ -2111,8 +2111,8 @@ task.Volume = mix_vol;' />
 						<Setting Name='Estimated time' Value='20' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mix_vol = 0.8 * (sampleVolume + reagentVolume + adapterVolume);
-if(mix_vol &gt; maxMixVolume) {
-	mix_vol = maxMixVolume;
+if(mix_vol &gt; MAX_MIX_VOLUME) {
+	mix_vol = MAX_MIX_VOLUME;
 }
 task.Volume = mix_vol;' />
 					<Parameters >
@@ -2154,7 +2154,7 @@ task.Volume = mix_vol;' />
 						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Blowout
-task.Volume = preAspSmall;' />
+task.Volume = PRE_ASP_SMALL;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='ReactionPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -2293,7 +2293,7 @@ task.Volume = preAspSmall;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = preAspSmall;' />
+					<TaskScript Name='TaskScript' Value='task.Volume = PRE_ASP_SMALL;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='ReactionPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -2402,8 +2402,8 @@ task.Volume = preAspSmall;' />
 						<Setting Name='Estimated time' Value='18' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mix_vol = 0.8 * (sampleVolume + adapterVolume + reagentVolume);
-if(mix_vol &gt; maxMixVolume) {
-	mix_vol = maxMixVolume;
+if(mix_vol &gt; MAX_MIX_VOLUME) {
+	mix_vol = MAX_MIX_VOLUME;
 }
 task.Volume = mix_vol;' />
 					<Parameters >
@@ -2445,7 +2445,7 @@ task.Volume = mix_vol;' />
 						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Blowout
-task.Volume = preAspSmall;' />
+task.Volume = PRE_ASP_SMALL;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='StopPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />

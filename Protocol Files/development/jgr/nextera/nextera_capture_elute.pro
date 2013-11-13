@@ -620,14 +620,14 @@ var testMode = global.formTestMode;' />
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = 23;	// Volume to dispense per well
-var maxTipVolume = 175;	// Tip capacity
+var MAX_TIP_VOLUME = 175;	// Tip capacity
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 3;		// Extra liquid volume to aspirate
 
 // Total volume to transfer:
 var transferVolume = aliquotVolume * columns;
 // The total volume of the largest number of aliquots that fit in one tip:
-var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
+var maxVolume = aliquotVolume * Math.floor((MAX_TIP_VOLUME - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
 var aspirateSteps = Math.ceil(transferVolume / maxVolume);
 ' />
@@ -907,14 +907,14 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = 4;	// Volume to dispense per well
-var maxTipVolume = 175;	// Tip capacity
+var MAX_TIP_VOLUME = 175;	// Tip capacity
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 3;		// Extra liquid volume to aspirate
 
 // Total volume to transfer:
 var transferVolume = aliquotVolume * columns;
 // The total volume of the largest number of aliquots that fit in one tip:
-var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
+var maxVolume = aliquotVolume * Math.floor((MAX_TIP_VOLUME - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
 var aspirateSteps = Math.ceil(transferVolume / maxVolume);
 ' />

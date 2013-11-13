@@ -16,7 +16,7 @@
 var runsetMode = global.runsetMode;
 var columns = global.formColumns || 1;
 var mode = global.formMode;
-var maxTipVolume = 175;
+var MAX_TIP_VOLUME = 175;
 
 /*
  Nextera Rapid Capture: mode = 1
@@ -696,7 +696,7 @@ var deadVolume = 5;		// Extra liquid volume to aspirate
 // Total volume to transfer:
 var transferVolume = aliquotVolume * columns;
 // The total volume of the largest number of aliquots that fit in one tip:
-var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
+var maxVolume = aliquotVolume * Math.floor((MAX_TIP_VOLUME - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
 var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 				</Task>
@@ -983,7 +983,7 @@ var deadVolume = 3;		// Extra liquid volume to aspirate
 // Total volume to transfer:
 var transferVolume = aliquotVolume * columns;
 // The total volume of the largest number of aliquots that fit in one tip:
-var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
+var maxVolume = aliquotVolume * Math.floor((MAX_TIP_VOLUME - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
 var aspirateSteps = Math.ceil(transferVolume / maxVolume);
 ' />
@@ -1271,7 +1271,7 @@ var deadVolume = 3;		// Extra liquid volume to aspirate
 // Total volume to transfer:
 var transferVolume = aliquotVolume * columns;
 // Number of aspirations necessary:
-var aspirateSteps = Math.ceil(transferVolume / (maxTipVolume - deadVolume));' />
+var aspirateSteps = Math.ceil(transferVolume / (MAX_TIP_VOLUME - deadVolume));' />
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
@@ -1339,7 +1339,7 @@ var aspirateSteps = Math.ceil(transferVolume / (maxTipVolume - deadVolume));' />
 					<TaskScript Name='TaskScript' Value='// Volume left to transfer:
 var volumeLeft = (columns - columnsDone) * aliquotVolume;
 // The total volume of the largest number of aliquots that fit in one tip:
-var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
+var maxVolume = aliquotVolume * Math.floor((MAX_TIP_VOLUME - deadVolume) / aliquotVolume);
 // The actual volume to aspirate:
 var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
 // The number of aliquots to dispense from the aspirated volume: 
