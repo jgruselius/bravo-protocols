@@ -19,6 +19,8 @@ presets["Size selection 550 bp"] = {sampleVolume:100,beadVolume1:80,beadVolume2:
 presets["Ligation cleanup 1"] = {sampleVolume:42.5,beadVolume:42.5,elutionVolume:50};
 presets["Ligation cleanup 2"] = {sampleVolume:50,beadVolume:50,elutionVolume:20};
 
+presets["qPCR setup"] = {};
+
 var settings = {};
 
 var fileNames = {};
@@ -32,6 +34,7 @@ fileNames["Ligation cleanup 1"] = "illumina_spri.pro";
 fileNames["Ligation cleanup 2"] = "illumina_spri.pro";
 fileNames["Library prep"] = "truseq_pcr-free.rst";
 fileNames["Ligation cleanup"] = "truseq_pcr-free_cleanup.rst";
+fileNames["qPCR setup"] = "../qpcr-384/qpcr-384_setup_ver2.pro";
 
 var runsetOrder = [];
 
