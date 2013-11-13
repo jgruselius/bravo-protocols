@@ -3,7 +3,7 @@
 ### Description
 This repository contains files for VWorks Automation Control used to control the Agilent NGS Workstation. These protocols and supporting files are neccessary to run the automated laboratory protocols used at Science for Life Laboratory in Stockholm.
 
-The repository is a way to backup, track versions and share these protocols through a easily accessable resource. The repo is maintained by Joel Gruselius.
+The repository is a way to backup, track versions and share these protocols through a easily accessible resource. The repo is maintained by Joel Gruselius.
 
 ### Installation
 Clone the repository and place the files and folders of the resulting <code>bravo-protocols/</code> into <code>VWorks Workspace/</code>. Note that for many protocols the appropriate device files are required under <code>VWorks Workspace/Device Files/</code> 
