@@ -105,5 +105,19 @@ Post-ligation cleanup #1 >> Post-ligation cleanup #2
 Post-ligation cleanup #2 >> End
 	BindTips (Bravo-2 > BenchCel-3)
 	BindPlate (Bravo-7 > BenchCel-2:5)
+	
+Post-ligation cleanup #2 >> PCR setup
+	BindTips (Bravo-2 > BenchCel-3)
+	FinalPlate (Bravo-4 > Bravo-7)
+	EthanolPlate (Bravo-6 > MiniHub-1:5)
+	ElutionBufferPlate (Bravo-8 > MiniHub-1:2)
+	BindPlate (Bravo-7 > BenchCel-2:5)
+
+	NewTips1 (BenchCel-1 > Bravo-2)
+	ReactionPlate (BenchCel-2 > Bravo-4)
+	TransferPlate (BechCel-2 > Bravo-6)
+	UsedTips (MiniHub-2:1 > Bravo-8)
+	NewTips2 (BenchCel-1 > Bravo 1)
+	Waste (Bravo-1 > MiniHub-3:5)
 
 * Måste ändras
