@@ -20,7 +20,7 @@ var settings = {};
 var fileNames = {};
 fileNames["Template preparation"] = "thruplex.pro";
 fileNames["Library synthesis"] = "thruplex.pro";
-fileNames["PCR setup"] = "thruplex.pro";
+fileNames["PCR setup"] = "thruplex_pcr.pro";
 fileNames["PCR cleanup"] = "illumina_spri.pro";
 fileNames["ThruPLEX"] = "thruplex.rst";
 
