@@ -66,7 +66,7 @@
 		</Runset>
 		<Runset Name='' >
 			<Parameters >
-				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\development\jgr\thruplex\thruplex_transfer.pro' />
+				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\development\jgr\thruplex\thruplex_transfer2.pro' />
 				<Parameter Name='Runs' Value='1' />
 				<Parameter Name='Protocol Notes' Value='' />
 				<Parameter Name='Priority' Value='4' />

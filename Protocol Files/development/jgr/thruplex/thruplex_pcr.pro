@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='6795a0d3125a5c13cf2e382f328c11de' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='0182800d2970db3f2eb3143142a6141e' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -159,19 +159,6 @@ global.statusString = protocolName + &quot; started&quot;;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='AliquotMix' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AliquotMix' />
 					</Parameters>
@@ -440,7 +427,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					<Parameter >
 						<useOriginalLocations Name='useOriginalLocations' Value='0' />
 						<AssignedLocations_Node >
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 2, slot 1' />
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 1, slot 1' />
 						</AssignedLocations_Node>
 					</Parameter>
 				</Task>
