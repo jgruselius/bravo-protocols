@@ -9,8 +9,9 @@
 /*
  CHANGED in v1304:
  --
- TODOs:
+ TODO
  --TransferManager should hold Transfer objects in arrays of arrays per source
+ --Implement tip tracking and support more than 96 transfers
  */
 
 // CLASSES =====================================================================
@@ -464,7 +465,6 @@ function TransferManager(transferMode, tipMode) {
 						"dilution":parseDilutionTransfers,
 						"adapter":parseAdapterTransfers,
 						"lims_dilution": parseDilutionTransfersLims };
-	//this.parseFunction = (mode in this.functionMap) ? this.functionMap[mode] : parseTransfers;
 	if(transferMode in this.functionMap) { 
 		this.parseFunction = this.functionMap[transferMode];
 	} else {
@@ -493,7 +493,7 @@ function TransferManager(transferMode, tipMode) {
 		try {
 			var fileContent = readFile(filePath);
 			this.transfers = this.parseFunction(fileContent);
-			this.next = this.transfers[0];
+			this.next = this.transfers[0][0];
 		} catch(e) {
 			this.next = undefined;
 			this.errorState = false;
@@ -518,20 +518,30 @@ function TransferManager(transferMode, tipMode) {
 	// Return total size:
 	this.getSize = function() {
 		var totalSize = 0;
-		if(typeof this.sizes !== "undefined") {
-			for(var i in this.transfers) {
-				totalSize += this.sizes[i].length;
-			}
+		for(var i in this.transfers) {
+			totalSize += this.transfers[i].length;
 		}
 		return totalSize;
 	}
-	// Concat the arrays in transfers:
+	// Return whether the transfer array of the current plate has a next element:
+	this.hasNextTransfer = function() {
+		return this.index < this.transfers[this.plate].length - 1;
+	}
+	// Return whether the transfer array has an array for another plate:
+	this.hasNextPlate = function() {
+		return this.plate < this.transfers.length - 1;
+	}
 	this.increment = function() {
+		// Temporarily store the transfer array of the current plate:
+		var temp = this.transfers[this.plate];
 		try {
 			this.current = this.next;
-			this.index++;
-			if(this.index < this.getSize() - 1) {
-				this.next = this.transfers[this.index+1];   
+			if(this.hasNextTransfer()) {
+				this.next = temp[this.index+1];   
+			} else if(this.hasNextPlate()){
+				temp = this.transfers[++this.plate];
+				this.index = 0;
+				this.next = temp[0];
 			} else {
 				this.next = undefined;
 			}
@@ -540,28 +550,22 @@ function TransferManager(transferMode, tipMode) {
 			print(e);
 		}
 	}
+	// For each array of transfers, check if the volumes in that array are equal:
 	this.checkVolumes = function() {
 		if(this.transfers && this.transfers.length) {
 			this.constantVolumes = [];
-			var sourceIndex = -1;
-			var previousSourceId, currentSourceId;
-			var previousVolume, currentVolume;
 			for(var i in this.transfers) {
-				currentSourceId = this.transfers[i].sourcePlate;
-				currentVolume = this.transfers[i].volume;
-				if(currentSourceId === previousSourceId) {
-					if(currentVolume !== previousVolume) {
-						this.constantVolumes[sourceIndex] = false;
+				var temp = this.transfers[i];
+				this.constantVolumes[i] = temp.length > 0;
+				for(var j=0, m=this.transfers[i].length; j<m-1; j++) {
+					if(temp[j].volume !== temp[j+1].volume) {
+						this.constantVolumes[i] = false;
+						break;
 					}
-				} else {
-					this.constantVolumes[++sourceIndex] = true;
 				}
-				previousSourceId = currentSourceId;
-				previousVolume = currentVolume;
 			}
 		}
-	} 
-
+	}
 	this.getWellSelectionTransferSource = function() {
 		return this.current.sourceWell;
 	}
@@ -587,7 +591,7 @@ function TransferManager(transferMode, tipMode) {
 		return this.current.newTip;
 	}
 	this.returnTip = function() {
-		return (this.index == this.getSize()-1 || this.next.newTip);
+		return (!(this.hasNextTransfer() || this.hasNextPlate()) || this.next.newTip);
 	}
 	this.updateTipState = function() {
 		this.newTips.increment();
