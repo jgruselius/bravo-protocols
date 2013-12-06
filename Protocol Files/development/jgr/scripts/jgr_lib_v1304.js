@@ -511,7 +511,7 @@ function TransferManager(transferMode, tipMode) {
 		if(this.transfers && this.transfers.length) {
 			this.sizes = [];
 			for(var i in this.transfers) {
-				this.sizes.push(transfers[i].length)
+				this.sizes.push(transfers[i].length);
 			}
 		}
 	}
@@ -530,6 +530,14 @@ function TransferManager(transferMode, tipMode) {
 	// Return whether the transfer array has an array for another plate:
 	this.hasNextPlate = function() {
 		return this.plate < this.transfers.length - 1;
+	}
+	// Return whether tipbox is empty:
+	this.hasTip = function() {
+		return !this.newTips.isEmpty();
+	}
+	this.resetTips = function() {
+		this.newTips = new Tipbox(96, this.tipMode);
+		this.usedTips = new Tipbox(0, this.tipMode);
 	}
 	this.increment = function() {
 		// Temporarily store the transfer array of the current plate:
