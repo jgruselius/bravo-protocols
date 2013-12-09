@@ -8,10 +8,10 @@
 
 /*
  CHANGED in v1304:
- --
- TODO
  --TransferManager should hold Transfer objects in arrays of arrays per source
  --Implement tip tracking and support more than 96 transfers
+ TODO
+ 
  */
 
 // CLASSES =====================================================================
@@ -132,14 +132,14 @@ function Tipbox(tips, origin) {
 /*
  Parses a string-represented integer or float
 */
-function readNumeral(value) {
-	var iVal = parseInt(value, 10);
-	var fVal = parseFloat(value);
-	var num = (iVal == fVal) ? iVal : fVal;
-	if(isNaN(num) || !isFinite(num)) {
+function parseNumber(value) {
+	var intValue = parseInt(value, 10);
+	var floatValue = parseFloat(value);
+	var number = (intValue == floatValue) ? intValue : floatValue;
+	if(isNaN(number) || !isFinite(number)) {
 		throw "UnexpectedValueException: \"" + value + "\"";
 	}
-	return num;
+	return number;
 }
 
 /*
@@ -153,7 +153,7 @@ function isNumber(n) {
  Returns the elapsed time in whole seconds since the specified date
 */
 function getElapsedTime(fromDate) {
-	var msTimeDif = new Date.getTime() - fromDate.getTime();
+	var msTimeDif = new Date().getTime() - fromDate.getTime();
 	return Math.floor((msTimeDif / 1000));
 }
 
@@ -162,11 +162,11 @@ function getElapsedTime(fromDate) {
  e.g. 'C4' returns [3, 4]
 */
 function convertCoords(wellPos) {
-	// readNumeral function is used here to work both when wellPos
+	// parseNumber function is used here to work both when wellPos
 	// has format 'A5' as well as 'A05'
 	try {
-		var row = readNumeral(wellPos.toUpperCase().charCodeAt(0) - 64);
-		var column = readNumeral(wellPos.substr(1));
+		var row = parseNumber(wellPos.toUpperCase().charCodeAt(0) - 64);
+		var column = parseNumber(wellPos.substr(1));
 	} catch(e) {
 		throw "InvalidCoordinatesException: \"" + wellPos + "\": " + e;
 	}
@@ -184,8 +184,8 @@ function convertCoordsRegExp(wellPos) {
 	var match = wellPos.match(/^([A-Ha-h])(?:\:)?((?:0)?[1-9]|1[0-2])$/);
 	if(!match) throw "InvalidCoordinatesException: \"" + wellPos + "\"";
 	try {
-		var row = readNumeral(match[1].toUpperCase().charCodeAt(0) - 64);
-		var column = readNumeral(match[2]);
+		var row = parseNumber(match[1].toUpperCase().charCodeAt(0) - 64);
+		var column = parseNumber(match[2]);
 	} catch(e) {
 		throw "InvalidCoordinatesException: \"" + wellPos + "\": " + e;
 	}
@@ -227,8 +227,8 @@ function parseTransfers(str) {
 		var b_id = row2[0].toLowerCase();
 		// If plate ID is a number, convert from string to int/double:
 		if(isNumber(a_id) && isNumber(b_id)) {
-			a_id = readNumeral(a_id);
-			b_id = readNumeral(b_id);
+			a_id = parseNumber(a_id);
+			b_id = parseNumber(b_id);
 		}
 		if(a_id !== b_id) {
 			return (a_id < b_id) ? -1 : (a_id > b_id ? 1 : 0);
@@ -249,7 +249,7 @@ function parseTransfers(str) {
 		try {
 			sourcePlate = row[0];
 			sourceWell = convertCoords(row[1]);
-			volume = readNumeral(row[2]).toPrecision(3);
+			volume = parseNumber(row[2]).toPrecision(3);
 			destinationWell = convertCoords(row[3]);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
@@ -303,7 +303,7 @@ function parseAdapterTransfers(str, indexSet) {
 		var source, volume, destination;
 		try {
 			source = convertCoords(plateMap[row[1]]);
-			volume = readNumeral(row[2]).toPrecision(3);
+			volume = parseNumber(row[2]).toPrecision(3);
 			destination = convertCoords(row[0]);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
@@ -332,10 +332,10 @@ function parseDilutionTransfers(str) {
 		var sourceWell, sourceVolume, destinationWell, finalVolume;
 		try {
 			sourceWell = convertCoords(row[0]);
-			sourceVolume = readNumeral(row[1]).toPrecision(3);
+			sourceVolume = parseNumber(row[1]).toPrecision(3);
 			destinationWell = convertCoords(row[2]);
 			diluentWell = convertCoords("A1");
-			diluentVolume = (readNumeral(row[3]) - sourceVolume).toPrecision(3);
+			diluentVolume = (parseNumber(row[3]) - sourceVolume).toPrecision(3);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
@@ -375,10 +375,10 @@ function parseDilutionTransfersLims(str) {
 		var sourceWell, sourceVolume, destinationWell, finalVolume;
 		try {
 			sourceWell = convertCoordsRegExp(row[2]);
-			sourceVolume = readNumeral(row[5]).toPrecision(3);
+			sourceVolume = parseNumber(row[5]).toPrecision(3);
 			destinationWell = convertCoordsRegExp(row[7]);
 			diluentWell = convertCoords("A1");
-			diluentVolume = readNumeral(row[11]).toPrecision(3);
+			diluentVolume = parseNumber(row[11]).toPrecision(3);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
@@ -501,7 +501,7 @@ function TransferManager(transferMode, tipMode) {
 		}
 		// Reset state:
 		this.current = undefined;
-		this.plate = -1;
+		this.plate = 0;
 		this.index = -1;
 		this.updateSize();
 		this.checkVolumes();
@@ -533,7 +533,7 @@ function TransferManager(transferMode, tipMode) {
 	}
 	// Return whether tipbox is empty:
 	this.hasTip = function() {
-		return !this.newTips.isEmpty();
+		return this.newTips.hasTip();
 	}
 	this.resetTips = function() {
 		this.newTips = new Tipbox(96, this.tipMode);
@@ -545,8 +545,8 @@ function TransferManager(transferMode, tipMode) {
 		try {
 			this.current = this.next;
 			if(this.hasNextTransfer()) {
-				this.next = temp[this.index+1];   
-			} else if(this.hasNextPlate()){
+				this.next = temp[++this.index];   
+			} else if(this.hasNextPlate()) {
 				temp = this.transfers[++this.plate];
 				this.index = 0;
 				this.next = temp[0];
