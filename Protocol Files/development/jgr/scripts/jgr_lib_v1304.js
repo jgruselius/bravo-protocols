@@ -511,7 +511,7 @@ function TransferManager(transferMode, tipMode) {
 		if(this.transfers && this.transfers.length) {
 			this.sizes = [];
 			for(var i in this.transfers) {
-				this.sizes.push(transfers[i].length);
+				this.sizes.push(this.transfers[i].length);
 			}
 		}
 	}
