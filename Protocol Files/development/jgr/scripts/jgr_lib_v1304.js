@@ -29,9 +29,11 @@ function Transfer(sourcePlate, sourceWell, volume, destinationWell, newTip) {
 	this.toString = function () {
 		var str = ["{" + 
 				"sourcePlate: " + this.sourcePlate,
-				"sourceWell: " + this.sourceWell,
+				"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) + 
+						this.sourceWell[1],
 				"volume: " + this.volume,
-				"destinationWell: " + this.destinationWell,
+				"destinationWell: " + String.fromCharCode(this.destinationWell[0]+64) +
+						this.destinationWell[1],
 				"newTip: " + newTip +
 				"}"];
 		return str.join(", ");
@@ -491,8 +493,9 @@ function TransferManager(transferMode, tipMode) {
 	// Open and parse a transfer file:
 	this.openTransferFile = function(filePath) {
 		try {
-			var fileContent = readFile(filePath);
-			this.transfers = this.parseFunction(fileContent);
+			//var fileContent = readFile(filePath);
+			//this.transfers = this.parseFunction(fileContent);
+			this.transfers = this.parseFunction(filePath);
 			this.next = this.transfers[0][0];
 		} catch(e) {
 			this.next = undefined;
@@ -544,11 +547,12 @@ function TransferManager(transferMode, tipMode) {
 		var temp = this.transfers[this.plate];
 		try {
 			this.current = this.next;
+			this.index++;
 			if(this.hasNextTransfer()) {
-				this.next = temp[++this.index];   
+				this.next = temp[this.index+1];   
 			} else if(this.hasNextPlate()) {
 				temp = this.transfers[++this.plate];
-				this.index = 0;
+				this.index = -1;
 				this.next = temp[0];
 			} else {
 				this.next = undefined;
