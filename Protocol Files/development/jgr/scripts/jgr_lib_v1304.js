@@ -493,9 +493,8 @@ function TransferManager(transferMode, tipMode) {
 	// Open and parse a transfer file:
 	this.openTransferFile = function(filePath) {
 		try {
-			//var fileContent = readFile(filePath);
-			//this.transfers = this.parseFunction(fileContent);
-			this.transfers = this.parseFunction(filePath);
+			var fileContent = readFile(filePath);
+			this.transfers = this.parseFunction(fileContent);
 			this.next = this.transfers[0][0];
 		} catch(e) {
 			this.next = undefined;

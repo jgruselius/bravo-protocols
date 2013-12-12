@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='c9471d25a20aa3a66a4102bed64f078d' version='2.0' >
-	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\Documents and Settings\joel\My Documents\vworks_protocols\dev\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/jgr_lib_v1303.js&apos;);
+<Velocity11 file='Protocol_Data' md5sum='13718666e96f80f156ee3a47e647f40a' version='2.0' >
+	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/development/jgr/scripts/jgr_lib_v1304.js&apos;);
 ' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -88,10 +88,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Parameter >
 						<RemoveFromGroups Name='RemoveFromGroups' Value='0' />
 						<AssignedLocations_Node >
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 1; slot 1, slot 2, slot 3, slot 4, slot 5' />
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 2; slot 1, slot 2, slot 3, slot 4, slot 5' />
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 3; slot 1, slot 2, slot 3, slot 4, slot 5' />
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 4; slot 1, slot 2, slot 3, slot 4, slot 5' />
+							<LocationInfo Value='Agilent Labware MiniHub - 1; cassette 1, slot 1, slot 2, slot 3, slot 4, slot 5; cassette 2, slot 1, slot 2, slot 3, slot 4, slot 5; cassette 3, slot 1, slot 2, slot 3, slot 4, slot 5; cassette 4, slot 1, slot 2, slot 3, slot 4, slot 5' />
 						</AssignedLocations_Node>
 					</Parameter>
 				</Task>
@@ -248,7 +245,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Free empty stackers' Value='1' />
+						<Parameter Category='' Name='Free empty stackers' Value='0' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
@@ -336,7 +333,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Free empty stackers' Value='1' />
+						<Parameter Category='' Name='Free empty stackers' Value='0' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
@@ -639,11 +636,11 @@ task.Wellselection = [tm.getWellSelectionTransferDestination()];' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;02ebd9d6cc475a6495bae9d9e4fcd5ca&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;8e6db7041976e3e43da2c1ec108f0188&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;7&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -678,7 +675,7 @@ task.Wellselection = [tm.getWellSelectionTransferDestination()];' />
 					<TaskScript Name='TaskScript' Value='if(tm.hasTip()) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Plate to change' Value='newTips' />
-						<Parameter Category='' Name='Spawn control' Value='Precalculate # of plates (normal operation)' />
+						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Change Instance' >
@@ -689,7 +686,7 @@ task.Wellselection = [tm.getWellSelectionTransferDestination()];' />
 					<TaskScript Name='TaskScript' Value='if(tm.hasTip()) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Plate to change' Value='usedTips' />
-						<Parameter Category='' Name='Spawn control' Value='Precalculate # of plates (normal operation)' />
+						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >

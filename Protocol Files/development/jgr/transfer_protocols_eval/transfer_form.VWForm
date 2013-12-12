@@ -34,7 +34,7 @@
     </Object>
     <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
       <Property name="Image">
-        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE3SURBVDhPnZPNioJgFIa7o5kbDrsEl/4SKoS/0EJwYZQoFi1alChKizO8B86hGWgxHXgwOe/zwvdVK8MwvjebDX0C3BXE5/P5EXC5YFkWut/v/wKOFszzTLfbjem6jrIsY/D577vk4GjBNE10vV6ZJElIpixLAjLYSQ6OFozjSOfzmQmCQIWiKAjIYCc5OFowDAO1bctst1sV0jQlIIOd5OBowePxoOPxyPi+r0IcxwRksJMcHC3Aueq6ZlzXVWG32xGQwU5ycLTgcrlQVVWMbdsqRFFEQAY7ycHRgr7v+baBZVm/Lu31UrGTHBwtwHe93+8Zx3G0IAxDAjLYSQ6OFjRNQ3meMzizaZqM53mMvGMnOThacDqd+AcERHr3lBwcLTgcDiTIGd89X7NcsF6vvz75K8OB+wN49m3cYcUO6AAAAABJRU5ErkJggg==</Binary>
+        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE8SURBVDhPnZLBqoJQEIZ7o+4LSz1CyyxDMhDNhBZCi8JEUXHhQqNIWkz8c88McaHFdeCDI/P9P5xTk9ls9jOfz2kMyE5weL1eo0CWC4ZhoK7r/gUyWvB8PqltW6YoCoqiiMH577d4yGjB4/GgpmmYMAxJJkkSRgY78ZDRgvv9TlVVMdvt1uhEcRwzMtiJh4wW3G43yvOccV3X6ET7/Z6RwU48ZLSg73tK05TZbDZGJwqCgJHBTjxktAB3Op/PzHq9NjqR7/uMDHbiIaMFdV3T6XRibNs2OtFut2NksBMPGS0oy1JffLlcGv330T4fFTvxkNEC/L7H45FZrVZGJ/I8j5HBTjxktCDLMjocDgzuvFgsGMdxGPnGTjxktOB6vfKfBEjoG+IhowWXy0WRO37j0+UCy7KmOIzBsqzpG3j2bdwSxTLSAAAAAElFTkSuQmCC</Binary>
       </Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
@@ -64,7 +64,7 @@
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
       <Property name="Image">
-        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFfSURBVDhPnZPJisJAFEX9o+4flvgFQRCCcdagcVpkERBUHDFBowsVRXFxm/ugHg5tQxu4EPWeU6+qMGVZ1ncmk8EnIZsieLvdPgpZEVyvV+z3+3+FjAoulwt2ux2WyyV6vZ5kPp/Ld+9CRgXn8xnr9RqdTkeAbreLarUqnyeTifz2HDIqOJ1OiKII9Xod5tlutyKoVCrwfR+j0Ug6JmRUcDwesVgsZNXnh6J2u41SqYRms4nhcChdMio4HA4yarlcfhHcT8RJGo2GdMmogPvjiMVi8a0gSRK0Wi3ZJrtkVBDHMQaDAVzXfRFsNhtZ1XEcOY8gCKRLRgWr1QphGCKfz6uAIFfLZrMCe54nHRMyKuD901woFECQh2nbNnK5nLzz8Bh2TMioYDabod/vyx45BVfledRqtYewY0JGBdPpVO6c4XX9FdMjo4LxeAyT+33+9n7fFUE6nf765K9MhuwPGz5rrr64H/0AAAAASUVORK5CYII=</Binary>
+        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPnZHbioJQFIZ7o+aFJZ8ggkDSjhppWhddCEJFB6OisouKpPBiDf8aXTU1MzBu+GGX//ftU6FUKn2oqkp5AraASZIkuQKWBff7nU6n078CRgS3242OxyOtVisaDAac5XLJ//0WMCKI45h2ux25rssfPc+jdrvNv2ezGX97DRgRXK9X2mw2ZJomZSOKIha0Wi1yHIcmkwl3soARweVyoTAMedXXAVG/36dGo0G9Xo/G4zF3wYjgfD7zVpvNZoq9D4iwE8uyuAtGBDgTtliv19P6+zgcDmTbNh8TXTAi2G63FAQB6bqe1h9jv9/zqpqm8X2MRiPughHBer0m3/epVqul2BeI1SqVCsPdbpc7WcCIAO8Ps2EYDOIyy+UyVatVnuPyEHSygBHBYrGg4XDIZ8QusCruo9PpfAs6WcCIYD6f85sjeK6/kvXAiGA6nUqez/lTnrssUBSliEmeKIpS/AQbPmuu0fJ9NAAAAABJRU5ErkJggg==</Binary>
       </Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
@@ -80,7 +80,7 @@
       <Property name="Name">operatorConsoleButton1</Property>
       <Property name="TextImageRelation">ImageBeforeText</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="// Load the correct protocol depending on what the user&#xA;// selected in the form:&#xA;var path = &quot;C:/VWorks Workspace/Protocol files/development/jgr/transfer_protocols_eval/&quot;;&#xA; if(formMode == &quot;Transfer&quot;) {&#xA;	path += &quot;transfer_v1303.pro&quot;;&#xA;} else if(formMode == &quot;Dilution&quot;) {&#xA;	path += &quot;transfer_dilution_v1301.pro&quot;;&#xA;} else if(formMode == &quot;Adapter&quot;) {&#xA;	path += &quot;transfer_adapter_v1301.pro&quot;;&#xA;} else if(formMode == &quot;Dilution_v1303&quot;) {&#xA;	path += &quot;transfer_dilution_v1303.pro&quot;;&#xA;} else if(formMode == &quot;Dilution LIMS&quot;) {&#xA;	path += &quot;transfer_dilution_lims_v1303.pro&quot;;&#xA;}&#xA;&#xA;runset.appendProtocolFileToRunset(path, 1, &quot;&quot;, &quot;transfer_form.VWForm&quot;);" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="// Load the correct protocol depending on what the user&#xA;// selected in the form:&#xA;var path = &quot;C:/VWorks Workspace/Protocol files/development/jgr/transfer_protocols_eval/&quot;;&#xA; if(formMode == &quot;Transfer&quot;) {&#xA;	path += &quot;transfer_v1303.pro&quot;;&#xA;} else if(formMode == &quot;Dilution&quot;) {&#xA;	path += &quot;transfer_dilution_v1301.pro&quot;;&#xA;} else if(formMode == &quot;Adapter&quot;) {&#xA;	path += &quot;transfer_adapter_v1301.pro&quot;;&#xA;} else if(formMode == &quot;Dilution_v1303&quot;) {&#xA;	path += &quot;transfer_dilution_v1303.pro&quot;;&#xA;} else if(formMode == &quot;Dilution LIMS&quot;) {&#xA;	path += &quot;transfer_dilution_lims_v1303.pro&quot;;&#xA;} else if(formMode == &quot;transfer_v1304&quot;) {&#xA;	path += &quot;transfer_v1304.pro&quot;;&#xA;}&#xA;&#xA;runset.appendProtocolFileToRunset(path, 1, &quot;&quot;, &quot;transfer_form.VWForm&quot;);" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the Script above will always execute in the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Icon" Description="A graphical image file to display in the button" Type="9" Value="C:\VWorks Workspace\Protocol Files\development\jgr\icons\1313497517_media_controls_light_play.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp;*.ico)|*.jpg;*.png;*.bmp;*.ico||" Hide_if="" />
       <Parameter Name="Disable when running" Description="the button is disabled whenever a protocol is running" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
@@ -163,6 +163,7 @@
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Adapter</Item>
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Dilution_v1303</Item>
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Dilution LIMS</Item>
+        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">transfer_v1304</Item>
       </Property>
       <Property name="Location">73, 72</Property>
       <Property name="ForeColor">0, 0, 0</Property>
@@ -170,7 +171,7 @@
       <Property name="Font">Tahoma, 9pt</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formMode" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="Transfer;Dilution;Adapter;Dilution_v1303;Dilution LIMS;" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="Transfer;Dilution;Adapter;Dilution_v1303;Dilution LIMS;transfer_v1304" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
       <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="Transfer" ValueToDisplay="" Hide_if="Const(0)" />
