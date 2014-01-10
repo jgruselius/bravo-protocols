@@ -13,7 +13,7 @@ presets["Template preparation"] = {tipColumn:1,reagentColumn:1,sampleVolume:10,r
 presets["Library synthesis"] = {tipColumn:2,reagentColumn:2,sampleVolume:13,reagentVolume:2,incubationTemperature:22,incubationTime:2400,doOffDeckIncubation:false};
 presets["PCR setup"] = {tipColumn:3,reagentColumn:3,sampleVolume:16,reagentVolume:58,incubationTemperature:22,incubationTime:0,doOffDeckIncubation:true};
 
-presets["PCR cleanup"] = {sampleVolume:50,beadVolume:50,elutionVolume:30};
+presets["PCR cleanup"] = {sampleVolume:70,beadVolume:70,elutionVolume:30};
 
 var settings = {};
 
