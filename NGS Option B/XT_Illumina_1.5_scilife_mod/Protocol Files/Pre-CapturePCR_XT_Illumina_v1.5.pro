@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='3bb262e6eaab297c56516a3a79339431' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='eb30768a12c3997fea7181c3b2662710' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\NGS Option B\XT_Illumina_1.5_scilife_mod\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='C:\VWorks Workspace\NGS Option B\XT_Illumina_1.5_scilife_mod\Forms\SureSelectXT_Illumina_v1.5.VWForm' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open(&quot;C:\\VWorks Workspace\\NGS Option B\\XT_Illumina_1.5_scilife_mod\\Scripts\\tiptracking.js&quot;)
 open(&quot;C:\\VWorks Workspace\\NGS Option B\\XT_Illumina_1.5_scilife_mod\\Scripts\\file_operations.js&quot;)' Use_Global_JS_Context='1' />
 	<Processes >
@@ -287,6 +287,19 @@ Click Continue if this is intended.  Abort the protocol if the box should not be
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Master Mix Addition' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Master Mix Addition' />
 					</Parameters>
 				</Task>
@@ -305,6 +318,19 @@ Click Continue if this is intended.  Abort the protocol if the box should not be
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Transfer DNA' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Transfer DNA' />
 					</Parameters>
@@ -1018,11 +1044,11 @@ Click Continue if this is intended.  Abort the protocol if the box should not be
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='13' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='task.Volume = low_input ? 20 : 35;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Master Mix Plate' />
 						<Parameter Category='' Name='Location, location' Value='9' />
-						<Parameter Category='Volume' Name='Volume' Value='35' />
+						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='4' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 10 - 50ul aq' />
@@ -1054,13 +1080,13 @@ Click Continue if this is intended.  Abort the protocol if the box should not be
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='15' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='
+					<TaskScript Name='TaskScript' Value='task.Volume = low_input ? 20 : 35;
 task.Wellselection = [[ 1 , precapturepcr_mm ]]' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Reaction Plate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
-						<Parameter Category='Volume' Name='Volume' Value='35' />
+						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='4' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 10 - 50ul aq' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='2' />
@@ -1250,11 +1276,11 @@ print(&quot;Pressing tips on at &quot; + task.Wellselection)' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='task.Volume = low_input ? 30 : 15;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='DNA Plate' />
 						<Parameter Category='' Name='Location, location' Value='7' />
-						<Parameter Category='Volume' Name='Volume' Value='15' />
+						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='4' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 10 - 50ul aq' />
@@ -1286,12 +1312,12 @@ print(&quot;Pressing tips on at &quot; + task.Wellselection)' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='task.Volume = low_input ? 30 : 15;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Reaction Plate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
-						<Parameter Category='Volume' Name='Volume' Value='15' />
+						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='4' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 10 - 50ul aq' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='2' />
