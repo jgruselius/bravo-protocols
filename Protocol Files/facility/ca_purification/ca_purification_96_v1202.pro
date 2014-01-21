@@ -5747,7 +5747,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 					<TaskScript Name='TaskScript' Value='if(elutionVolume &gt; 24) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Title' Value='Spin down' />
-						<Parameter Category='' Name='Body' Value='Take the Nunc plate from position 5 and spin down for 5 s. Return the plate and click &apos;Continue&apos;.' />
+						<Parameter Category='' Name='Body' Value='Take the Nunc plate from position 7 and spin down for 5 s. Return the plate and click &apos;Continue&apos;.' />
 						<Parameter Category='' Name='Only show the first time' Value='' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
