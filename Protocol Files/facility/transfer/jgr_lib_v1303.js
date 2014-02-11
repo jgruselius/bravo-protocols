@@ -132,13 +132,14 @@ function Tipbox(tips, origin) {
 /*
  Parses a string-represented integer or float
 */
-function readNumeral(value) {
+function readNumeral(value, places) {
 	var iVal = parseInt(value, 10);
 	var fVal = parseFloat(value);
 	var num = (iVal == fVal) ? iVal : fVal;
 	if(isNaN(num) || !isFinite(num)) {
 		throw "UnexpectedValueException: \"" + value + "\"";
 	}
+	if(typeof places === "number") num = parseFloat(num.toFixed(places));
 	return num;
 }
 
@@ -248,12 +249,12 @@ function parseTransfers(str) {
 		try {
 			sourcePlate = row[0];
 			sourceWell = convertCoords(row[1]);
-			volume = readNumeral(row[2]).toPrecision(3);
+			volume = readNumeral(row[2], 3);
 			destinationWell = convertCoords(row[3]);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
-		if(volume) {
+		if(volume > 0) {
 			transferArray.push(new Transfer(sourcePlate, sourceWell,
 				volume, destinationWell, true));
 		}
@@ -298,14 +299,14 @@ function parseAdapterTransfers(str, indexSet) {
 		var source, volume, destination;
 		try {
 			source = convertCoords(plateMap[row[1]]);
-			volume = readNumeral(row[2]).toPrecision(3);
+			volume = readNumeral(row[2], 3);
 			destination = convertCoords(row[0]);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
 		// Keep tip between transfers of the same index:
 		var newTip = (i == 0) || (row[1] != rowArray[i-1][1]);
-		if(volume) {
+		if(volume > 0) {
 			transferArray.push(new Transfer("adapter_plate", source, volume,
 				destination, newTip));
 		}
@@ -327,15 +328,15 @@ function parseDilutionTransfers(str) {
 		var sourceWell, sourceVolume, destinationWell, finalVolume;
 		try {
 			sourceWell = convertCoords(row[0]);
-			sourceVolume = readNumeral(row[1]).toPrecision(3);
+			sourceVolume = readNumeral(row[1], 3);
 			destinationWell = convertCoords(row[2]);
 			diluentWell = convertCoords("A1");
-			diluentVolume = (readNumeral(row[3]) - sourceVolume).toPrecision(3);
+			diluentVolume = (readNumeral(row[3], 3) - sourceVolume);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
 		var newTip;
-		if(sourceVolume) {
+		if(sourceVolume > 0) {
 			newTip = (sampleTransferArray.length != 0);
 			sampleTransferArray.push(new Transfer("sample_plate", sourceWell,
 				sourceVolume, destinationWell, newTip));
@@ -370,15 +371,15 @@ function parseDilutionTransfersLims(str) {
 		var sourceWell, sourceVolume, destinationWell, finalVolume;
 		try {
 			sourceWell = convertCoordsRegExp(row[2]);
-			sourceVolume = readNumeral(row[5]).toPrecision(3);
+			sourceVolume = readNumeral(row[5], 3);
 			destinationWell = convertCoordsRegExp(row[7]);
 			diluentWell = convertCoords("A1");
-			diluentVolume = readNumeral(row[11]).toPrecision(3);
+			diluentVolume = readNumeral(row[11], 3);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
 		var newTip;
-		if(sourceVolume) {
+		if(sourceVolume > 0) {
 			newTip = (sampleTransferArray.length != 0);
 			sampleTransferArray.push(new Transfer("sample_plate", sourceWell,
 				sourceVolume, destinationWell, newTip));
