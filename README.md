@@ -3,7 +3,7 @@
 ### Description
 This repository contains files for *VWorks Automation Control* used to control the *Agilent NGS Workstation*. These protocols and supporting files are neccessary to run the automated laboratory protocols used at the Genomics platform at Science for Life Laboratory in Stockholm.
 
-The repository is a way to backup, track versions and share these protocols through a easily accessible resource. The repo is maintained by [Joel Gruselius](mailto:joel.gruselius@scilifelab.se).
+The repository provides means to backup, track versions and share these protocols through a easily accessible resource. The repo is maintained by [Joel Gruselius](mailto:joel.gruselius@scilifelab.se).
 
 #### Versions
 There are two main branches of the repository:
