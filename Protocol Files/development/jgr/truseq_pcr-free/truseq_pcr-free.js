@@ -14,8 +14,8 @@ presets["A-tailing"] = {tipColumn:2,reagentColumn:2,sampleVolume:15,reagentVolum
 presets["Ligation"] = {tipColumn:3,reagentColumn:3,sampleVolume:30,reagentVolume:5,bufferVolume:5,adapterVolume:2.5,incubationTemperature:30,incubationTime:600,doOffDeckIncubation:true};
 
 presets["Fragmentation cleanup"] = {sampleVolume:50,beadVolume:80,elutionVolume:50};
-presets["Size selection 350 bp"] = {sampleVolume:100,beadVolume1:95,beadVolume2:30,bindVolume:160,transferVolume:150,elutionVolume:15};
-presets["Size selection 550 bp"] = {sampleVolume:100,beadVolume1:80,beadVolume2:30,bindVolume:160,transferVolume:150,elutionVolume:15};
+presets["Size selection 350 bp"] = {sampleVolume:100,beadVolume1:95,beadVolume2:30,bindVolume:160,transferVolume:250,elutionVolume:15};
+presets["Size selection 550 bp"] = {sampleVolume:100,beadVolume1:80,beadVolume2:30,bindVolume:160,transferVolume:250,elutionVolume:15};
 presets["Ligation cleanup 1"] = {sampleVolume:42.5,beadVolume:42.5,elutionVolume:50};
 presets["Ligation cleanup 2"] = {sampleVolume:50,beadVolume:50,elutionVolume:20};
 
