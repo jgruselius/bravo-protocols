@@ -40,7 +40,7 @@ var runsetOrder = [];
 
 if(formProtocol === "Library prep") {
 	runsetMode = true;
-	runsetOrder = ["Fragmentation cleanup","End repair","Size selection "+formInsertSize,
+	runsetOrder = ["End repair","Size selection "+formInsertSize,
 			"A-tailing","Ligation","Ligation cleanup 1","Ligation cleanup 2"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
 } else if(formProtocol === "Size selection") {
