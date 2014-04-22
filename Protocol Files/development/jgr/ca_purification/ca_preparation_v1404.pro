@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='78ce7c8c7e472450a157e4eaf83f1ebe' version='2.0' >
-	<File_Info AllowSimultaneousRun='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
+<Velocity11 file='Protocol_Data' md5sum='278d38950d715d36d2de601dc79cd53b' version='2.0' >
+	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
 			<Process >
@@ -14,13 +14,13 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var global = GetGlobalObject();
 
-var numberColumns = parseInt(global.formColumns);
-var precipBufferVolume = parseFloat(global.formPrecipVolume) + 10; // Total incl dead vol
-var headMode = &quot;1,2,1,&quot; + numberColumns;
+var volume = {};
+var columns = parseInt(global.formColumns, 10);
+volume.elution = parseFloat(global.formElutionVolume);
+volume.pbuffer = parseFloat(global.formPrecipVolume) + 10; // Total incl dead vol
+volume.wash = parseFloat(global.formWashVolume);
 
-// DEBUG
-print(headMode);
-print(&quot;numCols=&quot;+numberColumns);
+var headMode = &quot;1,2,1,&quot; + columns;
 
 global.statusString = &quot;Preparing buffer plates&quot;;' />
 				</Task>
@@ -132,6 +132,7 @@ global.statusString = &quot;Preparing buffer plates&quot;;' />
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -201,6 +202,7 @@ global.statusString = &quot;Preparing buffer plates&quot;;' />
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -270,6 +272,7 @@ global.statusString = &quot;Preparing buffer plates&quot;;' />
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -339,6 +342,7 @@ global.statusString = &quot;Preparing buffer plates&quot;;' />
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -434,6 +438,7 @@ global.statusString = &quot;Preparing buffer plates&quot;;' />
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -529,6 +534,7 @@ global.statusString = &quot;Preparing buffer plates&quot;;' />
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -613,6 +619,7 @@ global.statusString = &quot;Preparing buffer plates&quot;;' />
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -648,6 +655,7 @@ global.statusString = &quot;Preparing buffer plates&quot;;' />
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -697,6 +705,7 @@ global.statusString = &quot;Preparing buffer plates&quot;;' />
 					<Parameter Name='Automatically update labware' Value='1' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -746,6 +755,7 @@ global.statusString = &quot;Preparing buffer plates&quot;;' />
 					<Parameter Name='Automatically update labware' Value='1' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -774,12 +784,12 @@ global.statusString = &quot;Preparing buffer plates&quot;;' />
 					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
-var mTipSelection = [[1,13-numberColumns]];
+var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_fast_large_vol&quot;;
 var mPreAspVolume = 10;
-var mTransferVolume = 1100;
+var mTransferVolume = volume.elution;
 var mAspDistance = 1;
 var mDispDistance = 2;
 var mBlowoutHeight = 10;
@@ -1095,12 +1105,12 @@ if(mDoTipTouch) {
 					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
-var mTipSelection = [[1,13-numberColumns]];
+var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_normal_large_vol&quot;;
 var mPreAspVolume = 20;
-var mTransferVolume = 800;
+var mTransferVolume = volume.wash;
 var mAspDistance = 1;
 var mDispDistance = 2;
 var mBlowoutHeight = 10;
@@ -1416,12 +1426,12 @@ if(mDoTipTouch) {
 					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
-var mTipSelection = [[1,13-numberColumns]];
+var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
 var mLiquidClass = &quot;j_slow_large_vol&quot;;
 var mPreAspVolume = 20;
-var mTransferVolume = precipBufferVolume;
+var mTransferVolume = volume.pbuffer;
 var mAspDistance = 1;
 var mDispDistance = 1;
 var mBlowoutHeight = 10;
