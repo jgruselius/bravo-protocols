@@ -43,7 +43,7 @@ mh1-3: sample tt (empty)		-x mh1-3
 PCR
 
 start
-b1: clean tips (col -n)			<- bc1		<- bc1
+b1: clean tips* (col -n)			<- bc1		<- bc1
 b2: clean tips (col 1 or 4*)		<- mh4-2	<- mh1-1
 b4: indexes tt				<- mh4-5	<- mh1-3
 b6: empty tt				<- mh1-4	<- mh1-4
