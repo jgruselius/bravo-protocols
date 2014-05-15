@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='01853ce236423b2df6c67a5ee84868e8' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='227d7bcadca244d41eeed4542fc40c38' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/truseq/truseq_startup_v1201.js&apos;);
 ' Use_Global_JS_Context='1' />
 	<Processes >
@@ -13,7 +13,9 @@
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='// Get columns of samples value from form:
+					<TaskScript Name='TaskScript' Value='// Author: Joel Gruselius (joel.gruselius@scilifelab.se), SciLifeLab, 2011
+
+// Get columns of samples value from form:
 var n_columns = formColumns;
 
 print(&quot;truseq_startup::n_columns=&quot; + n_columns);
