@@ -208,7 +208,7 @@ function convertCoordsRegExp(wellPos) {
  in column 2
 */
 function sortRowsByPlate(row1, row2) {
-	var a, b = {};
+	var a = {}, b = {};
 	a.id = row1[0].toLowerCase();
 	b.id = row2[0].toLowerCase();
 	// If plate ID is a number, convert from string to int/double:
@@ -267,7 +267,7 @@ function parseTransfers(str) {
 		try {
 			sourcePlate = row[0];
 			sourceWell = convertCoords(row[1]);
-			volume = parseNumber(row[2]), 3);
+			volume = parseNumber(row[2], 3);
 			destinationWell = convertCoords(row[3]);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
@@ -332,7 +332,7 @@ function parseAdapterTransfers(str, indexSet) {
 		var source, volume, destination;
 		try {
 			source = convertCoords(plateMap[row[1]]);
-			volume = parseNumber(row[2]), 3);
+			volume = parseNumber(row[2], 3);
 			destination = convertCoords(row[0]);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
@@ -534,7 +534,9 @@ function TransferManager(transferMode, tipMode) {
 	this.openTransferFile = function(filePath) {
 		try {
 			var fileContent = readFile(filePath);
+			print("fileContent.length="+fileContent.length);
 			this.transfers = this.parseFunction(fileContent);
+			print("transfers.length="+this.transfers.length);
 			this.next = this.transfers[0][0];
 		} catch(e) {
 			this.next = undefined;
@@ -564,6 +566,14 @@ function TransferManager(transferMode, tipMode) {
 			totalSize += this.transfers[i].length;
 		}
 		return totalSize;
+	}
+	// Return the length of the current transfer array:
+	this.getCurrentSize = function() {
+		return this.transfers[this.plate].length;
+	}
+	// Return the number of plates in the transfer array:
+	this.numberOfPlates = function() {
+		return this.transfers.length;
 	}
 	// Return whether the transfer array of the current plate has a next element:
 	this.hasNextTransfer = function() {
