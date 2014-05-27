@@ -1,13 +1,13 @@
 /*
- jgr_lib_v1304.js
+ jgr_lib_v1404.js
  Author: Joel Gruselius
- Version: v1304
+ Version: v1404
  Description: Helper functions and classes for VWorks scripts, requires
  the VWorks-defined global functions 
 */
 
 /*
- CHANGED in v1304:
+ CHANGED in v1404:
  --TransferManager should hold Transfer objects in arrays of arrays per source
  --Implement tip tracking and support more than 96 transfers
  --[TEST]parseDilutionTransfer uses the regex-based covertCoords (allows format A:1)
@@ -17,6 +17,7 @@
  TODO
  --Dilution protocol able to handle multiple input plates
  --Make a common function for assigning sourceVolume, sourcePlate etc. 
+ --Methods to prototype properties
  */
 
 // CLASSES =====================================================================
@@ -304,7 +305,7 @@ function parseAdapterTransfers(str, indexSet) {
 							13:"E2"};
 	// TruSeq dual indexes are numbered column-wise for the SciLife ID (dualNN)
 	INDEX_SETS["truseq_dual"] = {};
-	for(var i = 1; i <= 96; i++) {
+	for(var i=1; i<=96; i++) {
 		var row = String.fromCharCode(64+rowFromIndex(i));
 		var col = columnFromIndex(i);
 		INDEX_SETS["truseq_dual"][i+1] = row + col;
@@ -369,7 +370,8 @@ function parseDilutionTransfers(str) {
 			sourceVolume = parseNumber(row[2], 3);
 			destinationWell = convertCoordsRegExp(row[3]);
 			diluentWell = convertCoords("A1");
-			diluentVolume = (parseNumber(row[4], 3) - sourceVolume);
+			// The substraction float may contain many dec so it is rounded:
+			diluentVolume = +(parseNumber(row[4], 3) - sourceVolume).toFixed(3);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
@@ -406,21 +408,38 @@ function parseDilutionTransfersLims(str) {
 	var sampleTransferArray = [];
 	var firstDataRow;
 	// Find the header row:
-	for(var i = 0, n = rowArray.length; i < n; i++) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		if(rowArray[i][0] === "Sample Name") {
 			firstDataRow = i + 1;
 			break;
 		}
 	}
-	for(var i = firstDataRow, n = rowArray.length; i < n; i++) {
+	for(var i=firstDataRow, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
-		var sourceWell, sourceVolume, destinationWell, finalVolume;
+		var sourceWell, sourceVolume, destinationWell, diluentVolume;
 		try {
 			sourceWell = convertCoordsRegExp(row[2]);
-			sourceVolume = parseNumber(row[5], 3);
 			destinationWell = convertCoordsRegExp(row[7]);
 			diluentWell = convertCoords("A1");
-			diluentVolume = parseNumber(row[11], 3);
+			// A missing value should be treated as 0 volume:
+			try {
+				sourceVolume = parseNumber(row[5], 3);
+			} catch(e) {
+				if(row[5] === "") {
+					sourceVolume = 0;
+				} else {
+					throw e;
+				}
+			}
+			try {
+				diluentVolume = parseNumber(row[11], 3);
+			} catch(e) {
+				if(row[11] === "") {
+					diluentVolume = 0;
+				} else {
+					throw e;
+				}
+			}
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
@@ -437,7 +456,6 @@ function parseDilutionTransfersLims(str) {
 		}
 	}
 	return [diluentTransferArray, sampleTransferArray];
-
 }
 
 // FILE_OPERATIONS==============================================================
@@ -551,21 +569,19 @@ function TransferManager(transferMode, tipMode) {
 		this.checkVolumes();
 	}
 	// Calculate number of transfers for each source ID:
+	// Calculate number of transfers for each source ID:
 	this.updateSize = function() {
 		if(this.transfers && this.transfers.length) {
-			this.sizes = [];
-			for(var i in this.transfers) {
-				this.sizes.push(this.transfers[i].length);
-			}
+			this.size = this.transfers.map(function(x) { return x.length; });
 		}
 	}
 	// Return total size:
 	this.getSize = function() {
-		var totalSize = 0;
-		for(var i in this.transfers) {
-			totalSize += this.transfers[i].length;
+		var tot = 0;
+		for(var i=this.transfers.length; i-->0;) {
+			tot += this.transfers[i].length;
 		}
-		return totalSize;
+		return tot;
 	}
 	// Return the length of the current transfer array:
 	this.getCurrentSize = function() {
@@ -622,7 +638,7 @@ function TransferManager(transferMode, tipMode) {
 	this.checkVolumes = function() {
 		if(this.transfers && this.transfers.length) {
 			this.constantVolumes = [];
-			for(var i in this.transfers) {
+			for(var i=this.transfers.length; i-->0;) {
 				var temp = this.transfers[i];
 				this.constantVolumes[i] = temp.length > 0;
 				for(var j=0, m=this.transfers[i].length; j<m-1; j++) {
@@ -671,4 +687,4 @@ function TransferManager(transferMode, tipMode) {
 }
 
 //DEBUG:
-print("jgr_lib_v1304.js EOF");
+print("jgr_lib_v1404.js EOF");
