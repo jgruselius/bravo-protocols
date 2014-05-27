@@ -331,7 +331,8 @@ function parseDilutionTransfers(str) {
 			sourceVolume = readNumeral(row[1], 3);
 			destinationWell = convertCoords(row[2]);
 			diluentWell = convertCoords("A1");
-			diluentVolume = (readNumeral(row[3], 3) - sourceVolume);
+			// The substraction float may contain many dec so it is rounded:
+			diluentVolume = +(readNumeral(row[3], 3) - sourceVolume).toFixed(3);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
@@ -360,21 +361,38 @@ function parseDilutionTransfersLims(str) {
 	var sampleTransferArray = [];
 	var firstDataRow;
 	// Find the header row:
-	for(var i = 0, n = rowArray.length; i < n; i++) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		if(rowArray[i][0] === "Sample Name") {
 			firstDataRow = i + 1;
 			break;
 		}
 	}
-	for(var i = firstDataRow, n = rowArray.length; i < n; i++) {
+	for(var i=firstDataRow, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
-		var sourceWell, sourceVolume, destinationWell, finalVolume;
+		var sourceWell, sourceVolume, destinationWell, diluentVolume;
 		try {
 			sourceWell = convertCoordsRegExp(row[2]);
-			sourceVolume = readNumeral(row[5], 3);
 			destinationWell = convertCoordsRegExp(row[7]);
 			diluentWell = convertCoords("A1");
-			diluentVolume = readNumeral(row[11], 3);
+			// A missing value should be treated as 0 volume:
+			try {
+				sourceVolume = readNumeral(row[5], 3);
+			} catch(e) {
+				if(row[5] === "") {
+					sourceVolume = 0;
+				} else {
+					throw e;
+				}
+			}
+			try {
+				diluentVolume = readNumeral(row[11], 3);
+			} catch(e) {
+				if(row[11] === "") {
+					diluentVolume = 0;
+				} else {
+					throw e;
+				}
+			}
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
@@ -391,7 +409,6 @@ function parseDilutionTransfersLims(str) {
 		}
 	}
 	return diluentTransferArray.concat(sampleTransferArray);
-
 }
 
 // FILE_OPERATIONS==============================================================
