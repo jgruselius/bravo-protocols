@@ -360,21 +360,38 @@ function parseDilutionTransfersLims(str) {
 	var sampleTransferArray = [];
 	var firstDataRow;
 	// Find the header row:
-	for(var i = 0, n = rowArray.length; i < n; i++) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		if(rowArray[i][0] === "Sample Name") {
 			firstDataRow = i + 1;
 			break;
 		}
 	}
-	for(var i = firstDataRow, n = rowArray.length; i < n; i++) {
+	for(var i=firstDataRow, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
 		var sourceWell, sourceVolume, destinationWell, finalVolume;
 		try {
 			sourceWell = convertCoordsRegExp(row[2]);
-			sourceVolume = readNumeral(row[5], 3);
 			destinationWell = convertCoordsRegExp(row[7]);
 			diluentWell = convertCoords("A1");
-			diluentVolume = readNumeral(row[11], 3);
+			// A missing value should be treated as 0 volume:
+			try {
+				sourceVolume = parseNumber(row[5], 3);
+			} catch(e) {
+				if(row[5] === "") {
+					sourceVolume = 0;
+				} else {
+					throw e;
+				}
+			}
+			try {
+				dilutionVolume = parseNumber(row[11], 3);
+			} catch(e) {
+				if(row[11] === "") {
+					dilutionVolume = 0;
+				} else {
+					throw e;
+				}
+			}
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
@@ -390,8 +407,7 @@ function parseDilutionTransfersLims(str) {
 				diluentWell, diluentVolume, destinationWell, newTip));
 		}
 	}
-	return diluentTransferArray.concat(sampleTransferArray);
-
+	return [diluentTransferArray, sampleTransferArray];
 }
 
 // FILE_OPERATIONS==============================================================
