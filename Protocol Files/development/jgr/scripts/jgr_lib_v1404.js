@@ -571,8 +571,14 @@ function TransferManager(transferMode, tipMode) {
 	// Calculate number of transfers for each source ID:
 	// Calculate number of transfers for each source ID:
 	this.updateSize = function() {
-		if(this.transfers && this.transfers.length) {
-			this.size = this.transfers.map(function(x) { return x.length; });
+		var n = this.transfers.length
+		if(this.transfers && n) {
+			this.sizes = Array(n);
+			for(var i=n; i-->0;) {
+				this.sizes[i] = this.transfers[i].length;
+			}
+			// The VWorks JS engine doesn't seem to support Array.map
+			// this.sizes = this.transfers.map(function(x) { return x.length; });
 		}
 	}
 	// Return total size:
@@ -590,6 +596,14 @@ function TransferManager(transferMode, tipMode) {
 	// Return the number of plates in the transfer array:
 	this.numberOfPlates = function() {
 		return this.transfers.length;
+	}
+	// Return an array of transfer objects:
+	this.getAll = function() {
+		var all = [];
+		for(var i=0, n=this.transfers.length; i<n; i++) {
+			all = all.concat(this.transfers[i]);
+		}
+		return all;
 	}
 	// Return whether the transfer array of the current plate has a next element:
 	this.hasNextTransfer = function() {
@@ -629,7 +643,9 @@ function TransferManager(transferMode, tipMode) {
 	}
 
 	// This could be implemented with a queue as well:
+	// (Just an example, do not use this method)
 	this.increment2 = function() {
+		return undefined;
 		this.current = this.transfers[0].shift();
 		if(this.transfers[0].length === 0) this.transfers.shift();
 		this.next = this.transfers[0][0];
