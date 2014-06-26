@@ -379,9 +379,9 @@ function parseDilutionTransfers(str) {
 		// sourceTransferArray. Make sure the order is correct by using
 		// plateIndex
 		if(!(sourcePlate in plateSet)) {
-				plateSet[sourcePlate] = sourcePlate;
-				diluentIndex = transferArrays.push([]) - 1;
-				sourceIndex = transferArrays.push([]) - 1;
+			plateSet[sourcePlate] = sourcePlate;
+			diluentIndex = transferArrays.push([]) - 1;
+			sourceIndex = transferArrays.push([]) - 1;
 		}
 		var newTip;
 		if(sourceVolume > 0) {
