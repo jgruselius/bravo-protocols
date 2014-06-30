@@ -15,6 +15,8 @@
  --Make a common function for assigning sourceVolume, sourcePlate etc. 
  --Methods to prototype properties
  */
+ 
+ var testing = true;
 
 // CLASSES =====================================================================
 
@@ -383,7 +385,7 @@ function parseDilutionTransfers(str) {
 			sourceIndex = transferArrays.push([]) - 1;
 		}
 		if(sourceVolume > 0) {
-			newTip = (transferArrays[sourceIndex].length !== 0);
+			newTip = (sourceIndex > 1 || transferArrays[sourceIndex].length > 0);
 			transferArrays[sourceIndex].push(new Transfer(sourcePlate, sourceWell,
 				sourceVolume, destinationWell, newTip));
 		}
@@ -545,10 +547,10 @@ function TransferManager(transferMode, tipMode) {
 	this.openTransferFile = function(filePath) {
 		try {
 			var fileContent = readFile(filePath);
-			print("fileContent.length="+fileContent.length);
+			if(testing) print("fileContent.length="+fileContent.length);
 			this.transfers = this.parseFunction(fileContent);
-			print("transfers.length="+this.transfers.length);
-			print("getAll().length="+this.getAll().length);
+			if(testing) print("transfers.length="+this.transfers.length);
+			if(testing) print("getAll().length="+this.getAll().length);
 			this.next = this.transfers[0][0];
 		} catch(e) {
 			this.next = undefined;
