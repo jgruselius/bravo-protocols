@@ -21,7 +21,7 @@ presets["Ligation cleanup 2"] = {sampleVolume:50,beadVolume:50,elutionVolume:25}
 presets["PCR cleanup"] = {sampleVolume:50,beadVolume:47.5,elutionVolume:30};
 
 presets["qPCR setup"] = {};
-presets["PCR setup"] = {tipColumn:4,reagentColumn:4,sampleVolume:25,reagentVolume:5,primerVolume:5};
+presets["PCR setup"] = {tipColumn:4,reagentColumn:4,sampleVolume:25,reagentVolume:20,primerVolume:5};
 
 var settings = {};
 
