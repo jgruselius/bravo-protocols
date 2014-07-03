@@ -360,15 +360,16 @@ function parseDilutionTransfers(str) {
 	transferArrays.push([]);
 	var plateSet = {};
 	var sourceIndex;
+	var diluentWell = convertCoords("A1");
 	for(var i in rowArray) {
 		var row = rowArray[i];
-		var sourcePlate, sourceWell, sourceVolume, destinationWell;
+		var sourcePlate, sourceWell, sourceVolume;
+		var destinationWell, diluentVolume;
 		try {
 			sourcePlate = row[0];
 			sourceWell = convertCoordsRegExp(row[1]);
 			sourceVolume = parseNumber(row[2], 3);
 			destinationWell = convertCoordsRegExp(row[3]);
-			diluentWell = convertCoords("A1");
 			// The substraction float may contain many dec so it is rounded:
 			diluentVolume = +(parseNumber(row[4], 3) - sourceVolume).toFixed(3);
 		} catch(e) {
@@ -409,13 +410,17 @@ function parseDilutionTransfersLims(str) {
 			break;
 		}
 	}
+	if(firstDataRow === undefined) {
+		throw "UnableToParseTransferTableException: Missing header row"
+	}
+	var diluentWell = convertCoords("A1");
 	for(var i=firstDataRow, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
-		var sourceWell, sourceVolume, destinationWell, diluentVolume;
+		var sourceWell, sourceVolume
+		var destinationWell, diluentVolume;
 		try {
 			sourceWell = convertCoordsRegExp(row[2]);
 			destinationWell = convertCoordsRegExp(row[7]);
-			diluentWell = convertCoords("A1");
 			// A missing value should be treated as 0 volume:
 			try {
 				sourceVolume = parseNumber(row[5], 3);
