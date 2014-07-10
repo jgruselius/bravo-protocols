@@ -11,12 +11,11 @@
  --Dilution protocol handles all buffer transfers in a single array
 
  TODO
- --Dilution protocol able to handle multiple input plates
  --Make a common function for assigning sourceVolume, sourcePlate etc. 
  --Methods to prototype properties
  */
  
- var testing = true;
+ var testing = false;
 
 // CLASSES =====================================================================
 
