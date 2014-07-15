@@ -11,7 +11,7 @@ There are two main branches of the repository:
 - *production* &mdash; only maintains validated protocols.
 
 ### Installation
-Clone the desired branch of the repository and place the files and folders of the resulting <code>bravo-protocols/</code> into <code>VWorks Workspace/</code>. Note that for many protocols the appropriate device files are required under <code>VWorks Workspace/Device Files/</code>. Also, the associated labware and liquid class entries are required in the Windows registry.
+Clone the desired branch of the repository and place the files and folders of the resulting `bravo-protocols/` into `VWorks Workspace/`. Note that for many protocols the appropriate device files are required under `VWorks Workspace/Device Files/`. Also, the associated labware and liquid class entries are required in the Windows registry.
 
 ### License
 ```
@@ -28,7 +28,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-Also see the [LICENSE](https://github.com/jgruselius/bravo-protocols/blob/master/LICENSE) file.
+The full license can also be found in the file [LICENSE](https://github.com/jgruselius/bravo-protocols/blob/production/LICENSE) and must included when redistributing the software.
+
+*VWorks Automation Control*, *Bravo* and other things relating to the *Agilent NGS Workstation* are trademarks owned by Agilent Technologies, Inc. (Santa Clara, CA 95052-8058, US).
 
 ### Contact
 Joel Gruselius ([joel.gruselius@scilifelab.se](mailto:joel.gruselius@scilifelab.se))<br />
