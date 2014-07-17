@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='612aefe2d6645839a7c20a6e26ff71f8' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='7acf46990387fca1291e12d4f9cc01ba' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/jgr_lib_v1405.js&apos;);
 ' Use_Global_JS_Context='0' />
 	<Processes >
@@ -574,7 +574,8 @@ print(&quot;buffer96Mode=&quot;+buffer96Mode+&quot;\n&quot;+
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var hasTransfer = tm.hasNextTransfer();' />
+					<TaskScript Name='TaskScript' Value='var hasTransfer = tm.hasNextTransfer();
+var counter = 0;' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -595,9 +596,7 @@ print(&quot;buffer96Mode=&quot;+buffer96Mode+&quot;\n&quot;+
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
-	tm.increment();
-}' />
+					<TaskScript Name='TaskScript' Value='tm.increment();' />
 				</Task>
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
@@ -613,7 +612,7 @@ print(&quot;buffer96Mode=&quot;+buffer96Mode+&quot;\n&quot;+
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(tm.useNewTip() &amp;&amp; hasTransfer) {
+					<TaskScript Name='TaskScript' Value='if(hasTransfer &amp;&amp; tm.useNewTip()) {
    task.Wellselection = buffer96Mode ? [[1,1]] : [tm.takeTip()];
 } else {
 	task.skip();
@@ -643,11 +642,13 @@ print(&quot;buffer96Mode=&quot;+buffer96Mode+&quot;\n&quot;+
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(!hasTransfer) {
+					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
+	task.Volume = tm.getVolume();
+   task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferSource()];
+} else {
 	task.skip();
 }
-task.Volume = tm.getVolume();
-task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferSource()];' />
+' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='diluent' />
 						<Parameter Category='' Name='Location, location' Value='6' />
@@ -683,11 +684,13 @@ task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferSource
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(!hasTransfer) {
+					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
+	task.Volume = tm.getVolume();
+	task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];
+	counter++;
+} else {
 	task.skip();
-}
-task.Volume = tm.getVolume();
-task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];' />
+}' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='destination' />
 						<Parameter Category='' Name='Location, location' Value='4' />
@@ -723,7 +726,7 @@ task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestin
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(tm.returnTip() &amp;&amp; hasTransfer) {
+					<TaskScript Name='TaskScript' Value='if(hasTransfer &amp;&amp; tm.returnTip()) {
 	task.Wellselection = buffer96Mode ? [[1,1]] : [tm.putTip()];
 } else {
 	task.skip();
@@ -794,7 +797,7 @@ task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestin
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='3' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if((!tm.returnTip() &amp;&amp; (buffer96Mode != sample96Mode)) &amp;&amp; hasTransfer) {
+					<TaskScript Name='TaskScript' Value='if(hasTransfer &amp;&amp; (!tm.returnTip() &amp;&amp; (buffer96Mode != sample96Mode))) {
 	task.Wellselection = buffer96Mode ? [[1,1]] : [[8,12]];
 } else {
 	task.skip();
@@ -912,7 +915,7 @@ if(buffer96Mode) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if((tm.useNewTip() || (sample96Mode != buffer96Mode)) &amp;&amp; hasTransfer) {
+					<TaskScript Name='TaskScript' Value='if(hasTransfer &amp;&amp; (counter &lt; 1 || tm.useNewTip() || (sample96Mode != buffer96Mode))) {
    task.Wellselection = sample96Mode ? [[1,1]] : [tm.takeTip()];
 } else {
 	task.skip();
@@ -922,11 +925,11 @@ if(buffer96Mode) {
 						<Parameter Category='' Name='Location, location' Value='2' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;97d445d57771fda5484f4dde60f2d13f&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5f2059fc319b70f2396dc218f7275f18&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;11&apos; Row=&apos;7&apos; /&gt;
+			&lt;Well Column=&apos;11&apos; Row=&apos;6&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -942,11 +945,13 @@ if(buffer96Mode) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(!hasTransfer) {
-   task.skip();
+					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
+	task.Volume = tm.getVolume();
+	task.Wellselection = sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferSource()];
+} else {
+	task.skip();
 }
-task.Volume = tm.getVolume();
-task.Wellselection = sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferSource()];' />
+' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='source' />
 						<Parameter Category='' Name='Location, location' Value='5' />
@@ -982,11 +987,13 @@ task.Wellselection = sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferSource
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(!hasTransfer) {
-   task.skip();
-}
-task.Volume = tm.getVolume();
-task.Wellselection = sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];' />
+					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
+	task.Volume = tm.getVolume();
+	task.Wellselection = sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];
+	counter++;
+} else {
+	task.skip();
+}' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='destination' />
 						<Parameter Category='' Name='Location, location' Value='4' />
@@ -1023,10 +1030,11 @@ task.Wellselection = sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestin
 						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Blowout
-if(!hasTransfer) {
-   task.skip();
-}
-task.Wellselection =  sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];' />
+if(hasTransfer) {
+	task.Wellselection =  sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];
+} else {
+	task.skip();
+}' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='destination' />
 						<Parameter Category='' Name='Location, location' Value='4' />
@@ -1062,7 +1070,7 @@ task.Wellselection =  sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDesti
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if((tm.returnTip() || sample96Mode) &amp;&amp; hasTransfer) {
+					<TaskScript Name='TaskScript' Value='if(hasTransfer &amp;&amp; (tm.returnTip() || sample96Mode)) {
 	task.Wellselection =  sample96Mode ? [[1,1]] : [tm.putTip()];
 } else {
 	task.skip();
@@ -1073,11 +1081,11 @@ task.Wellselection =  sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDesti
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;02ebd9d6cc475a6495bae9d9e4fcd5ca&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;93d340cdaa48671fd8f40a2e89e82aa5&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;1&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
