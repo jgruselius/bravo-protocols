@@ -702,4 +702,4 @@ function TransferManager(transferMode, tipMode) {
 }
 
 //DEBUG:
-print("jgr_lib_v1404.js EOF");
+print("jgr_lib_v1405.js EOF");
