@@ -77,9 +77,10 @@ presets["Ligation cleanup 2"] = {
 	elutionVolume:25
 	};
 
+	// Bead volume should be 50 if using single index
 presets["PCR cleanup"] = {
 	sampleVolume:50,
-	beadVolume:47.5,
+	beadVolume:50,
 	elutionVolume:30
 	};
 

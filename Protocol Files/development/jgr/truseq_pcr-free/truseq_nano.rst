@@ -234,7 +234,7 @@
 		</Runset>
 		<Runset Name='' >
 			<Parameters >
-				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\development\jgr\truseq_pcr-free\truseq_pcr-free_setup7.pro' />
+				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\development\jgr\truseq_pcr-free\truseq_nano_setup7.pro' />
 				<Parameter Name='Runs' Value='1' />
 				<Parameter Name='Protocol Notes' Value='' />
 				<Parameter Name='Priority' Value='0' />

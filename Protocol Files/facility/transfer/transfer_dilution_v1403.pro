@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='c910b24957c977e8ec443b9b1a559c80' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='7a6c5ee02289128901e4b858c3f09f80' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/development/jgr/scripts/jgr_lib_v1405.js&apos;);
 ' Use_Global_JS_Context='0' />
 	<Processes >
@@ -550,7 +550,7 @@ print(&quot;buffer96Mode=&quot;+buffer96Mode+&quot;\n&quot;+
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
+						<Setting Name='Estimated time' Value='12' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(buffer96Mode) {
    task.Headmode = &quot;0,2,1,1&quot;;
@@ -620,14 +620,14 @@ print(&quot;buffer96Mode=&quot;+buffer96Mode+&quot;\n&quot;+
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='newTips' />
-						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='' Name='Location, location' Value='2' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;3db1a36b2ef01bb4340194cf8d0722ed&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;97d445d57771fda5484f4dde60f2d13f&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;3&apos; /&gt;
+			&lt;Well Column=&apos;11&apos; Row=&apos;7&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -650,7 +650,7 @@ task.Volume = tm.getVolume();
 task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferSource()];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='diluent' />
-						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='' Name='Location, location' Value='6' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
@@ -681,7 +681,7 @@ task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferSource
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(!hasTransfer) {
 	task.skip();
@@ -690,7 +690,7 @@ task.Volume = tm.getVolume();
 task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='destination' />
-						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='' Name='Location, location' Value='4' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
@@ -730,7 +730,7 @@ task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestin
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='usedTips' />
-						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='' Name='Location, location' Value='1' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
@@ -771,7 +771,7 @@ task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestin
 					<TaskScript Name='TaskScript' Value='task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='newTips' />
-						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='' Name='Location, location' Value='1' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;02ebd9d6cc475a6495bae9d9e4fcd5ca&apos; version=&apos;1.0&apos; &gt;
@@ -801,7 +801,7 @@ task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestin
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='newTips' />
-						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='' Name='Location, location' Value='1' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
@@ -919,7 +919,7 @@ if(buffer96Mode) {
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='newTips' />
-						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='' Name='Location, location' Value='1' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;3db1a36b2ef01bb4340194cf8d0722ed&apos; version=&apos;1.0&apos; &gt;
@@ -949,7 +949,7 @@ task.Volume = tm.getVolume();
 task.Wellselection = sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferSource()];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='source' />
-						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='' Name='Location, location' Value='5' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='5' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
@@ -989,7 +989,7 @@ task.Volume = tm.getVolume();
 task.Wellselection = sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='destination' />
-						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='' Name='Location, location' Value='4' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
@@ -1029,7 +1029,7 @@ if(!hasTransfer) {
 task.Wellselection =  sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='destination' />
-						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='' Name='Location, location' Value='4' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
 						<Parameter Category='Volume' Name='Volume' Value='5' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
@@ -1069,7 +1069,7 @@ task.Wellselection =  sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDesti
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='usedTips' />
-						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='' Name='Location, location' Value='2' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
