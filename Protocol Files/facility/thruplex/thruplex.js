@@ -1,6 +1,6 @@
 runset.clear();
 
-var path = "C:/VWorks Workspace/Protocol Files/development/jgr/thruplex/";
+var path = "C:/VWorks Workspace/Protocol Files/facility/thruplex/";
 var form = "thruplex.VWForm"
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
