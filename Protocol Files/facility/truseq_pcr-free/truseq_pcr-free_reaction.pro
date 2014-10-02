@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='453f700744784741708a704a747955a0' version='2.0' >
-	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
+<Velocity11 file='Protocol_Data' md5sum='08cea29728b5dca17c5f577f1a027e0d' version='2.0' >
+	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\Documents and Settings\joel\My Documents\vworks_protocols\dev\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
 			<Process >
@@ -8,6 +8,7 @@
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -30,11 +31,12 @@ var tempRt = global.tempRt || 20;
 var sampleVolume = global.settings.sampleVolume || 50;
 var reagentVolume = global.settings.reagentVolume || 50;
 var incubationTemperature = global.settings.incubationTemperature || 20;
-// Note: Now doOffDeckIncubation=true means use the TRobot
-var doOffDeckIncubation = global.settings.doOffDeckIncubation;
+
 var incubationTime = global.settings.incubationTime * timeMod;
 var protocolName = global.formProtocol;
 
+// useCycler indicates whether to use tRObot for incubation
+var useCycler = true;
 var doCentrifuge = true;
 var sealFinalPlate = !global.runsetMode;
 var finalHold = !global.runsetMode;
@@ -53,6 +55,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -77,6 +80,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -110,6 +114,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// Plate with starting sample
@@ -125,23 +130,16 @@ global.statusString = protocolName + &quot; started&quot;;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='TransferSample' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferSample' />
@@ -175,6 +173,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// Plate with reaction mix (buffer/enzymes)
@@ -190,23 +189,16 @@ global.statusString = protocolName + &quot; started&quot;;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='AliquotMix' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AliquotMix' />
@@ -215,23 +207,16 @@ global.statusString = protocolName + &quot; started&quot;;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='TransferSample' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferSample' />
@@ -243,11 +228,13 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='doCentrifuge || task.skip();' />
+					<TaskScript Name='TaskScript' Value='// Seal if using VSpin or tRobot 
+doCentrifuge || useCycler || task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Seal time' Value='1.2' />
 						<Parameter Category='' Name='Seal temperature' Value='170' />
@@ -263,6 +250,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -291,9 +279,10 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='if(doOffDeckIncubation) task.skip();' />
+					<TaskScript Name='TaskScript' Value='useCycler || task.skip();' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='6' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
@@ -305,6 +294,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -333,9 +323,10 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='if(doOffDeckIncubation) task.skip();
+					<TaskScript Name='TaskScript' Value='useCycler &amp;&amp; task.skip();
 task.Incubationtime = incubationTime;' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='8' />
@@ -352,11 +343,12 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='doOffDeckIncubation || task.skip();' />
+					<TaskScript Name='TaskScript' Value='useCycler || task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Block Type' TaskParameterScript='=96' Value='' />
 						<Parameter Category='' Name='Program' TaskParameterScript='=cyclerProgram' Value='' />
@@ -371,11 +363,13 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='doCentrifuge || task.skip();' />
+					<TaskScript Name='TaskScript' Value='// Peel off seal if using VSpin or tRobot 
+doCentrifuge || useCycler || task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Begin location speed' Value='Default slow' />
 						<Parameter Category='' Name='Adhere time' Value='2.5 Seconds' />
@@ -391,11 +385,12 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='if(doOffDeckIncubation) task.skip();' />
+					<TaskScript Name='TaskScript' Value='useCycler || task.skip();' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
@@ -404,7 +399,8 @@ task.Incubationtime = incubationTime;' />
 				</Task>
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
+					<Task_Disabled >1</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='26' />
@@ -426,7 +422,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 						<Parameter Category='' Name='Twitter message' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
 						<Parameter Category='Task Description' Name='Task description' Value='User Message' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -434,6 +430,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -462,6 +459,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -480,10 +478,11 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 						<Device Device_Name='Biometra TRobot - 1' Location_Name='Load Port' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
+					<Task_Disabled >1</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='coolFinalPlate || task.skip();' />
+					<TaskScript Name='TaskScript' Value='finalHold || task.skip();' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='15' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
@@ -498,11 +497,12 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='coolFinalPlate || task.skip();' />
+					<TaskScript Name='TaskScript' Value='finalHold || task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Block Type' TaskParameterScript='=96' Value='' />
 						<Parameter Category='' Name='Program' TaskParameterScript='=1,1,hold4' Value='' />
@@ -517,6 +517,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(finalHold || (!finalHold &amp;&amp; !sealFinalPlate)) task.skip();' />
@@ -556,6 +557,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// Plate with end repair master mix in column 1' />
@@ -570,23 +572,16 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='AliquotMix' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AliquotMix' />
@@ -620,6 +615,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// New tipbox for dispensing master mix' />
@@ -634,23 +630,16 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='AliquotMix' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AliquotMix' />
@@ -684,6 +673,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// Empty tipbox for used master mix tips' />
@@ -698,23 +688,16 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='AliquotMix' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AliquotMix' />
@@ -726,6 +709,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -748,12 +732,14 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='SampleTips' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
 					</Parameters>
 				</Task>
 				<Plate_Parameters >
@@ -784,6 +770,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -803,6 +790,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// New tips for transfer of sample to end repair reaction mix' />
@@ -817,23 +805,16 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='TransferSample' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferSample' />
@@ -867,6 +848,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -884,6 +866,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -920,6 +903,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -932,6 +916,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -957,6 +942,7 @@ var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -978,6 +964,7 @@ var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -1007,6 +994,7 @@ var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1019,6 +1007,7 @@ var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -1039,6 +1028,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -1078,6 +1068,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1090,6 +1081,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -1129,6 +1121,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1136,6 +1129,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -1180,6 +1174,7 @@ if(columns == columnsDone) {
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1187,6 +1182,7 @@ if(columns == columnsDone) {
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
@@ -1217,6 +1213,7 @@ if(columns == columnsDone) {
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1247,6 +1244,7 @@ if(columns == columnsDone) {
 				<Task Name='BuiltIn::Reserve Location' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// Dummy task
@@ -1263,6 +1261,7 @@ task.skip();' />
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -1287,6 +1286,7 @@ task.skip();' />
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -1309,7 +1309,7 @@ task.skip();' />
 					</PipetteHead>
 				</Task>
 				<Devices >
-					<Device Device_Name='Bravo - 1' Location_Name='1' />
+					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
 				</Devices>
 				<Parameters >
 					<Parameter Name='Display confirmation' Value='Don&apos;t display' />
@@ -1329,9 +1329,10 @@ task.skip();' />
 				<Task Name='BuiltIn::Reserve Location' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='if(doOffDeckIncubation) task.skip();' />
+					<TaskScript Name='TaskScript' Value='useCycler &amp;&amp; task.skip();' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='1' />
 						<Parameter Category='Task Description' Name='Task description' Value='Reserve Location' />
@@ -1344,6 +1345,7 @@ task.skip();' />
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -1353,7 +1355,7 @@ this initial step is used to raise temperature quickly.
 Once reached the temperature is immediately lowered to
 the actual reaction temperature.
 */
-if(doOffDeckIncubation) task.skip();
+useCycler &amp;&amp; task.skip();
 task.Temperature = 58;' />
 					<Parameters >
 						<Parameter Category='' Name='Location' Value='4' />
@@ -1374,11 +1376,12 @@ task.Temperature = 58;' />
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='87' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(doOffDeckIncubation) task.skip();
+					<TaskScript Name='TaskScript' Value='useCycler &amp;&amp; task.skip();
 task.Temperature = incubationTemperature;' />
 					<Parameters >
 						<Parameter Category='' Name='Location' Value='4' />
@@ -1399,11 +1402,12 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='Bravo::secondary::Move To Location' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(!doOffDeckIncubation) task.skip();' />
+					<TaskScript Name='TaskScript' Value='useCycler &amp;&amp; task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Location' Value='1' />
 						<Parameter Category='Task Description' Name='Task number' Value='4' />
@@ -1415,7 +1419,7 @@ task.Temperature = incubationTemperature;' />
 					</PipetteHead>
 				</Task>
 				<Devices >
-					<Device Device_Name='Bravo - 1' Location_Name='1' />
+					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
 				</Devices>
 				<Parameters >
 					<Parameter Name='Display confirmation' Value='Don&apos;t display' />
@@ -1435,6 +1439,7 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1447,6 +1452,7 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -1468,6 +1474,7 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -1497,6 +1504,7 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
@@ -1536,6 +1544,7 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='34' />
@@ -1575,6 +1584,7 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='120' />
@@ -1614,6 +1624,7 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='28' />
@@ -1660,6 +1671,7 @@ task.Volume = mix_vol;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='10' />
@@ -1700,6 +1712,7 @@ task.Volume = PRE_ASP_SMALL;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
@@ -1730,6 +1743,7 @@ task.Volume = PRE_ASP_SMALL;' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
