@@ -16,7 +16,7 @@ presets["End repair"] = {
 	incubationTemperature:30,
 	incubationTime:1800,
 	doOffDeckIncubation:true,
-	cyclerProtocol:"";
+	cyclerProgram:"2,1,ts-er"
 	};
 
 presets["A-tailing"] = {
@@ -27,7 +27,7 @@ presets["A-tailing"] = {
 	incubationTemperature:37,
 	incubationTime:1800,
 	doOffDeckIncubation:true,
-	cyclerProtocol:"";
+	cyclerProgram:"2,2,ts-at"
 	};
 
 presets["Ligation"] = {
@@ -40,7 +40,7 @@ presets["Ligation"] = {
 	incubationTemperature:30,
 	incubationTime:600,
 	doOffDeckIncubation:true,
-	cyclerProtocol:"";
+	cyclerProgram:"2,3,ts-lig"
 };
 
 presets["Fragmentation cleanup"] = {
