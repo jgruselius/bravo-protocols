@@ -17,7 +17,7 @@ presets["End repair"] = {
 	incubationTime:1800,
 	doOffDeckIncubation:true,
 	cyclerProgram:"2,1,ts-er"
-	};
+};
 
 presets["A-tailing"] = {
 	tipColumn:2,
@@ -28,7 +28,7 @@ presets["A-tailing"] = {
 	incubationTime:1800,
 	doOffDeckIncubation:true,
 	cyclerProgram:"2,2,ts-at"
-	};
+};
 
 presets["Ligation"] = {
 	tipColumn:3,
@@ -84,8 +84,8 @@ presets["qPCR setup"] = {};
 var settings = {};
 
 var fileNames = {};
-fileNames["End repair"] = "truseq_pcr-free_reaction.pro";
-fileNames["A-tailing"] = "truseq_pcr-free_reaction.pro";
+fileNames["End repair"] = "truseq_pcr-free_end_repair.pro";
+fileNames["A-tailing"] = "truseq_pcr-free_a-tailing.pro";
 fileNames["Ligation"] = "truseq_pcr-free_ligation.pro";
 fileNames["Fragmentation cleanup"] = "illumina_spri.pro";
 fileNames["Size selection 350 bp"] = "illumina_double-spri.pro";

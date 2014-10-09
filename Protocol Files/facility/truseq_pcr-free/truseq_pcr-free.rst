@@ -45,7 +45,7 @@
 		</Runset>
 		<Runset Name='' >
 			<Parameters >
-				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\facility\truseq_pcr-free\truseq_pcr-free_reaction.pro' />
+				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\facility\truseq_pcr-free\truseq_pcr-free_end_repair.pro' />
 				<Parameter Name='Runs' Value='1' />
 				<Parameter Name='Protocol Notes' Value='' />
 				<Parameter Name='Priority' Value='0' />
@@ -129,7 +129,7 @@
 		</Runset>
 		<Runset Name='' >
 			<Parameters >
-				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\facility\truseq_pcr-free\truseq_pcr-free_reaction.pro' />
+				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\facility\truseq_pcr-free\truseq_pcr-free_a-tailing.pro' />
 				<Parameter Name='Runs' Value='1' />
 				<Parameter Name='Protocol Notes' Value='' />
 				<Parameter Name='Priority' Value='0' />
