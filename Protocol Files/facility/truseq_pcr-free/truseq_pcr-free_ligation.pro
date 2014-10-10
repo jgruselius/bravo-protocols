@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='3be6d2e3d24676ddcc6eef5ae01024a1' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='4319116dee55db518eb17b960483768d' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -65,8 +65,8 @@ var protocolName = global.formProtocol;
 // useCycler indicates whether to use tRObot for incubation
 var useCycler = true;
 var doCentrifuge = true;
-var sealFinalPlate = !runsetMode;
 var finalHold = !runsetMode &amp;&amp; global.formFinalHold;
+var sealFinalPlate = finalHold || !runsetMode;
 var cyclerProgram = global.settings.cyclerProgram;
 
 global.statusString = protocolName + &quot; started&quot;;' />
@@ -108,7 +108,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='2' />
+						<Setting Name='Estimated time' Value='3' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -177,7 +177,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
@@ -339,7 +339,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='useCycler || task.skip();' />
+					<TaskScript Name='TaskScript' Value='if(useCycler) task.skip();' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='7' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
@@ -376,7 +376,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					<TaskScript Name='TaskScript' Value='useCycler &amp;&amp; task.skip();
 task.Incubationtime = incubationTime;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
 						<Parameter Category='Task Description' Name='Task description' Value='Incubate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Incubation time' Value='0' />
@@ -427,17 +427,9 @@ task.Incubationtime = incubationTime;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='TransferStop' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferStop' />
@@ -986,6 +978,18 @@ task.Incubationtime = incubationTime;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='// Seal if using VSpin or tRobot 
+if(!doCentrifuge &amp;&amp; !sealFinalPlate) task.skip();' />
+					<Parameters >
+						<Parameter Category='' Name='Process to spawn' Value='SealAndSpin' />
+						<Parameter Category='' Name='Spawn as subroutine' Value='1' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Spawn Process' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(!finalHold) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='FinalHold' />
@@ -994,7 +998,7 @@ task.Incubationtime = incubationTime;' />
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='5' />
+						<Device Device_Name='Bravo - 1' Location_Name='6' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -1006,7 +1010,7 @@ task.Incubationtime = incubationTime;' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='5' />
+						<Parameter Category='' Name='Location to use' Value='6' />
 					</Parameters>
 				</Task>
 				<Plate_Parameters >
@@ -1088,7 +1092,7 @@ if(!doCentrifuge &amp;&amp; !useCycler) task.skip();' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='157' />
+						<Setting Name='Estimated time' Value='721' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(!useCycler) task.skip();
 //task.Program = cyclerProgram;' />
@@ -1108,10 +1112,9 @@ if(!doCentrifuge &amp;&amp; !useCycler) task.skip();' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='16' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='// Peel off seal if using VSpin or tRobot 
-if(!(doCentrifuge || useCycler) || sealFinalPlate) task.skip();' />
+					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Begin location speed' Value='Default slow' />
 						<Parameter Category='' Name='Adhere time' Value='2.5 Seconds' />
@@ -1143,27 +1146,6 @@ if(!(doCentrifuge || useCycler) || sealFinalPlate) task.skip();' />
 			</Process>
 			<Process >
 				<Minimized >0</Minimized>
-				<Task Name='PlateLoc::Seal' >
-					<Devices >
-						<Device Device_Name='Agilent PlateLoc - 1' Location_Name='Stage' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(!sealFinalPlate ||  (doCentrifuge || useCycler)) {
-	task.skip();
-}' />
-					<Parameters >
-						<Parameter Category='' Name='Seal time' Value='1.2' />
-						<Parameter Category='' Name='Seal temperature' Value='170' />
-						<Parameter Category='Task Description' Name='Task number' Value='1' />
-						<Parameter Category='Task Description' Name='Task description' Value='Seal (PlateLoc)' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-					</Parameters>
-				</Task>
 				<Task Name='Biometra TRobot::Run a program' >
 					<Devices >
 						<Device Device_Name='Biometra TRobot - 1' Location_Name='Load Port' />
@@ -1178,7 +1160,7 @@ if(!(doCentrifuge || useCycler) || sealFinalPlate) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Block Type' Value='96' />
 						<Parameter Category='' Name='Program' Value='1,1,hold4   ' />
-						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
 						<Parameter Category='Task Description' Name='Task description' Value='Run a program (Biometra TRobot)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -1200,6 +1182,97 @@ if(!(doCentrifuge || useCycler) || sealFinalPlate) task.skip();' />
 					<Parameter Name='Barcode or header West' Value='No Selection' />
 					<Parameter Name='Barcode or header North' Value='No Selection' />
 					<Parameter Name='Barcode or header East' Value='Barcode not in file' />
+				</Plate_Parameters>
+				<Quarantine_After_Process >0</Quarantine_After_Process>
+			</Process>
+			<Process >
+				<Minimized >0</Minimized>
+				<Task Name='PlateLoc::Seal' >
+					<Devices >
+						<Device Device_Name='Agilent PlateLoc - 1' Location_Name='Stage' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='7' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Seal time' Value='1.2' />
+						<Parameter Category='' Name='Seal temperature' Value='170' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Seal (PlateLoc)' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::CentrifugeAuto' >
+					<Devices >
+						<Device Device_Name='Agilent Centrifuge Loader - 1' Location_Name='Bucket 1' />
+						<Device Device_Name='Agilent Centrifuge Loader - 1' Location_Name='Bucket 2' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='29' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='if(!doCentrifuge) task.skip();' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='CentrifugeAuto' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Max spin force' Value='500' />
+						<Parameter Category='' Name='Acceleration' Value='80' />
+						<Parameter Category='' Name='Braking' Value='80' />
+						<Parameter Category='' Name='Timer mode' Value='Time at speed' />
+						<Parameter Category='' Name='Time to spin' Value='5' />
+						<Parameter Category='' Name='Counterweight mode' Value='Fixed counterweight' />
+						<Parameter Category='' Name='Counterweight' Value='' />
+					</Parameters>
+					<CustomData >
+						<Parameter Name='Spin task id' Value='974109742l' />
+						<Parameter Name='Spin task Type' Value='1' />
+					</CustomData>
+				</Task>
+				<Task Name='Nexus XPeel::Peel' >
+					<Devices >
+						<Device Device_Name='Nexus XPeel - 1' Location_Name='Location' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='16' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='// Peel off seal if using VSpin or tRobot 
+if(!(doCentrifuge &amp;&amp; !sealFinalPlate)) task.skip();' />
+					<Parameters >
+						<Parameter Category='' Name='Begin location speed' Value='Default slow' />
+						<Parameter Category='' Name='Adhere time' Value='2.5 Seconds' />
+						<Parameter Category='' Name='Ignore seal not removed error.' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Peel (Nexus XPeel)' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
+				</Task>
+				<Plate_Parameters >
+					<Parameter Name='Plate name' Value='SealAndSpin' />
+					<Parameter Name='Plate type' Value='96 Eppendorf Twin.tec PCR' />
+					<Parameter Name='Simultaneous plates' Value='1' />
+					<Parameter Name='Plates have lids' Value='0' />
+					<Parameter Name='Plates enter the system sealed' Value='0' />
+					<Parameter Name='Use single instance of plate' Value='0' />
+					<Parameter Name='Automatically update labware' Value='0' />
+					<Parameter Name='Enable timed release' Value='0' />
+					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='0' />
+					<Parameter Name='Barcode filename' Value='No Selection' />
+					<Parameter Name='Has header' Value='' />
+					<Parameter Name='Barcode or header South' Value='No Selection' />
+					<Parameter Name='Barcode or header West' Value='No Selection' />
+					<Parameter Name='Barcode or header North' Value='No Selection' />
+					<Parameter Name='Barcode or header East' Value='No Selection' />
 				</Plate_Parameters>
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
@@ -1282,11 +1355,11 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;663fc764f7fba8f944f350bb12ee3c75&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;87d35d96180034e0056ffdc2547aec5c&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;3&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;1&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -1335,7 +1408,7 @@ dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,reagentColumn+1]];' />
 					<Parameters >
@@ -1492,11 +1565,11 @@ if(columns == columnsDone) {
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;a65ed4b2f6e0ef0dc463abe4e4c632f2&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;0b66e53ebaaaefdbe924ef0817185ea8&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;8&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;10&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -1609,11 +1682,11 @@ var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;12f212b5ba8e5ff7835eb1612e8b432e&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;8d004d0b695f93c5700523356cd877df&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;2&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -1662,7 +1735,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,reagentColumn]];' />
 					<Parameters >
@@ -1819,11 +1892,11 @@ if(columns == columnsDone) {
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;0b8d84050ee363651f67b97aaf6ce1f3&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;bd4e8d09bab445f455ea86ac51ea5100&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;9&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;11&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -2542,7 +2615,7 @@ task.Volume = PRE_ASP_SMALL;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,13-columns]];' />
 					<Parameters >

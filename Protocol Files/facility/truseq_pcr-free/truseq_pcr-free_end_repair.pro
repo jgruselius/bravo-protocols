@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='4b1392794fbabb13ff2aad0f5a4a50a2' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='ce2340a490506f600ab8fde69f749860' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -35,11 +35,11 @@ var incubationTemperature = global.settings.incubationTemperature || 20;
 var incubationTime = global.settings.incubationTime * timeMod;
 var protocolName = global.formProtocol;
 
-// useCycler indicates whether to use tRObot for incubation
+// useCycler indicates whether to use tRobot for incubation
 var useCycler = true;
 var doCentrifuge = true;
-var sealFinalPlate = !runsetMode;
 var finalHold = !runsetMode &amp;&amp; global.formFinalHold;
+var sealFinalPlate = finalHold || !runsetMode;
 var cyclerProgram = global.settings.cyclerProgram;
 
 global.statusString = protocolName + &quot; started&quot;;' />
@@ -257,7 +257,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='useCycler &amp;&amp; task.skip();' />
+					<TaskScript Name='TaskScript' Value='if(useCycler) task.skip();' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='4' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
@@ -336,6 +336,27 @@ task.Incubationtime = incubationTime;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='ResetTemperature' />
+					</Parameters>
+				</Task>
+				<Task Name='PlateLoc::Seal' >
+					<Devices >
+						<Device Device_Name='Agilent PlateLoc - 1' Location_Name='Stage' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='if(!sealFinalPlate ||  (doCentrifuge || useCycler)) {
+	task.skip();
+}' />
+					<Parameters >
+						<Parameter Category='' Name='Seal time' Value='1.2' />
+						<Parameter Category='' Name='Seal temperature' Value='170' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Seal (PlateLoc)' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Spawn Process' >
