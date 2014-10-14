@@ -82,10 +82,10 @@ A-tailing >> Ligation
 	SamplePlate (Bravo-6 > BenchCel-3)
 
 Ligation >> Post-ligation cleanup #1
-	ReagentTips (Bravo-2 > BenchCel-3)
-	ReactionPlate (Bravo-5 > Bravo-7)
-	SampleTips > (Bravo-8 > BenchCel-3)
-	SamplePlate (Bravo-6 > BenchCel-3)
+	IndexPlate (Bravo-2 > BenchCel-4)
+	ReactionPlate (Bravo-5 > BenchCel-4)
+	SampleTips (Bravo-8 > BenchCel-3)
+	StopPlate (Bravo-6 > Bravo-7)
 	
 	BindTips (BenchCel-1 > Bravo-2)
 	BindPlate (MiniHub-4:5 > Bravo-5)

@@ -3,48 +3,6 @@
 	<Runsets >
 		<Runset Name='' >
 			<Parameters >
-				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\development\jgr\truseq_pcr-free\illumina_spri.pro' />
-				<Parameter Name='Runs' Value='1' />
-				<Parameter Name='Protocol Notes' Value='' />
-				<Parameter Name='Priority' Value='0' />
-				<Parameter Name='ID' Value='8' />
-				<Parameter Name='Start_Year' Value='2013' />
-				<Parameter Name='Start_Month' Value='10' />
-				<Parameter Name='Start_Day' Value='18' />
-				<Parameter Name='Start_Hour' Value='12' />
-				<Parameter Name='Start_Minute' Value='11' />
-				<Parameter Name='Start_Second' Value='9' />
-				<Parameter Name='State' Value='0' />
-				<Parameter Name='Depend ID' Value='0' />
-				<Parameter Name='Depend_Day' Value='0' />
-				<Parameter Name='Depend_Hour' Value='0' />
-				<Parameter Name='Depend_Minute' Value='0' />
-				<Parameter Name='Depend_Second' Value='0' />
-			</Parameters>
-		</Runset>
-		<Runset Name='' >
-			<Parameters >
-				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\development\jgr\truseq_pcr-free\truseq_pcr-free_setup1.pro' />
-				<Parameter Name='Runs' Value='1' />
-				<Parameter Name='Protocol Notes' Value='' />
-				<Parameter Name='Priority' Value='0' />
-				<Parameter Name='ID' Value='9' />
-				<Parameter Name='Start_Year' Value='2013' />
-				<Parameter Name='Start_Month' Value='10' />
-				<Parameter Name='Start_Day' Value='18' />
-				<Parameter Name='Start_Hour' Value='12' />
-				<Parameter Name='Start_Minute' Value='11' />
-				<Parameter Name='Start_Second' Value='21' />
-				<Parameter Name='State' Value='3' />
-				<Parameter Name='Depend ID' Value='8' />
-				<Parameter Name='Depend_Day' Value='0' />
-				<Parameter Name='Depend_Hour' Value='0' />
-				<Parameter Name='Depend_Minute' Value='0' />
-				<Parameter Name='Depend_Second' Value='0' />
-			</Parameters>
-		</Runset>
-		<Runset Name='' >
-			<Parameters >
 				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\development\jgr\truseq_pcr-free\truseq_pcr-free_reaction.pro' />
 				<Parameter Name='Runs' Value='1' />
 				<Parameter Name='Protocol Notes' Value='' />
@@ -56,8 +14,8 @@
 				<Parameter Name='Start_Hour' Value='12' />
 				<Parameter Name='Start_Minute' Value='11' />
 				<Parameter Name='Start_Second' Value='41' />
-				<Parameter Name='State' Value='3' />
-				<Parameter Name='Depend ID' Value='9' />
+				<Parameter Name='State' Value='0' />
+				<Parameter Name='Depend ID' Value='0' />
 				<Parameter Name='Depend_Day' Value='0' />
 				<Parameter Name='Depend_Hour' Value='0' />
 				<Parameter Name='Depend_Minute' Value='0' />
@@ -276,7 +234,7 @@
 		</Runset>
 		<Runset Name='' >
 			<Parameters >
-				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\development\jgr\truseq_pcr-free\truseq_pcr-free_setup7.pro' />
+				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\development\jgr\truseq_pcr-free\truseq_nano_setup7.pro' />
 				<Parameter Name='Runs' Value='1' />
 				<Parameter Name='Protocol Notes' Value='' />
 				<Parameter Name='Priority' Value='0' />
@@ -289,6 +247,27 @@
 				<Parameter Name='Start_Second' Value='34' />
 				<Parameter Name='State' Value='3' />
 				<Parameter Name='Depend ID' Value='20' />
+				<Parameter Name='Depend_Day' Value='0' />
+				<Parameter Name='Depend_Hour' Value='0' />
+				<Parameter Name='Depend_Minute' Value='0' />
+				<Parameter Name='Depend_Second' Value='0' />
+			</Parameters>
+		</Runset>
+		<Runset Name='' >
+			<Parameters >
+				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\development\jgr\truseq_pcr-free\truseq_nano_pcr.pro' />
+				<Parameter Name='Runs' Value='1' />
+				<Parameter Name='Protocol Notes' Value='' />
+				<Parameter Name='Priority' Value='0' />
+				<Parameter Name='ID' Value='22' />
+				<Parameter Name='Start_Year' Value='2013' />
+				<Parameter Name='Start_Month' Value='10' />
+				<Parameter Name='Start_Day' Value='18' />
+				<Parameter Name='Start_Hour' Value='12' />
+				<Parameter Name='Start_Minute' Value='16' />
+				<Parameter Name='Start_Second' Value='34' />
+				<Parameter Name='State' Value='3' />
+				<Parameter Name='Depend ID' Value='21' />
 				<Parameter Name='Depend_Day' Value='0' />
 				<Parameter Name='Depend_Hour' Value='0' />
 				<Parameter Name='Depend_Minute' Value='0' />

@@ -7,14 +7,57 @@
 */
 
 /*
- CHANGED in v1304:
- --TransferManager should hold Transfer objects in arrays of arrays per source
- --Implement tip tracking and support more than 96 transfers
- TODO
+ CHANGED in v1305:
  
- */
+ TODO
+ --TransferManager handles Transfer objects as a queue, either by implementing
+   a Queue data structure or by e.g. reversing the array and using pop
+
+*/
 
 // CLASSES =====================================================================
+
+/*
+	Class representing a queue data structure
+
+	Created by Stephen Morley - http://code.stephenmorley.org/ - and released
+	under the terms of the CC0 1.0 Universal legal code:
+
+	http://creativecommons.org/publicdomain/zero/1.0/legalcode
+*/
+
+/* This implmentation of a queue is based on an array that is resized only
+*  when the queue has shrunk to half the size 
+*/
+function Queue() {
+	// Initialise the queue and offset:
+	var queue  = [];
+	var offset = 0;
+	// Returns the length of the queue:
+	this.getLength = function() { return (queue.length - offset); }
+	// Returns true if the queue is empty, and false otherwise:
+	this.isEmpty = function() { return (queue.length == 0); }
+	// Enqueues the specified item:
+	this.enqueue = function(item) { queue.push(item); }
+	// Dequeues an item and returns it or undefined if empty:
+	this.dequeue = function() {
+		if(queue.length == 0) return undefined;
+		// Store the item at the front of the queue:
+		var item = queue[offset];
+		// Increment the offset and remove the free space if necessary:
+		if(++offset * 2 >= queue.length) {
+			queue  = queue.slice(offset);
+			offset = 0;
+		}
+		return item;
+	}
+	// Returns the item at the front of the queue (without dequeuing it)
+	// or undefined if empty:
+	this.peek = function() {
+		return (queue.length > 0 ? queue[offset] : undefined);
+	}
+}
+
 
 /*
  Object containing information of a liquid transfer; a set of source
@@ -46,22 +89,17 @@ function Transfer(sourcePlate, sourceWell, volume, destinationWell, newTip) {
  is 1 or 12
 */
 function Tipbox(tips, origin) {
-	// Choose the counting algorithm:
-	function increasingRow(n) { return 8 - (n-1) % 8; }
-	function decreasingRow(n) { return (n-1) % 8 + 1; }
-	function increasingCol(n) { return 12 - ((n-1) - (n-1) % 8) / 8; }
-	function decreasingCol(n) { return ((n-1) - (n-1) % 8) / 8 + 1; }
 	if(origin.row === 1) {
-		this.getRow = increasingRow;
+		this.getRow = rowFromIndexReverse;
 	} else if(origin.row === 8) {
-		this.getRow = decreasingRow;
+		this.getRow = rowFromIndex;
 	} else {
 		throw "UnknownStartPositionException: \"" + origin.row + "\"";
 	}
 	if(origin.column === 1) {
-		this.getColumn = increasingCol;
+		this.getColumn = columnFromIndexReverse;
 	} else if(origin.column === 12) {
-		this.getColumn = decreasingCol;
+		this.getColumn = columnFromIndex;
 	} else {
 		throw "UnknownStartPositionException: \"" + origin.column + "\"";
 	}
@@ -132,7 +170,8 @@ function Tipbox(tips, origin) {
 // FUNCTIONS ===================================================================
 
 /*
- Parses a string-represented integer or float
+ Parses a string-represented integer or float, optionally rounds to number
+ of decimal places given by places
 */
 function parseNumber(value, places) {
 	var intValue = parseInt(value, 10);
@@ -160,6 +199,13 @@ function getElapsedTime(fromDate) {
 	return Math.floor((msTimeDif / 1000));
 }
 
+// Return the row or column index of the nth well of a 96 plate counting
+// column-wise from well A1 or H12 (reverse):
+function rowFromIndex(n) { return (n-1) % 8 + 1; }
+function rowFromIndexReverse(n) { return 8 - (n-1) % 8; }
+function columnFromIndex(n) { return ((n-1) - (n-1) % 8) / 8 + 1; }
+function columnFromIndexReverse(n) { return 12 - ((n-1) - (n-1) % 8) / 8; }
+
 /*
  Converts a set of plate coordinates to a row and column number,
  e.g. 'C4' returns [3, 4]
@@ -180,7 +226,7 @@ function convertCoords(wellPos) {
 }
 
 /*
- Converts a set of plate coordinates to a row and column number,
+ Converts a set of 96 well microplate coordinates to a row and column number,
  supports formats 'C4', 'C04', 'C:4', 'C:04' and returns [3, 4]
 */
 function convertCoordsRegExp(wellPos) {
@@ -194,6 +240,30 @@ function convertCoordsRegExp(wellPos) {
 	}
 	return [row, column];
 }
+
+/*
+ Sorts rows alphabetically or numerically column 1, then by well (col-then-row)
+ in column 2
+*/
+function sortRowsByPlate(row1, row2) {
+	var a = {}, b = {};
+	a.id = row1[0].toLowerCase();
+	b.id = row2[0].toLowerCase();
+	// If plate ID is a number, convert from string to int/double:
+	if(isNumber(a.id) && isNumber(b.id)) {
+		a.id = parseNumber(a.id);
+		b.id = parseNumber(b.id);
+	}
+	// Sort alphabetically/numerically on plate ID, then source well:
+	if(a.id !== b.id) {
+		return (a.id < b.id) ? -1 : (a.id > b.id ? 1 : 0);
+	} else {
+		a.coords = convertCoordsRegExp(row1[1]);
+		b.coords = convertCoordsRegExp(row2[1]);
+		return (a.coords[1] === b.coords[1]) ? a.coords[0] - b.coords[0] : a.coords[1] - b.coords[1];
+	}
+}
+
 
 // PARSING =====================================================================
 
@@ -225,25 +295,8 @@ function parseCsv(str, delim) {
 function parseTransfers(str) {
 	var rowArray = parseCsv(str, ",");
 	// Sort the array alphabetically by plate ID:
-	rowArray.sort(function(row1, row2) {
-		var a_id = row1[0].toLowerCase();
-		var b_id = row2[0].toLowerCase();
-		// If plate ID is a number, convert from string to int/double:
-		if(isNumber(a_id) && isNumber(b_id)) {
-			a_id = parseNumber(a_id);
-			b_id = parseNumber(b_id);
-		}
-		if(a_id !== b_id) {
-			return (a_id < b_id) ? -1 : (a_id > b_id ? 1 : 0);
-		} else {
-			var a_row = row1[1].charCodeAt(0) - 64;
-			var b_row = row2[1].charCodeAt(0) - 64;
-			var a_col = parseInt(row1[1].substr(1), 10);
-			var b_col = parseInt(row2[1].substr(1), 10);
-			return (a_col === b_col) ? a_row - b_row : a_col - b_col;
-		}
-	});
-	var transferArrays = [];
+	rowArray.sort(sortRowsByPlate);
+	var transferQueues = [];
 	var plateSet = {};
 	var plateIndex = 0;
 	for(var i in rowArray) {
@@ -252,7 +305,7 @@ function parseTransfers(str) {
 		try {
 			sourcePlate = row[0];
 			sourceWell = convertCoords(row[1]);
-			volume = parseNumber(row[2]), 3);
+			volume = parseNumber(row[2], 3);
 			destinationWell = convertCoords(row[3]);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
@@ -260,13 +313,13 @@ function parseTransfers(str) {
 		if(volume > 0) {
 			if(!(sourcePlate in plateSet)) {
 				plateSet[sourcePlate] = sourcePlate;
-				plateIndex = transferArrays.push([]) - 1;
+				plateIndex = transferQueues.push(new Queue()) - 1;
 			}
-			transferArrays[plateIndex].push(new Transfer(sourcePlate, 
+			transferQueues[plateIndex].enqueue(new Transfer(sourcePlate, 
 				sourceWell, volume, destinationWell, true));
 		}
 	}
-	return transferArrays;
+	return transferQueues;
 }
 
 /*
@@ -287,6 +340,17 @@ function parseAdapterTransfers(str, indexSet) {
 	INDEX_SETS["sureselect"] = {1:"A1", 2:"B1", 3:"C1", 4:"D1", 5:"E1", 6:"F1",
 							7:"G1", 8:"H1", 9:"A2", 10:"B2", 11:"C2", 12:"D2",
 							13:"E2"};
+	// TruSeq dual indexes are numbered column-wise for the SciLife ID (dualNN)
+	INDEX_SETS["truseq_dual"] = {};
+	for(var i=1; i<=96; i++) {
+		var row = String.fromCharCode(64+rowFromIndex(i));
+		var col = columnFromIndex(i);
+		INDEX_SETS["truseq_dual"][i+1] = row + col;
+	}
+	// Agilent 8 nt indexes are numbered column-wise for the
+	// SciLife ID (halohtNN), in other words the same as TruSeq Dual
+	INDEX_SETS["agilent96"] = INDEX_SETS["truseq_dual"];
+
 	var plateMap; 
 	if(indexSet in INDEX_SETS) {
 		plateMap = INDEX_SETS[indexSet];
@@ -300,13 +364,13 @@ function parseAdapterTransfers(str, indexSet) {
 		return parseInt(a[1], 10) - parseInt(b[1], 10);
 	});
 	// Create transfer objects from sorted array:
-	var transferArray = [];
+	var transferQueue = new Queue();
 	for(var i in rowArray) {
 		var row = rowArray[i];
 		var source, volume, destination;
 		try {
 			source = convertCoords(plateMap[row[1]]);
-			volume = parseNumber(row[2]), 3);
+			volume = parseNumber(row[2], 3);
 			destination = convertCoords(row[0]);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
@@ -314,47 +378,61 @@ function parseAdapterTransfers(str, indexSet) {
 		// Keep tip between transfers of the same index:
 		var newTip = (i == 0) || (row[1] != rowArray[i-1][1]);
 		if(volume > 0) {
-			transferArray.push(new Transfer("adapter_plate", source, volume,
+			transferQueue.enqueue(new Transfer("adapter_plate", source, volume,
 				destination, newTip));
 		}
 	}
-	return [transferArray];
+	return [transferQueue];
 }
 
 /*
  Creates an array of Transfer objects from a csv file with format:
-	sourceWell,sourceVolume,destinationWell,finalVolume
+	sourcePlate,sourceWell,sourceVolume,destinationWell,finalVolume
  where sourceWell and destinationWell are given in plate coordinates, e.g. 'D4'
 */
 function parseDilutionTransfers(str) {
 	var rowArray = parseCsv(str, ",");
-	var diluentTransferArray = [];
-	var sampleTransferArray = [];
+	// Order the arrray on plate ID:
+	rowArray.sort(sortRowsByPlate);
+	var transferQueues = [];
+	var plateSet = {};
+	var diluentIndex;
+	var sourceIndex;
 	for(var i in rowArray) {
 		var row = rowArray[i];
-		var sourceWell, sourceVolume, destinationWell, finalVolume;
+		var sourcePlate, sourceWell, sourceVolume, destinationWell;
 		try {
-			sourceWell = convertCoords(row[0]);
-			sourceVolume = parseNumber(row[1], 3);
-			destinationWell = convertCoords(row[2]);
+			sourcePlate = row[0];
+			sourceWell = convertCoordsRegExp(row[1]);
+			sourceVolume = parseNumber(row[2], 3);
+			destinationWell = convertCoordsRegExp(row[3]);
 			diluentWell = convertCoords("A1");
-			diluentVolume = (parseNumber(row[3], 3) - sourceVolume);
+			// The substraction float may contain many dec so it is rounded:
+			diluentVolume = +(parseNumber(row[4], 3) - sourceVolume).toFixed(3);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
+		// Each diluentTransferArray must preceed its 
+		// sourceTransferArray. Make sure the order is correct by using
+		// plateIndex
+		if(!(sourcePlate in plateSet)) {
+			plateSet[sourcePlate] = sourcePlate;
+			diluentIndex = transferQueues.push(new Queue()) - 1;
+			sourceIndex = transferQueues.push(new Queue()) - 1;
+		}
 		var newTip;
 		if(sourceVolume > 0) {
-			newTip = (sampleTransferArray.length != 0);
-			sampleTransferArray.push(new Transfer("sample_plate", sourceWell,
+			newTip = (transferQueues[sourceIndex].length != 0);
+			transferQueues[sourceIndex].enqueue(new Transfer(sourcePlate, sourceWell,
 				sourceVolume, destinationWell, newTip));
 		}
 		if(diluentVolume > 0) {
-			newTip = (diluentTransferArray.length == 0);
-			diluentTransferArray.push(new Transfer("diluent_reservoir",
+			newTip = (transferQueues[diluentIndex].length == 0);
+			transferQueues[diluentIndex].enqueue(new Transfer("diluent_reservoir",
 				diluentWell, diluentVolume, destinationWell, newTip));
 		}
 	}
-	return [diluentTransferArray, sampleTransferArray];
+	return transferQueues;
 }
 
 /*
@@ -363,42 +441,58 @@ function parseDilutionTransfers(str) {
 */
 function parseDilutionTransfersLims(str) {
 	var rowArray = parseCsv(str, ",");
-	var diluentTransferArray = [];
-	var sampleTransferArray = [];
+	var diluentTransferQueue = new Queue();
+	var sampleTransferQueue = new Queue();
 	var firstDataRow;
 	// Find the header row:
-	for(var i = 0, n = rowArray.length; i < n; i++) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		if(rowArray[i][0] === "Sample Name") {
 			firstDataRow = i + 1;
 			break;
 		}
 	}
-	for(var i = firstDataRow, n = rowArray.length; i < n; i++) {
+	for(var i=firstDataRow, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
-		var sourceWell, sourceVolume, destinationWell, finalVolume;
+		var sourceWell, sourceVolume, destinationWell, diluentVolume;
 		try {
 			sourceWell = convertCoordsRegExp(row[2]);
-			sourceVolume = parseNumber(row[5], 3);
 			destinationWell = convertCoordsRegExp(row[7]);
 			diluentWell = convertCoords("A1");
-			diluentVolume = parseNumber(row[11], 3);
+			// A missing value should be treated as 0 volume:
+			try {
+				sourceVolume = parseNumber(row[5], 3);
+			} catch(e) {
+				if(row[5] === "") {
+					sourceVolume = 0;
+				} else {
+					throw e;
+				}
+			}
+			try {
+				diluentVolume = parseNumber(row[11], 3);
+			} catch(e) {
+				if(row[11] === "") {
+					diluentVolume = 0;
+				} else {
+					throw e;
+				}
+			}
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
 		var newTip;
 		if(sourceVolume > 0) {
-			newTip = (sampleTransferArray.length != 0);
-			sampleTransferArray.push(new Transfer("sample_plate", sourceWell,
+			newTip = (!sampleTransferQueue.isEmpty());
+			sampleTransferQueue.enqueue(new Transfer("sample_plate", sourceWell,
 				sourceVolume, destinationWell, newTip));
 		}
 		if(diluentVolume > 0) {
-			newTip = (diluentTransferArray.length == 0);
-			diluentTransferArray.push(new Transfer("diluent_reservoir",
+			newTip = (diluentTransferQueue.isEmpty());
+			diluentTransferArray.enqueue(new Transfer("diluent_reservoir",
 				diluentWell, diluentVolume, destinationWell, newTip));
 		}
 	}
-	return [diluentTransferArray, sampleTransferArray];
-
+	return [diluentTransferQueue, sampleTransferQueue];
 }
 
 // FILE_OPERATIONS==============================================================
@@ -475,12 +569,10 @@ function TransferManager(transferMode, tipMode) {
 	}
 	// Array of Transfer object arrays:
 	this.transfers;
+	// Current transfer array:
+	this.using;
 	// Current transfer object:
 	this.current;
-	// Index of current plate:
-	this.plate;
-	// Index of current transfer object (reset for each plate):
-	this.index;
 	// Reference next element to predict tip handling:
 	this.next;
 	// Number of transfers per source:
@@ -495,8 +587,15 @@ function TransferManager(transferMode, tipMode) {
 	this.openTransferFile = function(filePath) {
 		try {
 			var fileContent = readFile(filePath);
+			print("fileContent.length="+fileContent.length);
 			this.transfers = this.parseFunction(fileContent);
-			this.next = this.transfers[0][0];
+			for(var i=this.transfers.length; i-->0;) {
+				this.transfers[i].reverse();
+			}
+			this.transfers.reverse();
+			print("transfers.length="+this.transfers.length);
+			this.using = this.transfers.pop();
+			this.next = this.using.pop();
 		} catch(e) {
 			this.next = undefined;
 			this.errorState = false;
@@ -504,35 +603,38 @@ function TransferManager(transferMode, tipMode) {
 		}
 		// Reset state:
 		this.current = undefined;
-		this.plate = 0;
-		this.index = -1;
 		this.updateSize();
 		this.checkVolumes();
 	}
 	// Calculate number of transfers for each source ID:
 	this.updateSize = function() {
 		if(this.transfers && this.transfers.length) {
-			this.sizes = [];
-			for(var i in this.transfers) {
-				this.sizes.push(this.transfers[i].length);
-			}
+			this.size = this.transfers.map(function(x) { return x.length; });
 		}
 	}
 	// Return total size:
 	this.getSize = function() {
-		var totalSize = 0;
-		for(var i in this.transfers) {
-			totalSize += this.transfers[i].length;
+		var tot = 0;
+		for(var i=this.transfers.length; i-->0;) {
+			tot += this.transfers[i].length;
 		}
-		return totalSize;
+		return tot;
+	}
+	// Return the number if transfers left in the current plate:
+	this.getCurrentSize = function() {
+		return this.using.length;
+	}
+	// Return the number of plates left in the transfer array:
+	this.numberOfPlates = function() {
+		return this.transfers.length;
 	}
 	// Return whether the transfer array of the current plate has a next element:
 	this.hasNextTransfer = function() {
-		return this.index < this.transfers[this.plate].length - 1;
+		return this.using.length > 0;
 	}
 	// Return whether the transfer array has an array for another plate:
 	this.hasNextPlate = function() {
-		return this.plate < this.transfers.length - 1;
+		return this.transfer.length > 0;
 	}
 	// Return whether tipbox is empty:
 	this.hasTip = function() {
@@ -543,17 +645,13 @@ function TransferManager(transferMode, tipMode) {
 		this.usedTips = new Tipbox(0, this.tipMode);
 	}
 	this.increment = function() {
-		// Temporarily store the transfer array of the current plate:
-		var temp = this.transfers[this.plate];
 		try {
 			this.current = this.next;
-			this.index++;
 			if(this.hasNextTransfer()) {
-				this.next = temp[this.index+1];   
+				this.next = this.using.pop();   
 			} else if(this.hasNextPlate()) {
-				temp = this.transfers[++this.plate];
-				this.index = -1;
-				this.next = temp[0];
+				this.using = this.transfers.pop();
+				this.next = this.using.pop();
 			} else {
 				this.next = undefined;
 			}
@@ -562,11 +660,12 @@ function TransferManager(transferMode, tipMode) {
 			print(e);
 		}
 	}
+
 	// For each array of transfers, check if the volumes in that array are equal:
 	this.checkVolumes = function() {
 		if(this.transfers && this.transfers.length) {
 			this.constantVolumes = [];
-			for(var i in this.transfers) {
+			for(var i=this.transfers.length; i-->0;) {
 				var temp = this.transfers[i];
 				this.constantVolumes[i] = temp.length > 0;
 				for(var j=0, m=this.transfers[i].length; j<m-1; j++) {
@@ -615,4 +714,4 @@ function TransferManager(transferMode, tipMode) {
 }
 
 //DEBUG:
-print("jgr_lib_v1304.js EOF");
+print("jgr_lib_v1405.js EOF");

@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='f54525b901c26fd16b03ec5c801ffba2' version='2.0' >
-	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\Documents and Settings\joel\My Documents\vworks_protocols\dev\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/development/jgr/scripts/jgr_lib_v1304.js&apos;);
+<Velocity11 file='Protocol_Data' md5sum='c233dbbe5c4b28d4c6486207852c4c7f' version='2.0' >
+	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/development/jgr/scripts/transfer_lib.js&apos;);
+
 ' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -114,19 +115,6 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transfer' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
@@ -436,7 +424,7 @@ var hasTransfer = !!tm.getSize();
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(tm.useNewTip() &amp;&amp; hasTransfer) {
+					<TaskScript Name='TaskScript' Value='if(hasTransfer &amp;&amp; tm.useNewTip()) {
 	task.Wellselection = [tm.takeTip()];
 } else {
 	task.skip();
@@ -466,11 +454,12 @@ var hasTransfer = !!tm.getSize();
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(!hasTransfer) {
+					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
+	task.Volume = tm.getVolume();
+	task.Wellselection = [tm.getWellSelectionTransferSource()];
+} else {
 	task.skip();
-}
-task.Volume = tm.getVolume();
-task.Wellselection = [tm.getWellSelectionTransferSource()];' />
+}' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='source' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -506,11 +495,13 @@ task.Wellselection = [tm.getWellSelectionTransferSource()];' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(!hasTransfer) {
+					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
+	task.Volume = tm.getVolume();
+	task.Wellselection = [tm.getWellSelectionTransferDestination()];
+} else {
 	task.skip();
 }
-task.Volume = tm.getVolume();
-task.Wellselection = [tm.getWellSelectionTransferDestination()];' />
+' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='destination' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -547,10 +538,11 @@ task.Wellselection = [tm.getWellSelectionTransferDestination()];' />
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Blowout
-if(!hasTransfer) {
+if(hasTransfer) {
+	task.Wellselection = [tm.getWellSelectionTransferDestination()];
+} else {
 	task.skip();
-}
-task.Wellselection = [tm.getWellSelectionTransferDestination()];' />
+}' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='destination' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -586,7 +578,7 @@ task.Wellselection = [tm.getWellSelectionTransferDestination()];' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(tm.returnTip() &amp;&amp; hasTransfer) {
+					<TaskScript Name='TaskScript' Value='if(hasTransfer &amp;&amp; tm.returnTip()) {
 	task.Wellselection = [tm.putTip()];
 } else {
 	task.skip();
