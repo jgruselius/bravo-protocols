@@ -30,7 +30,7 @@ var testMode = global.formTestMode;' />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Title' Value='Place plate' />
-						<Parameter Category='' Name='Body' Value='Place the Nunc plate containing elution buffers 1 and 2 on position 9 of the Bravo.' />
+						<Parameter Category='' Name='Body' Value='Place the Eppendorf plate containing elution buffers 1 and 2 on position 9 of the Bravo.' />
 						<Parameter Category='' Name='Only show the first time' Value='' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
