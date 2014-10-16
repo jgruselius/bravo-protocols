@@ -1,7 +1,7 @@
 runset.clear();
 
 var path = "C:/VWorks Workspace/Protocol Files/development/jgr/truseq_pcr-free/";
-var form = "truseq_nano.VWForm"
+var form = "truseq_nano.VWForm";
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
