@@ -10,7 +10,8 @@ formColumns = parseInt(formColumns, 10);
 
 var presets = {};
 presets["End repair"] = {
-	tipColumn:1,reagentColumn:1,
+	tipColumn:1,
+	reagentColumn:1,
 	sampleVolume:50,
 	reagentVolume:50,
 	incubationTemperature:30,
