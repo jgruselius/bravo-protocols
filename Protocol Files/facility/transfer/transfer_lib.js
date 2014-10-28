@@ -1,13 +1,12 @@
 /*
- jgr_lib_v1405.js
+ transfer_lib.js
  Author: Joel Gruselius
- Version: v1405
  Description: Helper functions and classes for VWorks scripts, requires
  the VWorks-defined global functions 
 */
 
 /*
- CHANGED in v1405:
+ CHANGED in this version:
  --Dilution protocol handles all buffer transfers in a single array
 
  TODO
@@ -702,4 +701,4 @@ function TransferManager(transferMode, tipMode) {
 }
 
 //DEBUG:
-print("jgr_lib_v1405.js EOF");
+print("transfer_lib.js EOF");
