@@ -23,7 +23,7 @@
       <Property name="Name">operatorConsoleButton1</Property>
       <Property name="TextImageRelation">ImageBeforeText</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="run(&quot;C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat&quot;, true);&#xA;runset.openRunsetFile(&quot;C:/VWorks Workspace/Protocol Files/facility/truseq/truseq_runset_shorter.rst&quot;, &quot;truseq_stranded_ligation.VWForm&quot;);" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="run(&quot;C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat&quot;, true);&#xA;runset.openRunsetFile(&quot;C:/VWorks Workspace/Protocol Files/facility/truseq/truseq_stranded_runset.rst&quot;, &quot;truseq_stranded_ligation.VWForm&quot;);" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the Script above will always execute in the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Icon" Description="A graphical image file to display in the button" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\resources\1313497517_media_controls_light_play.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp;*.ico)|*.jpg;*.png;*.bmp;*.ico||" Hide_if="" />
       <Parameter Name="Disable when running" Description="the button is disabled whenever a protocol is running" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
