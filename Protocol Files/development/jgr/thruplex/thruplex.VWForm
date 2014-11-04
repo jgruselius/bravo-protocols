@@ -4,19 +4,79 @@
   <Property name="RestoreDefaultsOnLoad" value="0" />
   <Property name="ShowLogInFullScreen" value="1" />
   <Property name="FormBackgroundColor" value="-1" />
-  <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
-    <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox1" children="Controls">
-      <Property name="Size">21, 24</Property>
-      <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="Name">operatorConsoleCheckbox1</Property>
-      <Property name="UseVisualStyleBackColor">True</Property>
-      <Property name="Location">198, 131</Property>
+  <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist3" children="Controls">
+      <Property name="Location">198, 101</Property>
+      <Property name="DropDownStyle">DropDownList</Property>
+      <Property name="TabIndex">10</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="TabIndex">8</Property>
+      <Property name="FormattingEnabled">True</Property>
+      <Property name="Name">operatorConsoleDroplist3</Property>
+      <Property name="Items">
+        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ThruPLEX</Item>
+        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ThruPLEX-FD</Item>
+      </Property>
       <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Size">121, 24</Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formVersion" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="ThruPLEX;ThruPLEX-FD" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
+      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="ThruPLEX" ValueToDisplay="" Hide_if="Const(0)" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="ThruPLEX" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="Full run;Template preparation;Library synthesis;PCR setup;PCR cleanup;" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic5" children="Controls">
+      <Property name="TabIndex">9</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Size">65, 23</Property>
+      <Property name="Name">operatorConsoleStatic5</Property>
+      <Property name="Text">Version:</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Location">70, 104</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Version:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Version:" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox1" children="Controls">
+      <Property name="Location">198, 161</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="Name">operatorConsoleCheckbox1</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="TabIndex">8</Property>
+      <Property name="UseVisualStyleBackColor">True</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Size">21, 24</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="testMode" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
@@ -33,15 +93,15 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="0" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic4" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic4" children="Controls">
       <Property name="TabIndex">7</Property>
-      <Property name="Name">operatorConsoleStatic4</Property>
-      <Property name="Size">100, 23</Property>
-      <Property name="Text">Test mode:</Property>
       <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">70, 134</Property>
+      <Property name="Size">100, 23</Property>
+      <Property name="Name">operatorConsoleStatic4</Property>
+      <Property name="Text">Test mode:</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Location">70, 164</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -60,15 +120,15 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Test mode:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic3" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic3" children="Controls">
       <Property name="TabIndex">6</Property>
-      <Property name="Name">operatorConsoleStatic3</Property>
-      <Property name="Size">65, 23</Property>
-      <Property name="Text">Protocol:</Property>
       <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">70, 104</Property>
+      <Property name="Size">65, 23</Property>
+      <Property name="Name">operatorConsoleStatic3</Property>
+      <Property name="Text">Protocol:</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Location">70, 134</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -87,14 +147,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Protocol:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic2" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic2" children="Controls">
       <Property name="TabIndex">5</Property>
-      <Property name="Name">operatorConsoleStatic2</Property>
-      <Property name="Size">64, 23</Property>
-      <Property name="Text">Columns:</Property>
       <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Size">64, 23</Property>
+      <Property name="Name">operatorConsoleStatic2</Property>
+      <Property name="Text">Columns:</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="Location">70, 74</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -114,9 +174,9 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Columns:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
+    <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
       <Property name="Image">
-        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE8SURBVDhPnZLBqoJQEIZ7o+4LSz1CyyxDMhDNhBZCi8JEUXHhQqNIWkz8c88McaHFdeCDI/P9P5xTk9ls9jOfz2kMyE5weL1eo0CWC4ZhoK7r/gUyWvB8PqltW6YoCoqiiMH577d4yGjB4/GgpmmYMAxJJkkSRgY78ZDRgvv9TlVVMdvt1uhEcRwzMtiJh4wW3G43yvOccV3X6ET7/Z6RwU48ZLSg73tK05TZbDZGJwqCgJHBTjxktAB3Op/PzHq9NjqR7/uMDHbiIaMFdV3T6XRibNs2OtFut2NksBMPGS0oy1JffLlcGv330T4fFTvxkNEC/L7H45FZrVZGJ/I8j5HBTjxktCDLMjocDgzuvFgsGMdxGPnGTjxktOB6vfKfBEjoG+IhowWXy0WRO37j0+UCy7KmOIzBsqzpG3j2bdwSxTLSAAAAAElFTkSuQmCC</Binary>
+        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOwQAADsEBuJFr7QAAAT9JREFUOE+dks1qg2AQReMTtX3gYB7BpYkGSQQxf9RFwEVEJSGKCxcaFEMW094pM6SFLOrAQWXuufCphmma74ZhfE5GDBF9TGazGT0ej1HA5YL7/U5N0/wLOFowDAPVdc1cLhfa7XYM7v8+Sw6OFvR9T1VVMZvN5vtoP3M8HhkZ7CQHRwu6rqOiKJjVaqXC4XAgIIOd5OBowe12o/P5zHiep8J2uyUgg53k4GhB27aUpimzXC5VCMOQgAx2koOjBTjX6XRiHMdRIQgCAjLYSQ6OFpRlSXEcM/P5XAXf9wnIYCc5OFpwvV71jdu2/eulPb9U7OTLwNECfOsoipjFYqEF6/WagAx2koOjBXme036/Z3Bmy7IY13UZecZOcnC0IMsy/oGASK+ukoOjBUmSkCBnfHV9znLBdDp9w80Y4H4B6ddHniDV34sAAAAASUVORK5CYII=</Binary>
       </Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
@@ -125,7 +185,7 @@
       <Property name="Size">75, 36</Property>
       <Property name="TabIndex">4</Property>
       <Property name="Text"> PAUSE</Property>
-      <Property name="Location">184, 231</Property>
+      <Property name="Location">198, 231</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -144,9 +204,9 @@
       <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="15790320" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
       <Property name="Image">
-        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPnZHbioJQFIZ7o+aFJZ8ggkDSjhppWhddCEJFB6OisouKpPBiDf8aXTU1MzBu+GGX//ftU6FUKn2oqkp5AraASZIkuQKWBff7nU6n078CRgS3242OxyOtVisaDAac5XLJ//0WMCKI45h2ux25rssfPc+jdrvNv2ezGX97DRgRXK9X2mw2ZJomZSOKIha0Wi1yHIcmkwl3soARweVyoTAMedXXAVG/36dGo0G9Xo/G4zF3wYjgfD7zVpvNZoq9D4iwE8uyuAtGBDgTtliv19P6+zgcDmTbNh8TXTAi2G63FAQB6bqe1h9jv9/zqpqm8X2MRiPughHBer0m3/epVqul2BeI1SqVCsPdbpc7WcCIAO8Ps2EYDOIyy+UyVatVnuPyEHSygBHBYrGg4XDIZ8QusCruo9PpfAs6WcCIYD6f85sjeK6/kvXAiGA6nUqez/lTnrssUBSliEmeKIpS/AQbPmuu0fJ9NAAAAABJRU5ErkJggg==</Binary>
+        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOwQAADsEBuJFr7QAAAWZJREFUOE+dkdlqwmAUhM0TtX1g0ScQISBuMRoxrlAvBEHFuGCC20UURfFi6pySg9VaqD8M/NGZ7yy/kUgk3g3D+Iy9cAB8xJLJJC6Xy0tiVgDn8xlhGP5LzCjgdDphu91iPp+j3W6LptOp/PZMzCjgeDxiuVyi2WxKoNVqwbZt+R6Px/LfvZhRwOFwgO/7qFQq1718n81mI4BSqYR6vY7hcCieSMwoYL/fYzabSdX7Q1Cj0UCxWEStVsNgMBAvMwrY7XbSqmVZD4DbjtiJ4zjiZUYBnI8tFgqFp4D1eg3XdWVMeplRQBAE6Pf7yOVyD4DVaiVVM5mM7KPb7YqXGQUsFgv0ej1ks1kFMMhq6XRawtVqVTyRmFEA35/kfD4PBrnMVCoF0zTlzuVR9ERiRgGTyQSdTkdmZBesyn2Uy+UfoicSMwrwPE/enOJz/aXIx4wCRqMRIt3O+dv91iuAeDz+xssrYvYLjB9FcGXsjAwAAAAASUVORK5CYII=</Binary>
       </Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
@@ -155,7 +215,7 @@
       <Property name="Size">75, 36</Property>
       <Property name="TabIndex">3</Property>
       <Property name="Text"> START</Property>
-      <Property name="Location">70, 231</Property>
+      <Property name="Location">84, 231</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -177,28 +237,28 @@
       <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="15790320" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist2" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist2" children="Controls">
+      <Property name="Location">198, 131</Property>
       <Property name="DropDownStyle">DropDownList</Property>
-      <Property name="FormattingEnabled">True</Property>
-      <Property name="Size">158, 24</Property>
+      <Property name="TabIndex">2</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="FormattingEnabled">True</Property>
       <Property name="Name">operatorConsoleDroplist2</Property>
       <Property name="Items">
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ThruPLEX</Item>
+        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Run all</Item>
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Template preparation</Item>
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Library synthesis</Item>
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">PCR setup</Item>
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">PCR cleanup</Item>
       </Property>
-      <Property name="Location">198, 101</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="TabIndex">2</Property>
       <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Size">158, 24</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formProtocol" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="ThruPLEX;Template preparation;Library synthesis;PCR setup;PCR cleanup" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="Run all;Template preparation;Library synthesis;PCR setup;PCR cleanup" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
       <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="" ValueToDisplay="" Hide_if="Const(0)" />
@@ -213,13 +273,14 @@
       <Parameter Name="Value" Description="" Type="1" Value="Fragmentation cleanup" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist1" children="Controls">
+      <Property name="Location">198, 71</Property>
       <Property name="DropDownStyle">DropDownList</Property>
-      <Property name="FormattingEnabled">True</Property>
-      <Property name="Size">74, 24</Property>
+      <Property name="TabIndex">1</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="FormattingEnabled">True</Property>
       <Property name="Name">operatorConsoleDroplist1</Property>
       <Property name="Items">
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">1</Item>
@@ -235,10 +296,9 @@
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">11</Item>
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">12</Item>
       </Property>
-      <Property name="Location">198, 71</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="TabIndex">1</Property>
       <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Size">74, 24</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formColumns" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="1;2;3;4;5;6;7;8;9;10;11;12" ValueToDisplay="" Hide_if="" />
@@ -256,14 +316,14 @@
       <Parameter Name="Value" Description="" Type="1" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
       <Property name="TabIndex">0</Property>
-      <Property name="Name">operatorConsoleStatic1</Property>
-      <Property name="Size">413, 35</Property>
-      <Property name="Text">ThruPLEX library preparation</Property>
       <Property name="Font">Tahoma, 18pt</Property>
-      <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Size">413, 35</Property>
+      <Property name="Name">operatorConsoleStatic1</Property>
+      <Property name="Text">ThruPLEX library preparation</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="Location">19, 16</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
