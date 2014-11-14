@@ -13,9 +13,9 @@ var pcr = {};
 
 var purifPresets = {};
 purifPresets["Tagmentation cleanup"] = {sampleVolume:65,beadVolume:65,elutionVolume:20};
-purifPresets["PCR cleanup"] = {sampleVolume:50,beadVolume:90,elutionVolume:50};
-purifPresets["PCR cleanup (long insert)"] = {sampleVolume:50,beadVolume:30,elutionVolume:50};
-purifPresets["PCR cleanup (MiSeq 2x250 bp)"] = {sampleVolume:50,beadVolume:25,elutionVolume:50};
+purifPresets["PCR cleanup"] = {sampleVolume:50,beadVolume:90,elutionVolume:25};
+purifPresets["PCR cleanup (long insert)"] = {sampleVolume:50,beadVolume:30,elutionVolume:25};
+purifPresets["PCR cleanup (MiSeq 2x250 bp)"] = {sampleVolume:50,beadVolume:25,elutionVolume:25};
 
 switch(formProtocol) {
 	case "Bead purification":
