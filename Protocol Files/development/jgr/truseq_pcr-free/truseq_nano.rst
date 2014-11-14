@@ -35,7 +35,7 @@
 				<Parameter Name='Start_Hour' Value='12' />
 				<Parameter Name='Start_Minute' Value='11' />
 				<Parameter Name='Start_Second' Value='41' />
-				<Parameter Name='State' Value='0' />
+				<Parameter Name='State' Value='3' />
 				<Parameter Name='Depend ID' Value='10' />
 				<Parameter Name='Depend_Day' Value='0' />
 				<Parameter Name='Depend_Hour' Value='0' />
@@ -56,7 +56,7 @@
 				<Parameter Name='Start_Hour' Value='12' />
 				<Parameter Name='Start_Minute' Value='11' />
 				<Parameter Name='Start_Second' Value='41' />
-				<Parameter Name='State' Value='0' />
+				<Parameter Name='State' Value='3' />
 				<Parameter Name='Depend ID' Value='11' />
 				<Parameter Name='Depend_Day' Value='0' />
 				<Parameter Name='Depend_Hour' Value='0' />
