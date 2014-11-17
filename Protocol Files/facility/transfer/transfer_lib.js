@@ -328,7 +328,7 @@ function parseAdapterTransfers(str, indexSet) {
 		var row = rowArray[i];
 		var source, volume, destination;
 		try {
-			source = convertCoordsRegExp(plateMap[row[1]]);
+			source = convertCoords(plateMap[row[1]]);
 			volume = parseNumber(row[2], 3);
 			destination = convertCoordsRegExp(row[0]);
 		} catch(e) {
