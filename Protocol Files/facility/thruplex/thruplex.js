@@ -39,8 +39,8 @@ presets["PCR setup"] = {
 	doOffDeckIncubation:true
 };
 presets["PCR cleanup"] = {
-	sampleVolume: (fd) ? 70 : 50,
-	beadVolume: (fd) ? 70 : 50,
+	sampleVolume: (fd) ? 75 : 50,
+	beadVolume: (fd) ? 75 : 50,
 	elutionVolume:30
 };
 
