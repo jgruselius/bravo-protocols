@@ -263,9 +263,9 @@ function parseTransfers(str) {
 		var sourcePlate, sourcePlateIndex, sourceWell, volume, destinationWell;
 		try {
 			sourcePlate = row[0];
-			sourceWell = convertCoords(row[1]);
+			sourceWell = convertCoordsRegExp(row[1]);
 			volume = parseNumber(row[2], 3);
-			destinationWell = convertCoords(row[3]);
+			destinationWell = convertCoordsRegExp(row[3]);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
@@ -330,7 +330,7 @@ function parseAdapterTransfers(str, indexSet) {
 		try {
 			source = convertCoords(plateMap[row[1]]);
 			volume = parseNumber(row[2], 3);
-			destination = convertCoords(row[0]);
+			destination = convertCoordsRegExp(row[0]);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
