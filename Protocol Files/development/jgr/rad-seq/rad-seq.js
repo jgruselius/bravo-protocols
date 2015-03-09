@@ -108,3 +108,13 @@ var runsetIndex = 0;
 function updateRunset() {
 	updateSettings(runsetOrder[runsetIndex++]);
 }
+
+// Dynamic Pipetting Height:
+function dph(vol) {
+	var v = parseFloat(vol);
+	if(v > 0 && !isNaN(v)) {
+		return (0.08*v + 0.2) / v;
+	} else {
+		throw "ValueException";
+	}
+}
