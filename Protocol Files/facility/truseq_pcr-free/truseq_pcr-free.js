@@ -1,23 +1,82 @@
 runset.clear();
 
 var path = "C:/VWorks Workspace/Protocol Files/facility/truseq_pcr-free/";
-var form = "truseq_pcr-free.VWForm"
+var form = "truseq_pcr-free.VWForm";
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
+var altBeadPlate = true;
 
 var presets = {};
-presets["End repair"] = {tipColumn:1,reagentColumn:1,sampleVolume:50,reagentVolume:50,incubationTemperature:30,incubationTime:1800,doOffDeckIncubation:true};
-presets["A-tailing"] = {tipColumn:2,reagentColumn:2,sampleVolume:15,reagentVolume:15,incubationTemperature:37,incubationTime:1800,doOffDeckIncubation:true};
-presets["Ligation"] = {tipColumn:3,reagentColumn:3,sampleVolume:30,reagentVolume:5,bufferVolume:5,adapterVolume:2.5,incubationTemperature:30,incubationTime:600,doOffDeckIncubation:true};
 
-presets["Fragmentation cleanup"] = {sampleVolume:50,beadVolume:80,elutionVolume:50};
-presets["Size selection 350 bp"] = {sampleVolume:100,beadVolume1:95,beadVolume2:30,bindVolume:160,transferVolume:250,elutionVolume:15};
-presets["Size selection 550 bp"] = {sampleVolume:100,beadVolume1:80,beadVolume2:30,bindVolume:160,transferVolume:250,elutionVolume:15};
-presets["Ligation cleanup 1"] = {sampleVolume:42.5,beadVolume:42.5,elutionVolume:50};
-presets["Ligation cleanup 2"] = {sampleVolume:50,beadVolume:50,elutionVolume:20};
+presets["End repair"] = {
+	tipColumn:1,reagentColumn:1,
+	sampleVolume:50,
+	reagentVolume:50,
+	incubationTemperature:30,
+	incubationTime:1800,
+	doOffDeckIncubation:true
+	};
+
+presets["A-tailing"] = {
+	tipColumn:2,
+	reagentColumn:2,
+	sampleVolume:15,
+	reagentVolume:15,
+	incubationTemperature:37,
+	incubationTime:1800,
+	doOffDeckIncubation:true
+	};
+
+presets["Ligation"] = {
+	tipColumn:3,
+	reagentColumn:3,
+	sampleVolume:30,
+	reagentVolume:5,
+	bufferVolume:5,
+	adapterVolume:2.5,
+	incubationTemperature:30,
+	incubationTime:600,
+	doOffDeckIncubation:true
+};
+
+presets["Fragmentation cleanup"] = {
+	sampleVolume:50,
+	beadVolume:80,
+	elutionVolume:50
+};
+
+presets["Size selection 350 bp"] = {
+	sampleVolume:100,
+	beadVolume1:95,
+	beadVolume2:30,
+	bindVolume:160,
+	transferVolume:250,
+	elutionVolume:15
+};
+
+presets["Size selection 550 bp"] = {
+	sampleVolume:100,
+	beadVolume1:80,
+	beadVolume2:30,
+	bindVolume:160,
+	transferVolume:250,
+	elutionVolume:15
+};
+
+presets["Ligation cleanup 1"] = {
+	sampleVolume:42.5,
+	beadVolume:42.5,
+	elutionVolume:50
+};
+
+presets["Ligation cleanup 2"] = {
+	sampleVolume:50,
+	beadVolume:50,
+	elutionVolume:20
+};
 
 presets["qPCR setup"] = {};
 
