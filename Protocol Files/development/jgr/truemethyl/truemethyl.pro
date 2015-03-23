@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='cd7424f772d4a087e28a7649b27a28f7' version='2.0' >
-	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
+<Velocity11 file='Protocol_Data' md5sum='ad1fab7872a9bba89f091d5f689cf964' version='2.0' >
+	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
 			<Process >
@@ -10,16 +10,40 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var volume = {};
-volume.denat = 50;  // 26??
-volume.sample = 50;
-volume.beads1 = 100;
-volume.wash1 = 1000;
-volume.oxsol = 1;
-volume.bsreag = 170;
-volume.bsadd = 5;' />
+					<TaskScript Name='TaskScript' Value='var global = GetGlobalObject();
+var arrayMode = false;
+var columns = global.formColumns || 4;
+var headMode = &quot;1,2,1,&quot;+columns;
+var MAX_VOLUME = 175;
+var timeMod = 0.001;
+var volume = {
+	denat: arrayMode ? 50 : 26,
+	eluate: 24,
+	sample: 50,
+	beads1: 100,
+	wash1: 150,
+	oxsol: 1,
+	bsreag: 170,
+	bsadd: 5
+};
+var washes = 1;
+
+	' />
+				</Task>
+				<Task Name='BuiltIn::JavaScript' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='function dph(vol) {
+	var v = parseFloat(vol);
+	return (v&gt;0 &amp;&amp; !isNaN(v)) ? (0.08*v+0.2)/v : 0;
+}
+' />
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='startup' />
@@ -53,19 +77,6 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferSample' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferSample' />
 					</Parameters>
 				</Task>
@@ -77,7 +88,7 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 				</Task>
@@ -137,19 +148,6 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferSample' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferSample' />
 					</Parameters>
 				</Task>
@@ -161,7 +159,7 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='task.Incubationtime = 20 * timeMod;' />
 					<Parameters >
 						<Parameter Category='' Name='Incubation time' Value='1200' />
 						<Parameter Category='' Name='Use relative timing' Value='0' />
@@ -177,19 +175,6 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='removeSupnat' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='removeSupnat' />
 					</Parameters>
 				</Task>
@@ -202,19 +187,6 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='wash1' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='wash1' />
 					</Parameters>
 				</Task>
@@ -226,7 +198,7 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='task.Incubationtime = 20 * timeMod;' />
 					<Parameters >
 						<Parameter Category='' Name='Incubation time' Value='300' />
 						<Parameter Category='' Name='Use relative timing' Value='0' />
@@ -249,7 +221,7 @@ volume.bsadd = 5;' />
 				</Task>
 				<Task Name='BuiltIn::Signal' >
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
+					<Task_Disabled >1</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -266,19 +238,6 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='addDenature' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='addDenature' />
 					</Parameters>
 				</Task>
@@ -287,12 +246,14 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='50' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Title' Value='Transfer plate' />
-						<Parameter Category='' Name='Body' Value='Transfer the plate to a thermal cycler and run the denaturing program: 5 min RT, 30 min at 37' />
+						<Parameter Category='' Name='Body' Value='Transfer the plate to a thermal cycler and run the denaturing program: 5 min RT, 30 min at 37.
+
+Return the plate to position 5 when the incubation is finished and select &apos;Continue&apos; to resume the run.' />
 						<Parameter Category='' Name='Only show the first time' Value='' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
@@ -331,7 +292,7 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='task.Incubationtime = 20 * timeMod;' />
 					<Parameters >
 						<Parameter Category='' Name='Incubation time' Value='300' />
 						<Parameter Category='' Name='Use relative timing' Value='0' />
@@ -347,28 +308,18 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferEluate' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferEluate' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Load' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -403,7 +354,7 @@ volume.bsadd = 5;' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='6' />
@@ -427,28 +378,18 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='wash1' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='wash1' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Load' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -461,6 +402,17 @@ volume.bsadd = 5;' />
 							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 1, slot 2' />
 						</AssignedLocations_Node>
 					</Parameter>
+				</Task>
+				<Task Name='BuiltIn::Spawn Process' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Process to spawn' Value='DenatureSolution' />
+						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+					</Parameters>
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='WashBuffer1' />
@@ -492,7 +444,7 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -501,7 +453,7 @@ volume.bsadd = 5;' />
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='3' />
+						<Device Device_Name='Bravo - 1' Location_Name='6' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -510,7 +462,7 @@ volume.bsadd = 5;' />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='3' />
+						<Parameter Category='' Name='Location to use' Value='6' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
@@ -522,25 +474,15 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='distributeDenature' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeDenature' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Storage Incubate' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
+					<Task_Disabled >1</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -558,23 +500,23 @@ volume.bsadd = 5;' />
 				</Task>
 				<Task Name='BuiltIn::Wait For' Waitfor='SIGNAL_DENAT' >
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
+					<Task_Disabled >1</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='3' />
+						<Device Device_Name='Bravo - 1' Location_Name='6' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
+					<Task_Disabled >1</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='3' />
+						<Parameter Category='' Name='Location to use' Value='6' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
@@ -585,19 +527,6 @@ volume.bsadd = 5;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='addDenature' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='addDenature' />
 					</Parameters>
@@ -610,7 +539,7 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 				</Task>
@@ -635,7 +564,7 @@ volume.bsadd = 5;' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
@@ -644,7 +573,7 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -674,19 +603,6 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferEluate' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferEluate' />
 					</Parameters>
 				</Task>
@@ -698,19 +614,6 @@ volume.bsadd = 5;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='splitSample' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='splitSample' />
 					</Parameters>
@@ -760,19 +663,6 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferBisulfiteReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferBisulfiteReagent' />
 					</Parameters>
 				</Task>
@@ -797,7 +687,7 @@ volume.bsadd = 5;' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
@@ -806,7 +696,7 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -836,19 +726,6 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='distributeAdditive' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeAdditive' />
 					</Parameters>
 				</Task>
@@ -861,19 +738,6 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='distributeBisulfiteReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeBisulfiteReagent' />
 					</Parameters>
 				</Task>
@@ -882,7 +746,7 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='45' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -901,19 +765,6 @@ volume.bsadd = 5;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferBisulfiteReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferBisulfiteReagent' />
 					</Parameters>
@@ -939,7 +790,7 @@ volume.bsadd = 5;' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='2' />
@@ -963,19 +814,6 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferSample' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferSample' />
 					</Parameters>
 				</Task>
@@ -987,19 +825,6 @@ volume.bsadd = 5;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='removeSupnat' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='removeSupnat' />
 					</Parameters>
@@ -1013,48 +838,13 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='wash1' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='wash1' />
 					</Parameters>
 				</Task>
-				<Task Name='Bravo::SubProcess' >
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='addDenature' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
-						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='addDenature' />
-					</Parameters>
-				</Task>
 				<Task Name='BuiltIn::Storage Incubate' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
@@ -1068,7 +858,7 @@ volume.bsadd = 5;' />
 						<IncubationTime Incubation_Time_MS='10' />
 						<RelativeTiming bRelative_Timing='0' />
 						<AssignedLocations_Node >
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 2, slot 2' />
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 2, slot 5' />
 						</AssignedLocations_Node>
 					</Parameter>
 				</Task>
@@ -1083,6 +873,13 @@ volume.bsadd = 5;' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::Wait For' Waitfor='SIGNAL_SMPLTIPS' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='2' />
@@ -1106,18 +903,17 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferEluate' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
+						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='addDenature' />
 					</Parameters>
+				</Task>
+				<Task Name='Bravo::SubProcess' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferEluate' />
 					</Parameters>
@@ -1131,20 +927,59 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='splitSample' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='splitSample' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Storage Incubate' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='incubateAtLocation' Value='' />
+						<Parameter Category='' Name='newIncubationTime' Value='0' />
+					</Parameters>
+					<Parameter >
+						<IncubationTime Incubation_Time_MS='10' />
+						<RelativeTiming bRelative_Timing='0' />
+						<AssignedLocations_Node >
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 2, slot 5' />
+						</AssignedLocations_Node>
+					</Parameter>
+				</Task>
+				<Task Name='BuiltIn::Signal' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Waitfors_To_Signal >
+						<Waitfor Name='SIGNAL_USED' />
+					</Waitfors_To_Signal>
+				</Task>
+				<Task Name='BuiltIn::Wait For' Waitfor='SIGNAL_SMPL2' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+				</Task>
+				<Task Name='BuiltIn::Place Plate' >
+					<Devices >
+						<Device Device_Name='Bravo - 1' Location_Name='2' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
+						<Parameter Category='' Name='Location to use' Value='2' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
@@ -1155,19 +990,6 @@ volume.bsadd = 5;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferBisulfiteReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferBisulfiteReagent' />
 					</Parameters>
@@ -1193,7 +1015,7 @@ volume.bsadd = 5;' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 1' />
@@ -1202,88 +1024,7 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Free empty stackers' Value='1' />
-					</Parameters>
-				</Task>
-				<Task Name='Bravo::SubProcess' >
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='addOxSolution' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
-						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='addOxSolution' />
-					</Parameters>
-				</Task>
-				<Task Name='BuiltIn::Load' >
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='loadIntoByLocation' Value='' />
-						<Parameter Category='' Name='loadIntoByGroup' Value='' />
-					</Parameters>
-					<Parameter >
-						<useOriginalLocations Name='useOriginalLocations' Value='0' />
-						<AssignedLocations_Node >
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 2, slot 2' />
-						</AssignedLocations_Node>
-					</Parameter>
-				</Task>
-				<Plate_Parameters >
-					<Parameter Name='Plate name' Value='OxidationTips' />
-					<Parameter Name='Plate type' Value='96 V11 LT250 Tip Box 19477.002' />
-					<Parameter Name='Simultaneous plates' Value='1' />
-					<Parameter Name='Plates have lids' Value='0' />
-					<Parameter Name='Plates enter the system sealed' Value='0' />
-					<Parameter Name='Use single instance of plate' Value='0' />
-					<Parameter Name='Automatically update labware' Value='0' />
-					<Parameter Name='Enable timed release' Value='0' />
-					<Parameter Name='Release time' Value='30' />
-					<Parameter Name='Auto managed counterweight' Value='0' />
-					<Parameter Name='Barcode filename' Value='No Selection' />
-					<Parameter Name='Has header' Value='' />
-					<Parameter Name='Barcode or header South' Value='No Selection' />
-					<Parameter Name='Barcode or header West' Value='No Selection' />
-					<Parameter Name='Barcode or header North' Value='No Selection' />
-					<Parameter Name='Barcode or header East' Value='No Selection' />
-				</Plate_Parameters>
-				<Quarantine_After_Process >0</Quarantine_After_Process>
-			</Process>
-			<Process >
-				<Minimized >1</Minimized>
-				<Task Name='BuiltIn::Downstack' >
-					<Devices >
-						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 1' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -1313,23 +1054,108 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='distributeDenature' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
+						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='addOxSolution' />
 					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Load' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='loadIntoByLocation' Value='' />
+						<Parameter Category='' Name='loadIntoByGroup' Value='' />
+					</Parameters>
+					<Parameter >
+						<useOriginalLocations Name='useOriginalLocations' Value='0' />
+						<AssignedLocations_Node >
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 2, slot 2' />
+						</AssignedLocations_Node>
+					</Parameter>
+				</Task>
+				<Task Name='BuiltIn::Signal' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Waitfors_To_Signal >
+						<Waitfor Name='SIGNAL_REAGTIPS' />
+					</Waitfors_To_Signal>
+				</Task>
+				<Plate_Parameters >
+					<Parameter Name='Plate name' Value='OxidationTips' />
+					<Parameter Name='Plate type' Value='96 V11 LT250 Tip Box 19477.002' />
+					<Parameter Name='Simultaneous plates' Value='1' />
+					<Parameter Name='Plates have lids' Value='0' />
+					<Parameter Name='Plates enter the system sealed' Value='0' />
+					<Parameter Name='Use single instance of plate' Value='0' />
+					<Parameter Name='Automatically update labware' Value='0' />
+					<Parameter Name='Enable timed release' Value='0' />
+					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='0' />
+					<Parameter Name='Barcode filename' Value='No Selection' />
+					<Parameter Name='Has header' Value='' />
+					<Parameter Name='Barcode or header South' Value='No Selection' />
+					<Parameter Name='Barcode or header West' Value='No Selection' />
+					<Parameter Name='Barcode or header North' Value='No Selection' />
+					<Parameter Name='Barcode or header East' Value='No Selection' />
+				</Plate_Parameters>
+				<Quarantine_After_Process >0</Quarantine_After_Process>
+			</Process>
+			<Process >
+				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::Downstack' >
+					<Devices >
+						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 1' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Free empty stackers' Value='1' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Place Plate' >
+					<Devices >
+						<Device Device_Name='Bravo - 1' Location_Name='8' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
+						<Parameter Category='' Name='Location to use' Value='8' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::SubProcess' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeDenature' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Storage Incubate' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
@@ -1358,6 +1184,13 @@ volume.bsadd = 5;' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::Wait For' Waitfor='SIGNAL_REAGTIPS' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='8' />
@@ -1381,19 +1214,6 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='distributeAdditive' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeAdditive' />
 					</Parameters>
 				</Task>
@@ -1405,19 +1225,6 @@ volume.bsadd = 5;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='distributeBisulfiteReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeBisulfiteReagent' />
 					</Parameters>
@@ -1443,13 +1250,16 @@ volume.bsadd = 5;' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Unload' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -1485,28 +1295,107 @@ volume.bsadd = 5;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='addOxSolution' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
-						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='addOxSolution' />
+						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeDenature' />
 					</Parameters>
 				</Task>
-				<Task Name='BuiltIn::Load' >
+				<Task Name='BuiltIn::Storage Incubate' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='incubateAtLocation' Value='' />
+						<Parameter Category='' Name='newIncubationTime' Value='0' />
+					</Parameters>
+					<Parameter >
+						<IncubationTime Incubation_Time_MS='10' />
+						<RelativeTiming bRelative_Timing='0' />
+						<AssignedLocations_Node >
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 2, slot 1' />
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 1, slot 1' />
+						</AssignedLocations_Node>
+					</Parameter>
+				</Task>
+				<Task Name='BuiltIn::Signal' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Waitfors_To_Signal >
+						<Waitfor Name='SIGNAL_SMPLTIPS' />
+					</Waitfors_To_Signal>
+				</Task>
+				<Task Name='BuiltIn::Wait For' Waitfor='SIGNAL_USED' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+				</Task>
+				<Task Name='BuiltIn::Place Plate' >
+					<Devices >
+						<Device Device_Name='Bravo - 1' Location_Name='2' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
+						<Parameter Category='' Name='Location to use' Value='2' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='addOxSolution' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::SubProcess' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeAdditive' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::SubProcess' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeBisulfiteReagent' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Load' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -1516,6 +1405,16 @@ volume.bsadd = 5;' />
 					<Parameter >
 						<useOriginalLocations Name='useOriginalLocations' Value='1' />
 					</Parameter>
+				</Task>
+				<Task Name='BuiltIn::Signal' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Waitfors_To_Signal >
+						<Waitfor Name='SIGNAL_SMPL2' />
+					</Waitfors_To_Signal>
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='UsedTips' />
@@ -1557,21 +1456,10 @@ volume.bsadd = 5;' />
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='removeSupnat' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='removeSupnat' />
 					</Parameters>
@@ -1580,21 +1468,10 @@ volume.bsadd = 5;' />
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='wash1' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='wash1' />
 					</Parameters>
@@ -1653,21 +1530,10 @@ volume.bsadd = 5;' />
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='distributeDenature' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeDenature' />
 					</Parameters>
@@ -1676,21 +1542,22 @@ volume.bsadd = 5;' />
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='distributeAdditive' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
+						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='addOxSolution' />
 					</Parameters>
+				</Task>
+				<Task Name='Bravo::SubProcess' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeAdditive' />
 					</Parameters>
@@ -1699,46 +1566,12 @@ volume.bsadd = 5;' />
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='distributeBisulfiteReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='distributeBisulfiteReagent' />
-					</Parameters>
-				</Task>
-				<Task Name='Bravo::SubProcess' >
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='addOxSolution' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
-						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='addOxSolution' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
@@ -1789,7 +1622,7 @@ volume.bsadd = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var maxVolume = MAX_VOLUME;
 var mHeadMode = headMode;
@@ -1816,7 +1649,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Headmode = mHeadMode;' />
 					<Parameters >
@@ -1834,7 +1667,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -1864,7 +1697,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0) {
    task.skip();
@@ -1906,7 +1739,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 				</Task>
@@ -1927,14 +1760,14 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mAspDistance;
 if(mNumberSteps === 1) {
-	task.Dynamictipextension = global.dph(mTransferVolume);
+	task.Dynamictipextension = dph(mTransferVolume);
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='DenatureSolution' />
@@ -1969,7 +1802,7 @@ if(mNumberSteps === 1) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -2015,7 +1848,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='20' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
    mMixVolume = maxVolume * 0.8;
@@ -2065,7 +1898,7 @@ task.Wellselection = mWellSelection;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0 &amp;&amp; !mDoTipTouch) {
    task.skip();
@@ -2112,7 +1945,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mReturnTips) {
    task.Wellselection = mTipSelection;
@@ -2150,7 +1983,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='2' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2189,7 +2022,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var maxVolume = 165;
 var mHeadMode = &quot;1,1,1,1&quot;;
@@ -2206,14 +2039,14 @@ var mBlowoutHeight = 5;
 var mDoTipTouch = true;
 var mTouchRetract = -4;
 var mCurrentColumn = 0;
-var mMixVolume = 0.7 * (volume.denat/2 + volume.oxsol);' />
+var mMixVolume = 0.7 * (volume.eluate + volume.oxsol);' />
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Headmode = mHeadMode;' />
 					<Parameters >
@@ -2243,7 +2076,7 @@ var mMixVolume = 0.7 * (volume.denat/2 + volume.oxsol);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,++mTipColumn]];' />
 					<Parameters >
@@ -2269,11 +2102,9 @@ var mMixVolume = 0.7 * (volume.denat/2 + volume.oxsol);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='// Increment source column after half the (split) plate has been done:
-if(mCurrentColumn === columns) mSourceColumn++;  
-task.Wellselection = [[1,mSourceColumn]];
+					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,mSourceColumn]];
 task.Volume = mTransferVolume;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mAspDistance;' />
@@ -2310,7 +2141,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='4' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,++mCurrentColumn]];
 task.Volume = mTransferVolume;
@@ -2349,7 +2180,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,mCurrentColumn]];
 task.Distancefromwellbottom = mDispDistance;
@@ -2390,7 +2221,7 @@ task.Volume = mMixVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,13-mTipColumn]];' />
 					<Parameters >
@@ -2424,7 +2255,7 @@ task.Volume = mMixVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Do water next
 var maxVolume = 165;
@@ -2442,7 +2273,7 @@ var mBlowoutHeight = 5;
 var mDoTipTouch = true;
 var mTouchRetract = -4;
 var mCurrentColumn = columns / 2;
-var mMixVolume = 0.7 * (volume.denat/2 + volume.oxsol);' />
+var mMixVolume = 0.7 * (volume.eluate + volume.oxsol);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
@@ -2461,7 +2292,7 @@ var mMixVolume = 0.7 * (volume.denat/2 + volume.oxsol);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,++mTipColumn]];' />
 					<Parameters >
@@ -2487,7 +2318,7 @@ var mMixVolume = 0.7 * (volume.denat/2 + volume.oxsol);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Increment source column after half the (split) plate has been done:
 if(mCurrentColumn === columns) mSourceColumn++;  
@@ -2528,7 +2359,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='4' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,++mCurrentColumn]];
 task.Volume = mTransferVolume;
@@ -2567,7 +2398,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,mCurrentColumn]];
 task.Distancefromwellbottom = mDispDistance;
@@ -2608,7 +2439,7 @@ task.Volume = mMixVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,13-mTipColumn]];' />
 					<Parameters >
@@ -2642,7 +2473,7 @@ task.Volume = mMixVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='2' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2657,12 +2488,12 @@ task.Volume = mMixVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='120' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Title' Value='Incubate' />
-						<Parameter Category='' Name='Body' Value='Transfer the plate in position ? to a thermal cycler and incubate 30 min at 40C.' />
+						<Parameter Category='' Name='Body' Value='Transfer the plate in position 5 to a thermal cycler and incubate 30 min at 40C.' />
 						<Parameter Category='' Name='Only show the first time' Value='' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
@@ -2704,7 +2535,7 @@ task.Volume = mMixVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = volume.bsadd;	// Volume to dispense per well
 var maxTipVolume = MAX_VOLUME;	// Tip capacity
@@ -2723,7 +2554,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2741,7 +2572,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2779,7 +2610,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Volume left to transfer:
 var volumeLeft = (columns - columnsDone) * aliquotVolume;
@@ -2793,7 +2624,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2841,7 +2672,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,++columnsDone]];' />
 					<Parameters >
@@ -2884,7 +2715,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(columns == columnsDone) {
 	task.Performtiptouch = true;
@@ -2931,11 +2762,11 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='ReagentTips' />
+						<Parameter Category='' Name='Location, plate' Value='UsedTips' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
@@ -2989,7 +2820,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = volume.bsreag;	// Volume to dispense per well
 var maxTipVolume = MAX_VOLUME;	// Tip capacity
@@ -3008,7 +2839,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// If using two reagent columns:
 //task.Headmode = (columns &gt; 6) ? &quot;1,1,1,2&quot; : &quot;1,1,1,1&quot;;' />
@@ -3027,7 +2858,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// If using two reagent columns:
 //task.Wellselection = (columns &gt; 6) ? [[1,2]] : [[1,1]];' />
@@ -3066,7 +2897,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Volume left to transfer:
 var volumeLeft = (columns - columnsDone) * aliquotVolume;
@@ -3080,7 +2911,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// If using two reagent columns:
 //task.Wellselection = (columns &gt; 6) ? [[1,6]] : [[1,5]];
@@ -3131,7 +2962,7 @@ if(columnsDone &gt; 6) task.Wellselection = [[1,6]];' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,++columnsDone]];' />
 					<Parameters >
@@ -3174,7 +3005,7 @@ if(columnsDone &gt; 6) task.Wellselection = [[1,6]];' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(columns == columnsDone) {
 	task.Performtiptouch = true;
@@ -3221,11 +3052,11 @@ if(columnsDone &gt; 6) task.Wellselection = [[1,6]];' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='ReagentTips' />
+						<Parameter Category='' Name='Location, plate' Value='UsedTips' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
@@ -3279,7 +3110,7 @@ if(columnsDone &gt; 6) task.Wellselection = [[1,6]];' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = volume.denat;	// Volume to dispense per well
 var maxTipVolume = MAX_VOLUME;	// Tip capacity
@@ -3298,7 +3129,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -3316,7 +3147,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -3354,7 +3185,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Volume left to transfer:
 var volumeLeft = (columns - columnsDone) * aliquotVolume;
@@ -3368,7 +3199,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -3416,7 +3247,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,++columnsDone]];' />
 					<Parameters >
@@ -3459,7 +3290,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(columns == columnsDone) {
 	task.Performtiptouch = true;
@@ -3506,11 +3337,11 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='ReagentTips' />
+						<Parameter Category='' Name='Location, plate' Value='UsedTips' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
@@ -3576,7 +3407,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var maxVolume = MAX_VOLUME;
 var mHeadMode = headMode;
@@ -3598,7 +3429,7 @@ var mTouchRetract = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Headmode = mHeadMode;' />
 					<Parameters >
@@ -3616,7 +3447,7 @@ var mTouchRetract = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -3646,7 +3477,7 @@ var mTouchRetract = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0) {
    task.skip();
@@ -3688,7 +3519,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 				</Task>
@@ -3709,7 +3540,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='15' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -3748,7 +3579,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='12' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -3794,7 +3625,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='12' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0 &amp;&amp; !mDoTipTouch) {
    task.skip();
@@ -3806,7 +3637,7 @@ task.Distancefromwellbottom = mBlowoutHeight;
 task.Performtiptouch = mDoTipTouch;
 if(mDoTipTouch) {
    task.Tiptouchretractdistance = mTouchRetract;
-   task.Whichsidestousefortiptouch = &quot;South/North &quot;;
+   task.Whichsidestousefortiptouch = &quot;South/North&quot;;
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Waste' />
@@ -3841,7 +3672,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mReturnTips) {
    task.Wellselection = mTipSelection;
@@ -3896,7 +3727,9 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='// The TrueMethyl Array Kit the sample is split before
+// oxidation. This is not the case in the Seq Kit
+if(!arrayMode) task.skip();' />
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
@@ -3905,20 +3738,24 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = MAX_VOLUME;
-var mHeadMode = headMode;
-var mWellSelection = [[1,1]];
-var mTipSelection = [[1,13-columns]];
-var mGetTips = true;
-var mReturnTips = true;
-var mLiquidClass = &quot;j_slow_large_vol&quot;;
-var mPreAspVolume = 5;
-var mTransferVolume = volume.denat / 2;
-var mAspDistance = 0.75;
-var mDispDistance = 1;
-var mBlowoutHeight = 5;
-var mDoTipTouch = true;
-var mTouchRetract = -4;' />
+					<TaskScript Name='TaskScript' Value='if(!arrayMode) {
+	task.skip();
+} else {
+	var maxVolume = MAX_VOLUME;
+	var mHeadMode = headMode;
+	var mWellSelection = [[1,1]];
+	var mTipSelection = [[1,13-columns]];
+	var mGetTips = true;
+	var mReturnTips = true;
+	var mLiquidClass = &quot;j_slow_large_vol&quot;;
+	var mPreAspVolume = 5;
+	var mTransferVolume = volume.eluate;
+	var mAspDistance = 0.75;
+	var mDispDistance = 1;
+	var mBlowoutHeight = 5;
+	var mDoTipTouch = true;
+	var mTouchRetract = -4;
+}' />
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
@@ -3927,7 +3764,8 @@ var mTouchRetract = -4;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Headmode = mHeadMode;' />
+					<TaskScript Name='TaskScript' Value='if(!arrayMode) task.skip();
+task.Headmode = mHeadMode;' />
 					<Parameters >
 						<Parameter Category='' Name='Head mode' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
@@ -3945,7 +3783,7 @@ var mTouchRetract = -4;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mGetTips) {
+					<TaskScript Name='TaskScript' Value='if(arrayMode &amp;&amp; mGetTips) {
    task.Wellselection = mTipSelection;
 } else {
    task.skip();
@@ -3975,7 +3813,7 @@ var mTouchRetract = -4;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0) {
+					<TaskScript Name='TaskScript' Value='if(!arrayMode || mPreAspVolume == 0) {
    task.skip();
 }
 task.Wellselection = mWellSelection;
@@ -4017,14 +3855,15 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='if(!arrayMode) task.skip();
+var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='if(!arrayMode) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Number of times to loop' TaskParameterScript='=mNumberSteps;' Value='mTemp;' />
 						<Parameter Category='' Name='Change tips every N times, N = ' Value='1' />
@@ -4038,7 +3877,8 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
+					<TaskScript Name='TaskScript' Value='if(!arrayMode) task.skip();
+task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mAspDistance;' />
@@ -4077,7 +3917,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
+					<TaskScript Name='TaskScript' Value='if(!arrayMode) task.skip();
+task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mDispDistance;' />
@@ -4114,7 +3955,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='if(!arrayMode) task.skip();' />
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
@@ -4123,7 +3964,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0 &amp;&amp; !mDoTipTouch) {
+					<TaskScript Name='TaskScript' Value='if(!arrayMode || (mPreAspVolume == 0 &amp;&amp; !mDoTipTouch)) {
    task.skip();
 }
 task.Wellselection = mWellSelection;
@@ -4170,7 +4011,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mReturnTips) {
+					<TaskScript Name='TaskScript' Value='if(arrayMode &amp;&amp; mReturnTips) {
    task.Wellselection = mTipSelection;
 } else {
    task.skip();
@@ -4199,7 +4040,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='if(!arrayMode) task.skip();' />
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
@@ -4208,9 +4049,13 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='// Update columns and head mode:
-columns *= 2;
-headMode = &quot;1,2,1,&quot; + columns;' />
+					<TaskScript Name='TaskScript' Value='if(!arrayMode) {
+	task.skip();
+} else {
+	// Update columns and head mode:
+	columns *= 2;
+	headMode = &quot;1,2,1,&quot; + columns;
+}' />
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
@@ -4241,7 +4086,7 @@ headMode = &quot;1,2,1,&quot; + columns;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var maxVolume = MAX_VOLUME;
 var mHeadMode = headMode;
@@ -4249,7 +4094,7 @@ var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
-var mLiquidClass = &quot;j_medium_large_vol&quot;;
+var mLiquidClass = &quot;j_normal_medium_vol&quot;;
 var mPreAspVolume = 5;
 var mTransferVolume = volume.bsreag + volume.bsadd;
 var mAspDistance = 1;
@@ -4268,7 +4113,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Headmode = mHeadMode;' />
 					<Parameters >
@@ -4286,7 +4131,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -4316,7 +4161,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0) {
    task.skip();
@@ -4358,7 +4203,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 				</Task>
@@ -4379,7 +4224,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -4418,7 +4263,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -4464,7 +4309,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='45' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
    mMixVolume = maxVolume * 0.8;
@@ -4517,10 +4362,10 @@ task.Wellselection = mWellSelection;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// what are these steps??
-var mTransferVolume = volume.bsreag + volume.bsadd + volume.denat/2 + volume.oxsol;
+var mTransferVolume = volume.bsreag + volume.bsadd + volume.eluate + volume.oxsol;
 var mAspDistance = 1;
 var mDispDistance = 4;
-var mMixVolume = 0.6 * (volume.bsreag + volume.bsadd + volume.denat/2 + volume.oxsol);
+var mMixVolume = 0.6 * (volume.bsreag + volume.bsadd + volume.eluate + volume.oxsol);
 var mMixLiquidClass = &quot;j_slow_mixing&quot;;
 var mMixCycles = 8;
 var mMixAspDistance = 2;
@@ -4734,10 +4579,10 @@ if(mDoTipTouch) {
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >1</Task_Disabled>
+					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mReturnTips) {
    task.Wellselection = mTipSelection;
@@ -4799,7 +4644,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var maxVolume = MAX_VOLUME;
 var mHeadMode = headMode;
@@ -4821,7 +4666,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Headmode = mHeadMode;' />
 					<Parameters >
@@ -4839,7 +4684,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -4869,7 +4714,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0) {
    task.skip();
@@ -4911,7 +4756,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 				</Task>
@@ -4932,7 +4777,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -4971,7 +4816,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,1+columns]];
 task.Volume = mTransferVolume / mNumberSteps;
@@ -5017,7 +4862,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0 &amp;&amp; !mDoTipTouch) {
    task.skip();
@@ -5064,7 +4909,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mReturnTips) {
    task.Wellselection = mTipSelection;
@@ -5126,7 +4971,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var maxVolume = MAX_VOLUME;
 var mHeadMode = headMode;
@@ -5153,7 +4998,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Headmode = mHeadMode;' />
 					<Parameters >
@@ -5171,7 +5016,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -5201,7 +5046,7 @@ var mTouchRetract = -4;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0) {
    task.skip();
@@ -5243,7 +5088,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 				</Task>
@@ -5264,14 +5109,14 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mAspDistance;
 if(mNumberSteps === 1) {
-	task.Dynamictipextension = global.dph(mTransferVolume);
+	task.Dynamictipextension = dph(mTransferVolume);
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='SamplePlate' />
@@ -5306,7 +5151,7 @@ if(mNumberSteps === 1) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -5352,7 +5197,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='34' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
    mMixVolume = maxVolume * 0.8;
@@ -5402,7 +5247,7 @@ task.Wellselection = mWellSelection;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0 &amp;&amp; !mDoTipTouch) {
    task.skip();
@@ -5449,7 +5294,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mReturnTips) {
    task.Wellselection = mTipSelection;
@@ -5506,7 +5351,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Number of times to loop' Value='3' />
+						<Parameter Category='' Name='Number of times to loop' TaskParameterScript='=washes;' Value='3' />
 						<Parameter Category='' Name='Change tips every N times, N = ' Value='1' />
 					</Parameters>
 					<Variables />
@@ -5523,7 +5368,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var maxVolume = MAX_VOLUME;
 var mHeadMode = headMode;
@@ -5535,7 +5380,7 @@ var mLiquidClass = &quot;j_normal_large_vol&quot;;
 var mPreAspVolume = 5;
 var mTransferVolume = volume.wash1;
 var mAspDistance = 2;
-var mDispDistance = 2;
+var mDispDistance = 4;
 var mMixVolume = 150;
 var mMixLiquidClass = &quot;j_normal_mixing&quot;;
 var mMixCycles = 3;
@@ -5550,7 +5395,7 @@ var mTouchRetract = -15;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Headmode = mHeadMode;' />
 					<Parameters >
@@ -5568,7 +5413,7 @@ var mTouchRetract = -15;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -5598,7 +5443,7 @@ var mTouchRetract = -15;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='4' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0) {
    task.skip();
@@ -5640,7 +5485,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 				</Task>
@@ -5661,7 +5506,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -5700,14 +5545,14 @@ task.Distancefromwellbottom = mAspDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mDispDistance;
 task.Performtiptouch = true;
-task.Tiptouchretractdistance = 10;
+task.Tiptouchretractdistance = 20;
 task.Whichsidestousefortiptouch = &quot;South&quot;;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='BeadSolution1' />
@@ -5749,7 +5594,7 @@ task.Whichsidestousefortiptouch = &quot;South&quot;;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='16' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
    mMixVolume = maxVolume * 0.8;
@@ -5799,7 +5644,7 @@ task.Wellselection = mWellSelection;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0 &amp;&amp; !mDoTipTouch) {
    task.skip();
@@ -5846,7 +5691,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='task.Reservationtime = 120 * timeMod;' />
 					<Parameters >
 						<Parameter Category='' Name='Location to use, plate' Value='BeadSolution1' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
@@ -5858,7 +5703,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mLiquidClass = &quot;j_normal_large_vol&quot;;
 var mPreAspVolume = 5;
@@ -5887,7 +5732,7 @@ var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -5926,7 +5771,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -5975,7 +5820,7 @@ task.Whichsidestousefortiptouch = &quot;North&quot;;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0 &amp;&amp; !mDoTipTouch) {
    task.skip();
@@ -6022,7 +5867,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mReturnTips) {
    task.Wellselection = mTipSelection;
