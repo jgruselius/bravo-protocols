@@ -7,7 +7,7 @@
 
 /*
  CHANGED in this version:
- --Dilution protocol handles all buffer transfers in a single array
+ --parseTransfers and parseDilutionTransfers can now handle a string in col 4
 
  TODO
  --Make a common function for assigning sourceVolume, sourcePlate etc. 
@@ -265,7 +265,13 @@ function parseTransfers(str) {
 			sourcePlate = row[0];
 			sourceWell = convertCoordsRegExp(row[1]);
 			volume = parseNumber(row[2], 3);
-			destinationWell = convertCoordsRegExp(row[3]);
+			// Temporary fix to also handle format with destination plate ID:
+			try {
+				destinationWell = convertCoordsRegExp(row[4]);
+				destinationPlate = row[3];
+			} catch(e) {
+				destinationWell = convertCoordsRegExp(row[3]);
+			}
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
@@ -362,14 +368,22 @@ function parseDilutionTransfers(str) {
 	for(var i in rowArray) {
 		var row = rowArray[i];
 		var sourcePlate, sourceWell, sourceVolume;
-		var destinationWell, diluentVolume;
+		var destinationPlate, destinationWell, diluentVolume;
 		try {
 			sourcePlate = row[0];
 			sourceWell = convertCoordsRegExp(row[1]);
 			sourceVolume = parseNumber(row[2], 3);
-			destinationWell = convertCoordsRegExp(row[3]);
-			// The substraction float may contain many dec so it is rounded:
-			diluentVolume = +(parseNumber(row[4], 3) - sourceVolume).toFixed(3);
+			// Temporary fix to also handle format with destination plate ID:
+			try {
+				destinationWell = convertCoordsRegExp(row[4]);
+				destinationPlate = row[3];
+				// The substraction float may contain many dec so it is rounded:
+				diluentVolume = +(parseNumber(row[5], 3) - sourceVolume).toFixed(3);
+			} catch(e) {
+				destinationWell = convertCoordsRegExp(row[3]);
+				// The substraction float may contain many dec so it is rounded:
+				diluentVolume = +(parseNumber(row[4], 3) - sourceVolume).toFixed(3);
+			}
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
