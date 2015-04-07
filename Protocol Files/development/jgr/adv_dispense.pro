@@ -272,7 +272,7 @@ var volumeLeft = (columns - columnsDone) * aliquotVolume;
 // The total volume of the largest number of aliquots that fit in one tip:
 var maxVolume = aliquotVolume * Math.floor(maxTipVolume / aliquotVolume);
 // The actual volume to aspirate:
-var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume : volumeLeft;
+var tipVolume = (volumeLeft &gt; maxVolume) ? maxVolume : volumeLeft;
 // The number of aliquots to dispense from the aspirated volume: 
 var dispenseSteps = tipVolume / aliquotVolume;' />
 				</Task>

@@ -803,7 +803,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);
 // Volume left to transfer:
 var volumeLeft = (columns - columnsDone) * aliquotVolume;
 // The actual volume to aspirate:
-var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
+var tipVolume = (volumeLeft &gt; maxVolume) ? maxVolume + deadVolume : volumeLeft + deadVolume;
 // The number of aliquots to dispense from the aspirated volume: 
 var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				</Task>
@@ -1091,7 +1091,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);
 // Volume left to transfer:
 var volumeLeft = (columns - columnsDone) * aliquotVolume;
 // The actual volume to aspirate:
-var tipVolume = (volumeLeft &gt; maxVolume) ?  maxVolume + deadVolume : volumeLeft + deadVolume;
+var tipVolume = (volumeLeft &gt; maxVolume) ? maxVolume + deadVolume : volumeLeft + deadVolume;
 // The number of aliquots to dispense from the aspirated volume: 
 var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				</Task>

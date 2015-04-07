@@ -1112,7 +1112,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var MAX_VOLUME = MAX_VOLUME;
+					<TaskScript Name='TaskScript' Value='
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
@@ -1579,7 +1579,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var MAX_VOLUME = MAX_VOLUME;
+					<TaskScript Name='TaskScript' Value='
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
@@ -1871,7 +1871,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var MAX_VOLUME = MAX_VOLUME;
+					<TaskScript Name='TaskScript' Value='
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
@@ -2201,7 +2201,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var MAX_VOLUME = MAX_VOLUME;
+					<TaskScript Name='TaskScript' Value='
 var mHeadMode = headMode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];

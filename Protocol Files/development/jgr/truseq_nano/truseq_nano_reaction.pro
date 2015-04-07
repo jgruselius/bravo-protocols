@@ -716,9 +716,9 @@ var deadVolume = 3;		// Extra liquid volume to aspirate
 // Total volume to transfer:
 var transferVolume = aliquotVolume * columns;
 // The total volume of the largest number of aliquots that fit in one tip:
-var MAX_VOLUME = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
+var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
-var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
+var aspirateSteps = Math.ceil(transferVolume / maxVolume);
 ' />
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
@@ -788,7 +788,7 @@ var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 // Volume left to transfer:
 var volumeLeft = (columns - columnsDone) * aliquotVolume;
 // The actual volume to aspirate:
-var tipVolume = (volumeLeft &gt; MAX_VOLUME) ?  MAX_VOLUME + deadVolume : volumeLeft + deadVolume;
+var tipVolume = (volumeLeft &gt; maxVolume) ? maxVolume + deadVolume : volumeLeft + deadVolume;
 // The number of aliquots to dispense from the aspirated volume: 
 var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				</Task>
