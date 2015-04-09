@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='386299eb68f11d679da97fbe6079f951' version='2.0' >
-	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
+<Velocity11 file='Protocol_Data' md5sum='d3405d81b35e9bdc7a928e1d8b2ad6a4' version='2.0' >
+	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Main_Processes >
 			<Process >
@@ -86,6 +86,17 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 				</Task>
+				<Task Name='BuiltIn::Spawn Process' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Process to spawn' Value='ReagentTips' />
+						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+					</Parameters>
+				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='NewTips' />
 					<Parameter Name='Plate type' Value='96 V11 LT250 Tip Box 19477.002' />
@@ -141,6 +152,17 @@
 						</AssignedLocations_Node>
 					</Parameter>
 				</Task>
+				<Task Name='BuiltIn::Spawn Process' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Process to spawn' Value='SamplePlate' />
+						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+					</Parameters>
+				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='EthanolPlate' />
 					<Parameter Name='Plate type' Value='96 Nunc Deep Well 1 mL' />
@@ -195,6 +217,17 @@
 							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 3, slot 2' />
 						</AssignedLocations_Node>
 					</Parameter>
+				</Task>
+				<Task Name='BuiltIn::Spawn Process' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Process to spawn' Value='UsedTips' />
+						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+					</Parameters>
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='ElutionBufferPlate' />
@@ -426,7 +459,7 @@
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >0</Minimized>
+				<Minimized >1</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -476,7 +509,7 @@
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >0</Minimized>
+				<Minimized >1</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='9' />

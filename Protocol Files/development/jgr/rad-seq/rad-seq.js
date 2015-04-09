@@ -1,12 +1,14 @@
 runset.clear();
 
-var path = "C:/VWorks Workspace/Protocol Files/development/jgr/rad_seq/";
-var form = "rad_seq.VWForm";
+var path = "C:/VWorks Workspace/Protocol Files/development/jgr/rad-seq/";
+var form = "rad-seq.VWForm";
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
+
+var presets = {};
 
 presets["Strand displacement"] = {
 	tipColumn:2,
@@ -53,7 +55,7 @@ presets["Ligation cleanup"] = {
 presets["PCR cleanup"] = {
 	sampleVolume:50,
 	beadVolume:50,
-	elutionVolume:25
+	elutionVolume:25,
 	};
 
 presets["PCR setup"] = {
@@ -72,7 +74,6 @@ fileNames["Ligation"] = "rad-seq_ligation.pro";
 fileNames["Ligation cleanup"] = "illumina_spri.pro";
 fileNames["Size selection 350 bp"] = "illumina_double-spri.pro";
 fileNames["Library prep"] = "rad-seq.rst";
-fileNames["Ligation cleanup"] = "rad-seq_cleanup.rst";
 fileNames["PCR setup"] = "rad-seq_pcr.pro";
 fileNames["PCR cleanup"] = "illumina_spri.pro";
 
@@ -83,6 +84,7 @@ if(formProtocol === "Library prep") {
 	runsetOrder = ["Ligation","Ligation cleanup", "Strand displacement", "Size selection "+formInsertSize,
 			"PCR setup"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
+	print("Runset file loaded");
 } else if(formProtocol === "Size selection") {
 	runsetMode = false;
 	runset.appendProtocolFileToRunset(path+fileNames[formProtocol+" "+formInsertSize], 1, "", form);

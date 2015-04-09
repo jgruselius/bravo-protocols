@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='c4806435b22d15d818709089605b94e2' version='2.0' >
-	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
+<Velocity11 file='Protocol_Data' md5sum='b6c870a37bad39ee13320ac1f9b953fb' version='2.0' >
+	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Main_Processes >
 			<Process >
@@ -34,7 +34,7 @@
 					<Parameter >
 						<useOriginalLocations Name='useOriginalLocations' Value='0' />
 						<AssignedLocations_Node >
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 1, slot 2' />
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 4, slot 5' />
 						</AssignedLocations_Node>
 					</Parameter>
 				</Task>
@@ -145,6 +145,9 @@
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Load' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
@@ -277,6 +280,9 @@
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Load' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
@@ -481,6 +487,9 @@
 			<Process >
 				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Unload' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
@@ -638,7 +647,7 @@
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >0</Minimized>
+				<Minimized >1</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='9' />
