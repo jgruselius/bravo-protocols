@@ -22,18 +22,20 @@
  Object containing information of a liquid transfer; a set of source
  coordinates (row, columnn), a volume and destination coordinates
 */
-function Transfer(sourcePlate, sourceWell, volume, destinationWell, newTip) {
+function Transfer(sourcePlate, sourceWell, volume, destinationWell, destinationPlate, newTip) {
 	this.sourcePlate = sourcePlate;
 	this.sourceWell = sourceWell;
 	this.volume = volume;
 	this.destinationWell = destinationWell;
+	this.destinationPlate = destinationPlate;
 	this.newTip = newTip;
-	this.toString = function () {
+	this.toString = function() {
 		var str = ["{" + 
 				"sourcePlate: " + this.sourcePlate,
 				"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) + 
 						this.sourceWell[1],
 				"volume: " + this.volume,
+				"destinationPlate: " + this.destinationPlate,
 				"destinationWell: " + String.fromCharCode(this.destinationWell[0]+64) +
 						this.destinationWell[1],
 				"newTip: " + newTip +
@@ -260,7 +262,7 @@ function parseTransfers(str) {
 	var plateIndex = 0;
 	for(var i in rowArray) {
 		var row = rowArray[i];
-		var sourcePlate, sourcePlateIndex, sourceWell, volume, destinationWell;
+		var sourcePlate, sourcePlateIndex, sourceWell, volume, destinationWell, destinationPlate;
 		try {
 			sourcePlate = row[0];
 			sourceWell = convertCoordsRegExp(row[1]);
@@ -270,6 +272,7 @@ function parseTransfers(str) {
 				destinationWell = convertCoordsRegExp(row[4]);
 				destinationPlate = row[3];
 			} catch(e) {
+				destinationPlate = "aliquot_plate";
 				destinationWell = convertCoordsRegExp(row[3]);
 			}
 		} catch(e) {
@@ -281,7 +284,7 @@ function parseTransfers(str) {
 				plateIndex = transferArrays.push([]) - 1;
 			}
 			transferArrays[plateIndex].push(new Transfer(sourcePlate, 
-				sourceWell, volume, destinationWell, true));
+				sourceWell, volume, destinationWell, destinationPlate, true));
 		}
 	}
 	return transferArrays;
@@ -332,11 +335,11 @@ function parseAdapterTransfers(str, indexSet) {
 	var transferArray = [];
 	for(var i in rowArray) {
 		var row = rowArray[i];
-		var source, volume, destination;
+		var source, volume, destinationWell;
 		try {
 			source = convertCoords(plateMap[row[1]]);
 			volume = parseNumber(row[2], 3);
-			destination = convertCoordsRegExp(row[0]);
+			destinationWell = convertCoordsRegExp(row[0]);
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
@@ -344,7 +347,7 @@ function parseAdapterTransfers(str, indexSet) {
 		var newTip = (i == 0) || (row[1] != rowArray[i-1][1]);
 		if(volume > 0) {
 			transferArray.push(new Transfer("adapter_plate", source, volume,
-				destination, newTip));
+				destinationWell, "aliquot_plate", newTip));
 		}
 	}
 	return [transferArray];
@@ -380,6 +383,7 @@ function parseDilutionTransfers(str) {
 				// The substraction float may contain many dec so it is rounded:
 				diluentVolume = +(parseNumber(row[5], 3) - sourceVolume).toFixed(3);
 			} catch(e) {
+				destinationPlate = "diluted_plate";
 				destinationWell = convertCoordsRegExp(row[3]);
 				// The substraction float may contain many dec so it is rounded:
 				diluentVolume = +(parseNumber(row[4], 3) - sourceVolume).toFixed(3);
@@ -391,7 +395,7 @@ function parseDilutionTransfers(str) {
 		if(diluentVolume > 0) {
 			newTip = (transferArrays[0].length === 0);
 			transferArrays[0].push(new Transfer("diluent_reservoir",
-				diluentWell, diluentVolume, destinationWell, newTip));
+				diluentWell, diluentVolume, destinationWell, destinationPlate, newTip));
 		}
 		if(!(sourcePlate in plateSet)) {
 			plateSet[sourcePlate] = sourcePlate;
@@ -400,7 +404,7 @@ function parseDilutionTransfers(str) {
 		if(sourceVolume > 0) {
 			newTip = (sourceIndex > 1 || transferArrays[sourceIndex].length > 0);
 			transferArrays[sourceIndex].push(new Transfer(sourcePlate, sourceWell,
-				sourceVolume, destinationWell, newTip));
+				sourceVolume, destinationWell, destinationPlate, newTip));
 		}
 	}
 	return transferArrays;
@@ -428,10 +432,12 @@ function parseDilutionTransfersLims(str) {
 	var diluentWell = convertCoords("A1");
 	for(var i=firstDataRow, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
-		var sourceWell, sourceVolume
+		var sourcePlate, sourceWell, sourceVolume
 		var destinationWell, diluentVolume;
 		try {
+			sourcePlate = row[1];
 			sourceWell = convertCoordsRegExp(row[2]);
+			destinationPlate = row[6];
 			destinationWell = convertCoordsRegExp(row[7]);
 			// A missing value should be treated as 0 volume:
 			try {
@@ -458,13 +464,13 @@ function parseDilutionTransfersLims(str) {
 		var newTip;
 		if(sourceVolume > 0) {
 			newTip = (sampleTransferArray.length != 0);
-			sampleTransferArray.push(new Transfer("sample_plate", sourceWell,
-				sourceVolume, destinationWell, newTip));
+			sampleTransferArray.push(new Transfer(sourcePlate, sourceWell,
+				sourceVolume, destinationWell, destinationPlate, newTip));
 		}
 		if(diluentVolume > 0) {
 			newTip = (diluentTransferArray.length == 0);
 			diluentTransferArray.push(new Transfer("diluent_reservoir",
-				diluentWell, diluentVolume, destinationWell, newTip));
+				diluentWell, diluentVolume, destinationWell, destinationPlate, newTip));
 		}
 	}
 	return [diluentTransferArray, sampleTransferArray];
