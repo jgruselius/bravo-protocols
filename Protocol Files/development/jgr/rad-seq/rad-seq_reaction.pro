@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='b51de02da3d9a5398dd25b48c13b759b' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='50d0deed89ddfc1ca6e3795099f02a27' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -24,17 +24,18 @@ if(global.runsetMode) global.updateRunset();
 var columns = parseInt(global.formColumns, 10) || 1;
 var headMode = &quot;1,2,1,&quot; + columns;
 
-var req = [&quot;tipColumn&quot;,
-           &quot;reagentColumn&quot;,
-           &quot;sampleVolume&quot;,
-           &quot;reagentVolume&quot;,
-           &quot;incubationTemperature&quot;,
-           &quot;doOffDeckIncubation&quot;
-            ];
+var req = [
+	&quot;tipColumn&quot;,
+	&quot;reagentColumn&quot;,
+	&quot;sampleVolume&quot;,
+	&quot;reagentVolume&quot;,
+	&quot;incubationTemperature&quot;,
+	&quot;doOffDeckIncubation&quot;
+];
 
 var missing = [];
-for(var k in req) {
-   if(!(req[k] in global.settings)) missing.push(req[k]);
+for(var i in req) {
+   if(!(req[i] in global.settings)) missing.push(req[i]);
 }
 
 if(!missing.length) print(&quot;WARNING: The following required variables are missing: &quot; + missing.join(&quot;, &quot;));
@@ -49,6 +50,8 @@ var incubationTemperature = global.settings.incubationTemperature || tempRt;
 var doOffDeckIncubation = global.settings.doOffDeckIncubation;
 var incubationTime = global.settings.incubationTime * timeMod;
 var protocolName = global.formProtocol;
+
+var dph = global.dph;
 
 global.statusString = protocolName + &quot; started&quot;;' />
 				</Task>

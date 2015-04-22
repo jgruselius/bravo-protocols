@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='01309592ee91cd7d69e8318799f88ac2' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='8e4ffdcdd04d4b9d36f221de3dae554b' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -25,16 +25,17 @@ if(runsetMode) global.updateRunset();
 var columns = parseInt(global.formColumns, 10) || 1;
 var headMode = &quot;1,2,1,&quot; + columns;
 
-var req = [&quot;tipColumn&quot;,
-           &quot;reagentColumn&quot;,
-           &quot;sampleVolume&quot;,
-           &quot;reagentVolume&quot;,
-           &quot;primerVolume&quot;,
-            ];
+var req = [
+	&quot;tipColumn&quot;,
+	&quot;reagentColumn&quot;,
+	&quot;sampleVolume&quot;,
+	&quot;reagentVolume&quot;,
+	&quot;primerVolume&quot;
+];
 
 var missing = [];
-for(var k in req) {
-   if(!(req[k] in global.settings)) missing.push(req[k]);
+for(var i in req) {
+   if(!(req[i] in global.settings)) missing.push(req[i]);
 }
 
 if(!missing.length) print(&quot;WARNING: The following required variables are missing: &quot; + missing.join(&quot;, &quot;));
@@ -48,6 +49,8 @@ var reagentVolume = global.settings.reagentVolume;
 var primerVolume = global.settings.adapterVolume;
 var doOffDeckIncubation = global.settings.doOffDeckIncubation;
 var protocolName = global.formProtocol;
+
+var dph = global.dph;
 
 global.statusString = protocolName + &quot; started&quot;;' />
 				</Task>
@@ -666,13 +669,14 @@ global.statusString = protocolName + &quot; started&quot;;' />
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = primerVolume;	// Volume to dispense per well
+var maxTipVolume = MAX_VOLUME; // Tip capacity
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 3;		// Extra liquid volume to aspirate
 
 // Total volume to transfer:
 var transferVolume = aliquotVolume * columns;
 // The total volume of the largest number of aliquots that fit in one tip:
-var maxVolume = aliquotVolume * Math.floor((MAX_TIP_VOLUME - deadVolume) / aliquotVolume);
+var maxVolume = aliquotVolume * Math.floor((maxTipVolume - deadVolume) / aliquotVolume);
 // Number of aspirations necessary:
 var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 				</Task>
@@ -1288,7 +1292,7 @@ task.Wellselection = [[1,reagentColumn]];' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = sampleVolume;
 task.Distancefromwellbottom = 0.5;
-task.Dynamictipextension = global.dph(sampleVolume);' />
+task.Dynamictipextension = dph(sampleVolume);' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='SamplePlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -1326,7 +1330,7 @@ task.Dynamictipextension = global.dph(sampleVolume);' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = reagentVolume;
 task.Distancefromwellbottom = 0.5;
-task.Dynamictipextension = global.dph(reagentVolume);' />
+task.Dynamictipextension = dph(reagentVolume);' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='TransferPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -1450,11 +1454,11 @@ task.Dynamictipretraction = 5 / (sampleVolume + reagentVolume);' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;af077a40bd579ea246a280f2eaf5895d&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;014c9d5cb1f7592471b6f0d87545c3c1&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;1&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
