@@ -67,8 +67,8 @@ function updateRunset() {
 function dph(vol, endHeight) {
 	var v = parseFloat(vol);
 	var e = parseFloat(endHeight);
-	if(v > 0 && e > 0 && !isNaN(v) && !isNaN(e)) {
-		return 0.078 - 0.00009184*v + (0.777-e)/v;
+	if(v > 0 && e > 0 && !isNaN(v+e)) {
+		return 0.078 - 9.184E-5*v + (0.777-e)/v;
 	} else {
 		throw "ValueException";
 	}
