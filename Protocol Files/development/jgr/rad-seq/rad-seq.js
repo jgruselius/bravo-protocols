@@ -10,21 +10,21 @@ formColumns = parseInt(formColumns, 10);
 
 var presets = {};
 
-presets["Strand displacement"] = {
-	tipColumn:2,
-	reagentColumn:2,
-	sampleVolume:25,
-	reagentVolume:25,
-	doOffDeckIncubation:true
-	};
-
 presets["Ligation"] = {
 	tipColumn:1,
 	reagentColumn:1,
 	sampleVolume:13,
 	reagentVolume:7,
-	bufferVolume:5,
+	bufferVolume:27,
 	adapterVolume:3,
+	doOffDeckIncubation:true
+	};
+
+presets["Strand displacement"] = {
+	tipColumn:3,
+	reagentColumn:3,
+	sampleVolume:25,
+	reagentVolume:25,
 	doOffDeckIncubation:true
 	};
 
@@ -42,7 +42,6 @@ presets["Size selection 550 bp"] = {
 	beadVolume1:80,
 	beadVolume2:30,
 	bindVolume:160,
-	transferVolume:250,
 	elutionVolume:17.5
 	};
 
@@ -59,8 +58,8 @@ presets["PCR cleanup"] = {
 	};
 
 presets["PCR setup"] = {
-	tipColumn:3,
-	reagentColumn:3,
+	tipColumn:4,
+	reagentColumn:4,
 	sampleVolume:20,
 	reagentVolume:25,
 	primerVolume:5
@@ -111,11 +110,12 @@ function updateRunset() {
 	updateSettings(runsetOrder[runsetIndex++]);
 }
 
-// Dynamic Pipetting Height:
-function dph(vol) {
+// Dynamic Pipetting Height 2.0:
+function dph(vol, endHeight) {
 	var v = parseFloat(vol);
-	if(v > 0 && !isNaN(v)) {
-		return (0.08*v + 0.2) / v;
+	var e = parseFloat(endHeight);
+	if(v > 0 && e > 0 && !isNaN(v+e)) {
+		return 0.078 - 9.501E-5*v + (0.734-e)/v;
 	} else {
 		throw "ValueException";
 	}
