@@ -364,7 +364,7 @@
         </Property>
         <Parameter Name="JavaScript variable" Description="If the filename of a valid Image file is assigned to this variable, the displayed image will change to it" Type="1" Value="" ValueToDisplay="" Hide_if="" />
         <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-        <Parameter Name="Image file" Description="Select image file to display" Type="9" Value="G:\NGI-final.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp||" Hide_if="" />
+        <Parameter Name="Image file" Description="Select image file to display" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\resources\NGI-final.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp||" Hide_if="" />
         <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
         <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       </Object>
@@ -382,7 +382,7 @@
         </Property>
         <Parameter Name="JavaScript variable" Description="If the filename of a valid Image file is assigned to this variable, the displayed image will change to it" Type="1" Value="" ValueToDisplay="" Hide_if="" />
         <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-        <Parameter Name="Image file" Description="Select image file to display" Type="9" Value="G:\SciLifeLab-1.logotyp.PMS376.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp||" Hide_if="" />
+        <Parameter Name="Image file" Description="Select image file to display" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\resources\SciLifeLab-1.logotyp.PMS376.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp||" Hide_if="" />
         <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
         <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       </Object>
