@@ -5,139 +5,474 @@
   <Property name="ShowLogInFullScreen" value="1" />
   <Property name="FormBackgroundColor" value="-1" />
   <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
-    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist3" children="Controls">
-      <Property name="Location">198, 101</Property>
-      <Property name="DropDownStyle">DropDownList</Property>
-      <Property name="TabIndex">10</Property>
-      <Property name="DataBindings">
-        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
-      </Property>
-      <Property name="FormattingEnabled">True</Property>
-      <Property name="Name">operatorConsoleDroplist3</Property>
-      <Property name="Items">
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ThruPLEX DNA</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ThruPLEX-FD</Item>
-      </Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">158, 24</Property>
-      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formVersion" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="ThruPLEX DNA;ThruPLEX-FD" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
-      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="ThruPLEX DNA" ValueToDisplay="" Hide_if="Const(0)" />
-      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
-        <Ranges>
-          <Range Value="1" />
-          <Range Value="72" />
-        </Ranges>
-      </Parameter>
-      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="ThruPLEX" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="Full run;Template preparation;Library synthesis;PCR setup;PCR cleanup;" ValueToDisplay="" Hide_if="" />
-    </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic5" children="Controls">
-      <Property name="TabIndex">9</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">65, 23</Property>
-      <Property name="Name">operatorConsoleStatic5</Property>
-      <Property name="Text">Version:</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic9" children="Controls">
+      <Property name="TabIndex">20</Property>
+      <Property name="Font">Tahoma, 8pt</Property>
+      <Property name="ForeColor">127, 127, 127</Property>
+      <Property name="Size">102, 16</Property>
+      <Property name="Name">operatorConsoleStatic9</Property>
+      <Property name="Text">Joel Gruselius, 2014</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="Location">70, 104</Property>
+      <Property name="Location">25, 387</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
-      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Version:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Joel Gruselius, 2014" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
       <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="8" ValueToDisplay="" Hide_if="">
         <Ranges>
           <Range Value="1" />
           <Range Value="72" />
         </Ranges>
       </Parameter>
-      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="8355711" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="Version:" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Joel Gruselius, 2014" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox1" children="Controls">
-      <Property name="Location">198, 161</Property>
+    <Object type="ToolboxLibrary.OperatorConsolePanel, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsolePanel1" children="Controls">
+      <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic2" children="Controls">
+        <Property name="TabIndex">5</Property>
+        <Property name="Font">Tahoma, 10pt</Property>
+        <Property name="ForeColor">0, 0, 0</Property>
+        <Property name="Size">64, 23</Property>
+        <Property name="Name">operatorConsoleStatic2</Property>
+        <Property name="Text">Columns:</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">18, 16</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+        <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Columns:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+        <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+          <Ranges>
+            <Range Value="1" />
+            <Range Value="72" />
+          </Ranges>
+        </Parameter>
+        <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Value" Description="" Type="1" Value="Columns:" ValueToDisplay="" Hide_if="" />
+      </Object>
+      <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic8" children="Controls">
+        <Property name="TabIndex">16</Property>
+        <Property name="Font">Tahoma, 8pt</Property>
+        <Property name="ForeColor">127, 127, 127</Property>
+        <Property name="Size">141, 13</Property>
+        <Property name="Name">operatorConsoleStatic8</Property>
+        <Property name="Text">Select which step(s) to run</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">267, 78</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+        <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Select which step(s) to run" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+        <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="8" ValueToDisplay="" Hide_if="">
+          <Ranges>
+            <Range Value="1" />
+            <Range Value="72" />
+          </Ranges>
+        </Parameter>
+        <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="8355711" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Value" Description="" Type="1" Value="Select which step(s) to run" ValueToDisplay="" Hide_if="" />
+      </Object>
+      <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic5" children="Controls">
+        <Property name="TabIndex">9</Property>
+        <Property name="Font">Tahoma, 10pt</Property>
+        <Property name="ForeColor">0, 0, 0</Property>
+        <Property name="Size">65, 23</Property>
+        <Property name="Name">operatorConsoleStatic5</Property>
+        <Property name="Text">Version:</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">18, 46</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+        <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Version:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+        <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+          <Ranges>
+            <Range Value="1" />
+            <Range Value="72" />
+          </Ranges>
+        </Parameter>
+        <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Value" Description="" Type="1" Value="Version:" ValueToDisplay="" Hide_if="" />
+      </Object>
+      <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic7" children="Controls">
+        <Property name="TabIndex">15</Property>
+        <Property name="Font">Tahoma, 8pt</Property>
+        <Property name="ForeColor">127, 127, 127</Property>
+        <Property name="Size">52, 14</Property>
+        <Property name="Name">operatorConsoleStatic7</Property>
+        <Property name="Text">Select kit</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">267, 48</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+        <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Select kit" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+        <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="8" ValueToDisplay="" Hide_if="">
+          <Ranges>
+            <Range Value="1" />
+            <Range Value="72" />
+          </Ranges>
+        </Parameter>
+        <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="8355711" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Value" Description="" Type="1" Value="Select kit" ValueToDisplay="" Hide_if="" />
+      </Object>
+      <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist2" children="Controls">
+        <Property name="Location">103, 73</Property>
+        <Property name="DropDownStyle">DropDownList</Property>
+        <Property name="TabIndex">2</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="FormattingEnabled">True</Property>
+        <Property name="Name">operatorConsoleDroplist2</Property>
+        <Property name="Items">
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ThruPLEX</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Template preparation</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Library synthesis</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">PCR setup</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">PCR cleanup</Item>
+        </Property>
+        <Property name="Font">Tahoma, 10pt</Property>
+        <Property name="ForeColor">0, 0, 0</Property>
+        <Property name="Size">158, 24</Property>
+        <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formProtocol" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="ThruPLEX;Template preparation;Library synthesis;PCR setup;PCR cleanup" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
+        <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="ThruPLEX" ValueToDisplay="" Hide_if="Const(0)" />
+        <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+          <Ranges>
+            <Range Value="1" />
+            <Range Value="72" />
+          </Ranges>
+        </Parameter>
+        <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Value" Description="" Type="1" Value="Fragmentation cleanup" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      </Object>
+      <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic6" children="Controls">
+        <Property name="TabIndex">14</Property>
+        <Property name="Font">Tahoma, 8pt</Property>
+        <Property name="ForeColor">127, 127, 127</Property>
+        <Property name="Size">211, 14</Property>
+        <Property name="Name">operatorConsoleStatic6</Property>
+        <Property name="Text">Number of columns of samples to process</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">184, 18</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+        <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Number of columns of samples to process" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+        <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="8" ValueToDisplay="" Hide_if="">
+          <Ranges>
+            <Range Value="1" />
+            <Range Value="72" />
+          </Ranges>
+        </Parameter>
+        <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="8355711" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Value" Description="" Type="1" Value="Number of columns of samples to process" ValueToDisplay="" Hide_if="" />
+      </Object>
+      <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic3" children="Controls">
+        <Property name="TabIndex">6</Property>
+        <Property name="Font">Tahoma, 10pt</Property>
+        <Property name="ForeColor">0, 0, 0</Property>
+        <Property name="Size">65, 23</Property>
+        <Property name="Name">operatorConsoleStatic3</Property>
+        <Property name="Text">Protocol:</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">18, 76</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+        <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Protocol:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+        <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+          <Ranges>
+            <Range Value="1" />
+            <Range Value="72" />
+          </Ranges>
+        </Parameter>
+        <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Value" Description="" Type="1" Value="Protocol:" ValueToDisplay="" Hide_if="" />
+      </Object>
+      <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist3" children="Controls">
+        <Property name="Location">103, 43</Property>
+        <Property name="DropDownStyle">DropDownList</Property>
+        <Property name="TabIndex">10</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="FormattingEnabled">True</Property>
+        <Property name="Name">operatorConsoleDroplist3</Property>
+        <Property name="Items">
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ThruPLEX DNA</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ThruPLEX-FD</Item>
+        </Property>
+        <Property name="Font">Tahoma, 10pt</Property>
+        <Property name="ForeColor">0, 0, 0</Property>
+        <Property name="Size">158, 24</Property>
+        <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formVersion" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="ThruPLEX DNA;ThruPLEX-FD" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
+        <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="ThruPLEX DNA" ValueToDisplay="" Hide_if="Const(0)" />
+        <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+          <Ranges>
+            <Range Value="1" />
+            <Range Value="72" />
+          </Ranges>
+        </Parameter>
+        <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Value" Description="" Type="1" Value="ThruPLEX" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="Full run;Template preparation;Library synthesis;PCR setup;PCR cleanup;" ValueToDisplay="" Hide_if="" />
+      </Object>
+      <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist1" children="Controls">
+        <Property name="Location">103, 13</Property>
+        <Property name="DropDownStyle">DropDownList</Property>
+        <Property name="TabIndex">1</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="FormattingEnabled">True</Property>
+        <Property name="Name">operatorConsoleDroplist1</Property>
+        <Property name="Items">
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">1</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">2</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">3</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">4</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">5</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">6</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">7</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">8</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">9</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">10</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">11</Item>
+          <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">12</Item>
+        </Property>
+        <Property name="Font">Tahoma, 10pt</Property>
+        <Property name="ForeColor">0, 0, 0</Property>
+        <Property name="Size">75, 24</Property>
+        <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formColumns" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="1;2;3;4;5;6;7;8;9;10;11;12" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
+        <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="" ValueToDisplay="" Hide_if="Const(0)" />
+        <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+          <Ranges>
+            <Range Value="1" />
+            <Range Value="72" />
+          </Ranges>
+        </Parameter>
+        <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Value" Description="" Type="1" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      </Object>
+      <Property name="BackColor">245, 245, 245</Property>
+      <Property name="BackgroundImageLayout">None</Property>
+      <Property name="Name">operatorConsolePanel1</Property>
+      <Property name="Size">411, 114</Property>
+      <Property name="TabIndex">18</Property>
+      <Property name="Location">25, 84</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleCheckbox1</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="TabIndex">8</Property>
-      <Property name="UseVisualStyleBackColor">True</Property>
-      <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">21, 24</Property>
-      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="testMode" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
-      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="8" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Caption" Description="The string to display in the button" Type="1" Value="" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+      <Parameter Name="BorderStyle" Description="Indicates whether the panel should have a border." Type="2" Value="None" ValueToDisplay="" Hide_if="">
         <Ranges>
-          <Range Value="1" />
-          <Range Value="72" />
+          <Range Value="None" />
+          <Range Value="FixedSingle" />
+          <Range Value="Fixed3D" />
         </Ranges>
       </Parameter>
-      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="BackgroundImage" Description="Indicates the background image used for the control" Type="9" Value="" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp||" Hide_if="" />
+      <Parameter Name="BackgroundImageLayout" Description="Indicates the background image layout used for the component" Type="2" Value="None" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="None" />
+          <Range Value="Center" />
+          <Range Value="Stretch" />
+          <Range Value="Tile" />
+          <Range Value="Zoom" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Background_Color" Description="Indicates the background color of the component" Type="32" Value="16119285" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Dock" Description="Defines which borders of the control are bound to the container." Type="2" Value="None" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="None" />
+          <Range Value="Top" />
+          <Range Value="Left" />
+          <Range Value="Bottom" />
+          <Range Value="Right" />
+          <Range Value="Fill" />
+        </Ranges>
+      </Parameter>
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsolePanel, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsolePanel2" children="Controls">
+      <Object type="ToolboxLibrary.OperatorConsoleImage, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleImage1" children="Controls">
+        <Property name="Name">operatorConsoleImage1</Property>
+        <Property name="Size">182, 57</Property>
+        <Property name="TabIndex">11</Property>
+        <Property name="Location">3, 3</Property>
+        <Property name="Image">
+          <Binary>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</Binary>
+        </Property>
+        <Property name="TabStop">False</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Parameter Name="JavaScript variable" Description="If the filename of a valid Image file is assigned to this variable, the displayed image will change to it" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Image file" Description="Select image file to display" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\resources\NGI-final.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp||" Hide_if="" />
+        <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      </Object>
+      <Object type="ToolboxLibrary.OperatorConsoleImage, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleImage2" children="Controls">
+        <Property name="Name">operatorConsoleImage2</Property>
+        <Property name="Size">173, 56</Property>
+        <Property name="TabIndex">12</Property>
+        <Property name="Location">235, 9</Property>
+        <Property name="Image">
+          <Binary>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</Binary>
+        </Property>
+        <Property name="TabStop">False</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Parameter Name="JavaScript variable" Description="If the filename of a valid Image file is assigned to this variable, the displayed image will change to it" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Image file" Description="Select image file to display" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\resources\SciLifeLab-1.logotyp.PMS376.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp||" Hide_if="" />
+        <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+        <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      </Object>
+      <Property name="BackColor">245, 245, 245</Property>
+      <Property name="BackgroundImageLayout">None</Property>
+      <Property name="Name">operatorConsolePanel2</Property>
+      <Property name="Size">411, 65</Property>
+      <Property name="TabIndex">19</Property>
+      <Property name="Location">25, 310</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="BorderStyle" Description="Indicates whether the panel should have a border." Type="2" Value="None" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="None" />
+          <Range Value="FixedSingle" />
+          <Range Value="Fixed3D" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="BackgroundImage" Description="Indicates the background image used for the control" Type="9" Value="" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp)|*.jpg;*.png;*.bmp||" Hide_if="" />
+      <Parameter Name="BackgroundImageLayout" Description="Indicates the background image layout used for the component" Type="2" Value="None" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="None" />
+          <Range Value="Center" />
+          <Range Value="Stretch" />
+          <Range Value="Tile" />
+          <Range Value="Zoom" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Background_Color" Description="Indicates the background color of the component" Type="32" Value="16119285" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Dock" Description="Defines which borders of the control are bound to the container." Type="2" Value="None" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="None" />
+          <Range Value="Top" />
+          <Range Value="Left" />
+          <Range Value="Bottom" />
+          <Range Value="Right" />
+          <Range Value="Fill" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic4" children="Controls">
-      <Property name="TabIndex">7</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">100, 23</Property>
+      <Property name="TabIndex">13</Property>
+      <Property name="Font">Tahoma, 11pt</Property>
+      <Property name="ForeColor">102, 102, 102</Property>
+      <Property name="Size">319, 23</Property>
       <Property name="Name">operatorConsoleStatic4</Property>
-      <Property name="Text">Test mode:</Property>
+      <Property name="Text">Automated for the Agilent NGS Workstation</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="Location">70, 164</Property>
+      <Property name="Location">25, 23</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
-      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Test mode:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Automated for the Agilent NGS Workstation" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
       <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="11" ValueToDisplay="" Hide_if="">
         <Ranges>
           <Range Value="1" />
           <Range Value="72" />
         </Ranges>
       </Parameter>
-      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="6710886" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="Test mode:" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Automated for the Agilent NGS Workstation" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic3" children="Controls">
-      <Property name="TabIndex">6</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
+      <Property name="TabIndex">0</Property>
+      <Property name="Font">Tahoma, 16pt</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">65, 23</Property>
-      <Property name="Name">operatorConsoleStatic3</Property>
-      <Property name="Text">Protocol:</Property>
+      <Property name="Size">291, 35</Property>
+      <Property name="Name">operatorConsoleStatic1</Property>
+      <Property name="Text">ThruPLEX library preparation</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="Location">70, 134</Property>
+      <Property name="Location">25, 46</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
-      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Protocol:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="ThruPLEX library preparation" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
       <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="16" ValueToDisplay="" Hide_if="">
         <Ranges>
           <Range Value="1" />
           <Range Value="72" />
@@ -145,34 +480,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="Protocol:" ValueToDisplay="" Hide_if="" />
-    </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic2" children="Controls">
-      <Property name="TabIndex">5</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">64, 23</Property>
-      <Property name="Name">operatorConsoleStatic2</Property>
-      <Property name="Text">Columns:</Property>
-      <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="Location">70, 74</Property>
-      <Property name="DataBindings">
-        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
-      </Property>
-      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
-      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Columns:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
-      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
-        <Ranges>
-          <Range Value="1" />
-          <Range Value="72" />
-        </Ranges>
-      </Parameter>
-      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="Columns:" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="ThruPLEX library preparation" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
       <Property name="Image">
@@ -185,7 +493,7 @@
       <Property name="Size">75, 36</Property>
       <Property name="TabIndex">4</Property>
       <Property name="Text"> PAUSE</Property>
-      <Property name="Location">198, 231</Property>
+      <Property name="Location">258, 232</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -205,17 +513,17 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
+      <Property name="UseVisualStyleBackColor">False</Property>
       <Property name="Image">
         <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOwQAADsEBuJFr7QAAAWZJREFUOE+dkdlqwmAUhM0TtX1g0ScQISBuMRoxrlAvBEHFuGCC20UURfFi6pySg9VaqD8M/NGZ7yy/kUgk3g3D+Iy9cAB8xJLJJC6Xy0tiVgDn8xlhGP5LzCjgdDphu91iPp+j3W6LptOp/PZMzCjgeDxiuVyi2WxKoNVqwbZt+R6Px/LfvZhRwOFwgO/7qFQq1718n81mI4BSqYR6vY7hcCieSMwoYL/fYzabSdX7Q1Cj0UCxWEStVsNgMBAvMwrY7XbSqmVZD4DbjtiJ4zjiZUYBnI8tFgqFp4D1eg3XdWVMeplRQBAE6Pf7yOVyD4DVaiVVM5mM7KPb7YqXGQUsFgv0ej1ks1kFMMhq6XRawtVqVTyRmFEA35/kfD4PBrnMVCoF0zTlzuVR9ERiRgGTyQSdTkdmZBesyn2Uy+UfoicSMwrwPE/enOJz/aXIx4wCRqMRIt3O+dv91iuAeDz+xssrYvYLjB9FcGXsjAwAAAAASUVORK5CYII=</Binary>
       </Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="UseVisualStyleBackColor">False</Property>
       <Property name="Font">Tahoma, 10pt</Property>
       <Property name="BackColor">240, 240, 240</Property>
       <Property name="Size">75, 36</Property>
       <Property name="TabIndex">3</Property>
       <Property name="Text"> START</Property>
-      <Property name="Location">84, 231</Property>
+      <Property name="Location">144, 232</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -236,112 +544,6 @@
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="15790320" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-    </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist2" children="Controls">
-      <Property name="Location">198, 131</Property>
-      <Property name="DropDownStyle">DropDownList</Property>
-      <Property name="TabIndex">2</Property>
-      <Property name="DataBindings">
-        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
-      </Property>
-      <Property name="FormattingEnabled">True</Property>
-      <Property name="Name">operatorConsoleDroplist2</Property>
-      <Property name="Items">
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ThruPLEX</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Template preparation</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Library synthesis</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">PCR setup</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">PCR cleanup</Item>
-      </Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">158, 24</Property>
-      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formProtocol" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="ThruPLEX;Template preparation;Library synthesis;PCR setup;PCR cleanup" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
-      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="ThruPLEX" ValueToDisplay="" Hide_if="Const(0)" />
-      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
-        <Ranges>
-          <Range Value="1" />
-          <Range Value="72" />
-        </Ranges>
-      </Parameter>
-      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="Fragmentation cleanup" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="" ValueToDisplay="" Hide_if="" />
-    </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist1" children="Controls">
-      <Property name="Location">198, 71</Property>
-      <Property name="DropDownStyle">DropDownList</Property>
-      <Property name="TabIndex">1</Property>
-      <Property name="DataBindings">
-        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
-      </Property>
-      <Property name="FormattingEnabled">True</Property>
-      <Property name="Name">operatorConsoleDroplist1</Property>
-      <Property name="Items">
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">1</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">2</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">3</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">4</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">5</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">6</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">7</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">8</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">9</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">10</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">11</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">12</Item>
-      </Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">75, 24</Property>
-      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formColumns" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="1;2;3;4;5;6;7;8;9;10;11;12" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
-      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="" ValueToDisplay="" Hide_if="Const(0)" />
-      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
-        <Ranges>
-          <Range Value="1" />
-          <Range Value="72" />
-        </Ranges>
-      </Parameter>
-      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="" ValueToDisplay="" Hide_if="" />
-    </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
-      <Property name="TabIndex">0</Property>
-      <Property name="Font">Tahoma, 18pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">413, 35</Property>
-      <Property name="Name">operatorConsoleStatic1</Property>
-      <Property name="Text">ThruPLEX library preparation</Property>
-      <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="Location">19, 16</Property>
-      <Property name="DataBindings">
-        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
-      </Property>
-      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
-      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="ThruPLEX library preparation" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
-      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="18" ValueToDisplay="" Hide_if="">
-        <Ranges>
-          <Range Value="1" />
-          <Range Value="72" />
-        </Ranges>
-      </Parameter>
-      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="ThruPLEX library preparation" ValueToDisplay="" Hide_if="" />
     </Object>
     <Property name="Size">10000, 30000</Property>
     <Property name="DataBindings">
