@@ -5,6 +5,7 @@ var form = "truseq_pcr-free.VWForm";
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
+var extended = !!formExtended;
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
 var altBeadPlate = true;
@@ -98,6 +99,14 @@ fileNames["Library prep"] = "truseq_pcr-free.rst";
 fileNames["Ligation cleanup"] = "truseq_pcr-free_cleanup.rst";
 fileNames["qPCR setup"] = "../qpcr-384/qpcr-384_setup_ver2.pro";
 
+if(extended) {
+	for(var p in fileNames) {
+		if(p !== "qPCR setup") {
+			fileNames[p] = "extended/" + fileNames[p];
+		}
+	}
+}
+
 var runsetOrder = [];
 
 if(formProtocol === "Library prep") {
@@ -133,4 +142,14 @@ function updateSettings(protocol) {
 var runsetIndex = 0;
 function updateRunset() {
 	updateSettings(runsetOrder[runsetIndex++]);
+}
+
+function dph(vol, endHeight) {
+	var v = parseFloat(vol);
+	var e = parseFloat(endHeight);
+	if(v > 0 && e > 0 && !isNaN(v+e)) {
+		return 0.078 - 9.501E-5*v + (0.734-e)/v;
+	} else {
+		throw "ValueException";
+	}
 }
