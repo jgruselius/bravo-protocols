@@ -5,20 +5,22 @@ var form = "truseq_pcr-free.VWForm";
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
+var extended = !!formExtended;
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
 var altBeadPlate = true;
 
 var presets = {};
-
 presets["End repair"] = {
-	tipColumn:1,reagentColumn:1,
+	tipColumn:1,
+	reagentColumn:1,
 	sampleVolume:50,
 	reagentVolume:50,
 	incubationTemperature:30,
 	incubationTime:1800,
-	doOffDeckIncubation:true
-	};
+	doOffDeckIncubation:true,
+	cyclerProgram:"2,1,ts-er"
+};
 
 presets["A-tailing"] = {
 	tipColumn:2,
@@ -27,8 +29,9 @@ presets["A-tailing"] = {
 	reagentVolume:15,
 	incubationTemperature:37,
 	incubationTime:1800,
-	doOffDeckIncubation:true
-	};
+	doOffDeckIncubation:true,
+	cyclerProgram:"2,2,ts-at"
+};
 
 presets["Ligation"] = {
 	tipColumn:3,
@@ -39,7 +42,8 @@ presets["Ligation"] = {
 	adapterVolume:2.5,
 	incubationTemperature:30,
 	incubationTime:600,
-	doOffDeckIncubation:true
+	doOffDeckIncubation:true,
+	cyclerProgram:"2,3,ts-lig"
 };
 
 presets["Fragmentation cleanup"] = {
@@ -83,8 +87,8 @@ presets["qPCR setup"] = {};
 var settings = {};
 
 var fileNames = {};
-fileNames["End repair"] = "truseq_pcr-free_reaction.pro";
-fileNames["A-tailing"] = "truseq_pcr-free_reaction.pro";
+fileNames["End repair"] = "truseq_pcr-free_end_repair.pro";
+fileNames["A-tailing"] = "truseq_pcr-free_a-tailing.pro";
 fileNames["Ligation"] = "truseq_pcr-free_ligation.pro";
 fileNames["Fragmentation cleanup"] = "illumina_spri.pro";
 fileNames["Size selection 350 bp"] = "illumina_double-spri.pro";
@@ -95,11 +99,19 @@ fileNames["Library prep"] = "truseq_pcr-free.rst";
 fileNames["Ligation cleanup"] = "truseq_pcr-free_cleanup.rst";
 fileNames["qPCR setup"] = "../qpcr-384/qpcr-384_setup_ver2.pro";
 
+if(extended) {
+	for(var p in fileNames) {
+		if(p !== "qPCR setup") {
+			fileNames[p] = "extended/" + fileNames[p];
+		}
+	}
+}
+
 var runsetOrder = [];
 
 if(formProtocol === "Library prep") {
 	runsetMode = true;
-	runsetOrder = ["End repair","Size selection "+formInsertSize,
+	runsetOrder = ["Fragmentation cleanup","End repair","Size selection "+formInsertSize,
 			"A-tailing","Ligation","Ligation cleanup 1","Ligation cleanup 2"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
 } else if(formProtocol === "Size selection") {
@@ -132,12 +144,12 @@ function updateRunset() {
 	updateSettings(runsetOrder[runsetIndex++]);
 }
 
-function dph(vol) {
+function dph(vol, endHeight) {
 	var v = parseFloat(vol);
-	if(v > 0 && !isNaN(v)) {
-		return (0.08*v + 0.2) / v;
+	var e = parseFloat(endHeight);
+	if(v > 0 && e > 0 && !isNaN(v+e)) {
+		return 0.078 - 9.501E-5*v + (0.734-e)/v;
 	} else {
 		throw "ValueException";
 	}
 }
-
