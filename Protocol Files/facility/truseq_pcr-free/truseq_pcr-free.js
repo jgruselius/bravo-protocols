@@ -79,7 +79,8 @@ presets["Ligation cleanup 1"] = {
 presets["Ligation cleanup 2"] = {
 	sampleVolume:50,
 	beadVolume:50,
-	elutionVolume:20
+	elutionVolume:20,
+	keepSeal:true
 };
 
 presets["qPCR setup"] = {};

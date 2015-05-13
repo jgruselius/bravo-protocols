@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='676ed6877168316f3167afb992820210' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='999b32406672ad06c24d58860e2bb6c2' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -8,6 +8,7 @@
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >1</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -33,6 +34,7 @@
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -82,6 +84,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -106,6 +109,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -139,6 +143,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -156,6 +161,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// Scan barcode
@@ -174,6 +180,7 @@ if(runsetMode) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(runsetMode) task.skip();' />
@@ -188,6 +195,7 @@ if(runsetMode) task.skip();' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -216,6 +224,7 @@ if(runsetMode) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -231,6 +240,7 @@ if(runsetMode) task.skip();' />
 				<Task Name='BuiltIn::Signal' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -266,6 +276,7 @@ if(runsetMode) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -280,6 +291,7 @@ if(runsetMode) task.skip();' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -305,17 +317,20 @@ if(runsetMode) task.skip();' />
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='SamplePlate' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -341,6 +356,7 @@ if(runsetMode) task.skip();' />
 				<Task Name='BuiltIn::Wait For' Waitfor='signalMove1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -348,12 +364,14 @@ if(runsetMode) task.skip();' />
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(!useCycler) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='CyclerIncubation' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='1' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
@@ -362,6 +380,7 @@ if(runsetMode) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(useCycler) task.skip();' />
@@ -376,6 +395,7 @@ if(runsetMode) task.skip();' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -404,6 +424,7 @@ if(runsetMode) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='useCycler &amp;&amp; task.skip();
@@ -423,6 +444,7 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -437,6 +459,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -462,6 +485,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -512,6 +536,7 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -526,6 +551,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -551,6 +577,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -601,6 +628,7 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// New tipbox for dispensing master mix' />
@@ -615,6 +643,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -640,6 +669,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -668,6 +698,7 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -690,12 +721,14 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='IndexPlate' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
 					</Parameters>
 				</Task>
 				<Plate_Parameters >
@@ -726,6 +759,7 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -740,6 +774,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -765,6 +800,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -793,6 +829,7 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -815,12 +852,14 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='SampleTips' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
 					</Parameters>
 				</Task>
 				<Plate_Parameters >
@@ -851,6 +890,7 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='975' />
@@ -870,6 +910,7 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -884,6 +925,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -909,6 +951,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -959,6 +1002,7 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -985,6 +1029,7 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -999,6 +1044,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -1049,6 +1095,7 @@ task.Incubationtime = incubationTime;' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1063,6 +1110,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -1088,6 +1136,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -1113,6 +1162,7 @@ task.Incubationtime = incubationTime;' />
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// Seal if using VSpin or tRobot 
@@ -1120,17 +1170,20 @@ if(!doCentrifuge &amp;&amp; !sealFinalPlate) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='SealAndSpin' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='1' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(!finalHold) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='FinalHold' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='1' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
@@ -1139,6 +1192,7 @@ if(!doCentrifuge &amp;&amp; !sealFinalPlate) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(finalHold) task.skip();' />
@@ -1178,6 +1232,7 @@ if(!doCentrifuge &amp;&amp; !sealFinalPlate) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -1199,6 +1254,7 @@ if(!doCentrifuge &amp;&amp; !useCycler) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='29' />
@@ -1227,6 +1283,7 @@ if(!doCentrifuge &amp;&amp; !useCycler) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='715' />
@@ -1247,6 +1304,7 @@ if(!doCentrifuge &amp;&amp; !useCycler) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='16' />
@@ -1289,6 +1347,7 @@ if(!doCentrifuge &amp;&amp; !useCycler) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -1330,6 +1389,7 @@ if(!doCentrifuge &amp;&amp; !useCycler) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -1350,6 +1410,7 @@ if(!doCentrifuge &amp;&amp; !useCycler) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='29' />
@@ -1378,6 +1439,7 @@ if(!doCentrifuge &amp;&amp; !useCycler) task.skip();' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='16' />
@@ -1418,6 +1480,7 @@ if(!(doCentrifuge &amp;&amp; !sealFinalPlate)) task.skip();' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1430,6 +1493,7 @@ if(!(doCentrifuge &amp;&amp; !sealFinalPlate)) task.skip();' />
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -1461,6 +1525,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -1482,6 +1547,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -1511,6 +1577,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1523,6 +1590,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -1543,6 +1611,7 @@ dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
@@ -1582,6 +1651,7 @@ dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1594,6 +1664,7 @@ dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
@@ -1633,6 +1704,7 @@ dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1640,6 +1712,7 @@ dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -1684,6 +1757,7 @@ if(columns == columnsDone) {
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1691,6 +1765,7 @@ if(columns == columnsDone) {
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
@@ -1721,6 +1796,7 @@ if(columns == columnsDone) {
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1731,10 +1807,11 @@ if(columns == columnsDone) {
 					</Parameters>
 				</Task>
 				<Devices >
-					<Device Device_Name='Bravo - 1' Location_Name='1' />
+					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
 				</Devices>
 				<Parameters >
 					<Parameter Name='Display confirmation' Value='Don&apos;t display' />
+					<Parameter Name='1' Value='&lt;use default&gt;' />
 					<Parameter Name='2' Value='&lt;use default&gt;' />
 					<Parameter Name='3' Value='&lt;use default&gt;' />
 					<Parameter Name='4' Value='&lt;use default&gt;' />
@@ -1751,6 +1828,7 @@ if(columns == columnsDone) {
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1763,6 +1841,7 @@ if(columns == columnsDone) {
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -1788,6 +1867,7 @@ var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -1809,6 +1889,7 @@ var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -1838,6 +1919,7 @@ var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1850,6 +1932,7 @@ var aspirateSteps = Math.ceil(transferVolume / MAX_VOLUME);
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -1870,6 +1953,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
@@ -1909,6 +1993,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1921,6 +2006,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
@@ -1960,6 +2046,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -1967,6 +2054,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -2011,6 +2099,7 @@ if(columns == columnsDone) {
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -2018,6 +2107,7 @@ if(columns == columnsDone) {
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
@@ -2048,6 +2138,7 @@ if(columns == columnsDone) {
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -2078,6 +2169,7 @@ if(columns == columnsDone) {
 				<Task Name='BuiltIn::Reserve Location' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// Dummy task
@@ -2094,6 +2186,7 @@ task.skip();' />
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -2118,6 +2211,7 @@ task.skip();' />
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -2161,6 +2255,7 @@ task.skip();' />
 				<Task Name='BuiltIn::Reserve Location' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='useCycler &amp;&amp; task.skip();' />
@@ -2176,6 +2271,7 @@ task.skip();' />
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >1</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -2206,6 +2302,7 @@ task.Temperature = 58;' />
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='87' />
@@ -2231,6 +2328,7 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='Bravo::secondary::Move To Location' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -2268,6 +2366,7 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -2280,6 +2379,7 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -2301,6 +2401,7 @@ task.Temperature = incubationTemperature;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -2311,11 +2412,11 @@ task.Temperature = incubationTemperature;' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;a06c12f5f4c8251ea01fa0336c87abf9&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -2324,12 +2425,13 @@ task.Temperature = incubationTemperature;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
@@ -2363,17 +2465,20 @@ task.Temperature = incubationTemperature;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='24' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = sampleVolume;' />
+					<TaskScript Name='TaskScript' Value='task.Volume = sampleVolume;
+task.Distancefromwellbottom = 0.5;
+task.Dynamictipextension = global.dph(sampleVolume, 0.5);' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='SamplePlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -2381,8 +2486,8 @@ task.Temperature = incubationTemperature;' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_small_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.75' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
@@ -2402,12 +2507,13 @@ task.Temperature = incubationTemperature;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -2441,12 +2547,13 @@ task.Temperature = incubationTemperature;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='17' />
@@ -2487,17 +2594,20 @@ task.Volume = mix_vol;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='23' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = sampleVolume + adapterVolume;' />
+					<TaskScript Name='TaskScript' Value='task.Volume = sampleVolume + adapterVolume;
+task.Distancefromwellbottom = 0.5;
+task.Dynamictipextension = global.dph(sampleVolume + adapterVolume, 0.5);' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='IndexPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -2505,8 +2615,8 @@ task.Volume = mix_vol;' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_small_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.75' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
@@ -2526,12 +2636,13 @@ task.Volume = mix_vol;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -2565,12 +2676,13 @@ task.Volume = mix_vol;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='20' />
@@ -2611,12 +2723,13 @@ task.Volume = mix_vol;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='10' />
@@ -2651,12 +2764,13 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -2668,11 +2782,11 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;a06c12f5f4c8251ea01fa0336c87abf9&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -2681,12 +2795,13 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -2697,10 +2812,11 @@ task.Volume = PRE_ASP_SMALL;' />
 					</Parameters>
 				</Task>
 				<Devices >
-					<Device Device_Name='Bravo - 1' Location_Name='1' />
+					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
 				</Devices>
 				<Parameters >
 					<Parameter Name='Display confirmation' Value='Don&apos;t display' />
+					<Parameter Name='1' Value='&lt;use default&gt;' />
 					<Parameter Name='2' Value='&lt;use default&gt;' />
 					<Parameter Name='3' Value='&lt;use default&gt;' />
 					<Parameter Name='4' Value='&lt;use default&gt;' />
@@ -2717,6 +2833,7 @@ task.Volume = PRE_ASP_SMALL;' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -2729,6 +2846,7 @@ task.Volume = PRE_ASP_SMALL;' />
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -2750,6 +2868,7 @@ task.Volume = PRE_ASP_SMALL;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -2760,11 +2879,11 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;a06c12f5f4c8251ea01fa0336c87abf9&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -2773,12 +2892,13 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
@@ -2812,17 +2932,20 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='27' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = sampleVolume + adapterVolume + reagentVolume;' />
+					<TaskScript Name='TaskScript' Value='task.Volume = sampleVolume + adapterVolume + reagentVolume;
+task.Distancefromwellbottom = 0.5;
+task.Dynamictipextension = global.dph(sampleVolume + adapterVolume + reagentVolume, 0.5);' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='ReactionPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -2830,8 +2953,8 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_small_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.75' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
@@ -2851,12 +2974,13 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
@@ -2890,12 +3014,13 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='18' />
@@ -2936,12 +3061,13 @@ task.Volume = mix_vol;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='11' />
@@ -2976,12 +3102,13 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -2993,11 +3120,11 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;a06c12f5f4c8251ea01fa0336c87abf9&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -3006,12 +3133,13 @@ task.Volume = PRE_ASP_SMALL;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -3022,7 +3150,7 @@ task.Volume = PRE_ASP_SMALL;' />
 					</Parameters>
 				</Task>
 				<Devices >
-					<Device Device_Name='Bravo - 1' Location_Name='1' />
+					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
 				</Devices>
 				<Parameters >
 					<Parameter Name='Display confirmation' Value='Don&apos;t display' />
