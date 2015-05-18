@@ -21,8 +21,8 @@ presets["Ligation"] = {
 	};
 
 presets["Strand displacement"] = {
-	tipColumn:3,
-	reagentColumn:3,
+	tipColumn:4,
+	reagentColumn:4,
 	sampleVolume:25,
 	reagentVolume:25,
 	doOffDeckIncubation:true
@@ -42,7 +42,7 @@ presets["Size selection 550 bp"] = {
 	beadVolume1:80,
 	beadVolume2:30,
 	bindVolume:160,
-	elutionVolume:17.5
+	elutionVolume:20
 	};
 
 presets["Ligation cleanup"] = {
@@ -58,8 +58,8 @@ presets["PCR cleanup"] = {
 	};
 
 presets["PCR setup"] = {
-	tipColumn:4,
-	reagentColumn:4,
+	tipColumn:5,
+	reagentColumn:5,
 	sampleVolume:20,
 	reagentVolume:25,
 	primerVolume:5

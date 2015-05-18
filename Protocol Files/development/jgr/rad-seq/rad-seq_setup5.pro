@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='cd9dc4a34187a49c70e08df9c0b8e0f2' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='f4a13aba53f3c29939ead56b1b64eb27' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Main_Processes >
@@ -80,7 +80,7 @@
 					<TaskScript Name='TaskScript' Value='' />
 				</Task>
 				<Plate_Parameters >
-					<Parameter Name='Plate name' Value='TransferPlate' />
+					<Parameter Name='Plate name' Value='IndexPlate' />
 					<Parameter Name='Plate type' Value='96 Eppendorf Twin.tec PCR' />
 					<Parameter Name='Simultaneous plates' Value='1' />
 					<Parameter Name='Plates have lids' Value='0' />
