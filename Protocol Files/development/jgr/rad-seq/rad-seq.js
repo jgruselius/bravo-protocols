@@ -52,8 +52,8 @@ presets["Ligation cleanup"] = {
 	};
 
 presets["PCR cleanup"] = {
-	sampleVolume:50,
-	beadVolume:50,
+	sampleVolume:60,
+	beadVolume:60,
 	elutionVolume:25,
 	};
 
@@ -61,8 +61,8 @@ presets["PCR setup"] = {
 	tipColumn:5,
 	reagentColumn:5,
 	sampleVolume:20,
-	reagentVolume:25,
-	primerVolume:5
+	reagentVolume:30,
+	primerVolume:10
 	};
 
 var settings = {};
