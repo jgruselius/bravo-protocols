@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='a7e81d31ee6c50630b9b1a5d0b071085' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='70ae63df7f33001625a43b826d50338b' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -88,7 +88,7 @@ global.statusString = protocolName + &quot; started&quot;;
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -168,7 +168,7 @@ global.statusString = protocolName + &quot; started&quot;;
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Waitfors_To_Signal >
-						<Waitfor Name='signalMove1' />
+						<Waitfor Name='SAMPLE_PLATE' />
 					</Waitfors_To_Signal>
 				</Task>
 				<Plate_Parameters >
@@ -268,7 +268,7 @@ global.statusString = protocolName + &quot; started&quot;;
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferSample' />
 					</Parameters>
 				</Task>
-				<Task Name='BuiltIn::Wait For' Waitfor='signalMove1' >
+				<Task Name='BuiltIn::Wait For' Waitfor='SAMPLE_PLATE' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
@@ -977,6 +977,20 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AliquotAdapter' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::Place Plate' >
+					<Devices >
+						<Device Device_Name='Bravo - 1' Location_Name='4' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
+						<Parameter Category='' Name='Location to use' Value='4' />
+					</Parameters>
+				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -1054,7 +1068,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -1063,7 +1077,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='3' />
+						<Device Device_Name='Bravo - 1' Location_Name='6' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -1072,7 +1086,7 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='3' />
+						<Parameter Category='' Name='Location to use' Value='6' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
@@ -1101,6 +1115,9 @@ task.Body = &quot;Take the Eppendorf plate from &quot; +
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Storage Incubate' >
+					<Devices >
+						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
+					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
@@ -1286,7 +1303,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,tipColumn+1]];' />
 					<Parameters >
@@ -1339,7 +1356,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='10' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,reagentColumn+1]];
 if(columns &lt; 7) task.Distancefromwellbottom = 0.5;' />
@@ -1388,7 +1405,7 @@ if(columns &lt; 7) task.Distancefromwellbottom = 0.5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,++columnsDone]];' />
 					<Parameters >
@@ -1431,13 +1448,13 @@ if(columns &lt; 7) task.Distancefromwellbottom = 0.5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,reagentColumn+1]];
 if(columns == columnsDone) {
 	task.Performtiptouch = true;
 	task.Whichsidestousefortiptouch = &quot;None&quot;;
-	task.Tiptouchretractdistance = -14.5;
+	task.Tiptouchretractdistance = (columns &lt; 7) ? -7 : -14.5;
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='ReagentPlate' />
@@ -1479,7 +1496,7 @@ if(columns == columnsDone) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,13-tipColumn-1]];' />
 					<Parameters >
@@ -1575,7 +1592,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,tipColumn+2]];' />
 					<Parameters >
@@ -1726,7 +1743,7 @@ if(columns &lt; 7) task.Distancefromwellbottom = 0.5;' />
 if(columns == columnsDone) {
 	task.Performtiptouch = true;
 	task.Whichsidestousefortiptouch = &quot;None&quot;;
-	task.Tiptouchretractdistance = -14.5;
+	task.Tiptouchretractdistance = (columns &lt; 7) ? -7 : -14.5;
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='ReagentPlate' />
@@ -1918,7 +1935,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='10' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,reagentColumn]];
 if(columns &lt; 7) task.Distancefromwellbottom = 0.5;' />
@@ -1967,7 +1984,7 @@ if(columns &lt; 7) task.Distancefromwellbottom = 0.5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,++columnsDone]];' />
 					<Parameters >
@@ -2010,13 +2027,13 @@ if(columns &lt; 7) task.Distancefromwellbottom = 0.5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,reagentColumn]];
 if(columns == columnsDone) {
 	task.Performtiptouch = true;
 	task.Whichsidestousefortiptouch = &quot;None&quot;;
-	task.Tiptouchretractdistance = -14.5;
+	task.Tiptouchretractdistance = (columns &lt; 7) ? -7 : -14.5;
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='ReagentPlate' />
@@ -2058,7 +2075,7 @@ if(columns == columnsDone) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,13-tipColumn]];' />
 					<Parameters >
