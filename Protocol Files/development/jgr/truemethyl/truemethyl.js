@@ -7,12 +7,12 @@ run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat",
 
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
-var arrayMode = false;
+var arrayMode = (formMode === "Array");
 
 var presets = {};
 
-presets["Oxidation"] = {
-	volume = {
+presets["oxBS"] = {
+	volume: {
 		denat: arrayMode ? 50 : 26,
 		eluate: 24,
 		sample: 50,
@@ -25,7 +25,7 @@ presets["Oxidation"] = {
 	washes:3
 	};
 
-presets["Purification"] = {
+presets["Post-BS purification"] = {
 	sampleVolume:195,
 	beadVolume:1000,
 	washVolume:1400,
@@ -36,8 +36,8 @@ presets["Purification"] = {
 var settings = {};
 
 var fileNames = {};
-fileNames["Oxidation"] = "truemethyl.pro";
-fileNames["Purification"] = "truemethyl_purif.pro";
+fileNames["oxBS"] = "truemethyl.pro";
+fileNames["Post-BS purification"] = "truemethyl_purif.pro";
 
 var runsetOrder = [];
 
