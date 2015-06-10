@@ -20,16 +20,16 @@ function timestamp() {
 	return date.slice(0,3).join("-") + " " + date.slice(3).join(":"); 
 }
 
-function defaults(value, default) {
-	return (typeof value === "undefined") ? default : value;
+function defaults(value, def) {
+	return (typeof value === "undefined") ? def : value;
 }
 
 function hasBc(plateObj) {
 	var bc = plateObj.barcode[SIDE];
-	// Check if undefined/null:
-	var hasBc = (typeof bc !== "undefined" && bc !== null)
+	// Check if undefined/null (VWorks may use string 'undefined'):
+	var hasBc = (typeof bc !== "undefined" && bc !== null && bc !== "undefined");
 	// Check for number or non-blank string:
-	hasBc = hasBc && (parseFloat(bc) !== NaN || bc.trim())
+	hasBc = hasBc && (!isNaN(parseFloat(bc)) || !!bc.trim());
 	return hasBc;
 }
 
@@ -45,13 +45,13 @@ function logBc(plateObj, taskObj, path) {
 	var bc = plateObj.barcode[SIDE];
 	var plate = plateObj.name;
 	var pro = taskObj.getProtocolName();
-	var logStr = new Date().timestamp() + "\t" + pro + "\t" + plate + "\t" + bc; 
+	var logStr = timestamp() + "\t" + pro + "\t" + plate + "\t" + bc; 
 	var file;
 	try {
 		file = Open(path);
 		try {
 			file.Write(logStr);
-		catch(e) {
+		} catch(e) {
 			throw e;
 		} finally {
 			file.Close();
@@ -60,3 +60,5 @@ function logBc(plateObj, taskObj, path) {
 		throw e;
 	}
 }
+
+print("barcode.js EOF");
