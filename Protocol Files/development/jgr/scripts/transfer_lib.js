@@ -7,7 +7,7 @@
 
 /*
  CHANGED in this version:
- --parseTransfers and parseDilutionTransfers can now handle a string in col 4
+ --Barcode class added with functions for logging and comparing plate barcodes
 
  TODO
  --Make a common function for assigning sourceVolume, sourcePlate etc. 
@@ -29,20 +29,20 @@ function Transfer(sourcePlate, sourceWell, volume, destinationWell, destinationP
 	this.destinationWell = destinationWell;
 	this.destinationPlate = destinationPlate;
 	this.newTip = newTip;
-	this.toString = function() {
-		var str = ["{" + 
-				"sourcePlate: " + this.sourcePlate,
-				"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) + 
-						this.sourceWell[1],
-				"volume: " + this.volume,
-				"destinationPlate: " + this.destinationPlate,
-				"destinationWell: " + String.fromCharCode(this.destinationWell[0]+64) +
-						this.destinationWell[1],
-				"newTip: " + newTip +
-				"}"];
-		return str.join(", ");
-	}
 }
+Transfer.prototype.toString = function() {
+	var str = ["{" + 
+			"sourcePlate: " + this.sourcePlate,
+			"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) + 
+					this.sourceWell[1],
+			"volume: " + this.volume,
+			"destinationPlate: " + this.destinationPlate,
+			"destinationWell: " + String.fromCharCode(this.destinationWell[0]+64) +
+					this.destinationWell[1],
+			"newTip: " + newTip +
+			"}"];
+	return str.join(", ");
+};
 
 /*
  Tipbox class to track single-tip usage. Tips are taken/placed column-wise
@@ -486,12 +486,15 @@ function readFile(filePath) {
 	var content;
 	try {
 		fileObj.Open(filePath, 0, 0);
-		content = fileObj.Read();
-	} catch(e) {
-		// IO error
-		throw "UnableToReadFile(" + filePath + "):" + e;
-	} finally {
-		fileObj.Close();
+		try {
+			content = fileObj.Read();
+		} catch(e) {
+			throw "UnableToReadFile(" + filePath + "):" + e;
+		} finally {
+			fileObj.Close();
+		}
+	} catch(e)
+		throw "FileError(" + filePath + "):" + e;
 	}
 	return content;
 }
@@ -503,12 +506,15 @@ function appendFile(filePath, content) {
 	var fileObj = new File();
 	try {
 		fileObj.Open(filePath, 0, 0);
-		fileObj.Write(content + "\n");
+		try {
+			fileObj.Write(content + "\n");
+		} catch(e) {
+			throw "UnableToWriteFile(" + filePath + "):" + e;
+		} finally {
+			fileObj.Close();
+		}
 	} catch(e) {
-		// IO error
-		throw "UnableToWriteFile(" + filePath + "):" + e;
-	} finally {
-		fileObj.Close();
+		throw "FileError(" + filePath + "):" + e;
 	}
 }
 
@@ -519,17 +525,20 @@ function writeFile(filePath, content) {
 	var fileObj = new File();
 	try {
 		fileObj.Open(filePath, 1, 0);
-		// If the string ends with a newline character:
-		if(content.substr(-1) === "\n") {
-			fileObj.Write(content);
-		} else {
-			fileObj.Write(content + "\n");
+		try {
+			// If the string ends with a newline character:
+			if(content.substr(-1) === "\n") {
+				fileObj.Write(content);
+			} else {
+				fileObj.Write(content + "\n");
+			}
+		} catch(e) {
+			throw "UnableToWriteFile(" + filePath + "):" + e;
+		} finally {
+			fileObj.Close();
 		}
 	} catch(e) {
-		// IO error
-		throw "UnableToWriteFile(" + filePath + "):" + e;
-	} finally {
-		fileObj.Close();
+		throw "FileError(" + filePath + "):" + e;
 	}
 }
 
@@ -718,6 +727,91 @@ function TransferManager(transferMode, tipMode) {
 	this.changePlate = function() {
 		return (this.next && this.current.sourcePlate !== this.next.sourcePlate);
 	}
+}
+
+/*
+ Barcodes
+ Author: Joel Gruselius
+ Description: Functions for using barcode information read by the robot
+*/
+/**
+ * Functions for dealing with plate barcodes in VWorks
+ * @author Joel Gruselius
+ * @class
+ * @param {string} side - The side of the plate where the barcode
+ * @param {string} author - The author of the book.
+ */
+function Barcodes(side, logPath) {
+	// To check if a var is defined:
+	this.defaults = function(value, def) {
+		return (typeof value === "undefined") ? def : value;
+	};
+	// +++FIX: Correct numbers??
+	var sides = {
+		"north": 0,
+		"west": 1,
+		"south": 2,
+		"east": 3,
+		"back": 0,
+		"left": 1,
+		"front": 2,
+		"right": 3
+	};
+	// Which barcode index to use (see VWorks plate object):
+	this.side = (typeof side === "undefined") ? 3 : sides[side.trim().toLowerCase()];
+	// Where to put the logfiles:
+	this.logPath = this.defaults(logPath, "C:/VWorks Workspace/Barcode_logs/");
+
+	// Return a string with the current date and time
+	// format YY-MM-DD HH:MM:SS
+	this.timestamp =function() {
+		var d = new Date();
+		var date = [d.getFullYear(), d.getMonth()+1, d.getDate(), d.getHours(),
+				d.getMinutes(), d.getSeconds()];
+		// Convert to string and pad with zeroes, i.e. 8 -> "08":
+		for(var i = 0, n = data.length; i<n; i++) {
+			var x = date[i];
+			date[i] = (x > 9) ? x + "" : "0" + x;
+		}
+		return date.slice(0,3).join("-") + " " + date.slice(3).join(":"); 
+	};
+
+	this.hasBc = function(plateObj) {
+		var bc = plateObj.barcode[this.side];
+		// Check if undefined/null (VWorks may use string 'undefined'):
+		var hasBc = (typeof bc !== "undefined" && bc !== null && bc !== "undefined");
+		// Check for number or non-blank string:
+		hasBc = hasBc && (!isNaN(parseFloat(bc)) || !!bc.trim());
+		return hasBc;
+	};
+
+	this.printBc = function(plateObj) {
+		print(plateObj.barcode[this.side]);
+	};
+
+	this.bcMatches = function(plateObj, barcode) {
+		return (plateObj.barcode[this.side] === barcode);
+	};
+
+	this.logBc = function(plateObj, taskObj) {
+		var bc = plateObj.barcode[this.side];
+		var plate = plateObj.name;
+		var pro = taskObj.getProtocolName();
+		var logStr = this.timestamp() + "\t" + pro + "\t" + plate + "\t" + bc; 
+		var file;
+		try {
+			file = Open(this.logPath);
+			try {
+				file.Write(logStr);
+			} catch(e) {
+				throw e;
+			} finally {
+				file.Close();
+			}
+		} catch(e) {
+			throw e;
+		}
+	};
 }
 
 //DEBUG:
