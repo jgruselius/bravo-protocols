@@ -29,20 +29,20 @@ function Transfer(sourcePlate, sourceWell, volume, destinationWell, destinationP
 	this.destinationWell = destinationWell;
 	this.destinationPlate = destinationPlate;
 	this.newTip = newTip;
+	this.toString = function() {
+		var str = ["{" + 
+				"sourcePlate: " + this.sourcePlate,
+				"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) + 
+						this.sourceWell[1],
+				"volume: " + this.volume,
+				"destinationPlate: " + this.destinationPlate,
+				"destinationWell: " + String.fromCharCode(this.destinationWell[0]+64) +
+						this.destinationWell[1],
+				"newTip: " + newTip +
+				"}"];
+		return str.join(", ");
+	}
 }
-Transfer.prototype.toString = function() {
-	var str = ["{" + 
-			"sourcePlate: " + this.sourcePlate,
-			"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) + 
-					this.sourceWell[1],
-			"volume: " + this.volume,
-			"destinationPlate: " + this.destinationPlate,
-			"destinationWell: " + String.fromCharCode(this.destinationWell[0]+64) +
-					this.destinationWell[1],
-			"newTip: " + newTip +
-			"}"];
-	return str.join(", ");
-};
 
 /*
  Tipbox class to track single-tip usage. Tips are taken/placed column-wise
@@ -493,7 +493,7 @@ function readFile(filePath) {
 		} finally {
 			fileObj.Close();
 		}
-	} catch(e)
+	} catch(e) {
 		throw "FileError(" + filePath + "):" + e;
 	}
 	return content;
@@ -656,7 +656,7 @@ function TransferManager(transferMode, tipMode) {
 			this.current = this.next;
 			this.index++;
 			if(this.hasNextTransfer()) {
-				this.next = temp[this.index+1];   
+				this.next = temp[this.index+1];	  
 			} else if(this.hasNextPlate()) {
 				temp = this.transfers[++this.plate];
 				this.index = -1;
@@ -730,7 +730,7 @@ function TransferManager(transferMode, tipMode) {
 }
 
 /*
- Barcodes
+ Barcode manager
  Author: Joel Gruselius
  Description: Functions for using barcode information read by the robot
 */
@@ -739,32 +739,34 @@ function TransferManager(transferMode, tipMode) {
  * @author Joel Gruselius
  * @class
  * @param {string} side - The side of the plate where the barcode
- * @param {string} author - The author of the book.
+ * @param {string} logPath - Full path to where to save the log file
  */
-function Barcodes(side, logPath) {
-	// To check if a var is defined:
-	this.defaults = function(value, def) {
-		return (typeof value === "undefined") ? def : value;
-	};
+function BarcodeManager(side, logPath) {
 	// +++FIX: Correct numbers??
 	var sides = {
-		"north": 0,
+		"south": 0,
 		"west": 1,
-		"south": 2,
+		"north": 2,
 		"east": 3,
-		"back": 0,
+		"front": 0,
 		"left": 1,
-		"front": 2,
+		"back": 2,
 		"right": 3
 	};
-	// Which barcode index to use (see VWorks plate object):
-	this.side = (typeof side === "undefined") ? 3 : sides[side.trim().toLowerCase()];
+	// Which barcode index to use (see VWorks plate object), default to 3:
+	if(!isNaN(parseInt(side, 10))) {
+		this.side = parseInt(side, 10);
+	} else if(side.trim().toLowerCase() in sides) {
+		this.side = sides[side.trim().toLowerCase()];
+	} else {
+		this.side = 3;
+	}
 	// Where to put the logfiles:
-	this.logPath = this.defaults(logPath, "C:/VWorks Workspace/Barcode_logs/");
+	this.logPath = logPath || "C:/VWorks Workspace/Barcode_logs/";
 
 	// Return a string with the current date and time
 	// format YY-MM-DD HH:MM:SS
-	this.timestamp =function() {
+	this.timestamp = function() {
 		var d = new Date();
 		var date = [d.getFullYear(), d.getMonth()+1, d.getDate(), d.getHours(),
 				d.getMinutes(), d.getSeconds()];
@@ -786,7 +788,7 @@ function Barcodes(side, logPath) {
 	};
 
 	this.printBc = function(plateObj) {
-		print(plateObj.barcode[this.side]);
+		print(plateObj.barcode[this.side] || "<no barcode>");
 	};
 
 	this.bcMatches = function(plateObj, barcode) {
@@ -814,5 +816,18 @@ function Barcodes(side, logPath) {
 	};
 }
 
+// POLYFILL ====================================================================
+// Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+
+if(!String.prototype.trim) {
+	(function() {
+		// Make sure we trim BOM and NBSP
+		var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+		String.prototype.trim = function() {
+			return this.replace(rtrim, '');
+		};
+	})();
+}
+
 //DEBUG:
-print("transfer_lib.js EOF");
+print("transfer_lib.js loaded");
