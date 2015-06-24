@@ -507,7 +507,12 @@ function appendFile(filePath, content) {
 	try {
 		fileObj.Open(filePath, 0, 0);
 		try {
-			fileObj.Write(content + "\n");
+			// If the string ends with a newline character:
+			if(content.substr(-1) === "\n") {
+				fileObj.Write(content);
+			} else {
+				fileObj.Write(content + "\n");
+			}
 		} catch(e) {
 			throw "UnableToWriteFile(" + filePath + "):" + e;
 		} finally {
@@ -779,6 +784,7 @@ function BarcodeManager(side, logPath) {
 	};
 
 	this.hasBc = function(plateObj) {
+		//var bc = (typeof plateObj === "string") ? plateObj : plateObj.barcode[this.side];
 		var bc = plateObj.barcode[this.side];
 		// Check if undefined/null (VWorks may use string 'undefined'):
 		var hasBc = (typeof bc !== "undefined" && bc !== null && bc !== "undefined");
@@ -788,35 +794,28 @@ function BarcodeManager(side, logPath) {
 	};
 
 	this.printBc = function(plateObj) {
-		print(plateObj.barcode[this.side] || "<no barcode>");
+		//var bc = (typeof plateObj === "string") ? plateObj : plateObj.barcode[this.side];
+		var bc = plateObj.barcode[this.side];
+		print(bc || "<no barcode>");
 	};
 
 	this.bcMatches = function(plateObj, barcode) {
-		return (plateObj.barcode[this.side] === barcode);
+		//var bc = (typeof plateObj === "string") ? plateObj : plateObj.barcode[this.side];
+		var bc = plateObj.barcode[this.side];
+		return (bc === barcode);
 	};
 
-	this.logBc = function(plateObj, taskObj) {
+	this.logBc = function(plateObj, taskObj, text) {
 		var bc = plateObj.barcode[this.side];
 		var plate = plateObj.name;
 		var pro = taskObj.getProtocolName();
-		var logStr = this.timestamp() + "\t" + pro + "\t" + plate + "\t" + bc; 
-		var file;
-		try {
-			file = Open(this.logPath);
-			try {
-				file.Write(logStr);
-			} catch(e) {
-				throw e;
-			} finally {
-				file.Close();
-			}
-		} catch(e) {
-			throw e;
-		}
+		var t = (typeof text === "undefined") ? "" : "\t" + text;
+		var logStr = this.timestamp() + "\t" + pro + "\t" + plate + "\t" + bc + t;
+		appendFile(this.logPath, logStr);
 	};
 }
 
-// POLYFILL ====================================================================
+// POLYFILLS ===================================================================
 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
 if(!String.prototype.trim) {
