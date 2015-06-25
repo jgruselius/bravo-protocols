@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='420e135b180093897bb53e596ed70940' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='870775c5361e0787419fc58e9938d722' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -45,7 +45,7 @@ if(typeof user_entry !== &quot;undefined&quot;) {
 
 var global = GetGlobalObject();
 // General vars
-var time_mod = 1;
+var time_mod = 1/100;
 // Ambient temperature (deg C):
 var temp_rt = 20;
 // Number of columns of samples to process:
@@ -81,9 +81,9 @@ var vol_synth2 = 25;
 // Bind incubation time (sec):
 var time_bind = 5 * 60 * time_mod;
 // Normal bead pellet time (sec):
-var time_pellet = 2 * 60;
+var time_pellet = 2 * 60 * time_mod;
 // Short bead pellet time (sec):
-var time_pellet_short = 0.5 * 60;' />
+var time_pellet_short = 0.5 * 60 * time_mod;' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='2' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -110,8 +110,8 @@ var time_pellet_short = 0.5 * 60;' />
 						<Parameter Category='' Name='Temperature Tolerance' Value='' />
 						<Parameter Category='' Name='Timeout' Value='1' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set temperature - Position (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -135,8 +135,8 @@ var time_pellet_short = 0.5 * 60;' />
 						<Parameter Category='' Name='Temperature Tolerance' Value='' />
 						<Parameter Category='' Name='Timeout' Value='1' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set temperature - Position (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -206,8 +206,8 @@ var time_pellet_short = 0.5 * 60;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
 					</Parameters>
@@ -258,8 +258,8 @@ var time_pellet_short = 0.5 * 60;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Downstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Free empty stackers' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -567,7 +567,7 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='20' />
+						<Parameter Category='Task Description' Name='Task number' Value='19' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
@@ -650,8 +650,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='23' />
+						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
 					</Parameters>
@@ -702,8 +702,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Unload' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Unload based on barcode' Value='0' />
 						<Parameter Category='' Name='Barcode' Value='' />
@@ -771,8 +771,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Storage Incubate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='incubateAtLocation' Value='' />
 						<Parameter Category='' Name='newIncubationTime' Value='0' />
@@ -821,9 +821,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='WashBeads1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads1' />
@@ -840,8 +848,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Storage Incubate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='incubateAtLocation' Value='' />
 						<Parameter Category='' Name='newIncubationTime' Value='0' />
@@ -919,8 +927,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
@@ -964,8 +972,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Downstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Free empty stackers' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -1026,8 +1034,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Storage Incubate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='incubateAtLocation' Value='' />
 						<Parameter Category='' Name='newIncubationTime' Value='0' />
@@ -1076,9 +1084,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='AddElution' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AddElution' />
@@ -1218,8 +1234,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='16' />
+						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
 					</Parameters>
@@ -1259,8 +1275,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Downstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Free empty stackers' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -1321,8 +1337,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Storage Incubate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='incubateAtLocation' Value='' />
 						<Parameter Category='' Name='newIncubationTime' Value='0' />
@@ -1371,9 +1387,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='TransferEluate2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferEluate2' />
@@ -1445,9 +1469,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='WashBeads2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads2' />
@@ -1669,8 +1701,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='24' />
+						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
 					</Parameters>
@@ -1721,8 +1753,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Downstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Free empty stackers' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -1783,8 +1815,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Storage Incubate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='incubateAtLocation' Value='' />
 						<Parameter Category='' Name='newIncubationTime' Value='0' />
@@ -1833,9 +1865,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='AddFrag' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AddFrag' />
@@ -1854,8 +1894,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
 					</Parameters>
@@ -1906,8 +1946,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Downstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Free empty stackers' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -1970,8 +2010,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
@@ -2033,9 +2073,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='TransferFrag' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferFrag' />
@@ -2086,8 +2134,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 						<Parameter Category='' Name='Twitter message' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='User Message' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -2199,8 +2247,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
 					</Parameters>
@@ -2251,8 +2299,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Downstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Free empty stackers' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -2315,8 +2363,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
@@ -2378,9 +2426,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='TransferSynth' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferSynth' />
@@ -2460,8 +2516,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Unload' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Unload based on barcode' Value='0' />
 						<Parameter Category='' Name='Barcode' Value='' />
@@ -2529,8 +2585,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Storage Incubate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='incubateAtLocation' Value='' />
 						<Parameter Category='' Name='newIncubationTime' Value='0' />
@@ -2686,8 +2742,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
@@ -2746,9 +2802,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeRinse' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeRinse' />
@@ -2764,9 +2828,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='RinseTips1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips1' />
@@ -2782,9 +2854,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='IsolateBeads1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads1' />
@@ -2800,9 +2880,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='IsolateBeads2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads2' />
@@ -2818,9 +2906,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='RinseTips2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips2' />
@@ -2836,9 +2932,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='IsolateBeads3' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads3' />
@@ -2854,9 +2958,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='IsolateBeads4' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads4' />
@@ -2872,9 +2984,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='RinseTips3' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips3' />
@@ -2890,9 +3010,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='RinseTips4' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips4' />
@@ -2948,9 +3076,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeElution' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeElution' />
@@ -2966,9 +3102,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeBind' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeBind' />
@@ -2984,9 +3128,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeFrag' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeFrag' />
@@ -3002,9 +3154,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeSynth1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeSynth1' />
@@ -3020,9 +3180,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeSynth2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeSynth2' />
@@ -3038,9 +3206,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeBeads' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeBeads' />
@@ -3059,8 +3235,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
@@ -3107,8 +3283,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Downstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Free empty stackers' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -3142,9 +3318,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='TransferSample' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferSample' />
@@ -3179,9 +3363,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='RinseTips1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips1' />
@@ -3208,9 +3400,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='IsolateBeads1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads1' />
@@ -3226,9 +3426,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='WashBeads1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads1' />
@@ -3244,9 +3452,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='IsolateBeads2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads2' />
@@ -3265,8 +3481,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
 					</Parameters>
@@ -3319,8 +3535,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Downstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Free empty stackers' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -3354,9 +3570,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='AddElution' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AddElution' />
@@ -3372,9 +3596,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='TransferEluate1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferEluate1' />
@@ -3398,9 +3630,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='RinseTips2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips2' />
@@ -3427,9 +3667,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='TransferEluate2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferEluate2' />
@@ -3445,9 +3693,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='IsolateBeads3' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads3' />
@@ -3463,9 +3719,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='WashBeads2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads2' />
@@ -3481,9 +3745,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='IsolateBeads4' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads4' />
@@ -3502,8 +3774,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
 					</Parameters>
@@ -3556,8 +3828,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Downstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Free empty stackers' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -3591,9 +3863,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='AddFrag' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AddFrag' />
@@ -3617,9 +3897,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='RinseTips3' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips3' />
@@ -3646,9 +3934,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='TransferFrag' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferFrag' />
@@ -3672,9 +3968,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='RinseTips4' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips4' />
@@ -3701,9 +4005,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='TransferSynth' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferSynth' />
@@ -3722,8 +4034,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
 					</Parameters>
@@ -3763,8 +4075,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Downstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Free empty stackers' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -3811,9 +4123,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeWash' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeWash' />
@@ -3842,9 +4162,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeRinse' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeRinse' />
@@ -3894,9 +4222,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeElution' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeElution' />
@@ -3925,9 +4261,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeBind' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeBind' />
@@ -3956,9 +4300,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeFrag' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeFrag' />
@@ -3987,9 +4339,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeSynth1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeSynth1' />
@@ -4018,9 +4378,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeSynth2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeSynth2' />
@@ -4049,9 +4417,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeBeads' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeBeads' />
@@ -4070,8 +4446,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='21' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
@@ -4129,8 +4505,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Unload' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Unload based on barcode' Value='0' />
 						<Parameter Category='' Name='Barcode' Value='' />
@@ -4171,9 +4547,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeElution' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeElution' />
@@ -4189,9 +4573,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeBind' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeBind' />
@@ -4207,9 +4599,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeFrag' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeFrag' />
@@ -4225,9 +4625,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeSynth1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeSynth1' />
@@ -4243,9 +4651,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeSynth2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeSynth2' />
@@ -4261,9 +4677,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeBeads' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeBeads' />
@@ -4282,8 +4706,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
@@ -4356,9 +4780,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeWash' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeWash' />
@@ -4377,8 +4809,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
@@ -4440,9 +4872,17 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DistributeRinse' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DistributeRinse' />
@@ -4461,8 +4901,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
@@ -4663,9 +5103,9 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Block Type' Value='' />
-						<Parameter Category='' Name='Program' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='' Name='Block Type' Value='96' />
+						<Parameter Category='' Name='Program' Value='3,1,rna-den ' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
 						<Parameter Category='Task Description' Name='Task description' Value='Run a program (Biometra TRobot)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -4686,7 +5126,7 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 						<Parameter Category='' Name='Begin location speed' Value='Default slow' />
 						<Parameter Category='' Name='Adhere time' Value='2.5 Seconds' />
 						<Parameter Category='' Name='Ignore seal not removed error.' Value='0' />
-						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
 						<Parameter Category='Task Description' Name='Task description' Value='Peel (Nexus XPeel)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -4776,9 +5216,9 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Block Type' Value='' />
-						<Parameter Category='' Name='Program' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='' Name='Block Type' Value='96' />
+						<Parameter Category='' Name='Program' Value='3,3,rna-frg ' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
 						<Parameter Category='Task Description' Name='Task description' Value='Run a program (Biometra TRobot)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -4799,7 +5239,7 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 						<Parameter Category='' Name='Begin location speed' Value='Default slow' />
 						<Parameter Category='' Name='Adhere time' Value='2.5 Seconds' />
 						<Parameter Category='' Name='Ignore seal not removed error.' Value='0' />
-						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
 						<Parameter Category='Task Description' Name='Task description' Value='Peel (Nexus XPeel)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -4889,9 +5329,9 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Block Type' Value='' />
-						<Parameter Category='' Name='Program' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='' Name='Block Type' Value='96' />
+						<Parameter Category='' Name='Program' Value='3,2,rna-elu ' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
 						<Parameter Category='Task Description' Name='Task description' Value='Run a program (Biometra TRobot)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -4912,7 +5352,7 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 						<Parameter Category='' Name='Begin location speed' Value='Default slow' />
 						<Parameter Category='' Name='Adhere time' Value='2.5 Seconds' />
 						<Parameter Category='' Name='Ignore seal not removed error.' Value='0' />
-						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
 						<Parameter Category='Task Description' Name='Task description' Value='Peel (Nexus XPeel)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -5002,9 +5442,9 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Block Type' Value='' />
-						<Parameter Category='' Name='Program' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='' Name='Block Type' Value='96' />
+						<Parameter Category='' Name='Program' Value='3,4,rna-1st ' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
 						<Parameter Category='Task Description' Name='Task description' Value='Run a program (Biometra TRobot)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -5025,7 +5465,7 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 						<Parameter Category='' Name='Begin location speed' Value='Default slow' />
 						<Parameter Category='' Name='Adhere time' Value='2.5 Seconds' />
 						<Parameter Category='' Name='Ignore seal not removed error.' Value='0' />
-						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
 						<Parameter Category='Task Description' Name='Task description' Value='Peel (Nexus XPeel)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -5115,9 +5555,9 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Block Type' Value='' />
-						<Parameter Category='' Name='Program' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='' Name='Block Type' Value='96' />
+						<Parameter Category='' Name='Program' Value='3,5,rna-2nd ' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
 						<Parameter Category='Task Description' Name='Task description' Value='Run a program (Biometra TRobot)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -5138,7 +5578,7 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 						<Parameter Category='' Name='Begin location speed' Value='Default slow' />
 						<Parameter Category='' Name='Adhere time' Value='2.5 Seconds' />
 						<Parameter Category='' Name='Ignore seal not removed error.' Value='0' />
-						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
 						<Parameter Category='Task Description' Name='Task description' Value='Peel (Nexus XPeel)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -5173,8 +5613,8 @@ Place the Eppendorf plate containing RNA samples on position 8 of the Bravo deck
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -5206,8 +5646,8 @@ var mBlowoutHeight = 7;
 var mDoTipTouch = true;
 var mTouchRetract = -6;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -5225,8 +5665,8 @@ var mTouchRetract = -6;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5259,8 +5699,8 @@ var mTouchRetract = -6;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5302,8 +5742,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5320,8 +5760,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -5373,8 +5813,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5416,8 +5856,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5478,8 +5918,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5526,8 +5966,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5561,8 +6001,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5577,8 +6017,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -5609,8 +6049,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -5642,8 +6082,8 @@ var mBlowoutHeight = 7;
 var mDoTipTouch = true;
 var mTouchRetract = -6.5;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -5661,8 +6101,8 @@ var mTouchRetract = -6.5;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5695,8 +6135,8 @@ var mTouchRetract = -6.5;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5738,8 +6178,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5756,8 +6196,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -5809,8 +6249,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5852,8 +6292,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5914,8 +6354,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -5997,8 +6437,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6013,8 +6453,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -6045,8 +6485,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -6076,8 +6516,8 @@ var mBlowoutHeight = 5;
 var mDoTipTouch = true;
 var mTouchRetract = -4;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -6095,8 +6535,8 @@ var mTouchRetract = -4;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6129,8 +6569,8 @@ var mTouchRetract = -4;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6172,8 +6612,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6223,8 +6663,8 @@ task.Mixcycles = 10;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6243,8 +6683,8 @@ task.Mixcycles = 10;' />
 var mCurrentColumn = 0;
 ' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -6271,8 +6711,8 @@ var mCurrentColumn = 0;
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='mCurrentColumn++;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -6333,8 +6773,8 @@ task.Volume = (mMixVolume &gt; (maxVolume - 20)) ? (maxVolume - 20) : mMixVolume
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6376,8 +6816,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6419,8 +6859,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6483,8 +6923,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='16' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6518,8 +6958,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='17' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6534,8 +6974,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='18' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -6566,8 +7006,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -6595,8 +7035,8 @@ var mBlowoutHeight = 7;
 var mDoTipTouch = true;
 var mTouchRetract = -6;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -6614,8 +7054,8 @@ var mTouchRetract = -6;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6648,8 +7088,8 @@ var mTouchRetract = -6;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6691,8 +7131,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6711,8 +7151,8 @@ task.Distancefromwellbottom = 50;' />
 var mCurrentColumn = 0;
 ' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -6739,8 +7179,8 @@ var mCurrentColumn = 0;
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='mCurrentColumn++;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -6792,8 +7232,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6835,8 +7275,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6899,8 +7339,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6934,8 +7374,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -6950,8 +7390,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='16' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -6982,8 +7422,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7011,8 +7451,8 @@ var mBlowoutHeight = 5;
 var mDoTipTouch = true;
 var mTouchRetract = -4;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7030,8 +7470,8 @@ var mTouchRetract = -4;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7064,8 +7504,8 @@ var mTouchRetract = -4;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7107,8 +7547,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7127,8 +7567,8 @@ task.Distancefromwellbottom = 50;' />
 var mCurrentColumn = 0;
 ' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7155,8 +7595,8 @@ var mCurrentColumn = 0;
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='mCurrentColumn++;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7208,8 +7648,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7251,8 +7691,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7315,8 +7755,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7350,8 +7790,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7366,8 +7806,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='16' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7398,8 +7838,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7427,8 +7867,8 @@ var mBlowoutHeight = 7;
 var mDoTipTouch = true;
 var mTouchRetract = -6;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7446,8 +7886,8 @@ var mTouchRetract = -6;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7480,8 +7920,8 @@ var mTouchRetract = -6;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7523,8 +7963,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7543,8 +7983,8 @@ task.Distancefromwellbottom = 50;' />
 var mCurrentColumn = 0;
 ' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7571,8 +8011,8 @@ var mCurrentColumn = 0;
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='mCurrentColumn++;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7624,8 +8064,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7667,8 +8107,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7731,8 +8171,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7766,8 +8206,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7782,8 +8222,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='16' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7814,8 +8254,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7842,8 +8282,8 @@ var mBlowoutHeight = 15;
 var mDoTipTouch = true;
 var mTouchRetract = -13;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7861,8 +8301,8 @@ var mTouchRetract = -13;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7895,8 +8335,8 @@ var mTouchRetract = -13;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7938,8 +8378,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -7956,8 +8396,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -7997,8 +8437,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8044,8 +8484,8 @@ task.Whichsidestousefortiptouch = &quot;North&quot;;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8100,8 +8540,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8143,8 +8583,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8199,8 +8639,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8234,8 +8674,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8250,8 +8690,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -8282,8 +8722,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -8311,8 +8751,8 @@ var mBlowoutHeight = 7;
 var mDoTipTouch = true;
 var mTouchRetract = -6;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -8330,8 +8770,8 @@ var mTouchRetract = -6;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8364,8 +8804,8 @@ var mTouchRetract = -6;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8407,8 +8847,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8427,8 +8867,8 @@ task.Distancefromwellbottom = 50;' />
 var mCurrentColumn = 0;
 ' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -8455,8 +8895,8 @@ var mCurrentColumn = 0;
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='mCurrentColumn++;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -8508,8 +8948,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8551,8 +8991,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8615,8 +9055,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8650,8 +9090,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8666,8 +9106,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='16' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -8698,8 +9138,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -8727,8 +9167,8 @@ var mBlowoutHeight = 7;
 var mDoTipTouch = true;
 var mTouchRetract = -6;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -8746,8 +9186,8 @@ var mTouchRetract = -6;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8780,8 +9220,8 @@ var mTouchRetract = -6;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8823,8 +9263,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8843,8 +9283,8 @@ task.Distancefromwellbottom = 50;' />
 var mCurrentColumn = 0;
 ' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -8871,8 +9311,8 @@ var mCurrentColumn = 0;
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='mCurrentColumn++;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -8924,8 +9364,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -8967,8 +9407,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9031,8 +9471,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9066,8 +9506,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9082,8 +9522,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='16' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -9114,8 +9554,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -9142,8 +9582,8 @@ var mBlowoutHeight = 15;
 var mDoTipTouch = true;
 var mTouchRetract = -13;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -9161,8 +9601,8 @@ var mTouchRetract = -13;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9195,8 +9635,8 @@ var mTouchRetract = -13;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9238,8 +9678,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9256,8 +9696,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -9309,8 +9749,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9352,8 +9792,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9408,8 +9848,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9443,8 +9883,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9459,8 +9899,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -9491,8 +9931,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -9519,8 +9959,8 @@ var mBlowoutHeight = 25;
 var mDoTipTouch = true;
 var mTouchRetract = 5;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -9538,8 +9978,8 @@ var mTouchRetract = 5;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9554,8 +9994,8 @@ var mTouchRetract = 5;' />
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='task.Reservationtime = time_pellet;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Reserve Location' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Location to use, plate' Value='plate_bind' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
@@ -9588,8 +10028,8 @@ var mTouchRetract = 5;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9631,8 +10071,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9649,8 +10089,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -9702,8 +10142,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9745,8 +10185,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9801,8 +10241,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9836,8 +10276,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9852,8 +10292,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -9884,8 +10324,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -9912,8 +10352,8 @@ var mBlowoutHeight = 25;
 var mDoTipTouch = true;
 var mTouchRetract = 5;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -9931,8 +10371,8 @@ var mTouchRetract = 5;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -9947,8 +10387,8 @@ var mTouchRetract = 5;' />
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='task.Reservationtime = time_pellet_short;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Reserve Location' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Location to use, plate' Value='plate_bind' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
@@ -9981,8 +10421,8 @@ var mTouchRetract = 5;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10024,8 +10464,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10042,8 +10482,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -10095,8 +10535,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10143,8 +10583,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10199,8 +10639,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10234,8 +10674,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10250,8 +10690,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -10282,8 +10722,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -10310,8 +10750,8 @@ var mBlowoutHeight = 25;
 var mDoTipTouch = true;
 var mTouchRetract = 5;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -10329,8 +10769,8 @@ var mTouchRetract = 5;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10345,8 +10785,8 @@ var mTouchRetract = 5;' />
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='task.Reservationtime = time_pellet;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Reserve Location' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Location to use, plate' Value='plate_rebind' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
@@ -10379,8 +10819,8 @@ var mTouchRetract = 5;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10422,8 +10862,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10440,8 +10880,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -10493,8 +10933,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10536,8 +10976,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10592,8 +11032,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10627,8 +11067,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10643,8 +11083,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -10675,8 +11115,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -10703,8 +11143,8 @@ var mBlowoutHeight = 25;
 var mDoTipTouch = true;
 var mTouchRetract = 5;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -10716,8 +11156,8 @@ var mTouchRetract = 5;' />
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='task.Reservationtime = time_pellet_short;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Reserve Location' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Location to use, plate' Value='plate_rebind' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
@@ -10738,8 +11178,8 @@ var mTouchRetract = 5;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10772,8 +11212,8 @@ var mTouchRetract = 5;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10815,8 +11255,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10833,8 +11273,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -10886,8 +11326,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10934,8 +11374,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -10990,8 +11430,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11025,8 +11465,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11041,8 +11481,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -11073,8 +11513,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -11105,8 +11545,8 @@ var mBlowoutHeight = 30;
 var mDoTipTouch = true;
 var mTouchRetract = 5;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -11124,8 +11564,8 @@ var mTouchRetract = 5;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11158,8 +11598,8 @@ var mTouchRetract = 5;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11201,8 +11641,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11257,8 +11697,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11300,8 +11740,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11343,8 +11783,8 @@ task.Distancefromwellbottom = mMixDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11390,8 +11830,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11433,8 +11873,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11489,8 +11929,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11524,8 +11964,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11540,8 +11980,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -11572,8 +12012,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -11604,8 +12044,8 @@ var mBlowoutHeight = 30;
 var mDoTipTouch = true;
 var mTouchRetract = 5;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -11623,8 +12063,8 @@ var mTouchRetract = 5;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11657,8 +12097,8 @@ var mTouchRetract = 5;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11700,8 +12140,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11756,8 +12196,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11799,8 +12239,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11842,8 +12282,8 @@ task.Distancefromwellbottom = mMixDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11889,8 +12329,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11932,8 +12372,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -11988,8 +12428,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12023,8 +12463,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12039,8 +12479,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -12071,8 +12511,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -12103,8 +12543,8 @@ var mBlowoutHeight = 30;
 var mDoTipTouch = true;
 var mTouchRetract = 5;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -12122,8 +12562,8 @@ var mTouchRetract = 5;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12156,8 +12596,8 @@ var mTouchRetract = 5;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12199,8 +12639,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12255,8 +12695,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12298,8 +12738,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12341,8 +12781,8 @@ task.Distancefromwellbottom = mMixDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12388,8 +12828,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12431,8 +12871,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12487,8 +12927,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12522,8 +12962,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12538,8 +12978,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -12570,8 +13010,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -12602,8 +13042,8 @@ var mBlowoutHeight =30;
 var mDoTipTouch = true;
 var mTouchRetract = 5;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -12621,8 +13061,8 @@ var mTouchRetract = 5;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12655,8 +13095,8 @@ var mTouchRetract = 5;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12698,8 +13138,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12754,8 +13194,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12797,8 +13237,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12840,8 +13280,8 @@ task.Distancefromwellbottom = mMixDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12887,8 +13327,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12930,8 +13370,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -12986,8 +13426,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13021,8 +13461,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13037,8 +13477,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -13069,8 +13509,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -13116,8 +13556,8 @@ var mTouchRetract = -6;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13150,8 +13590,8 @@ var mTouchRetract = -6;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13193,8 +13633,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13211,8 +13651,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -13307,8 +13747,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13398,8 +13838,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13414,8 +13854,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -13446,8 +13886,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -13498,8 +13938,8 @@ var mTouchRetract = -6;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13532,8 +13972,8 @@ var mTouchRetract = -6;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13575,8 +14015,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13625,8 +14065,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13643,8 +14083,8 @@ task.Wellselection = mWellSelection;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -13696,8 +14136,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13739,8 +14179,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13801,8 +14241,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13844,8 +14284,8 @@ task.Distancefromwellbottom = 0.1;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13888,8 +14328,8 @@ task.Distancefromwellbottom = 0.1;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13936,8 +14376,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13971,8 +14411,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='16' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -13987,8 +14427,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='17' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -14019,8 +14459,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -14065,8 +14505,8 @@ var mTouchRetract = -6.5;' />
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='task.Reservationtime = time_pellet;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Reserve Location' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Location to use, plate' Value='plate_rebind' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
@@ -14087,8 +14527,8 @@ var mTouchRetract = -6.5;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14121,8 +14561,8 @@ var mTouchRetract = -6.5;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14164,8 +14604,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14182,8 +14622,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -14235,8 +14675,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14278,8 +14718,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='10' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14340,8 +14780,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14383,8 +14823,8 @@ task.Distancefromwellbottom = 0.1;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14427,8 +14867,8 @@ task.Distancefromwellbottom = 0.1;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14475,8 +14915,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='15' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14510,8 +14950,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='16' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14526,8 +14966,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='17' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -14558,8 +14998,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -14610,8 +15050,8 @@ var mTouchRetract = -6;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14644,8 +15084,8 @@ var mTouchRetract = -6;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14705,8 +15145,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -14801,8 +15241,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14863,8 +15303,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14946,8 +15386,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -14962,8 +15402,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -14994,8 +15434,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -15046,8 +15486,8 @@ var mTouchRetract = -6;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15080,8 +15520,8 @@ var mTouchRetract = -6;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15123,8 +15563,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15141,8 +15581,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -15194,8 +15634,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15237,8 +15677,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15382,8 +15822,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15398,8 +15838,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -15445,8 +15885,8 @@ if(mDoTipTouch) {
 						<Parameter Category='' Name='Temperature Tolerance' Value='' />
 						<Parameter Category='' Name='Timeout' Value='1' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='16' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set temperature - Position (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15480,8 +15920,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -15513,8 +15953,8 @@ var mBlowoutHeight = 7;
 var mDoTipTouch = false;
 var mTouchRetract = 0;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -15532,8 +15972,8 @@ var mTouchRetract = 0;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15566,8 +16006,8 @@ var mTouchRetract = 0;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15612,8 +16052,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15630,8 +16070,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -15683,8 +16123,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15726,8 +16166,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15788,8 +16228,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15839,8 +16279,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15874,8 +16314,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -15890,8 +16330,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -15922,8 +16362,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -15955,8 +16395,8 @@ var mBlowoutHeight = 7;
 var mDoTipTouch = false;
 var mTouchRetract = 0;' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -15974,8 +16414,8 @@ var mTouchRetract = 0;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set Head Mode (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -16008,8 +16448,8 @@ var mTouchRetract = 0;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips On (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -16054,8 +16494,8 @@ task.Distancefromwellbottom = 50;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -16072,8 +16512,8 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -16125,8 +16565,8 @@ task.Distancefromwellbottom = mAspDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -16168,8 +16608,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -16230,8 +16670,8 @@ task.Wellselection = mWellSelection;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -16281,8 +16721,8 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -16316,8 +16756,8 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -16332,8 +16772,8 @@ if(mDoTipTouch) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -16356,4 +16796,16 @@ if(mDoTipTouch) {
 			</Pipette_Process>
 		</Main_Processes>
 	</Processes>
+	<MeasurementTypes >
+		<MeasurementType CriticalTime='5' Device_Name='Agilent ACU - 1' LogAction='High Low' LowerLimit='0' MeasurementName='5V Input 1 (00-30-d3-21-0b-4c)' Object_Type='Agilent ACU' PauseAction='High Low' PollFrequency='1' Unit='' UpperLimit='1' />
+		<MeasurementType CriticalTime='5' Device_Name='Agilent ACU - 1' LogAction='High Low' LowerLimit='0' MeasurementName='5V Input 2 (00-30-d3-21-0b-4c)' Object_Type='Agilent ACU' PauseAction='High Low' PollFrequency='1' Unit='' UpperLimit='1' />
+		<MeasurementType CriticalTime='5' Device_Name='Agilent ACU - 1' LogAction='High Low' LowerLimit='0' MeasurementName='5V Input 3 (00-30-d3-21-0b-4c)' Object_Type='Agilent ACU' PauseAction='High Low' PollFrequency='1' Unit='' UpperLimit='1' />
+		<MeasurementType CriticalTime='5' Device_Name='Agilent ACU - 1' LogAction='High Low' LowerLimit='0' MeasurementName='5V Input 4 (00-30-d3-21-0b-4c)' Object_Type='Agilent ACU' PauseAction='High Low' PollFrequency='1' Unit='' UpperLimit='1' />
+		<MeasurementType CriticalTime='5' Device_Name='Agilent ACU - 1' LogAction='High Low' LowerLimit='0' MeasurementName='5V Input 5 (00-30-d3-21-0b-4c)' Object_Type='Agilent ACU' PauseAction='High Low' PollFrequency='1' Unit='' UpperLimit='1' />
+		<MeasurementType CriticalTime='5' Device_Name='Agilent ACU - 1' LogAction='High Low' LowerLimit='0' MeasurementName='5V Input 6 (00-30-d3-21-0b-4c)' Object_Type='Agilent ACU' PauseAction='High Low' PollFrequency='1' Unit='' UpperLimit='1' />
+		<MeasurementType CriticalTime='5' Device_Name='Agilent ACU - 1' LogAction='High Low' LowerLimit='0' MeasurementName='5V Analog Input 1 (00-30-d3-21-0b-4c)' Object_Type='Agilent ACU' PauseAction='High Low' PollFrequency='1' Unit='' UpperLimit='5' />
+		<MeasurementType CriticalTime='5' Device_Name='Agilent ACU - 1' LogAction='High Low' LowerLimit='0' MeasurementName='5V Analog Input 2 (00-30-d3-21-0b-4c)' Object_Type='Agilent ACU' PauseAction='High Low' PollFrequency='1' Unit='' UpperLimit='5' />
+		<MeasurementType CriticalTime='5' Device_Name='Agilent ACU - 1' LogAction='High Low' LowerLimit='0' MeasurementName='24V Analog Input 1 (00-30-d3-21-0b-4c)' Object_Type='Agilent ACU' PauseAction='High Low' PollFrequency='1' Unit='' UpperLimit='24' />
+		<MeasurementType CriticalTime='5' Device_Name='Agilent ACU - 1' LogAction='High Low' LowerLimit='0' MeasurementName='24V Analog Input 2 (00-30-d3-21-0b-4c)' Object_Type='Agilent ACU' PauseAction='High Low' PollFrequency='1' Unit='' UpperLimit='24' />
+	</MeasurementTypes>
 </Velocity11>
