@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='9092a1f01012eaa6c440e26bb9f86af6' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='7487c28315b0b3ff54f9162d4ef58a45' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -141,13 +141,17 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<TaskScript Name='TaskScript' Value='if(ignoreBarcodes) task.skip();
 var msg = &quot;&quot;;
 if(global.formLog) bc.printBc(plate);
+var expected = tm.current.sourcePlate;
 if(!bc.hasBc(plate)) {
    msg = &quot;It appears the plate has no barcode or the barcode could not be read. Check plate identity and either abort or proceed with the run anyway.&quot;;
-} else if(!bc.bcMatches(plate, tm.current.sourcePlate)) {
+   bc.logBc(plate, task, &quot;Barcode could not be read (expected: &quot; + expected + &quot;)&quot;);
+} else if(!bc.bcMatches(plate, expected)) {
    msg = &quot;The read plate barcode [&quot; + plate.barcode[3] +
-		&quot;] does not match the expected [&quot; + tm.current.sourcePlate +
+		&quot;] does not match the expected [&quot; + expected +
 		&quot;]. Check plate identity and either abort or proceed with the run anyway.&quot;;
+   bc.logBc(plate, task, &quot;Barcode does not match (expected: &quot; + expected + &quot;)&quot;);
 } else {
+   bc.logBc(plate, task, &quot;Barcode matches the expected: &quot; + expected);
    task.skip();
 }
 task.Body = msg;' />
@@ -470,7 +474,7 @@ task.Body = msg;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='12' />
+						<Setting Name='Estimated time' Value='14' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -600,7 +604,7 @@ var hasTransfer = !!tm.getSize();
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
 	task.Volume = tm.getVolume();

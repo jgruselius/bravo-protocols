@@ -776,11 +776,22 @@ function BarcodeManager(side, logPath) {
 		var date = [d.getFullYear(), d.getMonth()+1, d.getDate(), d.getHours(),
 				d.getMinutes(), d.getSeconds()];
 		// Convert to string and pad with zeroes, i.e. 8 -> "08":
-		for(var i = 0, n = data.length; i<n; i++) {
+		for(var i = date.length; i-->0;) {
 			var x = date[i];
 			date[i] = (x > 9) ? x + "" : "0" + x;
 		}
 		return date.slice(0,3).join("-") + " " + date.slice(3).join(":"); 
+	};
+	
+	this.datestamp = function() {
+		var d = new Date();
+		var date = [d.getFullYear(), d.getMonth()+1, d.getDate()];
+		// Convert to string and pad with zeroes, i.e. 8 -> "08":
+		for(var i = date.length; i-->0;) {
+			var x = date[i];
+			date[i] = (x > 9) ? x + "" : "0" + x;
+		}
+		return date.slice(0,3).join("-"); 
 	};
 
 	this.hasBc = function(plateObj) {
@@ -811,7 +822,7 @@ function BarcodeManager(side, logPath) {
 		var pro = taskObj.getProtocolName();
 		var t = (typeof text === "undefined") ? "" : "\t" + text;
 		var logStr = this.timestamp() + "\t" + pro + "\t" + plate + "\t" + bc + t;
-		appendFile(this.logPath, logStr);
+		appendFile(this.logPath + "barcode_log_" + this.datestamp() + ".log", logStr);
 	};
 }
 
