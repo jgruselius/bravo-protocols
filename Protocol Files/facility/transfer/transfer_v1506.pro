@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='24e5bd76f32f3a2811eccb5e22940cf9' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='7487c28315b0b3ff54f9162d4ef58a45' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -22,7 +22,7 @@ var filePath = global.formFile;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='4' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(filePath) task.skip();' />
 					<Parameters >
@@ -60,6 +60,9 @@ if(global.formLog) {
 		}
 	}
 }
+
+var ignoreBarcodes = !!global.formIgnoreBarcodes;
+var bc = new BarcodeManager(3);
 ' />
 				</Task>
 				<Task Name='BuiltIn::User Message' >
@@ -67,12 +70,14 @@ if(global.formLog) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='10' />
+						<Setting Name='Estimated time' Value='17' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Show an error message if hte selected file could
 // not be interpreted successfully:
 if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;undefined&quot;) {
 	task.skip();
+} else {
+	task.repeat();
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Title' Value='Error' />
@@ -126,6 +131,38 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 						<Parameter Category='' Name='Location to use' Value='5' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::User Message' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='34' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='if(ignoreBarcodes) task.skip();
+var msg = &quot;&quot;;
+if(global.formLog) bc.printBc(plate);
+var expected = tm.current.sourcePlate;
+if(!bc.hasBc(plate)) {
+   msg = &quot;It appears the plate has no barcode or the barcode could not be read. Check plate identity and either abort or proceed with the run anyway.&quot;;
+   bc.logBc(plate, task, &quot;Barcode could not be read (expected: &quot; + expected + &quot;)&quot;);
+} else if(!bc.bcMatches(plate, expected)) {
+   msg = &quot;The read plate barcode [&quot; + plate.barcode[3] +
+		&quot;] does not match the expected [&quot; + expected +
+		&quot;]. Check plate identity and either abort or proceed with the run anyway.&quot;;
+   bc.logBc(plate, task, &quot;Barcode does not match (expected: &quot; + expected + &quot;)&quot;);
+} else {
+   bc.logBc(plate, task, &quot;Barcode matches the expected: &quot; + expected);
+   task.skip();
+}
+task.Body = msg;' />
+					<Parameters >
+						<Parameter Category='' Name='Title' Value='BARCODE MISMATCH' />
+						<Parameter Category='' Name='Body' Value='' />
+						<Parameter Category='' Name='Only show the first time' Value='' />
+						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
+						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
+					</Parameters>
+				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -134,6 +171,19 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
@@ -176,7 +226,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Parameter Name='Barcode or header South' Value='No Selection' />
 					<Parameter Name='Barcode or header West' Value='No Selection' />
 					<Parameter Name='Barcode or header North' Value='No Selection' />
-					<Parameter Name='Barcode or header East' Value='No Selection' />
+					<Parameter Name='Barcode or header East' Value='Barcode not in file' />
 				</Plate_Parameters>
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
@@ -204,6 +254,19 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
@@ -238,7 +301,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -268,6 +331,19 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
 				</Task>
@@ -279,7 +355,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 				</Task>
@@ -313,7 +389,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -343,6 +419,19 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
 				</Task>
@@ -354,7 +443,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 				</Task>
@@ -385,7 +474,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
+						<Setting Name='Estimated time' Value='14' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -444,7 +533,7 @@ var hasTransfer = !!tm.getSize();
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='9' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(hasTransfer &amp;&amp; tm.useNewTip()) {
 	task.Wellselection = [tm.takeTip()];
@@ -456,11 +545,11 @@ var hasTransfer = !!tm.getSize();
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;02ebd9d6cc475a6495bae9d9e4fcd5ca&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;a926e87e55ad28b2d0f9d22348cff1ea&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;11&apos; Row=&apos;5&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -474,7 +563,7 @@ var hasTransfer = !!tm.getSize();
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
 	task.Volume = tm.getVolume();
@@ -611,11 +700,11 @@ if(hasTransfer) {
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;8e6db7041976e3e43da2c1ec108f0188&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;8ad2d152a6c253d46dc83d1add629c4a&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;7&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;2&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -669,7 +758,7 @@ if(hasTransfer) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(!tm.hasTip()) tm.resetTips();' />
 				</Task>
