@@ -14,8 +14,8 @@ presets["Ligation"] = {
 	tipColumn:1,
 	reagentColumn:1,
 	sampleVolume:13,
-	reagentVolume:7,
-	bufferVolume:27,
+	reagentVolume:4,
+	bufferVolume:30,
 	adapterVolume:3,
 	doOffDeckIncubation:true
 	};
