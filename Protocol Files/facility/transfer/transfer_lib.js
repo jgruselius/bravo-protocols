@@ -29,21 +29,21 @@ function Transfer(sourcePlate, sourceWell, volume, destinationWell, destinationP
 	this.destinationWell = destinationWell;
 	this.destinationPlate = destinationPlate;
 	this.newTip = newTip;
-	this.toString = function() {
-		var str = ["{" + 
-				"sourcePlate: " + this.sourcePlate,
-				"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) + 
-						this.sourceWell[1],
-				"volume: " + this.volume,
-				"destinationPlate: " + this.destinationPlate,
-				"destinationWell: " + String.fromCharCode(this.destinationWell[0]+64) +
-						this.destinationWell[1],
-				"newTip: " + newTip +
-				"}"];
-		return str.join(", ");
-	}
 }
 
+Transfer.prototype.toString = function() {
+	var str = ["{" + 
+			"sourcePlate: " + this.sourcePlate,
+			"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) + 
+					this.sourceWell[1],
+			"volume: " + this.volume,
+			"destinationPlate: " + this.destinationPlate,
+			"destinationWell: " + String.fromCharCode(this.destinationWell[0]+64) +
+					this.destinationWell[1],
+			"newTip: " + this.newTip +
+			"}"];
+	return str.join(", ");
+};
 /*
  Tipbox class to track single-tip usage. Tips are taken/placed column-wise
  starting from {row,column} given in 'origin', where row is 1 or 8 and column
@@ -747,7 +747,6 @@ function TransferManager(transferMode, tipMode) {
  * @param {string} logPath - Full path to where to save the log file
  */
 function BarcodeManager(side, logPath) {
-	// +++FIX: Correct numbers??
 	var sides = {
 		"south": 0,
 		"west": 1,
