@@ -17,7 +17,7 @@ presets["oxBS"] = {
 		eluate: 24,
 		sample: 50,
 		beads1: 100,
-		wash1: 150,
+		wash1: 170,
 		oxsol: 1,
 		bsreag: 170,
 		bsadd: 5
@@ -29,6 +29,7 @@ presets["Post-BS purification"] = {
 	sampleVolume:195,
 	beadVolume:1000,
 	washVolume:1400,
+	desulfonationVolume:1000,
 	washes:4,
 	elutionVolume:15,
 	};
