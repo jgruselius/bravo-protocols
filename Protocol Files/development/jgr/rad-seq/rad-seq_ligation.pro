@@ -54,8 +54,6 @@ var doOffDeckIncubation = global.settings.doOffDeckIncubation;
 var incubationTime = global.settings.incubationTime * timeMod;
 var protocolName = global.formProtocol;
 
-var dph = global.dph;
-
 global.statusString = protocolName + &quot; started&quot;;
 ' />
 				</Task>
