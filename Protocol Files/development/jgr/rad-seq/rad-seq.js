@@ -17,7 +17,8 @@ presets["Ligation"] = {
 	reagentVolume:4,
 	bufferVolume:30,
 	adapterVolume:3,
-	doOffDeckIncubation:true
+	doOffDeckIncubation:true,
+	protocolName:"Ligation"
 	};
 
 presets["Strand displacement"] = {
@@ -25,7 +26,8 @@ presets["Strand displacement"] = {
 	reagentColumn:4,
 	sampleVolume:25,
 	reagentVolume:25,
-	doOffDeckIncubation:true
+	doOffDeckIncubation:true,
+	protocolName:"Strand displacement"
 	};
 
 presets["Size selection 350 bp"] = {
@@ -34,7 +36,8 @@ presets["Size selection 350 bp"] = {
 	beadVolume2:30,
 	bindVolume:160,
 	transferVolume:250,
-	elutionVolume:20
+	elutionVolume:20,
+	protocolName:"Size selection (350 bp)"
 	};
 
 presets["Size selection 550 bp"] = {
@@ -42,19 +45,22 @@ presets["Size selection 550 bp"] = {
 	beadVolume1:80,
 	beadVolume2:30,
 	bindVolume:160,
-	elutionVolume:20
+	elutionVolume:20,
+	protocolName:"Size selection (550 bp)"
 	};
 
 presets["Ligation cleanup"] = {
 	sampleVolume:50,
 	beadVolume:90,
-	elutionVolume:25
+	elutionVolume:25,
+	protocolName:"Ligation cleanup"
 	};
 
 presets["PCR cleanup"] = {
 	sampleVolume:60,
 	beadVolume:60,
 	elutionVolume:25,
+	protocolName:"PCR cleanup"
 	};
 
 presets["PCR setup"] = {
@@ -62,7 +68,8 @@ presets["PCR setup"] = {
 	reagentColumn:5,
 	sampleVolume:20,
 	reagentVolume:30,
-	primerVolume:10
+	primerVolume:10,
+	protocolName:"PCR setup"
 	};
 
 var settings = {};
