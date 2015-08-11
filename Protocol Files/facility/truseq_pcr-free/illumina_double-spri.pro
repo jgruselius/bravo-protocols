@@ -5213,7 +5213,7 @@ bindMixVolume = (bindMixVolume &gt; MAX_MIX_VOLUME) ? MAX_MIX_VOLUME : bindMixVo
 					<TaskScript Name='TaskScript' Value='task.Preaspiratevolume = PRE_ASP_LARGE;
 task.Volume = sampleVolume;
 task.Distancefromwellbottom = 0.5;
-task.Tiptouchretractdistance = global.dph(sampleVolume, 0.5);
+task.Dynamictipextension = global.dph(sampleVolume, 0.5);
 ' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='SamplePlate' />
