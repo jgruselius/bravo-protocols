@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='7208c398097cbbd70067475463429151' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='eac0188028d6460243c6fdb6cc85562c' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Main_Processes >
@@ -312,7 +312,10 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='var columns = parseInt(global.formColumns, 10) || 1;
+if(columns &lt; 8) {
+	task.skip();
+}' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='SampleTips' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
