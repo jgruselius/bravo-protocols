@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='f8b4c2ddb15a3d30c877975df8d22f47' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='7bd264f5a1bc222d47f2a4c8252b4d8e' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -29,11 +29,24 @@ if(global.formMode.match(/normalization/i)) mode = &quot;lims_dilution&quot;;
 var tm = new TransferManager(mode);
 tm.openTransferFile(filePath);
 
-var destinationPlate = &quot;96 Eppendorf Twin.tec PCR&quot;;
-var altPlates = { &quot;96 Thermo-Fast Skirted PCR&quot;:1 };
-if(global.formPlate in altPlates) {
-   destinationPlate = global.formPlate;
+var sourcePlate, destinationPlate;
+var plateSet = {
+	&quot;Eppendorf twin.tec 96&quot;: &quot;96 Eppendorf Twin.tec PCR&quot;,
+	&quot;Thermo-Fast skirted 96 (AB-0800)&quot;: &quot;96 Thermo-Fast Skirted PCR&quot;,
+	&quot;ABgene TF LP 96 (AB-1300)&quot;: &quot;96 ABgene Thermo-Fast LP PCR&quot;
+};
+if(global.formDestinationPlate in plateSet) {
+	destinationPlate = plateSet[global.formDestinationPlate];
+} else {
+	destinationPlate = &quot;96 Eppendorf Twin.tec PCR&quot;;
 }
+if(global.formSourcePlate in plateSet) {
+	sourcePlate = plateSet[global.formSourcePlate];
+} else {
+	sourcePlate = &quot;96 Eppendorf Twin.tec PCR&quot;;
+}
+print(&quot;sourcePlate=&quot;+sourcePlate);
+print(&quot;destinationPlate=&quot;+destinationPlate);
 
 if(global.formLog) {
 	print(&quot;Input file: &quot; + filePath);
@@ -166,7 +179,7 @@ print(&quot;buffer96Mode=&quot;+buffer96Mode+&quot;\n&quot;+
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='plate.labware = sourcePlate;' />
 					<Parameters >
 						<Parameter Category='' Name='unloadFrom' Value='' />
 					</Parameters>
