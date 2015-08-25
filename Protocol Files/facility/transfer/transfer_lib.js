@@ -262,7 +262,7 @@ function parseTransfers(str) {
 	var plateIndex = 0;
 	for(var i in rowArray) {
 		var row = rowArray[i];
-		var sourcePlate, sourcePlateIndex, sourceWell, volume, destinationWell, destinationPlate;
+		var sourcePlate, sourceWell, volume, destinationWell, destinationPlate;
 		try {
 			sourcePlate = row[0];
 			sourceWell = convertCoordsRegExp(row[1]);
@@ -433,7 +433,7 @@ function parseDilutionTransfersLims(str) {
 	for(var i=firstDataRow, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
 		var sourcePlate, sourceWell, sourceVolume
-		var destinationWell, diluentVolume;
+		var destinationPlate, destinationWell, diluentVolume;
 		try {
 			sourcePlate = row[1];
 			sourceWell = convertCoordsRegExp(row[2]);
