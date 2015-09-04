@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='013a90401c147aa5d01cad480758f41e' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='b462ac8a25228acaba434421a57c0f75' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -1192,7 +1192,7 @@ global.statusString = &quot;Ligation started...&quot;;' />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Block Type' Value='96' />
-						<Parameter Category='' Name='Program' Value='' />
+						<Parameter Category='' Name='Program' Value='3,8,rna-lig ' />
 						<Parameter Category='Task Description' Name='Task number' Value='3' />
 						<Parameter Category='Task Description' Name='Task description' Value='Run a program (Biometra TRobot)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
@@ -1307,7 +1307,7 @@ global.statusString = &quot;Ligation started...&quot;;' />
 						<Parameter Category='' Name='Begin location speed' Value='Default slow' />
 						<Parameter Category='' Name='Adhere time' Value='2.5 Seconds' />
 						<Parameter Category='' Name='Ignore seal not removed error.' Value='0' />
-						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
 						<Parameter Category='Task Description' Name='Task description' Value='Peel (Nexus XPeel)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
