@@ -7,7 +7,7 @@
 
 /*
  CHANGED in this version:
- --Barcode class added with functions for logging and comparing plate barcodes
+ --parseDilutionTransfersLims can now handle multiple source plates
 
  TODO
  --Make a common function for assigning sourceVolume, sourcePlate etc. 
@@ -203,26 +203,28 @@ function convertCoordsRegExp(wellPos) {
 }
 
 /*
- Sorts rows alphabetically or numerically column 1, then by well (col-then-row)
- in column 2
+ Sorts rows first alphabetically or numerically by the column given by plateCol,
+ then by the well (col-then-row) in wellCol:
 */
-function sortRowsByPlate(row1, row2) {
-	var a = {}, b = {};
-	a.id = row1[0].toLowerCase();
-	b.id = row2[0].toLowerCase();
-	// If plate ID is a number, convert from string to int/double:
-	if(isNumber(a.id) && isNumber(b.id)) {
-		a.id = parseNumber(a.id);
-		b.id = parseNumber(b.id);
-	}
-	// Sort alphabetically/numerically on plate ID, then source well:
-	if(a.id !== b.id) {
-		return (a.id < b.id) ? -1 : (a.id > b.id ? 1 : 0);
-	} else {
-		a.coords = convertCoordsRegExp(row1[1]);
-		b.coords = convertCoordsRegExp(row2[1]);
-		return (a.coords[1] === b.coords[1]) ? a.coords[0] - b.coords[0] : a.coords[1] - b.coords[1];
-	}
+function transferSorter(plateCol, wellCol) {
+	return (function(row1, row2) {
+		var a = {}, b = {};
+		a.id = row1[plateCol].toLowerCase();
+		b.id = row2[plateCol].toLowerCase();
+		// If plate ID is a number, convert from string to int/double:
+		if(isNumber(a.id) && isNumber(b.id)) {
+			a.id = parseNumber(a.id);
+			b.id = parseNumber(b.id);
+		}
+		// Sort alphabetically/numerically on plate ID, then source well:
+		if(a.id !== b.id) {
+			return (a.id < b.id) ? -1 : (a.id > b.id ? 1 : 0);
+		} else {
+			a.coords = convertCoordsRegExp(row1[wellCol]);
+			b.coords = convertCoordsRegExp(row2[wellCol]);
+			return (a.coords[1] === b.coords[1]) ? a.coords[0] - b.coords[0] : a.coords[1] - b.coords[1];
+		}
+	});
 }
 
 
@@ -256,13 +258,13 @@ function parseCsv(str, delim) {
 function parseTransfers(str) {
 	var rowArray = parseCsv(str, ",");
 	// Sort the array alphabetically by plate ID:
-	rowArray.sort(sortRowsByPlate);
+	rowArray.sort(transferSorter(0,1));
 	var transferArrays = [];
 	var plateSet = {};
 	var plateIndex = 0;
 	for(var i in rowArray) {
 		var row = rowArray[i];
-		var sourcePlate, sourcePlateIndex, sourceWell, volume, destinationWell, destinationPlate;
+		var sourcePlate, sourceWell, volume, destinationWell, destinationPlate;
 		try {
 			sourcePlate = row[0];
 			sourceWell = convertCoordsRegExp(row[1]);
@@ -361,7 +363,7 @@ function parseAdapterTransfers(str, indexSet) {
 function parseDilutionTransfers(str) {
 	var rowArray = parseCsv(str, ",");
 	// Order the arrray on plate ID:
-	rowArray.sort(sortRowsByPlate);
+	rowArray.sort(transferSorter(0,1));
 	var transferArrays = [];
 	// Add the array that will hold the buffer transfers:
 	transferArrays.push([]);
@@ -416,8 +418,6 @@ function parseDilutionTransfers(str) {
 */
 function parseDilutionTransfersLims(str) {
 	var rowArray = parseCsv(str, ",");
-	var diluentTransferArray = [];
-	var sampleTransferArray = [];
 	var firstDataRow;
 	// Find the header row:
 	for(var i=0, n=rowArray.length; i<n; i++) {
@@ -429,11 +429,19 @@ function parseDilutionTransfersLims(str) {
 	if(firstDataRow === undefined) {
 		throw "UnableToParseTransferTableException: Missing header row"
 	}
+	rowArray = rowArray.slice(firstDataRow);
+	// Alternatively: rowArray.splice(0, firstDataRow);
+	rowArray.sort(transferSorter(1,2));
+	var transferArrays = [];
+	// Add the array that will hold the buffer transfers:
+	transferArrays.push([]);
+	var plateSet = {};
+	var sourceIndex;
 	var diluentWell = convertCoords("A1");
-	for(var i=firstDataRow, n=rowArray.length; i<n; i++) {
+	for(var i in rowArray) {
 		var row = rowArray[i];
-		var sourcePlate, sourceWell, sourceVolume
-		var destinationWell, diluentVolume;
+		var sourcePlate, sourceWell, sourceVolume;
+		var destinationPlate, destinationWell, diluentVolume;
 		try {
 			sourcePlate = row[1];
 			sourceWell = convertCoordsRegExp(row[2]);
@@ -462,18 +470,22 @@ function parseDilutionTransfersLims(str) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
 		var newTip;
-		if(sourceVolume > 0) {
-			newTip = (sampleTransferArray.length != 0);
-			sampleTransferArray.push(new Transfer(sourcePlate, sourceWell,
-				sourceVolume, destinationWell, destinationPlate, newTip));
-		}
 		if(diluentVolume > 0) {
-			newTip = (diluentTransferArray.length == 0);
-			diluentTransferArray.push(new Transfer("diluent_reservoir",
+			newTip = (transferArrays[0].length === 0);
+			transferArrays[0].push(new Transfer("diluent_reservoir",
 				diluentWell, diluentVolume, destinationWell, destinationPlate, newTip));
 		}
+		if(!(sourcePlate in plateSet)) {
+			plateSet[sourcePlate] = sourcePlate;
+			sourceIndex = transferArrays.push([]) - 1;
+		}
+		if(sourceVolume > 0) {
+			newTip = (sourceIndex > 1 || transferArrays[sourceIndex].length > 0);
+			transferArrays[sourceIndex].push(new Transfer(sourcePlate, sourceWell,
+				sourceVolume, destinationWell, destinationPlate, newTip));
+		}
 	}
-	return [diluentTransferArray, sampleTransferArray];
+	return transferArrays;
 }
 
 // FILE_OPERATIONS==============================================================
