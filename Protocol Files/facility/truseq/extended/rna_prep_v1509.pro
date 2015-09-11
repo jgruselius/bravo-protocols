@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='b9d20b2851457ffc9ec4947e721b5cbe' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='77c198ae381d08a9aca8e81e358f82ee' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -49,7 +49,7 @@ var time_mod = 1;
 // Ambient temperature (deg C):
 var temp_rt = 20;
 // Number of columns of samples to process:
-var n_columns = parseInt(user_entry);
+var n_columns = parseInt(user_entry, 10);
 // Pipette head operation mode:
 var head_mode = &quot;1,2,1,&quot; + n_columns;
 // Air aspiration volumes (uL):
@@ -84,6 +84,8 @@ var time_bind = 5 * 60 * time_mod;
 var time_pellet = 2 * 60;
 // Short bead pellet time (sec):
 var time_pellet_short = 0.5 * 60;
+
+var final_hold = !!global.formFinalHold;
 
 var dph = global.dph;' />
 					<Parameters >
@@ -150,10 +152,10 @@ var dph = global.dph;' />
 		</Startup_Processes>
 		<Main_Processes >
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='8' />
+						<Device Device_Name='Bravo - 1' Location_Name='7' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -166,7 +168,7 @@ var dph = global.dph;' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='8' />
+						<Parameter Category='' Name='Location to use' Value='7' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
@@ -246,7 +248,7 @@ var dph = global.dph;' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
@@ -329,7 +331,7 @@ var dph = global.dph;' />
 				</Task>
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
+					<Task_Disabled >1</Task_Disabled>
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
@@ -589,7 +591,7 @@ Also turn off the ThermoCube cooling unit.' />
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='19' />
+						<Parameter Category='Task Description' Name='Task number' Value='20' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
@@ -672,7 +674,7 @@ Also turn off the ThermoCube cooling unit.' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='23' />
+						<Parameter Category='Task Description' Name='Task number' Value='24' />
 						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -710,7 +712,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Unload' >
 					<Devices >
 						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
@@ -980,7 +982,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
@@ -990,7 +992,7 @@ Also turn off the ThermoCube cooling unit.' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
+						<Setting Name='Estimated time' Value='121' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -1283,7 +1285,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
@@ -1648,7 +1650,7 @@ Also turn off the ThermoCube cooling unit.' />
 				</Task>
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
+					<Task_Disabled >1</Task_Disabled>
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
@@ -1665,7 +1667,7 @@ Also turn off the ThermoCube cooling unit.' />
 						<Parameter Category='' Name='Twitter message' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='20' />
+						<Parameter Category='Task Description' Name='Task number' Value='21' />
 						<Parameter Category='Task Description' Name='Task description' Value='User Message' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -1741,7 +1743,7 @@ Also turn off the ThermoCube cooling unit.' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='24' />
+						<Parameter Category='Task Description' Name='Task number' Value='25' />
 						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Parameter 1' Value='' />
@@ -1779,7 +1781,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
@@ -1972,7 +1974,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
@@ -2084,7 +2086,31 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::Unload' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Unload' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Unload based on barcode' Value='0' />
+						<Parameter Category='' Name='Barcode' Value='' />
+						<Parameter Category='' Name='unloadFrom' Value='' />
+					</Parameters>
+					<Parameter >
+						<RemoveFromGroups Name='RemoveFromGroups' Value='0' />
+						<AssignedLocations_Node >
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 2, slot 2' />
+						</AssignedLocations_Node>
+					</Parameter>
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='4' />
@@ -2189,7 +2215,7 @@ Also turn off the ThermoCube cooling unit.' />
 				</Task>
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
+					<Task_Disabled >1</Task_Disabled>
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
@@ -2301,7 +2327,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
@@ -2414,6 +2440,30 @@ Also turn off the ThermoCube cooling unit.' />
 			</Process>
 			<Process >
 				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::Unload' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Unload' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Unload based on barcode' Value='0' />
+						<Parameter Category='' Name='Barcode' Value='' />
+						<Parameter Category='' Name='unloadFrom' Value='' />
+					</Parameters>
+					<Parameter >
+						<RemoveFromGroups Name='RemoveFromGroups' Value='0' />
+						<AssignedLocations_Node >
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 2, slot 1' />
+						</AssignedLocations_Node>
+					</Parameter>
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='4' />
@@ -2518,7 +2568,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Unload' >
 					<Devices >
 						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
@@ -2789,7 +2839,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -3102,7 +3152,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='9' />
@@ -3335,7 +3385,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 1' />
@@ -3587,7 +3637,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 1' />
@@ -3880,7 +3930,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 1' />
@@ -3890,7 +3940,7 @@ Also turn off the ThermoCube cooling unit.' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='15' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -4127,7 +4177,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 1' />
@@ -4557,7 +4607,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Unload' >
 					<Devices >
 						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
@@ -4817,7 +4867,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='4' />
@@ -4909,7 +4959,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='6' />
@@ -5048,7 +5098,7 @@ Also turn off the ThermoCube cooling unit.' />
 					<Parameters >
 						<Parameter Category='' Name='Block Type' Value='96' />
 						<Parameter Category='' Name='Program' Value='1,2,quickrt ' />
-						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
 						<Parameter Category='Task Description' Name='Task description' Value='Run a program (Biometra TRobot)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
@@ -5092,7 +5142,7 @@ Also turn off the ThermoCube cooling unit.' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='15' />
+						<Setting Name='Estimated time' Value='16' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -5125,7 +5175,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='PlateLoc::Seal' >
 					<Devices >
 						<Device Device_Name='Agilent PlateLoc - 1' Location_Name='Stage' />
@@ -5205,7 +5255,7 @@ Also turn off the ThermoCube cooling unit.' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='15' />
+						<Setting Name='Estimated time' Value='16' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -5238,7 +5288,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='PlateLoc::Seal' >
 					<Devices >
 						<Device Device_Name='Agilent PlateLoc - 1' Location_Name='Stage' />
@@ -5351,7 +5401,7 @@ Also turn off the ThermoCube cooling unit.' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >1</Minimized>
+				<Minimized >0</Minimized>
 				<Task Name='PlateLoc::Seal' >
 					<Devices >
 						<Device Device_Name='Agilent PlateLoc - 1' Location_Name='Stage' />
@@ -5382,7 +5432,7 @@ Also turn off the ThermoCube cooling unit.' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='30' />
+						<Setting Name='Estimated time' Value='29' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -5759,9 +5809,9 @@ if(mNumberSteps === 1) {
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -6175,7 +6225,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='19' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -6198,9 +6248,9 @@ if(mNumberSteps === 1) {
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -6221,7 +6271,7 @@ if(mNumberSteps === 1) {
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='12' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -6697,7 +6747,7 @@ task.Mixcycles = (columnsDone === 0) ? 10 : 3;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='12' />
+						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -6707,7 +6757,7 @@ task.Mixcycles = (columnsDone === 0) ? 10 : 3;' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_small_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.3' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -11606,7 +11656,7 @@ var mTouchRetract = 5;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -12105,7 +12155,7 @@ var mTouchRetract = 5;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -12604,7 +12654,7 @@ var mTouchRetract = 5;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -13099,7 +13149,7 @@ var mTouchRetract = -6;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -13204,7 +13254,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='38' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -13227,9 +13277,9 @@ if(mNumberSteps === 1) {
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -13250,7 +13300,7 @@ if(mNumberSteps === 1) {
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='21' />
+						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -13571,7 +13621,7 @@ var mTouchRetract = -6;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='13' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -13726,7 +13776,7 @@ task.Wellselection = mWellSelection;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='33' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -13749,9 +13799,9 @@ if(mNumberSteps === 1) {
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -13772,7 +13822,7 @@ if(mNumberSteps === 1) {
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='19' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -14268,7 +14318,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='18' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -14291,9 +14341,9 @@ if(mNumberSteps === 1) {
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -14314,7 +14364,7 @@ if(mNumberSteps === 1) {
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='12' />
+						<Setting Name='Estimated time' Value='39' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -14794,7 +14844,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='33' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -14840,7 +14890,7 @@ if(mNumberSteps === 1) {
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='18' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -15227,11 +15277,11 @@ var mTouchRetract = -6;' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;a06c12f5f4c8251ea01fa0336c87abf9&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -15240,7 +15290,7 @@ var mTouchRetract = -6;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -15283,7 +15333,7 @@ task.Distancefromwellbottom = 50;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
@@ -15320,7 +15370,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='22' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -15343,9 +15393,9 @@ if(mNumberSteps === 1) {
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -15357,7 +15407,7 @@ if(mNumberSteps === 1) {
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -15366,7 +15416,7 @@ if(mNumberSteps === 1) {
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='15' />
+						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -15400,7 +15450,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Loop End' >
@@ -15462,7 +15512,7 @@ task.Wellselection = mWellSelection;' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -15597,7 +15647,7 @@ if(mDoTipTouch) {
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -15619,11 +15669,11 @@ if(mDoTipTouch) {
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;a06c12f5f4c8251ea01fa0336c87abf9&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -15632,7 +15682,7 @@ if(mDoTipTouch) {
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Group End' >
@@ -15647,60 +15697,6 @@ if(mDoTipTouch) {
 						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
-				</Task>
-				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='1' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(final_hold) {
-	task.Temperature = 4;
-} else {
-	task.Turnofftemperature = true;
-}' />
-					<Parameters >
-						<Parameter Category='' Name='Location' Value='4' />
-						<Parameter Category='' Name='Turn off temperature' Value='0' />
-						<Parameter Category='' Name='Temperature' Value='' />
-						<Parameter Category='' Name='Wait' Value='' />
-						<Parameter Category='' Name='Temperature Tolerance' Value='' />
-						<Parameter Category='' Name='Timeout' Value='10' />
-						<Parameter Category='' Name='Allow concurrent operation' Value='1' />
-						<Parameter Category='Task Description' Name='Task number' Value='17' />
-						<Parameter Category='Task Description' Name='Task description' Value='Set temperature - Position (Bravo)' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
-					</PipetteHead>
-				</Task>
-				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Location' Value='6' />
-						<Parameter Category='' Name='Turn off temperature' Value='1' />
-						<Parameter Category='' Name='Temperature' Value='' />
-						<Parameter Category='' Name='Wait' Value='' />
-						<Parameter Category='' Name='Temperature Tolerance' Value='' />
-						<Parameter Category='' Name='Timeout' Value='1' />
-						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
-						<Parameter Category='Task Description' Name='Task number' Value='18' />
-						<Parameter Category='Task Description' Name='Task description' Value='Set temperature - Position (Bravo)' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
-					</PipetteHead>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
@@ -16604,6 +16600,93 @@ if(mDoTipTouch) {
 				<Dependencies />
 			</Pipette_Process>
 		</Main_Processes>
+		<Cleanup_Processes >
+			<Process >
+				<Minimized >0</Minimized>
+				<Task Name='Bravo::Set temperature - Position' >
+					<Devices >
+						<Device Device_Name='Bravo - 1' Location_Name='1' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='1' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='if(final_hold) {
+	task.Temperature =4;
+} else {
+	task.Turnofftemperature = true;
+}' />
+					<Parameters >
+						<Parameter Category='' Name='Location' Value='4' />
+						<Parameter Category='' Name='Turn off temperature' Value='0' />
+						<Parameter Category='' Name='Temperature' Value='' />
+						<Parameter Category='' Name='Wait' Value='' />
+						<Parameter Category='' Name='Temperature Tolerance' Value='4' />
+						<Parameter Category='' Name='Timeout' Value='10' />
+						<Parameter Category='' Name='Allow concurrent operation' Value='1' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set temperature - Position (Bravo)' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::Set temperature - Position' >
+					<Devices >
+						<Device Device_Name='Bravo - 1' Location_Name='1' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Location' Value='6' />
+						<Parameter Category='' Name='Turn off temperature' Value='1' />
+						<Parameter Category='' Name='Temperature' Value='' />
+						<Parameter Category='' Name='Wait' Value='' />
+						<Parameter Category='' Name='Temperature Tolerance' Value='' />
+						<Parameter Category='' Name='Timeout' Value='1' />
+						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set temperature - Position (Bravo)' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::User Message' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='if(!final_hold) task.skip();' />
+					<Parameters >
+						<Parameter Category='' Name='Title' Value='Turn off cooling' />
+						<Parameter Category='' Name='Body' Value='Confirm this message to turn off cooling and finish the run. ' />
+						<Parameter Category='' Name='Only show the first time' Value='' />
+						<Parameter Category='' Name='Display dialog box' Value='1' />
+						<Parameter Category='' Name='Pause process' Value='1' />
+						<Parameter Category='' Name='Email' Value='0' />
+						<Parameter Category='' Name='Twitter message' Value='0' />
+						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
+						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='User Message' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
+				</Task>
+				<Plate_Parameters >
+					<Parameter Name='Plate name' Value='reset_temp' />
+				</Plate_Parameters>
+				<Quarantine_After_Process >0</Quarantine_After_Process>
+			</Process>
+		</Cleanup_Processes>
 	</Processes>
 	<MeasurementTypes >
 		<MeasurementType CriticalTime='5' Device_Name='Agilent ACU - 1' LogAction='High Low' LowerLimit='0' MeasurementName='5V Input 1 (00-30-d3-21-0b-4c)' Object_Type='Agilent ACU' PauseAction='High Low' PollFrequency='1' Unit='' UpperLimit='1' />
