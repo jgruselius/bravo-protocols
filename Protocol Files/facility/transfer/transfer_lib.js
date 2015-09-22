@@ -7,7 +7,7 @@
 
 /*
  CHANGED in this version:
- --parseTransfers and parseDilutionTransfers can now handle a string in col 4
+ --parseDilutionTransfersLims can now handle multiple source plates
 
  TODO
  --Make a common function for assigning sourceVolume, sourcePlate etc. 
@@ -29,21 +29,21 @@ function Transfer(sourcePlate, sourceWell, volume, destinationWell, destinationP
 	this.destinationWell = destinationWell;
 	this.destinationPlate = destinationPlate;
 	this.newTip = newTip;
-	this.toString = function() {
-		var str = ["{" + 
-				"sourcePlate: " + this.sourcePlate,
-				"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) + 
-						this.sourceWell[1],
-				"volume: " + this.volume,
-				"destinationPlate: " + this.destinationPlate,
-				"destinationWell: " + String.fromCharCode(this.destinationWell[0]+64) +
-						this.destinationWell[1],
-				"newTip: " + newTip +
-				"}"];
-		return str.join(", ");
-	}
 }
 
+Transfer.prototype.toString = function() {
+	var str = ["{" + 
+			"sourcePlate: " + this.sourcePlate,
+			"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) + 
+					this.sourceWell[1],
+			"volume: " + this.volume,
+			"destinationPlate: " + this.destinationPlate,
+			"destinationWell: " + String.fromCharCode(this.destinationWell[0]+64) +
+					this.destinationWell[1],
+			"newTip: " + this.newTip +
+			"}"];
+	return str.join(", ");
+};
 /*
  Tipbox class to track single-tip usage. Tips are taken/placed column-wise
  starting from {row,column} given in 'origin', where row is 1 or 8 and column
@@ -203,26 +203,28 @@ function convertCoordsRegExp(wellPos) {
 }
 
 /*
- Sorts rows alphabetically or numerically column 1, then by well (col-then-row)
- in column 2
+ Sorts rows first alphabetically or numerically by the column given by plateCol,
+ then by the well (col-then-row) in wellCol:
 */
-function sortRowsByPlate(row1, row2) {
-	var a = {}, b = {};
-	a.id = row1[0].toLowerCase();
-	b.id = row2[0].toLowerCase();
-	// If plate ID is a number, convert from string to int/double:
-	if(isNumber(a.id) && isNumber(b.id)) {
-		a.id = parseNumber(a.id);
-		b.id = parseNumber(b.id);
-	}
-	// Sort alphabetically/numerically on plate ID, then source well:
-	if(a.id !== b.id) {
-		return (a.id < b.id) ? -1 : (a.id > b.id ? 1 : 0);
-	} else {
-		a.coords = convertCoordsRegExp(row1[1]);
-		b.coords = convertCoordsRegExp(row2[1]);
-		return (a.coords[1] === b.coords[1]) ? a.coords[0] - b.coords[0] : a.coords[1] - b.coords[1];
-	}
+function transferSorter(plateCol, wellCol) {
+	return (function(row1, row2) {
+		var a = {}, b = {};
+		a.id = row1[plateCol].toLowerCase();
+		b.id = row2[plateCol].toLowerCase();
+		// If plate ID is a number, convert from string to int/double:
+		if(isNumber(a.id) && isNumber(b.id)) {
+			a.id = parseNumber(a.id);
+			b.id = parseNumber(b.id);
+		}
+		// Sort alphabetically/numerically on plate ID, then source well:
+		if(a.id !== b.id) {
+			return (a.id < b.id) ? -1 : (a.id > b.id ? 1 : 0);
+		} else {
+			a.coords = convertCoordsRegExp(row1[wellCol]);
+			b.coords = convertCoordsRegExp(row2[wellCol]);
+			return (a.coords[1] === b.coords[1]) ? a.coords[0] - b.coords[0] : a.coords[1] - b.coords[1];
+		}
+	});
 }
 
 
@@ -256,13 +258,13 @@ function parseCsv(str, delim) {
 function parseTransfers(str) {
 	var rowArray = parseCsv(str, ",");
 	// Sort the array alphabetically by plate ID:
-	rowArray.sort(sortRowsByPlate);
+	rowArray.sort(transferSorter(0,1));
 	var transferArrays = [];
 	var plateSet = {};
 	var plateIndex = 0;
 	for(var i in rowArray) {
 		var row = rowArray[i];
-		var sourcePlate, sourcePlateIndex, sourceWell, volume, destinationWell, destinationPlate;
+		var sourcePlate, sourceWell, volume, destinationWell, destinationPlate;
 		try {
 			sourcePlate = row[0];
 			sourceWell = convertCoordsRegExp(row[1]);
@@ -361,7 +363,7 @@ function parseAdapterTransfers(str, indexSet) {
 function parseDilutionTransfers(str) {
 	var rowArray = parseCsv(str, ",");
 	// Order the arrray on plate ID:
-	rowArray.sort(sortRowsByPlate);
+	rowArray.sort(transferSorter(0,1));
 	var transferArrays = [];
 	// Add the array that will hold the buffer transfers:
 	transferArrays.push([]);
@@ -416,8 +418,6 @@ function parseDilutionTransfers(str) {
 */
 function parseDilutionTransfersLims(str) {
 	var rowArray = parseCsv(str, ",");
-	var diluentTransferArray = [];
-	var sampleTransferArray = [];
 	var firstDataRow;
 	// Find the header row:
 	for(var i=0, n=rowArray.length; i<n; i++) {
@@ -429,11 +429,19 @@ function parseDilutionTransfersLims(str) {
 	if(firstDataRow === undefined) {
 		throw "UnableToParseTransferTableException: Missing header row"
 	}
+	rowArray = rowArray.slice(firstDataRow);
+	// Alternatively: rowArray.splice(0, firstDataRow);
+	rowArray.sort(transferSorter(1,2));
+	var transferArrays = [];
+	// Add the array that will hold the buffer transfers:
+	transferArrays.push([]);
+	var plateSet = {};
+	var sourceIndex;
 	var diluentWell = convertCoords("A1");
-	for(var i=firstDataRow, n=rowArray.length; i<n; i++) {
+	for(var i in rowArray) {
 		var row = rowArray[i];
-		var sourcePlate, sourceWell, sourceVolume
-		var destinationWell, diluentVolume;
+		var sourcePlate, sourceWell, sourceVolume;
+		var destinationPlate, destinationWell, diluentVolume;
 		try {
 			sourcePlate = row[1];
 			sourceWell = convertCoordsRegExp(row[2]);
@@ -462,18 +470,22 @@ function parseDilutionTransfersLims(str) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
 		var newTip;
-		if(sourceVolume > 0) {
-			newTip = (sampleTransferArray.length != 0);
-			sampleTransferArray.push(new Transfer(sourcePlate, sourceWell,
-				sourceVolume, destinationWell, destinationPlate, newTip));
-		}
 		if(diluentVolume > 0) {
-			newTip = (diluentTransferArray.length == 0);
-			diluentTransferArray.push(new Transfer("diluent_reservoir",
+			newTip = (transferArrays[0].length === 0);
+			transferArrays[0].push(new Transfer("diluent_reservoir",
 				diluentWell, diluentVolume, destinationWell, destinationPlate, newTip));
 		}
+		if(!(sourcePlate in plateSet)) {
+			plateSet[sourcePlate] = sourcePlate;
+			sourceIndex = transferArrays.push([]) - 1;
+		}
+		if(sourceVolume > 0) {
+			newTip = (sourceIndex > 1 || transferArrays[sourceIndex].length > 0);
+			transferArrays[sourceIndex].push(new Transfer(sourcePlate, sourceWell,
+				sourceVolume, destinationWell, destinationPlate, newTip));
+		}
 	}
-	return [diluentTransferArray, sampleTransferArray];
+	return transferArrays;
 }
 
 // FILE_OPERATIONS==============================================================
@@ -486,12 +498,15 @@ function readFile(filePath) {
 	var content;
 	try {
 		fileObj.Open(filePath, 0, 0);
-		content = fileObj.Read();
+		try {
+			content = fileObj.Read();
+		} catch(e) {
+			throw "UnableToReadFile(" + filePath + "):" + e;
+		} finally {
+			fileObj.Close();
+		}
 	} catch(e) {
-		// IO error
-		throw "UnableToReadFile(" + filePath + "):" + e;
-	} finally {
-		fileObj.Close();
+		throw "FileError(" + filePath + "):" + e;
 	}
 	return content;
 }
@@ -503,12 +518,20 @@ function appendFile(filePath, content) {
 	var fileObj = new File();
 	try {
 		fileObj.Open(filePath, 0, 0);
-		fileObj.Write(content + "\n");
+		try {
+			// If the string ends with a newline character:
+			if(content.substr(-1) === "\n") {
+				fileObj.Write(content);
+			} else {
+				fileObj.Write(content + "\n");
+			}
+		} catch(e) {
+			throw "UnableToWriteFile(" + filePath + "):" + e;
+		} finally {
+			fileObj.Close();
+		}
 	} catch(e) {
-		// IO error
-		throw "UnableToWriteFile(" + filePath + "):" + e;
-	} finally {
-		fileObj.Close();
+		throw "FileError(" + filePath + "):" + e;
 	}
 }
 
@@ -519,17 +542,20 @@ function writeFile(filePath, content) {
 	var fileObj = new File();
 	try {
 		fileObj.Open(filePath, 1, 0);
-		// If the string ends with a newline character:
-		if(content.substr(-1) === "\n") {
-			fileObj.Write(content);
-		} else {
-			fileObj.Write(content + "\n");
+		try {
+			// If the string ends with a newline character:
+			if(content.substr(-1) === "\n") {
+				fileObj.Write(content);
+			} else {
+				fileObj.Write(content + "\n");
+			}
+		} catch(e) {
+			throw "UnableToWriteFile(" + filePath + "):" + e;
+		} finally {
+			fileObj.Close();
 		}
 	} catch(e) {
-		// IO error
-		throw "UnableToWriteFile(" + filePath + "):" + e;
-	} finally {
-		fileObj.Close();
+		throw "FileError(" + filePath + "):" + e;
 	}
 }
 
@@ -647,7 +673,7 @@ function TransferManager(transferMode, tipMode) {
 			this.current = this.next;
 			this.index++;
 			if(this.hasNextTransfer()) {
-				this.next = temp[this.index+1];   
+				this.next = temp[this.index+1];	  
 			} else if(this.hasNextPlate()) {
 				temp = this.transfers[++this.plate];
 				this.index = -1;
@@ -720,5 +746,109 @@ function TransferManager(transferMode, tipMode) {
 	}
 }
 
+/*
+ Barcode manager
+ Author: Joel Gruselius
+ Description: Functions for using barcode information read by the robot
+*/
+/**
+ * Functions for dealing with plate barcodes in VWorks
+ * @author Joel Gruselius
+ * @class
+ * @param {string} side - The side of the plate where the barcode
+ * @param {string} logPath - Full path to where to save the log file
+ */
+function BarcodeManager(side, logPath) {
+	var sides = {
+		"south": 0,
+		"west": 1,
+		"north": 2,
+		"east": 3,
+		"front": 0,
+		"left": 1,
+		"back": 2,
+		"right": 3
+	};
+	// Which barcode index to use (see VWorks plate object), default to 3:
+	if(!isNaN(parseInt(side, 10))) {
+		this.side = parseInt(side, 10);
+	} else if(side.trim().toLowerCase() in sides) {
+		this.side = sides[side.trim().toLowerCase()];
+	} else {
+		this.side = 3;
+	}
+	// Where to put the logfiles:
+	this.logPath = logPath || "C:/VWorks Workspace/Barcode_logs/";
+
+	// Return a string with the current date and time
+	// format YY-MM-DD HH:MM:SS
+	this.timestamp = function() {
+		var d = new Date();
+		var date = [d.getFullYear(), d.getMonth()+1, d.getDate(), d.getHours(),
+				d.getMinutes(), d.getSeconds()];
+		// Convert to string and pad with zeroes, i.e. 8 -> "08":
+		for(var i = date.length; i-->0;) {
+			var x = date[i];
+			date[i] = (x > 9) ? x + "" : "0" + x;
+		}
+		return date.slice(0,3).join("-") + " " + date.slice(3).join(":"); 
+	};
+	
+	this.datestamp = function() {
+		var d = new Date();
+		var date = [d.getFullYear(), d.getMonth()+1, d.getDate()];
+		// Convert to string and pad with zeroes, i.e. 8 -> "08":
+		for(var i = date.length; i-->0;) {
+			var x = date[i];
+			date[i] = (x > 9) ? x + "" : "0" + x;
+		}
+		return date.slice(0,3).join("-"); 
+	};
+
+	this.hasBc = function(plateObj) {
+		//var bc = (typeof plateObj === "string") ? plateObj : plateObj.barcode[this.side];
+		var bc = plateObj.barcode[this.side];
+		// Check if undefined/null (VWorks may use string 'undefined'):
+		var hasBc = (typeof bc !== "undefined" && bc !== null && bc !== "undefined");
+		// Check for number or non-blank string:
+		hasBc = hasBc && (!isNaN(parseFloat(bc)) || !!bc.trim());
+		return hasBc;
+	};
+
+	this.printBc = function(plateObj) {
+		//var bc = (typeof plateObj === "string") ? plateObj : plateObj.barcode[this.side];
+		var bc = plateObj.barcode[this.side];
+		print(bc || "<no barcode>");
+	};
+
+	this.bcMatches = function(plateObj, barcode) {
+		//var bc = (typeof plateObj === "string") ? plateObj : plateObj.barcode[this.side];
+		var bc = plateObj.barcode[this.side];
+		return (bc === barcode);
+	};
+
+	this.logBc = function(plateObj, taskObj, text) {
+		var bc = plateObj.barcode[this.side];
+		var plate = plateObj.name;
+		var pro = taskObj.getProtocolName();
+		var t = (typeof text === "undefined") ? "" : "\t" + text;
+		var logStr = this.timestamp() + "\t" + pro + "\t" + plate + "\t" + bc + t;
+		appendFile(this.logPath + "barcode_log_" + this.datestamp() + ".log", logStr);
+	};
+}
+
+// POLYFILLS ===================================================================
+// Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+
+if(!String.prototype.trim) {
+	(function() {
+		// Make sure we trim BOM and NBSP
+		var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+		String.prototype.trim = function() {
+			return this.replace(rtrim, '');
+		};
+	})();
+}
+
 //DEBUG:
-print("transfer_lib.js EOF");
+print("transfer_lib.js loaded");
