@@ -6,9 +6,10 @@ This repository contains files for *VWorks Automation Control* used to control t
 The repository provides means to backup, track versions and share these protocols through a easily accessible resource. The repo is maintained by [Joel Gruselius](mailto:joel.gruselius@scilifelab.se).
 
 #### Versions
-There are two main branches of the repository:
+There are currently three maintained branches of the repository:
 - *master* &mdash; contains all files including protocols under development
-- *production* &mdash; only maintains validated protocols.
+- *production* &mdash; only contains validated protocols.
+- *hal* &mdash; protcols made or modified for the standalone Bravo system
 
 ### Installation
 Clone the desired branch of the repository and place the files and folders of the resulting `bravo-protocols/` into `VWorks Workspace/`. Note that for many protocols the appropriate device files are required under `VWorks Workspace/Device Files/`. Also, the associated labware and liquid class entries are required in the Windows registry.
@@ -34,4 +35,4 @@ The full license can also be found in the file [LICENSE](https://github.com/jgru
 
 ### Contact
 Joel Gruselius ([joel.gruselius@scilifelab.se](mailto:joel.gruselius@scilifelab.se))<br />
-Science for Life Laboratory, Stockholm ([details](https://addy.co/joelg))<br />
+Science for Life Laboratory, Stockholm<br />

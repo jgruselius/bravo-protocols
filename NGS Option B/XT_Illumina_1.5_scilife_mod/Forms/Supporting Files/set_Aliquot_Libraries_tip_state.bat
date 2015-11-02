@@ -1,2 +1,0 @@
-copy /Y "C:\VWorks Workspace\NGS Option B\XT_Illumina_1.5_scilife_mod\Forms\Supporting Files\Aliquot_Libraries_v1.5.xml"  "C:\VWorks Workspace\VWorks\Tip Box States\Process Tip Boxes, Default\Aliquot_Libraries_v1.5.xml" 
-copy /Y "C:\VWorks Workspace\NGS Option B\XT_Illumina_1.5_scilife_mod\Forms\Supporting Files\Aliquot_Libraries_v1.5.xml"  "C:\VWorks Workspace\VWorks\Tip Box States\Process Tip Boxes, Current\Aliquot_Libraries_v1.5.xml" 
