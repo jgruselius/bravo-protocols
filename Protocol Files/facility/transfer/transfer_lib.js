@@ -701,7 +701,7 @@ function TransferManager(transferMode, tipMode) {
 			for(var i=this.transfers.length; i-->0;) {
 				var temp = this.transfers[i];
 				this.constantVolumes[i] = temp.length > 0;
-				for(var j=this.transfers[i].length; j-->1;) {
+				for(var j=temp.length; j-->1;) {
 					if(temp[j].volume !== temp[j-1].volume) {
 						this.constantVolumes[i] = false;
 						break;
@@ -709,6 +709,19 @@ function TransferManager(transferMode, tipMode) {
 				}
 			}
 		}
+	}
+	// Check if any volume exceed the  the specified limit:
+	this.volumeLimitedTo = function(limit) {
+		var test = true;
+		if(this.transfers && this.transfers.length) {
+			for(var i=this.transfers.length; i-->0 && test;) {
+				var temp = this.transfers[i];
+				for(var j=temp.length; j-->0 && test;) {
+					test = temp[j].volume <= limit;
+				}
+			}
+		}
+		return test;
 	}
 	this.getWellSelectionTransferSource = function() {
 		return this.current.sourceWell;
