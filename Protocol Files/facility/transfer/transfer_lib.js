@@ -714,10 +714,10 @@ function TransferManager(transferMode, tipMode) {
 	this.volumeLimitedTo = function(limit) {
 		var test = true;
 		if(this.transfers && this.transfers.length) {
-			for(var i=this.transfers.length;  the i-->0 && test;) {
+			for(var i=this.transfers.length; i-->0 && test;) {
 				var temp = this.transfers[i];
 				for(var j=temp.length; j-->0 && test;) {
-					test = temp[j].volume =< limit;
+					test = temp[j].volume <= limit;
 				}
 			}
 		}
