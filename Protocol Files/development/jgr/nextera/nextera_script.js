@@ -58,3 +58,14 @@ switch(formProtocol) {
 		break;
 		
 }
+
+// Dynamic Pipetting Height 2.0:
+function dph(vol, endHeight) {
+	var v = parseFloat(vol);
+	var e = parseFloat(endHeight);
+	if(v > 0 && e > 0 && !isNaN(v+e)) {
+		return 0.078 - 9.501E-5*v + (0.734-e)/v;
+	} else {
+		throw "ValueException";
+	}
+}
