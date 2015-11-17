@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='97c1ecacf34e09b4105303b8c3cd29af' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='d39b763e5536674fe10d904343b49bfa' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/truseq/ca_runset_v1110.js&apos;);
 ' Use_Global_JS_Context='0' />
 	<Processes >
@@ -75,7 +75,18 @@ var aspRepeats;
 var numBindMixes;
 var ethanolDryTime = 10 * 60;
 // For displaying status:
-global.statusString = &quot;Setting temperature...&quot;;' />
+global.statusString = &quot;Setting temperature...&quot;;
+
+// Dynamic Pipetting Height 2.0:
+function dph(vol, endHeight) {
+	var v = parseFloat(vol);
+	var e = parseFloat(endHeight);
+	if(v &gt; 0 &amp;&amp; e &gt; 0 &amp;&amp; !isNaN(v+e)) {
+		return 0.078 - 9.501E-5*v + (0.734-e)/v;
+	} else {
+		throw &quot;ValueException&quot;;
+	}
+}' />
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
@@ -2402,7 +2413,7 @@ task.Dynamictipretraction = 4 / (0.9 * sampleVolume);' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = sampleVolume;
 task.Distancefromwellbottom = 0.4;
-task.Dynamictipextension = (sampleVolume, 0.4);' />
+task.Dynamictipextension = dph(sampleVolume, 0.4);' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='SamplePlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
