@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='679663f1b994329d7703ee825f632260' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='1f1fd681d322e23b4ab3c4ea7348147f' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -107,48 +107,40 @@ global.statusString = &quot;A-tailing started...&quot;;' />
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferSample' />
 					</Parameters>
 				</Task>
-				<Task Name='BuiltIn::Wait For' Waitfor='signal_sample_plate_cleared' >
+				<Task Name='BuiltIn::Load' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
-				</Task>
-				<Task Name='BuiltIn::Spawn Process' >
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Process to spawn' Value='cycler_incubation' />
-						<Parameter Category='' Name='Spawn as subroutine' Value='1' />
-						<Parameter Category='' Name='Spawn parameter' Value='' />
-					</Parameters>
-				</Task>
-				<Task Name='BuiltIn::Place Plate' >
-					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='4' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='5' />
-						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='4' />
+						<Parameter Category='' Name='loadIntoByLocation' Value='' />
+						<Parameter Category='' Name='loadIntoByGroup' Value='' />
 					</Parameters>
+					<Parameter >
+						<useOriginalLocations Name='useOriginalLocations' Value='0' />
+					</Parameter>
+				</Task>
+				<Task Name='BuiltIn::Signal' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Waitfors_To_Signal >
+						<Waitfor Name='signal_sample_plate_cleared' />
+					</Waitfors_To_Signal>
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='plate_sample' />
-					<Parameter Name='Plate type' Value='96 Eppendorf Twin.tec PCR' />
+					<Parameter Name='Plate type' Value='96 Nunc Deep Well 1 mL' />
 					<Parameter Name='Simultaneous plates' Value='1' />
 					<Parameter Name='Plates have lids' Value='0' />
 					<Parameter Name='Plates enter the system sealed' Value='0' />
@@ -256,51 +248,34 @@ global.statusString = &quot;A-tailing started...&quot;;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='TransferSample' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferSample' />
 					</Parameters>
 				</Task>
-				<Task Name='BuiltIn::Upstack' >
-					<Devices >
-						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 3' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='6' />
-						<Parameter Category='Task Description' Name='Task description' Value='Upstack' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-						<Parameter Category='' Name='Parameter 1' Value='' />
-					</Parameters>
-				</Task>
-				<Task Name='BuiltIn::Signal' >
+				<Task Name='BuiltIn::Wait For' Waitfor='signal_sample_plate_cleared' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
-					<Waitfors_To_Signal >
-						<Waitfor Name='signal_sample_plate_cleared' />
-					</Waitfors_To_Signal>
+				</Task>
+				<Task Name='BuiltIn::Spawn Process' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Process to spawn' Value='cycler_incubation' />
+						<Parameter Category='' Name='Spawn as subroutine' Value='1' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
+					</Parameters>
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='plate_ad' />
@@ -1243,7 +1218,7 @@ task.Wellselection = [[1,13-col_ad_mix]];' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = pre_asp_large;' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='plate_ad' />
+						<Parameter Category='' Name='Location, plate' Value='plate_sample' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
@@ -1282,10 +1257,9 @@ task.Wellselection = [[1,13-col_ad_mix]];' />
 						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = vol_sample;
-task.Distancefromwellbottom = 0.5;
-task.Dynamictipextension = dph(vol_sample, 0.5);' />
+task.Distancefromwellbottom = 0.3;' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='plate_ad' />
+						<Parameter Category='' Name='Location, plate' Value='plate_sample' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
@@ -1325,7 +1299,7 @@ task.Dynamictipextension = dph(vol_sample, 0.5);' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = vol_sample;' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='plate_sample' />
+						<Parameter Category='' Name='Location, plate' Value='plate_ad' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
@@ -1369,7 +1343,7 @@ if(mix_vol &gt; max_mix_vol) {
 }
 task.Volume = mix_vol;' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='plate_sample' />
+						<Parameter Category='' Name='Location, plate' Value='plate_ad' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
@@ -1413,7 +1387,7 @@ task.Volume = mix_vol;' />
 					<TaskScript Name='TaskScript' Value='// Blowout
 task.Volume = pre_asp_large;' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='plate_sample' />
+						<Parameter Category='' Name='Location, plate' Value='plate_ad' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
 						<Parameter Category='Volume' Name='Volume' Value='' />

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='2f5febbd8b29c1fea6cafeae4d502868' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='a53685851438800e30bd52ea57b987b9' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/truseq/ca_runset_v1110.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -635,8 +635,8 @@ global.statusString = &quot;Setting temperature...&quot;;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Unload' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Unload based on barcode' Value='0' />
 						<Parameter Category='' Name='Barcode' Value='' />
@@ -698,8 +698,8 @@ global.statusString = &quot;Setting temperature...&quot;;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
@@ -743,8 +743,8 @@ global.statusString = &quot;Setting temperature...&quot;;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Unload' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Unload based on barcode' Value='0' />
 						<Parameter Category='' Name='Barcode' Value='' />
@@ -806,8 +806,8 @@ global.statusString = &quot;Setting temperature...&quot;;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
@@ -952,14 +952,17 @@ global.statusString = &quot;Setting temperature...&quot;;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
 					</Parameters>
 					<Parameter >
-						<useOriginalLocations Name='useOriginalLocations' Value='1' />
+						<useOriginalLocations Name='useOriginalLocations' Value='0' />
+						<AssignedLocations_Node >
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 3, slot 2' />
+						</AssignedLocations_Node>
 					</Parameter>
 				</Task>
 				<Plate_Parameters >
@@ -1093,26 +1096,26 @@ global.statusString = &quot;Setting temperature...&quot;;' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Load' >
-					<Devices >
-						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
-					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='0' />
+						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='Load' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
 					</Parameters>
 					<Parameter >
-						<useOriginalLocations Name='useOriginalLocations' Value='1' />
+						<useOriginalLocations Name='useOriginalLocations' Value='0' />
+						<AssignedLocations_Node >
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 2, slot 1' />
+						</AssignedLocations_Node>
 					</Parameter>
 				</Task>
 				<Plate_Parameters >
