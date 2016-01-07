@@ -1,7 +1,7 @@
 /*
  truseq_rna.js
  Author: Joel Gruselius
- Version: 2015-09
+ Version: 2016-01
  Description: Helper functions for TruSeq runset
 */
 
@@ -11,67 +11,106 @@
  are defined in the global namespace:
 */
 
-function CA() {
-	this.columns;
-	this.sampleVolume;
-	this.beadVolume;
-	this.precipVolume;
-	this.beadResuspVolume;
-	this.bindTime;
-	this.elutionVolume;
-	var presets = {
-		"default": {
-			sampleVolume: 50,
-			beadVolume: 20,
-			precipVolume: 100,
-			beadResuspVolume: 10,
-			bindTime: 600,
-			elutionVolume: 30
-		},
-		"cdna_synthesis": {
-			sampleVolume: 50,
-			beadVolume: 20,
-			precipVolume: 100,
-			beadResuspVolume: 10,
-			bindTime: 600,
-			elutionVolume: 17.5
-		},
-		"ligation": {
-			sampleVolume: 42.5,
-			beadVolume: 20,
-			precipVolume: 100,
-			beadResuspVolume: 17.5,
-			bindTime: 600,
-			elutionVolume: 30
-		},
-		"pcr": {
-			sampleVolume: 50,
-			beadVolume: 50,
-			precipVolume: 100,
-			beadResuspVolume: 10,
-			bindTime: 600,
-			elutionVolume: 30
+runset.clear();
+
+var path = "C:/VWorks Workspace/Protocol Files/facility/truseq/";
+var form = "truseq_rna.VWForm"
+
+run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
+
+var runsetMode = false;	// Alt settings for library prep runset (true/false)
+formColumns = parseInt(formColumns, 10);
+
+var presets = {};
+presets["CA default"] = {
+		sampleVolume: 50,
+		beadVolume: 20,
+		precipVolume: 100,
+		beadResuspVolume: 10,
+		bindTime: 600,
+		elutionVolume: 30,
+		sealFinalPlate: false
+};
+presets["cDNA cleanup"] = {
+		sampleVolume: 50,
+		beadVolume: 20,
+		precipVolume: 100,
+		beadResuspVolume: 10,
+		bindTime: 600,
+		elutionVolume: 17.5,
+		sealFinalPlate: false
+};
+presets["Ligation cleanup 1"] = {
+		sampleVolume: 42.5,
+		beadVolume: 20,
+		precipVolume: 100,
+		beadResuspVolume: 17.5,
+		bindTime: 600,
+		elutionVolume: 30,
+		sealFinalPlate: false
+}:
+presets["Ligation cleanup 2"] = {
+		sampleVolume: 42.5,
+		beadVolume: 20,
+		precipVolume: 100,
+		beadResuspVolume: 17.5,
+		bindTime: 600,
+		elutionVolume: 30,
+		sealFinalPlate: true
+};
+presets["PCR cleanup"] = {
+		sampleVolume: 50,
+		beadVolume: 50,
+		precipVolume: 100,
+		beadResuspVolume: 10,
+		bindTime: 600,
+		elutionVolume: 30,
+		sealFinalPlate: true
+};
+
+var settings = {};
+
+var fileNames = {};
+fileNames["cDNA cleanup"] = "ca_p1-2.rst";
+fileNames["Adenylation"] = "truseq_rna_adenylation.pro";
+fileNames["PCR setup"] = "truseq_rna_pcr";
+fileNames["PCR cleanup"] = "ca_p2-3.rst";
+fileNames["Ligation"] = "truseq_rna_ligation.pro";
+fileNames["Adapter ligation"] = "truseq_rna_full.rst";
+fileNames["Ligation cleanup"] = "truseq_ligation_cleanup.rst";
+
+var runsetOrder = [];
+
+if(formProtocol === "Adapter ligation") {
+	runsetMode = true;
+	runsetOrder = ["cDNA cleanup","Adenylation","Ligation",
+		"Ligation cleanup 1","Ligation cleanup 2"];
+	runset.openRunsetFile(path+fileNames[formProtocol], form);
+} else if(formProtocol === "Ligation cleanup") {
+	runsetMode = true;
+	runsetOrder = ["Ligation cleanup 1","Ligation cleanup 2"];
+	runset.openRunsetFile(path+fileNames[formProtocol], form);
+} else {
+	runsetMode = false;
+	runset.appendProtocolFileToRunset(path+fileNames[formProtocol], 1, "", form);
+	updateSettings(formProtocol);
+}
+
+function updateSettings(protocol) {
+	if(protocol in presets) {
+		for(var s in presets[protocol]) {
+			settings[s] = presets[protocol][s];
 		}
-	};
-
-};
-
-/*
- Adds/sets the variables in the ca object. Returns true if the specified
- string 'type' is recognized, otherwise returns false:
-*/
-CA.prototype.useSetting = function(name) {
-	for(setting in this.presets[name]) {
-		this[setting] = this.presets[setting];
+	} else {
+		throw "EXCEPTION__UndefinedSetting:"+protocol;
 	}
-	return (name in this.presets);
-};
+	print(protocol + " preset loaded");
+}
 
-CA.prototype.setColumns = function(n) {
-	this.columns = n;
-};
-
-var ca = CA();
+var runsetIndex = 0;
+function updateRunset() {
+	updateSettings(runsetOrder[runsetIndex++]);
+}
 
 function dph(vol, endHeight) {
 	var v = parseFloat(vol);
