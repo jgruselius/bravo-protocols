@@ -601,6 +601,8 @@ function TransferManager(transferMode, tipMode) {
 			if(testing) print("transfers.length="+this.transfers.length);
 			if(testing) print("getAll().length="+this.getAll().length);
 			this.next = this.transfers[0][0];
+			this.updateSize();
+			this.checkVolumes();
 		} catch(e) {
 			this.next = undefined;
 			this.errorState = false;
@@ -610,8 +612,6 @@ function TransferManager(transferMode, tipMode) {
 		this.current = undefined;
 		this.plate = 0;
 		this.index = -1;
-		this.updateSize();
-		this.checkVolumes();
 	}
 	// Calculate number of transfers for each source ID:
 	// Calculate number of transfers for each source ID:
