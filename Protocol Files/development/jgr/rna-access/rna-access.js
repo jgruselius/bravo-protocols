@@ -6,7 +6,10 @@ var form = "rna-access.VWForm";
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
-formColumns = parseInt(formColumns, 10);
+var formColumns = parseInt(formColumns, 10);
+
+var testMode = !!(typeof formTestMode !== "undefined" && formTestMode);
+if(testMode) print("Skipping incubations!");
 
 var presets = {};
 
@@ -106,7 +109,7 @@ fileNames["2nd strand synthesis"] = "rna-access_reaction.pro";
 fileNames["cDNA cleanup"] = "illumina_spri.pro";
 fileNames["A-tailing"] = "rna-access_reaction.pro";
 fileNames["Ligation"] = "rna-access_ligation.pro";
-fileNames["Adapter ligation"] = ".rst";
+fileNames["Library prep"] = "rna-access.rst";
 fileNames["Ligation cleanup"] = ".rst";
 fileNames["PCR setup"] = "rna-access_pcr.pro";
 fileNames["PCR cleanup"] = "illumina_spri.pro";

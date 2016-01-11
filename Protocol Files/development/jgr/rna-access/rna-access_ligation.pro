@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='143582e8b11612a0dad59d678a70f22d' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='1638a5bd3738db0ce01d9d2f238af651' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -16,7 +16,7 @@
 	task.skip();
 }' />
 					<Parameters >
-						<Parameter Category='' Name='Title' Value='Usr message' />
+						<Parameter Category='' Name='Title' Value='User message' />
 						<Parameter Category='' Name='Body' Value='When the incubation has finished return the sample plate to position 5. Also place the plate containing adapter indexes in the MiniHub. Choose &apos;Continue&apos; to resume the protocol.' />
 						<Parameter Category='' Name='Only show the first time' Value='' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
