@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='a00f258c8a94a7be0f8f643869fc14aa' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='64590e5cc6ebb8f8abe39c4c404c252d' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -307,7 +307,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					<Parameter >
 						<RemoveFromGroups Name='RemoveFromGroups' Value='0' />
 						<AssignedLocations_Node >
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 4, slot 1' />
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 4, slot 2' />
 						</AssignedLocations_Node>
 					</Parameter>
 				</Task>
