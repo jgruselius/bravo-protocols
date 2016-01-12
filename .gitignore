@@ -17,6 +17,7 @@ Icon
 ### Linux ###
 .*
 !.gitignore
+!.gitattributes
 *~
 
 ### Windows ###

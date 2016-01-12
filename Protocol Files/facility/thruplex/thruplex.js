@@ -8,12 +8,41 @@ run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat",
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
 
-var presets = {};
-presets["Template preparation"] = {tipColumn:1,reagentColumn:1,sampleVolume:10,reagentVolume:3,incubationTemperature:22,incubationTime:1500,doOffDeckIncubation:true};
-presets["Library synthesis"] = {tipColumn:2,reagentColumn:2,sampleVolume:13,reagentVolume:2,incubationTemperature:22,incubationTime:2400,doOffDeckIncubation:true};
-presets["PCR setup"] = {tipColumn:3,reagentColumn:3,sampleVolume:15,reagentVolume:30,incubationTemperature:22,incubationTime:0,doOffDeckIncubation:true};
+var fd = (formVersion === "ThruPLEX-FD");
 
-presets["PCR cleanup"] = {sampleVolume:50,beadVolume:50,elutionVolume:30};
+var presets = {};
+presets["Template preparation"] = {
+	tipColumn:1,
+	reagentColumn:1,
+	sampleVolume:10,
+	reagentVolume:3,
+	incubationTemperature:22,
+	incubationTime:1500,
+	doOffDeckIncubation:true
+};
+presets["Library synthesis"] = {
+	tipColumn:2,
+	reagentColumn:2,
+	sampleVolume:13,
+	reagentVolume:2,
+	incubationTemperature:22,
+	incubationTime:2400,
+	doOffDeckIncubation:true
+};
+presets["PCR setup"] = {
+	tipColumn:3,
+	reagentColumn:3,
+	sampleVolume: (fd) ? 16 : 15,
+	reagentVolume:(fd) ? 58 : 30,
+	incubationTemperature:22,
+	incubationTime:0,
+	doOffDeckIncubation:true
+};
+presets["PCR cleanup"] = {
+	sampleVolume: (fd) ? 75 : 50,
+	beadVolume: (fd) ? 75 : 50,
+	elutionVolume:30
+};
 
 var settings = {};
 

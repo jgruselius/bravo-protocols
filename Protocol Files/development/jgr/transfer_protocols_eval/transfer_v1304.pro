@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='c233dbbe5c4b28d4c6486207852c4c7f' version='2.0' >
-	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/development/jgr/scripts/transfer_lib.js&apos;);
+<Velocity11 file='Protocol_Data' md5sum='24e5bd76f32f3a2811eccb5e22940cf9' version='2.0' >
+	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
 	<Processes >
@@ -41,7 +41,26 @@ var filePath = global.formFile;' />
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var tm = new TransferManager(&quot;transfer&quot;);
-tm.openTransferFile(filePath);' />
+tm.openTransferFile(filePath);
+
+var destinationPlate = &quot;96 Eppendorf Twin.tec PCR&quot;;
+var altPlates = { &quot;96 ABgene Low Profile&quot;:1 };
+if(global.formPlate in altPlates) {
+   destinationPlate = global.formPlate;
+}
+
+if(global.formLog) {
+	print(&quot;Input file: &quot; + filePath);
+	print(&quot;TransferManager errorstate: &quot; + tm.errorState);
+	print(&quot;TransferManager size: &quot; + tm.getSize());
+	for(var i=0,n=tm.numberOfPlates();i&lt;n;i++) {
+		var t = tm.transfers[i];
+		for(var j=0,m=t.length;j&lt;m;j++) {
+			print(t[j]);
+		}
+	}
+}
+' />
 				</Task>
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
@@ -136,6 +155,9 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					</Parameters>
 					<Parameter >
 						<useOriginalLocations Name='useOriginalLocations' Value='1' />
+						<AssignedLocations_Node >
+							<LocationInfo Value='Agilent Labware MiniHub - 1; cassette 1, slot 1, slot 2, slot 3, slot 4, slot 5; cassette 2, slot 1, slot 2, slot 3, slot 4, slot 5; cassette 3, slot 1, slot 2, slot 3, slot 4, slot 5; cassette 4, slot 1, slot 2, slot 3, slot 4, slot 5' />
+						</AssignedLocations_Node>
 					</Parameter>
 				</Task>
 				<Plate_Parameters >
@@ -168,7 +190,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='plate.labware = destinationPlate;' />
 					<Parameters >
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='4' />
@@ -509,7 +531,7 @@ var hasTransfer = !!tm.getSize();
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_small_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.75' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
