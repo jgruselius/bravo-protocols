@@ -60,6 +60,8 @@ presets["Ligation"] = {
 	adapterVolume:2.5,
 	stopVolume:5,
 	doOffDeckIncubation:false,
+	incubationTime: 600,
+	incubationTemperature: 30,
 	protocolName:"Ligation"
 	};
 
@@ -97,6 +99,8 @@ presets["PCR setup"] = {
 	sampleVolume:20,
 	reagentVolume:25,
 	primerVolume:5,
+	protocolName:"PCR setup",
+	doOffDeckIncubation:true,
 	protocolName:"PCR setup"
 	};
 
