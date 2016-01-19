@@ -103,7 +103,7 @@ presets["PCR setup"] = {
 	protocolName:"PCR setup"
 	};
 
-presets["Hyb setup"] = {
+presets["Hyb setup 1"] = {
 	tipColumn:7,
 	reagentColumn:7,
 	bufferVolume:50,
@@ -161,6 +161,11 @@ fileNames["Library prep"] = "rna-access.rst";
 fileNames["Ligation cleanup"] = ".rst";
 fileNames["PCR setup"] = "rna-access_pcr.pro";
 fileNames["PCR cleanup"] = "illumina_spri.pro";
+fileNames["Hyb setup 1"] = "rna-access_hyb.pro";
+fileNames["Hyb setup 2"] = "rna-access_hyb.pro";
+fileNames["Capture wash"] = "rna-access_wash.pro";
+fileNames["Capture elution"] = "rna-access_elution.pro";
+fileNames["Capture"] = "rna-access_capture.rst";
 
 var runsetOrder = [];
 
@@ -170,13 +175,15 @@ if(formProtocol === "Library prep") {
 		"cDNA cleanup","A-tailing","Ligation","Ligation cleanup 1",
 		"Ligation cleanup 2", "PCR setup"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
-	print("Runset file loaded");
 } else if(formProtocol === "Ligation cleanup") {
 	runsetMode = true;
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
 	updateSettings(formProtocol);
-}  else {
-	runsetMode = false;
+} else if(formProtocol === "Capture") {
+	runsetMode = true;
+	runsetOrder = ["Capture wash", "Capture elution"];
+	runset.openRunsetFile(path+fileNames[formProtocol], form);
+} else {
 	runset.appendProtocolFileToRunset(path+fileNames[formProtocol], 1, "", form);
 	updateSettings(formProtocol);
 }

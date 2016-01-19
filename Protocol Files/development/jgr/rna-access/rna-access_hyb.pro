@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='d95173ce243c9b772f1362ce6c435431' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='724774daf94a43e5f071b4153b99ea8d' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -17,12 +17,42 @@
 var global = GetGlobalObject();
 var columns = global.formColumns || 1;
 var headMode = &quot;1,2,1,&quot; + columns;
-var tipColumn = global.tipColumn;
-var reagentColumn = global.reagentColumn;
-var bufferVolume = global.bufferVolume;
-var oligoVolume = global.oligoVolume;
-var sampleVolume = global.sampleVolume;
-var dilutionVolume = global.dilutionVolume;' />
+var tipColumn = global.settings.tipColumn;
+var reagentColumn = global.settings.reagentColumn;
+var bufferVolume = global.settings.bufferVolume;
+var oligoVolume = global.settings.oligoVolume;
+var sampleVolume = global.settings.sampleVolume;
+var dilutionVolume = global.settings.dilutionVolume;
+var dph = global.dph;' />
+				</Task>
+				<Task Name='BuiltIn::User Message' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='task.Body = &quot;Enter \&quot;1\&quot; if a full tip box has been placed &quot; +
+	&quot;on position 2 of the Bravo or \&quot;0\&quot; for a tipbox with no &quot; +
+	&quot;tips in columns 1-&quot;+(tipColumn-1)+&quot;.&quot;;' />
+					<Parameters >
+						<Parameter Category='' Name='Title' Value='Tipbox' />
+						<Parameter Category='' Name='Body' Value='' />
+						<Parameter Category='' Name='Only show the first time' Value='' />
+						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='1' />
+						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='newTipbox' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::JavaScript' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='if(parseInt(newTipbox,10) === 1) {
+	tipColumn = 1;
+} ' />
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='startup' />
@@ -33,6 +63,21 @@ var dilutionVolume = global.dilutionVolume;' />
 		<Main_Processes >
 			<Process >
 				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::Downstack' >
+					<Devices >
+						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 1' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Free empty stackers' Value='1' />
+					</Parameters>
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='2' />
@@ -99,7 +144,7 @@ var dilutionVolume = global.dilutionVolume;' />
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='6' />
+						<Device Device_Name='Bravo - 1' Location_Name='1' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -108,7 +153,7 @@ var dilutionVolume = global.dilutionVolume;' />
 					<TaskScript Name='TaskScript' Value='if(columns &lt; 11) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='6' />
+						<Parameter Category='' Name='Location to use' Value='1' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Spawn Process' >
@@ -120,20 +165,6 @@ var dilutionVolume = global.dilutionVolume;' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='sampleTips' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
-					</Parameters>
-				</Task>
-				<Task Name='BuiltIn::Place Plate' >
-					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='1' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='if(columns &lt; 11) task.skip();' />
-					<Parameters >
-						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='1' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Spawn Process' >
@@ -305,18 +336,19 @@ var dilutionVolume = global.dilutionVolume;' />
 			</Process>
 			<Process >
 				<Minimized >0</Minimized>
-				<Task Name='BuiltIn::Place Plate' >
+				<Task Name='BuiltIn::Downstack' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='1' />
+						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 1' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='if(columns &lt; 11) task.skip();' />
 					<Parameters >
-						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='1' />
+						<Parameter Category='' Name='Free empty stackers' Value='1' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
@@ -679,7 +711,7 @@ var dilutionVolume = global.dilutionVolume;' />
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='dilutionBufferPlate' />
-					<Parameter Name='Plate type' Value='96 Nunc Deep Well 1 mL' />
+					<Parameter Name='Plate type' Value='96 Matrix open reservoir movable' />
 					<Parameter Name='Simultaneous plates' Value='1' />
 					<Parameter Name='Plates have lids' Value='0' />
 					<Parameter Name='Plates enter the system sealed' Value='0' />
@@ -747,7 +779,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,tipColumn]];' />
 					<Parameters >
@@ -755,11 +787,11 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;8d004d0b695f93c5700523356cd877df&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;bca075809a2b3338eeef73172f9be72f&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -1043,11 +1075,11 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;87d35d96180034e0056ffdc2547aec5c&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;78b363355b16c7e6535d4d5415c68068&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;1&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;7&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
