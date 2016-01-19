@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='1dec3ec1d2d16de2cd7d6c48bb47112c' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='db88da15015145e37503028ad4bd2b00' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet_deepwell6.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -15,6 +15,8 @@
 					<TaskScript Name='TaskScript' Value='var global = GetGlobalObject();
 var columns = global.formColumns || 1;
 var headMode = &quot;1,2,1,&quot; + columns;
+var tipColumn = global.tipColumn;
+var reagentColumn = global.reagentColumn;
 var elutionMixes = 20;
 var buffer1Volume = global.buffer1Volume;
 var buffer2Volume = global.buffer2Volume;
@@ -49,6 +51,21 @@ var testMode = global.formTestMode;' />
 		<Main_Processes >
 			<Process >
 				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::Downstack' >
+					<Devices >
+						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 1' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Free empty stackers' Value='1' />
+					</Parameters>
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='2' />
@@ -147,21 +164,20 @@ var testMode = global.formTestMode;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferEluate' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='96 Nunc Deep Well 1 mL' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferEluate' />
 					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Upstack' >
+					<Devices >
+						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 3' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='elutionTips' />
@@ -291,6 +307,21 @@ var testMode = global.formTestMode;' />
 			</Process>
 			<Process >
 				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::Downstack' >
+					<Devices >
+						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Free empty stackers' Value='1' />
+					</Parameters>
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='8' />
@@ -351,6 +382,21 @@ var testMode = global.formTestMode;' />
 			</Process>
 			<Process >
 				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::Downstack' >
+					<Devices >
+						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Free empty stackers' Value='1' />
+					</Parameters>
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='4' />
@@ -448,7 +494,7 @@ var testMode = global.formTestMode;' />
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >0</Minimized>
+				<Minimized >1</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='9' />
@@ -660,7 +706,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,tipColumn]];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='elutionTips' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -713,7 +759,8 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Distancefromwellbottom = (columns &lt; 7) ? 0.5 : 0.3;' />
+					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,reagentColumn]];
+task.Distancefromwellbottom = (columns &lt; 7) ? 0.5 : 0.3;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='reagentPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -947,7 +994,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,tipColumn+1]];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='elutionTips' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -1000,7 +1047,8 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Distancefromwellbottom = (columns &lt; 7) ? 0.4 : 0.25;' />
+					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,reagentColumn+1]];
+task.Distancefromwellbottom = (columns &lt; 7) ? 0.4 : 0.25;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='reagentPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />

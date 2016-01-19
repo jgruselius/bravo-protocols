@@ -60,8 +60,8 @@ presets["Ligation"] = {
 	adapterVolume:2.5,
 	stopVolume:5,
 	doOffDeckIncubation:false,
-	incubationTime: 600,
-	incubationTemperature: 30,
+	incubationTime:600,
+	incubationTemperature:30,
 	protocolName:"Ligation"
 	};
 
@@ -99,9 +99,53 @@ presets["PCR setup"] = {
 	sampleVolume:20,
 	reagentVolume:25,
 	primerVolume:5,
-	protocolName:"PCR setup",
 	doOffDeckIncubation:true,
 	protocolName:"PCR setup"
+	};
+
+presets["Hyb setup"] = {
+	tipColumn:7,
+	reagentColumn:7,
+	bufferVolume:50,
+	oligoVolume:5,
+	sampleVolume:45,
+	dilutionVolume:0,
+	protocolName:"Hyb setup"
+	};
+
+presets["Capture wash"] = {
+	sampleVolume:45,
+	beadVolume:250,
+	washVolume:200,
+	protocolName:"Capture wash"
+	};
+
+presets["Capture elution"] = {
+	tipColumn:9,
+	reagentColumn:9,
+	buffer1Volume:23,
+	buffer2Volume:4,
+	protocolName:"Capture elution"
+	};
+	
+presets["Hyb setup 2"] = {
+	tipColumn:11,
+	reagentColumn:11,
+	bufferVolume:50,
+	oligoVolume:5,
+	sampleVolume:20,
+	dilutionVolume:20,
+	protocolName:"Second hyb setup"
+	};
+
+presets["PCR setup 2"] = {
+	tipColumn:1,
+	reagentColumn:1,
+	sampleVolume:20,
+	reagentVolume:20,
+	primerVolume:5,
+	doOffDeckIncubation:true,
+	protocolName:"PCR setup 2"
 	};
 
 var settings = {};
