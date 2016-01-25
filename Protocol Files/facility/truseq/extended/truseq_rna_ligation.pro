@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='3a3702fe69deb932f32d3e3cb6011a70' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='1f234a2cf2ecf9efeb36d93f4c42a196' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -15,12 +15,14 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var global = GetGlobalObject();
 
+if(global.runsetMode) updateRunset();
+
 // General vars
-var time_mod = global.time_mod;
+var time_mod = (typeof global.testMode !== &quot;undefined&quot; &amp;&amp; global.testMode);
 // Ambient temperature (deg C):
 var temp_rt = global.temp_rt;
 // Number of columns of samples to process:
-var n_columns = global.n_columns;
+var n_columns = global.formColumns;
 // Pipette head operation mode:
 var head_mode = &quot;1,2,1,&quot; + n_columns;
 // Maximum volume to use when mixing (uL):
@@ -3223,8 +3225,7 @@ task.Volume = pre_asp_large;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='global.ca.useSetting(&quot;ligation&quot;);
-global.statusString = &quot;Ligation completed&quot;;' />
+					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Ligation completed&quot;;' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='1' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />

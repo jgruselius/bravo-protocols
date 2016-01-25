@@ -91,7 +91,6 @@ if(formProtocol === "Adapter ligation") {
 	runsetOrder = ["Ligation cleanup 1","Ligation cleanup 2"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
 } else {
-	runsetMode = false;
 	runset.appendProtocolFileToRunset(path+fileNames[formProtocol], 1, "", form);
 	updateSettings(formProtocol);
 }
