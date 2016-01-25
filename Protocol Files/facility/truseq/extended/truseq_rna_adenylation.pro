@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='6544df94ba4b7759f0f6826159a5e3ca' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='c1e30909a104002ed3c71dd6398603c0' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -18,33 +18,35 @@
 if(global.runsetMode) updateRunset();
 
 // General vars
-var time_mod = (typeof global.testMode !== &quot;undefined&quot; &amp;&amp; global.testMode);
+var test_mode = (typeof global.testMode !== &quot;undefined&quot; &amp;&amp; global.testMode);
 // Ambient temperature (deg C):
-var temp_rt = global.temp_rt;
+var TEMP_RT = 20;
 // Number of columns of samples to process:
 var n_columns = global.formColumns;
 // Pipette head operation mode:
 var head_mode = &quot;1,2,1,&quot; + n_columns;
 // Maximum volume to use when mixing (uL):
-var max_mix_vol = 140;
+var MAX_MIX_VOL = 140;
 // Air aspiration volumes (uL):
-var pre_asp_large = 20;
-var pre_asp_medium = 15;
-var pre_asp_small = 8;
-// End repair vars
+var PRE_ASP_LARGE = 20;
+var PRE_ASP_MEDIUM = 15;
+var PRE_ASP_SMALL = 8;
+
 // Starting volume of DNA sample (uL):
-var vol_sample = 15;
-// The column where the adenylation reaction mix
+var vol_sample = global.settings.sampleVolume;
+// The column where the reagent mix
 // is located in the master mix plate:
-var col_ad_mix = 1; 
+var col_ad_mix = global.settings.reagentColumn;
+// With column to take the tips for reagent dispensing:
+var tip_col = global.settings.tipColumn; 
 // Volume of adenylation reaction mix (uL):
-var vol_ad_mix = 15;
+var vol_ad_mix = global.settings.reagentVolume;
 // Adenylation reaction incubation temperature (deg C):
 // To compensate for panel-plate temperature differences
 // the set temperature have been calibrated to:
-var temp_ad = 53; // Actual reaction temperature: 37C
+var temp_ad = global.settings.incubationTemp; // Actual reaction temperature: 37C
 // Adenylation reaction incubation time (min):
-var time_ad = 30 * 60 * time_mod;
+var time_ad = test_mode ? 0 : global.settings.incubationTime;
 
 var dph = global.dph;
 
@@ -202,9 +204,17 @@ global.statusString = &quot;A-tailing started...&quot;;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='DivideMix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='DivideMix' />
@@ -869,7 +879,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Last column of tips:
-task.Wellselection = [[1,col_ad_mix]];' />
+task.Wellselection = [[1,tip_col]];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='tips_mix_new' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -1091,7 +1101,7 @@ if(columns == columnsDone) {
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Next free column of empty tip box:
-task.Wellselection = [[1,13-col_ad_mix]];' />
+task.Wellselection = [[1,13-tip_col]];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='tips_mix_old' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -1219,7 +1229,7 @@ task.Wellselection = [[1,13-col_ad_mix]];' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = pre_asp_large;' />
+					<TaskScript Name='TaskScript' Value='task.Volume = PRE_ASP_LARGE;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='plate_sample' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -1341,8 +1351,8 @@ task.Distancefromwellbottom = 0.3;' />
 						<Setting Name='Estimated time' Value='20' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mix_vol = 0.8 * (vol_sample + vol_ad_mix);
-if(mix_vol &gt; max_mix_vol) {
-	mix_vol = max_mix_vol;
+if(mix_vol &gt; MAX_MIX_VOL) {
+	mix_vol = MAX_MIX_VOL;
 }
 task.Volume = mix_vol;' />
 					<Parameters >
@@ -1388,7 +1398,7 @@ task.Volume = mix_vol;' />
 						<Setting Name='Estimated time' Value='12' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Blowout
-task.Volume = pre_asp_large;' />
+task.Volume = PRE_ASP_LARGE;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='plate_ad' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />

@@ -22,6 +22,31 @@ var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
 
 var presets = {};
+
+presets["Adenylation"] = {
+		sampleVolume: 15,
+		reagentVolume: 15,
+		tipColumn: 1,
+		reagentColumn: 1,
+		incubationTemp: 53,
+		incubationTime: 1800
+};
+presets["Ligation"] = {
+		sampleVolume: 20,
+		reagentVolume: 5,
+		bufferVolume: 5,
+		tipColumn: 2,
+		reagentColumn: 2,
+		incubationTemp: 30,
+		incubationTime: 300,
+};
+presets["PCR setup"] = {
+		sampleVolume: 40,
+		reagentVolume: 25,
+		primerVolume: 5,
+		tipColumn: 4,
+		reagentColumn: 4
+};
 presets["CA default"] = {
 		sampleVolume: 50,
 		beadVolume: 20,

@@ -47,15 +47,15 @@ var global = GetGlobalObject();
 // General vars
 var time_mod = 1;
 // Ambient temperature (deg C):
-var temp_rt = 20;
+var TEMP_RT = 20;
 // Number of columns of samples to process:
 var n_columns = parseInt(user_entry, 10);
 // Pipette head operation mode:
 var head_mode = &quot;1,2,1,&quot; + n_columns;
 // Air aspiration volumes (uL):
-var pre_asp_large = 20;
-var pre_asp_medium = 15;
-var pre_asp_small = 10;
+var PRE_ASP_LARGE = 20;
+var PRE_ASP_MEDIUM = 15;
+var PRE_ASP_SMALL = 10;
 // Volume to rinse tips with:
 var vol_rinse = 80;
 
@@ -105,11 +105,11 @@ var dph = global.dph;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Temperature = temp_rt;' />
+					<TaskScript Name='TaskScript' Value='task.Temperature = TEMP_RT;' />
 					<Parameters >
 						<Parameter Category='' Name='Location' Value='4' />
 						<Parameter Category='' Name='Turn off temperature' Value='0' />
-						<Parameter Category='' Name='Temperature' TaskParameterScript='=temp_rt;' Value='' />
+						<Parameter Category='' Name='Temperature' TaskParameterScript='=TEMP_RT;' Value='' />
 						<Parameter Category='' Name='Wait' Value='' />
 						<Parameter Category='' Name='Temperature Tolerance' Value='' />
 						<Parameter Category='' Name='Timeout' Value='1' />
@@ -130,11 +130,11 @@ var dph = global.dph;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Temperature = temp_rt;' />
+					<TaskScript Name='TaskScript' Value='task.Temperature = TEMP_RT;' />
 					<Parameters >
 						<Parameter Category='' Name='Location' Value='6' />
 						<Parameter Category='' Name='Turn off temperature' Value='0' />
-						<Parameter Category='' Name='Temperature' TaskParameterScript='=temp_rt;' Value='' />
+						<Parameter Category='' Name='Temperature' TaskParameterScript='=TEMP_RT;' Value='' />
 						<Parameter Category='' Name='Wait' Value='' />
 						<Parameter Category='' Name='Temperature Tolerance' Value='' />
 						<Parameter Category='' Name='Timeout' Value='1' />
