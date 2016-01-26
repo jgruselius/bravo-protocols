@@ -18,6 +18,7 @@ var form = "truseq_rna.VWForm"
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
+var extended = !!formExtended;
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
 
@@ -73,7 +74,7 @@ presets["Ligation cleanup 1"] = {
 		bindTime: 600,
 		elutionVolume: 30,
 		sealFinalPlate: false
-}:
+};
 presets["Ligation cleanup 2"] = {
 		sampleVolume: 42.5,
 		beadVolume: 20,
@@ -98,11 +99,19 @@ var settings = {};
 var fileNames = {};
 fileNames["cDNA cleanup"] = "ca_p1-2.rst";
 fileNames["Adenylation"] = "truseq_rna_adenylation.pro";
-fileNames["PCR setup"] = "truseq_rna_pcr";
+fileNames["PCR setup"] = "truseq_rna_pcr.pro";
 fileNames["PCR cleanup"] = "ca_p2-3.rst";
 fileNames["Ligation"] = "truseq_rna_ligation.pro";
-fileNames["Adapter ligation"] = "truseq_rna_full.rst";
-fileNames["Ligation cleanup"] = "truseq_ligation_cleanup.rst";
+fileNames["Adapter ligation"] = "truseq_rna_adapter_ligation.rst";
+fileNames["Ligation cleanup"] = "ca_p2-3.rst";
+
+if(extended) {
+	for(var p in fileNames) {
+		if(!~p.indexOf("cleanup")) {
+			fileNames[p] = "extended/" + fileNames[p];
+		}
+	}
+}
 
 var runsetOrder = [];
 
@@ -110,7 +119,9 @@ if(formProtocol === "Adapter ligation") {
 	runsetMode = true;
 	runsetOrder = ["cDNA cleanup","Adenylation","Ligation",
 		"Ligation cleanup 1","Ligation cleanup 2"];
-	runset.openRunsetFile(path+fileNames[formProtocol], form);
+	runset.openRunsetFile(path+fileNames["cDNA cleanup"], form);
+	runset.appendRunsetFileToRunset(path+fileNames[formProtocol], form);
+	runset.appendRunsetFileToRunset(path+fileNames["Ligation cleanup"], form);
 } else if(formProtocol === "Ligation cleanup") {
 	runsetMode = true;
 	runsetOrder = ["Ligation cleanup 1","Ligation cleanup 2"];
