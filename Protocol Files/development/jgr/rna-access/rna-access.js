@@ -13,6 +13,11 @@ if(testMode) print("Skipping incubations!");
 
 var presets = {};
 
+presets["Plate filler"] = {
+	volumes:[400,1300],
+	protocolName:"Plate filler"
+	};
+
 presets["Fragmentation"] = {
 	tipColumn:1,
 	reagentColumn:1,
@@ -151,6 +156,7 @@ presets["PCR setup 2"] = {
 var settings = {};
 
 var fileNames = {};
+fileNames["Plate filler"] = "rna-access_filler.pro";
 fileNames["Fragmentation"] = "rna-access_reaction.pro";
 fileNames["1st strand synthesis"] = "rna-access_reaction.pro";
 fileNames["2nd strand synthesis"] = "rna-access_reaction.pro";
