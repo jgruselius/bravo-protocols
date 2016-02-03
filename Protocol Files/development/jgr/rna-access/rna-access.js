@@ -61,7 +61,7 @@ presets["Ligation"] = {
 	reagentColumn:5,
 	sampleVolume:30,
 	bufferVolume:2.5,
-	reagentVolume:5,
+	reagentVolume:2.5,
 	adapterVolume:2.5,
 	stopVolume:5,
 	doOffDeckIncubation:false,
@@ -99,8 +99,8 @@ presets["PCR cleanup"] = {
 	};
 
 presets["PCR setup"] = {
-	tipColumn:6,
-	reagentColumn:6,
+	tipColumn:7,
+	reagentColumn:7,
 	sampleVolume:20,
 	reagentVolume:25,
 	primerVolume:5,
@@ -195,6 +195,7 @@ if(formProtocol === "Library prep") {
 }
 
 function updateSettings(protocol) {
+	settings = {};
 	if(protocol in presets) {
 		for(var s in presets[protocol]) {
 			settings[s] = presets[protocol][s];

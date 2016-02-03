@@ -66,6 +66,7 @@ if(formProtocol === "ThruPLEX") {
 }
 
 function updateSettings(protocol) {
+	settings = {};
 	if(protocol in presets) {
 		for(var s in presets[protocol]) {
 			settings[s] = presets[protocol][s];
