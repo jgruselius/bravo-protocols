@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='ca32b04331a3f9ecbd33d7567e452e7e' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='140fd9bd2d0596a4b9c393ebba1df807' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -17,6 +17,7 @@
 
 // Get the object representing the global namespace:
 var global = GetGlobalObject();
+if(global.runsetMode) global.updateRunset();
 
 // For testing:
 //open(&quot;C:/VWorks Workspace/Protocol Files/facility/truseq/ca_temp.js&quot;);
@@ -5299,8 +5300,7 @@ task.Reservationtime = ethanolDryTime;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='global.statusString = &quot;CA binding and ethanol wash finished&quot;;
-if(global.runsetMode) global.updateRunset();' />
+					<TaskScript Name='TaskScript' Value='global.statusString = &quot;CA binding and ethanol wash finished&quot;;' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='1' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />

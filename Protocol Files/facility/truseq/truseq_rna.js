@@ -36,6 +36,7 @@ presets["Ligation"] = {
 		sampleVolume: 20,
 		reagentVolume: 5,
 		bufferVolume: 5,
+		adapterVolume: 2.5,
 		tipColumn: 2,
 		reagentColumn: 2,
 		incubationTemp: 30,
@@ -117,14 +118,13 @@ var runsetOrder = [];
 
 if(formProtocol === "Adapter ligation") {
 	runsetMode = true;
-	runsetOrder = ["cDNA cleanup","Adenylation","Ligation",
-		"Ligation cleanup 1","Ligation cleanup 2"];
-	runset.openRunsetFile(path+fileNames["cDNA cleanup"], form);
+	runsetOrder = ["cDNA cleanup","cDNA cleanup","Adenylation","Ligation",
+		"Ligation cleanup 1","Ligation cleanup 2","Ligation cleanup 2"];
 	runset.appendRunsetFileToRunset(path+fileNames[formProtocol], form);
-	runset.appendRunsetFileToRunset(path+fileNames["Ligation cleanup"], form);
 } else if(formProtocol === "Ligation cleanup") {
 	runsetMode = true;
-	runsetOrder = ["Ligation cleanup 1","Ligation cleanup 2"];
+	runsetOrder = ["Ligation cleanup 1","Ligation cleanup 1",
+		"Ligation cleanup 2","Ligation cleanup 2"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
 } else {
 	runset.appendProtocolFileToRunset(path+fileNames[formProtocol], 1, "", form);
@@ -132,6 +132,7 @@ if(formProtocol === "Adapter ligation") {
 }
 
 function updateSettings(protocol) {
+	settings = {};
 	if(protocol in presets) {
 		for(var s in presets[protocol]) {
 			settings[s] = presets[protocol][s];
