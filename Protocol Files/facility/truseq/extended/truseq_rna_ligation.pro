@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='951c83ebae5fa4063105f9cc530e41b7' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='5e755b7fb4b2a98f7e3ada77ef08e049' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -53,7 +53,7 @@ var vol_lig_stop = global.settings.bufferVolume;
 // the set temperature have been calibrated to:
 var temp_lig = global.settings.incubationTemp; // Actual reaction temperature: 30C
 // Ligation reaction incubation time (min):
-var time_lig = (test_mode) ? 0 : global.settings.incubationTime;
+var time_lig = global.settings.incubationTime * !test_mode;
 
 var dph = global.dph;
 
@@ -1198,7 +1198,7 @@ global.statusString = &quot;Ligation started...&quot;;' />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Block Type' Value='96' />
-						<Parameter Category='' Name='Program' Value='3,8,rna-lig ' />
+						<Parameter Category='' Name='Program' Value='1,2,quickrt ' />
 						<Parameter Category='Task Description' Name='Task number' Value='3' />
 						<Parameter Category='Task Description' Name='Task description' Value='Run a program (Biometra TRobot)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
