@@ -119,15 +119,15 @@ presets["Hyb setup 1"] = {
 	};
 
 presets["Capture wash"] = {
-	sampleVolume:45,
+	sampleVolume:100,
 	beadVolume:250,
 	washVolume:200,
 	protocolName:"Capture wash"
 	};
 
 presets["Capture elution"] = {
-	tipColumn:9,
-	reagentColumn:9,
+	tipColumn:1,
+	reagentColumn:1,
 	buffer1Volume:23,
 	buffer2Volume:4,
 	protocolName:"Capture elution"
@@ -138,7 +138,7 @@ presets["Hyb setup 2"] = {
 	reagentColumn:11,
 	bufferVolume:50,
 	oligoVolume:5,
-	sampleVolume:20,
+	sampleVolume:25,
 	dilutionVolume:20,
 	protocolName:"Second hyb setup"
 	};

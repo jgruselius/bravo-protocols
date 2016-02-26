@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='666c4fae8ba93e04fd97eaa4a54bbb45' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='0e0bd4ea4b231974c91e268351ecb9e5' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet_deepwell6.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -157,6 +157,65 @@ var testMode = global.formTestMode;' />
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='elute' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::Upstack' >
+					<Devices >
+						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 3' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+				</Task>
+				<Task Name='BuiltIn::Spawn Process' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Process to spawn' Value='transferTips' />
+						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+					</Parameters>
+				</Task>
+				<Plate_Parameters >
+					<Parameter Name='Plate name' Value='elutionTips' />
+					<Parameter Name='Plate type' Value='96 V11 LT250 Tip Box 19477.002' />
+					<Parameter Name='Simultaneous plates' Value='1' />
+					<Parameter Name='Plates have lids' Value='0' />
+					<Parameter Name='Plates enter the system sealed' Value='0' />
+					<Parameter Name='Use single instance of plate' Value='0' />
+					<Parameter Name='Automatically update labware' Value='0' />
+					<Parameter Name='Enable timed release' Value='0' />
+					<Parameter Name='Release time' Value='30' />
+					<Parameter Name='Auto managed counterweight' Value='' />
+					<Parameter Name='Barcode filename' Value='No Selection' />
+					<Parameter Name='Has header' Value='' />
+					<Parameter Name='Barcode or header South' Value='No Selection' />
+					<Parameter Name='Barcode or header West' Value='No Selection' />
+					<Parameter Name='Barcode or header North' Value='No Selection' />
+					<Parameter Name='Barcode or header East' Value='No Selection' />
+				</Plate_Parameters>
+				<Quarantine_After_Process >0</Quarantine_After_Process>
+			</Process>
+			<Process >
+				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::Place Plate' >
+					<Devices >
+						<Device Device_Name='Bravo - 1' Location_Name='2' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
+						<Parameter Category='' Name='Location to use' Value='2' />
+					</Parameters>
+				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -195,7 +254,7 @@ var testMode = global.formTestMode;' />
 					<TaskScript Name='TaskScript' Value='' />
 				</Task>
 				<Plate_Parameters >
-					<Parameter Name='Plate name' Value='elutionTips' />
+					<Parameter Name='Plate name' Value='transferTips' />
 					<Parameter Name='Plate type' Value='96 V11 LT250 Tip Box 19477.002' />
 					<Parameter Name='Simultaneous plates' Value='1' />
 					<Parameter Name='Plates have lids' Value='0' />
@@ -204,7 +263,7 @@ var testMode = global.formTestMode;' />
 					<Parameter Name='Automatically update labware' Value='0' />
 					<Parameter Name='Enable timed release' Value='0' />
 					<Parameter Name='Release time' Value='30' />
-					<Parameter Name='Auto managed counterweight' Value='' />
+					<Parameter Name='Auto managed counterweight' Value='0' />
 					<Parameter Name='Barcode filename' Value='No Selection' />
 					<Parameter Name='Has header' Value='' />
 					<Parameter Name='Barcode or header South' Value='No Selection' />
@@ -285,19 +344,6 @@ var testMode = global.formTestMode;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='elute' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='96 Nunc Deep Well 1 mL' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='elute' />
 					</Parameters>
 				</Task>
@@ -309,19 +355,6 @@ var testMode = global.formTestMode;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferEluate' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='96 Nunc Deep Well 1 mL' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferEluate' />
 					</Parameters>
@@ -410,19 +443,6 @@ var testMode = global.formTestMode;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferEluate' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='96 Nunc Deep Well 1 mL' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferEluate' />
 					</Parameters>
@@ -550,19 +570,6 @@ var testMode = global.formTestMode;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='elute' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='96 Nunc Deep Well 1 mL' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='elute' />
 					</Parameters>
 				</Task>
@@ -611,19 +618,6 @@ var testMode = global.formTestMode;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='aliquotBuffer1' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='96 Nunc Deep Well 1 mL' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='aliquotBuffer1' />
 					</Parameters>
 				</Task>
@@ -635,19 +629,6 @@ var testMode = global.formTestMode;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='aliquotBuffer2' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='96 Deep Well PP Sqr Well V Btm' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='96 Nunc Deep Well 1 mL' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='aliquotBuffer2' />
 					</Parameters>
@@ -970,7 +951,8 @@ task.Distancefromwellbottom = (columns &lt; 7) ? 0.5 : 0.3;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(columns == columnsDone) {
+					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,reagentColumn]];
+if(columns == columnsDone) {
 	task.Performtiptouch = true;
 	task.Whichsidestousefortiptouch = &quot;None&quot;;
 	task.Distancefromwellbottom = (columns &lt; 7) ? 5 : 15;
@@ -1018,7 +1000,7 @@ task.Distancefromwellbottom = (columns &lt; 7) ? 0.5 : 0.3;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,tipColumn]];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='elutionTips' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -1113,7 +1095,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,tipColumn+1]];' />
+					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,tipColumn]];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='elutionTips' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -1258,10 +1240,12 @@ task.Distancefromwellbottom = (columns &lt; 7) ? 0.4 : 0.25;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(columns == columnsDone) {
+					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,reagentColumn+1]];
+if(columns == columnsDone) {
 	task.Performtiptouch = true;
 	task.Whichsidestousefortiptouch = &quot;None&quot;;
-	task.Tiptouchretractdistance = -14.5;
+	task.Distancefromwellbottom = (columns &lt; 7) ? 5 : 15;
+	task.Tiptouchretractdistance = (columns &lt; 7) ? -4.5 : -14.5;
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='reagentPlate' />
@@ -1305,7 +1289,7 @@ task.Distancefromwellbottom = (columns &lt; 7) ? 0.4 : 0.25;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,tipColumn]];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='elutionTips' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -1859,7 +1843,7 @@ var mTouchRetract = -4;' />
    task.skip();
 }' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='elutionTips' />
+						<Parameter Category='' Name='Location, plate' Value='transferTips' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
@@ -2131,7 +2115,7 @@ if(mDoTipTouch) {
    task.skip();
 }' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='elutionTips' />
+						<Parameter Category='' Name='Location, plate' Value='transferTips' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
