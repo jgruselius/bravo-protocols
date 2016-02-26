@@ -109,8 +109,8 @@ presets["PCR setup"] = {
 	};
 
 presets["Hyb setup 1"] = {
-	tipColumn:7,
-	reagentColumn:7,
+	tipColumn:1,
+	reagentColumn:1,
 	bufferVolume:50,
 	oligoVolume:5,
 	sampleVolume:45,
@@ -132,10 +132,10 @@ presets["Capture elution"] = {
 	buffer2Volume:4,
 	protocolName:"Capture elution"
 	};
-	
+
 presets["Hyb setup 2"] = {
-	tipColumn:11,
-	reagentColumn:11,
+	tipColumn:1,
+	reagentColumn:1,
 	bufferVolume:50,
 	oligoVolume:5,
 	sampleVolume:25,
