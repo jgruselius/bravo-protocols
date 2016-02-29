@@ -97,6 +97,20 @@ presets["PCR cleanup"] = {
 	elutionVolume:15,
 	protocolName:"PCR cleanup"
 	};
+	
+presets["Capture cleanup"] = {
+	sampleVolume:25,
+	beadVolume:45,
+	elutionVolume:25,
+	protocolName:"Capture cleanup"
+	};
+
+presets["PCR cleanup 2"] = {
+	sampleVolume:50,
+	beadVolume:90,
+	elutionVolume:30,
+	protocolName:"PCR cleanup 2"
+	};
 
 presets["PCR setup"] = {
 	tipColumn:7,
@@ -167,10 +181,12 @@ fileNames["Library prep"] = "rna-access.rst";
 fileNames["Ligation cleanup"] = ".rst";
 fileNames["PCR setup"] = "rna-access_pcr.pro";
 fileNames["PCR cleanup"] = "illumina_spri.pro";
+fileNames["PCR cleanup 2"] = "illumina_spri.pro";
 fileNames["Hyb setup 1"] = "rna-access_hyb.pro";
 fileNames["Hyb setup 2"] = "rna-access_hyb.pro";
 fileNames["Capture wash"] = "rna-access_wash.pro";
 fileNames["Capture elution"] = "rna-access_elution.pro";
+fileNames["Capture cleanup"] = "illumina_spri.pro";
 fileNames["Capture"] = "rna-access_capture.rst";
 
 var runsetOrder = [];
