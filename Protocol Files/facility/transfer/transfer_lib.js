@@ -173,10 +173,10 @@ function columnFromIndexReverse(n) { return 12 - ((n-1) - (n-1) % 8) / 8; }
 */
 function convertCoords(wellPos) {
 	// parseNumber function is used here to work both when wellPos
-	// has format 'A5' as well as 'A05', 'A:5 or A:05'
+	// has format 'A5' as well as 'A05', 'A:5' or 'A:05'
 	try {
-		var row = parseNumber(wellPos.toUpperCase().charCodeAt(0) - 64);
-		var column = parseNumber(wellPos.replace(":","").substr(1));
+		var row = parseNumber(wellPos.trim().toUpperCase().charCodeAt(0) - 64);
+		var column = parseNumber(wellPos.trim().replace(":","").substr(1));
 	} catch(e) {
 		throw "InvalidCoordinatesException: \"" + wellPos + "\": " + e;
 	}
@@ -191,7 +191,7 @@ function convertCoords(wellPos) {
  supports formats 'C4', 'C04', 'C:4', 'C:04' and returns [3, 4]
 */
 function convertCoordsRegExp(wellPos) {
-	var match = wellPos.match(/^([A-Ha-h])(?:\:)?((?:0)?[1-9]|1[0-2])$/);
+	var match = wellPos.trim().match(/^([A-Ha-h])(?:\:)?((?:0)?[1-9]|1[0-2])$/);
 	if(!match) throw "InvalidCoordinatesException: \"" + wellPos + "\"";
 	try {
 		var row = parseNumber(match[1].toUpperCase().charCodeAt(0) - 64);
@@ -209,14 +209,19 @@ function convertCoordsRegExp(wellPos) {
 function transferSorter(plateCol, wellCol) {
 	return (function(row1, row2) {
 		var a = {}, b = {};
-		a.id = row1[plateCol].toLowerCase();
-		b.id = row2[plateCol].toLowerCase();
+		a.id = row1[plateCol].trim().toLowerCase();
+		b.id = row2[plateCol].trim().toLowerCase();
 		// If plate ID is a number, convert from string to int/double:
 		if(isNumber(a.id) && isNumber(b.id)) {
 			a.id = parseNumber(a.id);
 			b.id = parseNumber(b.id);
 		}
-		// Sort alphabetically/numerically on plate ID, then source well:
+		// If plate ID is a LIMS ID, convert from string to int:
+		else if(a.id.match(/\d\d\-\d{4,}/) && b.id.match(/\d\d\-\d{4,}/)) {
+			a.id = parseNumber(a.id.replace("-",""));
+			b.id = parseNumber(b.id.replace("-",""));
+		}
+		// Sort alphabetically/n	umerically on plate ID, then source well:
 		if(a.id !== b.id) {
 			return (a.id < b.id) ? -1 : (a.id > b.id ? 1 : 0);
 		} else {
@@ -266,13 +271,13 @@ function parseTransfers(str) {
 		var row = rowArray[i];
 		var sourcePlate, sourceWell, volume, destinationWell, destinationPlate;
 		try {
-			sourcePlate = row[0];
+			sourcePlate = row[0].trim();
 			sourceWell = convertCoordsRegExp(row[1]);
 			volume = parseNumber(row[2], 3);
 			// Temporary fix to also handle format with destination plate ID:
 			try {
 				destinationWell = convertCoordsRegExp(row[4]);
-				destinationPlate = row[3];
+				destinationPlate = row[3].trim();
 			} catch(e) {
 				destinationPlate = "aliquot_plate";
 				destinationWell = convertCoordsRegExp(row[3]);
@@ -375,13 +380,13 @@ function parseDilutionTransfers(str) {
 		var sourcePlate, sourceWell, sourceVolume;
 		var destinationPlate, destinationWell, diluentVolume;
 		try {
-			sourcePlate = row[0];
+			sourcePlate = row[0].trim();
 			sourceWell = convertCoordsRegExp(row[1]);
 			sourceVolume = parseNumber(row[2], 3);
 			// Temporary fix to also handle format with destination plate ID:
 			try {
 				destinationWell = convertCoordsRegExp(row[4]);
-				destinationPlate = row[3];
+				destinationPlate = row[3].trim();
 				// The substraction float may contain many dec so it is rounded:
 				diluentVolume = +(parseNumber(row[5], 3) - sourceVolume).toFixed(3);
 			} catch(e) {
@@ -443,9 +448,9 @@ function parseDilutionTransfersLims(str) {
 		var sourcePlate, sourceWell, sourceVolume;
 		var destinationPlate, destinationWell, diluentVolume;
 		try {
-			sourcePlate = row[1];
+			sourcePlate = row[1].trim();
 			sourceWell = convertCoordsRegExp(row[2]);
-			destinationPlate = row[6];
+			destinationPlate = row[6].trim();
 			destinationWell = convertCoordsRegExp(row[7]);
 			// A missing value should be treated as 0 volume:
 			try {
