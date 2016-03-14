@@ -60,7 +60,7 @@ presets["CA default"] = {
 };
 presets["cDNA cleanup"] = {
 		sampleVolume: 50,
-		beadVolume: 20,
+		beadVolume: 40,
 		precipVolume: 100,
 		beadResuspVolume: 10,
 		bindTime: 600,
