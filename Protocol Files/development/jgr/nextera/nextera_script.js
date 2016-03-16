@@ -16,7 +16,7 @@ var purifPresets = {};
 purifPresets["Tagmentation cleanup"] = {sampleVolume:65,beadVolume:65,elutionVolume:20};
 purifPresets["First PCR cleanup"] = {sampleVolume:50,beadVolume:90,elutionVolume:25};
 purifPresets["Second PCR cleanup"] = {sampleVolume:50,beadVolume:90,elutionVolume:30};
-purifPresets["Capture cleanup"] = {sampleVolume:25,beadVolume:45,elutionVolume:25};
+purifPresets["Capture cleanup"] = {sampleVolume:40,beadVolume:45,elutionVolume:25}; // Extra 15 uL sample volume to compensate for foaming
 
 switch(formProtocol) {
 	case "Bead purification":
