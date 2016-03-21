@@ -316,15 +316,17 @@ function parseAdapterTransfers(str, indexSet) {
 	// Tables mapping the plate positions of the different adapters:
 	var INDEX_SETS = {};
 
-	INDEX_SETS["truseq"] = {1:"A1", 2:"B1", 3:"C1", 4:"D1", 5:"E1", 6:"F1",
-							7:"G1", 8:"H1", 9:"A2", 10:"B2", 11:"C2", 12:"D2",
-							13:"E2", 14:"F2", 15:"G2", 16:"H2", 18:"A3",
-							19:"B3", 20:"C3", 21:"D3", 22:"E3", 23:"F3",
-							25:"G3", 27:"H3"};
+	INDEX_SETS["truseq"] = {
+		1:"A1", 2:"B1", 3:"C1", 4:"D1", 5:"E1", 6:"F1", 7:"G1", 8:"H1",
+		9:"A2", 10:"B2", 11:"C2", 12:"D2", 13:"E2", 14:"F2", 15:"G2",
+		16:"H2", 18:"A3", 19:"B3", 20:"C3", 21:"D3", 22:"E3", 23:"F3",
+		25:"G3", 27:"H3"
+	};
 
-	INDEX_SETS["sureselect"] = {1:"A1", 2:"B1", 3:"C1", 4:"D1", 5:"E1", 6:"F1",
-							7:"G1", 8:"H1", 9:"A2", 10:"B2", 11:"C2", 12:"D2",
-							13:"E2"};
+	INDEX_SETS["sureselect"] = {
+		1:"A1", 2:"B1", 3:"C1", 4:"D1", 5:"E1", 6:"F1", 7:"G1", 8:"H1",
+		9:"A2", 10:"B2", 11:"C2", 12:"D2", 13:"E2"
+	};
 	// TruSeq dual indexes are numbered column-wise for the SciLife ID (dualNN)
 	INDEX_SETS["truseq_dual"] = {};
 	for(var i=1; i<=96; i++) {
