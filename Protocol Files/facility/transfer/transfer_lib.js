@@ -7,7 +7,7 @@
 
 /*
  CHANGED in this version:
- --parseDilutionTransfersLims can now handle multiple source plates
+ -- Numeric conversion of LIMS ID's (P1234P1, 27-12345) when sorting
 
  TODO
  --Make a common function for assigning sourceVolume, sourcePlate etc.
@@ -215,19 +215,29 @@ function transferSorter(plateCol, wellCol) {
 		if(isNumber(a.id) && isNumber(b.id)) {
 			a.id = parseNumber(a.id);
 			b.id = parseNumber(b.id);
+		} else {
+			var p = /\d\d\-\d{4,}/;
+			// If plate ID is a LIMS ID, convert from string to int:
+			if(a.id.match(p) && b.id.match(p)) {
+				a.id = parseNumber(a.id.replace("-",""));
+				b.id = parseNumber(b.id.replace("-",""));
+			} else {
+				p = /P\d{3,}P\d{1,2}/i;
+				// If plate ID is a project plate ID, e.g. P4568P2,
+				// covert to int by removing 'P', e.g. 45682:
+				if(a.id.match(p) && b.id.match(p)) {
+					a.id = parseNumber(a.id.replace(/P/gi,""));
+					b.id = parseNumber(b.id.replace(/P/gi,""));
+				}
+			}
 		}
-		// If plate ID is a LIMS ID, convert from string to int:
-		else if(a.id.match(/\d\d\-\d{4,}/) && b.id.match(/\d\d\-\d{4,}/)) {
-			a.id = parseNumber(a.id.replace("-",""));
-			b.id = parseNumber(b.id.replace("-",""));
-		}
-		// Sort alphabetically/n	umerically on plate ID, then source well:
+		// Sort alphabetically/numerically on plate ID, then source well:
 		if(a.id !== b.id) {
 			return (a.id < b.id) ? -1 : (a.id > b.id ? 1 : 0);
 		} else {
-			a.coords = convertCoordsRegExp(row1[wellCol]);
-			b.coords = convertCoordsRegExp(row2[wellCol]);
-			return (a.coords[1] === b.coords[1]) ? a.coords[0] - b.coords[0] : a.coords[1] - b.coords[1];
+			a.pos = convertCoordsRegExp(row1[wellCol]);
+			b.pos = convertCoordsRegExp(row2[wellCol]);
+			return (a.pos[1] === b.pos[1]) ? a.pos[0]-b.pos[0] : a.pos[1]-b.pos[1];
 		}
 	});
 }
@@ -246,7 +256,7 @@ function parseCsv(str, delim) {
 	var rawRowArray = str.replace(/"/g,"").split("\n");
 	// Remove all empty rows:
 	var rowArray = [];
-	for(var i in rawRowArray) {
+	for(var i=0, n=rawRowArray.length; i<n; i++) {
 		var row = rawRowArray[i];
 		if(row) rowArray.push(row.split(delimiter));
 	}
@@ -267,7 +277,7 @@ function parseTransfers(str) {
 	var transferArrays = [];
 	var plateSet = {};
 	var plateIndex = 0;
-	for(var i in rowArray) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
 		var sourcePlate, sourceWell, volume, destinationWell, destinationPlate;
 		try {
@@ -340,7 +350,7 @@ function parseAdapterTransfers(str, indexSet) {
 	});
 	// Create transfer objects from sorted array:
 	var transferArray = [];
-	for(var i in rowArray) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
 		var source, volume, destinationWell;
 		try {
@@ -375,7 +385,7 @@ function parseDilutionTransfers(str) {
 	var plateSet = {};
 	var sourceIndex;
 	var diluentWell = convertCoords("A1");
-	for(var i in rowArray) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
 		var sourcePlate, sourceWell, sourceVolume;
 		var destinationPlate, destinationWell, diluentVolume;
@@ -443,7 +453,7 @@ function parseDilutionTransfersLims(str) {
 	var plateSet = {};
 	var sourceIndex;
 	var diluentWell = convertCoords("A1");
-	for(var i in rowArray) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
 		var sourcePlate, sourceWell, sourceVolume;
 		var destinationPlate, destinationWell, diluentVolume;
@@ -570,10 +580,12 @@ function writeFile(filePath, content) {
 function TransferManager(transferMode, tipMode) {
 	// Error state is set to false if an exception is caught:
 	this.errorState = true;
-	this.functionMap = {"transfer":parseTransfers,
-						"dilution":parseDilutionTransfers,
-						"adapter":parseAdapterTransfers,
-						"lims_dilution": parseDilutionTransfersLims };
+	this.functionMap = {
+		"transfer":parseTransfers,
+		"dilution":parseDilutionTransfers,
+		"adapter":parseAdapterTransfers,
+		"lims_dilution": parseDilutionTransfersLims
+	};
 	if(transferMode in this.functionMap) {
 		this.parseFunction = this.functionMap[transferMode];
 	} else {
@@ -809,7 +821,7 @@ function BarcodeManager(side, logPath) {
 		var date = [d.getFullYear(), d.getMonth()+1, d.getDate(), d.getHours(),
 				d.getMinutes(), d.getSeconds()];
 		// Convert to string and pad with zeroes, i.e. 8 -> "08":
-		for(var i = date.length; i-->0;) {
+		for(var i=date.length; i-->0;) {
 			var x = date[i];
 			date[i] = (x > 9) ? x + "" : "0" + x;
 		}
@@ -820,7 +832,7 @@ function BarcodeManager(side, logPath) {
 		var d = new Date();
 		var date = [d.getFullYear(), d.getMonth()+1, d.getDate()];
 		// Convert to string and pad with zeroes, i.e. 8 -> "08":
-		for(var i = date.length; i-->0;) {
+		for(var i=date.length; i-->0;) {
 			var x = date[i];
 			date[i] = (x > 9) ? x + "" : "0" + x;
 		}
