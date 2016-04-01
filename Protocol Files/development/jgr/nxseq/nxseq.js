@@ -41,19 +41,16 @@ protocols["Ligation"] = {
 		reagentColumn: 2,
 		sampleVolume: 50,
 		bufferVolume: 0,
-		reagentVolume: 32,
+		reagentVolume: 4,
 		adapterVolume: 3,
-		stopVolume: 5,
-		doOffDeckIncubation: false,
-		incubationTime: 600,
-		incubationTemperature: 25,
+		doOffDeckIncubation: true
 	}
 };
 
 protocols["Ligation cleanup 1"] = {
 	file: "illumina_spri.pro",
 	settings: {
-		sampleVolume: 85,
+		sampleVolume: 57,
 		beadVolume: 57,
 		elutionVolume: 50
 	}
@@ -68,29 +65,8 @@ protocols["Ligation cleanup 2"] = {
 	}
 };
 
-protocols["PCR cleanup"] = {
-	file: "illumina_spri.pro",
-	settings: {
-		sampleVolume: 50,
-		beadVolume: 50,
-		elutionVolume: 15
-	}
-};
-
-protocols["PCR setup"] = {
-	file: "illumina_spri.pro",
-	settings: {
-		tipColumn: 3,
-		reagentColumn: 3,
-		sampleVolume: 20,
-		reagentVolume: 25,
-		primerVolume: 5,
-		doOffDeckIncubation: true
-	}
-};
-
 protocols["Library prep"] = {
-	"nxseq.rst"
+	file: "nxseq.rst"
 };
 
 protocols["Ligation cleanup"] = {
