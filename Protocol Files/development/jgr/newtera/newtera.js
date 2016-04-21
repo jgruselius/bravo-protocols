@@ -30,12 +30,13 @@ protocols["Tagmentation"] = {
 		sampleVolume: 10,
 		reagentVolume: 40,
 		beadVolume: 10,
+		stopVolume: 10,
 		doOffDeckIncubation: true
 	}
 };
 
-protocols["Denaturation"] = {
-	file: "newtera_denat.pro",
+protocols["Wash"] = {
+	file: "newtera_wash.pro",
 	settings: {
 		tipColumn: 3,
 		reagentColumn: 3,
