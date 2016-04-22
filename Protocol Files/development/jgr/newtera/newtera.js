@@ -35,7 +35,7 @@ protocols["Tagmentation"] = {
 	}
 };
 
-protocols["Wash"] = {
+protocols["Denaturation wash"] = {
 	file: "newtera_wash.pro",
 	settings: {
 		tipColumn: 3,
@@ -91,7 +91,7 @@ var runsetOrder = [];
 
 if(formProtocol === "Library prep") {
 	runsetMode = true;
-	runsetOrder = ["Tagmentation","Denaturation", "PCR setup"];
+	runsetOrder = ["Tagmentation","Denaturation wash", "PCR setup"];
 	runset.openRunsetFile(path+protocols[formProtocol].file, form);
 } else {
 	runset.appendProtocolFileToRunset(path+protocols[formProtocol].file, 1, "", form);
