@@ -33,14 +33,14 @@ presets["Adenylation"] = {
 		incubationTime: 1800
 };
 presets["Ligation"] = {
-		sampleVolume: 20,
+		sampleVolume: 30,
 		reagentVolume: 5,
 		bufferVolume: 5,
 		adapterVolume: 2.5,
 		tipColumn: 2,
 		reagentColumn: 2,
 		incubationTemp: 30,
-		incubationTime: 300,
+		incubationTime: 600,
 };
 presets["PCR setup"] = {
 		sampleVolume: 40,
@@ -74,12 +74,12 @@ presets["Ligation cleanup 1"] = {
 		precipVolume: 100,
 		beadResuspVolume: 17.5,
 		bindTime: 600,
-		elutionVolume: 30,
+		elutionVolume: 40,
 		transferSample: true,
 		sealFinalPlate: false
 };
 presets["Ligation cleanup 2"] = {
-		sampleVolume: 42.5,
+		sampleVolume: 40,
 		beadVolume: 20,
 		precipVolume: 100,
 		beadResuspVolume: 17.5,
