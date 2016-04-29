@@ -43,11 +43,11 @@ presets["Ligation"] = {
 		incubationTime: 600,
 };
 presets["PCR setup"] = {
-		sampleVolume: 40,
-		reagentVolume: 25,
-		primerVolume: 5,
-		tipColumn: 4,
-		reagentColumn: 4
+		sampleVolume: 30,
+		reagentVolume: 37.5,
+		primerVolume: 7.5,
+		tipColumn: 1,
+		reagentColumn: 1
 };
 presets["CA default"] = {
 		sampleVolume: 50,
@@ -60,11 +60,11 @@ presets["CA default"] = {
 };
 presets["cDNA cleanup"] = {
 		sampleVolume: 50,
-		beadVolume: 40,
+		beadVolume: 15,
 		precipVolume: 100,
 		beadResuspVolume: 10,
 		bindTime: 600,
-		elutionVolume: 17.5,
+		elutionVolume: 16,
 		transferSample: false,
 		sealFinalPlate: false
 };
@@ -84,7 +84,7 @@ presets["Ligation cleanup 2"] = {
 		precipVolume: 100,
 		beadResuspVolume: 17.5,
 		bindTime: 600,
-		elutionVolume: 30,
+		elutionVolume: 20,
 		transferSample: false,
 		sealFinalPlate: true
 };
@@ -102,6 +102,7 @@ presets["PCR cleanup"] = {
 var settings = {};
 
 var fileNames = {};
+fileNames["mRNA purification"] = "rna_prep_v1511.pro";
 fileNames["cDNA cleanup"] = "ca_p1-2.rst";
 fileNames["Adenylation"] = "truseq_rna_adenylation.pro";
 fileNames["PCR setup"] = "truseq_rna_pcr.pro";

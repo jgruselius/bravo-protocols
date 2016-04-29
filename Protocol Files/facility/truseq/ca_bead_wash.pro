@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='32383040c9a38dc1beb62afcaa8e4033' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='c857a532a5a886801025c7cb2135f2a8' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -35,7 +35,7 @@ var sampleVolume = global.settings.sampleVolume;
 var dph = global.dph;
 
 // Not changed atm:
-var rinseVolume = 80;
+var rinseVolume = 70;
 var beadWashVolume = 150;
 // Number of times to perform the bead storage buffer removal wash:
 var beadWashRepeats = 1;

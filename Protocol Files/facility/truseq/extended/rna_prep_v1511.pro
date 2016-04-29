@@ -59,7 +59,7 @@ var PRE_ASP_SMALL = 10;
 // Volume to rinse tips with:
 var vol_rinse = 80;
 // Max volume to aspirate:
-var MAX_VOLUME = 170;
+var MAX_TIP_VOLUME = 170;
 
 // mRNA purification vars
 // Volume of starting RNA sample:
@@ -5770,8 +5770,7 @@ Also turn off the ThermoCube cooling unit.' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];;
 var mGetTips = true;
@@ -5902,7 +5901,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='6' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -6027,8 +6026,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='71' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
-   mMixVolume = maxVolume * 0.8;
+					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; MAX_TIP_VOLUME) {
+   mMixVolume = MAX_TIP_VOLUME * 0.8;
 }
 task.Volume = mMixVolume;
 task.Mixcycles = mMixCycles;
@@ -6209,8 +6208,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -6341,7 +6339,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='6' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -6466,8 +6464,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='64' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
-   mMixVolume = maxVolume * 0.8;
+					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; MAX_TIP_VOLUME) {
+   mMixVolume = MAX_TIP_VOLUME * 0.8;
 }
 task.Volume = mMixVolume;
 task.Mixcycles = mMixCycles;
@@ -6736,7 +6734,7 @@ if(mDoTipTouch) {
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = vol_beads;	// Volume to dispense per well
-var maxTipVolume = 170;	// Tip capacity
+var maxTipVolume = MAX_TIP_VOLUME;	// Tip capacity
 var columns = n_columns;		// Total number of columns to process
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 10;		// Extra liquid volume to aspirate
@@ -7121,7 +7119,7 @@ task.Mixcycles = (columnsDone === 0) ? 10 : 3;' />
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = vol_bind;	// Volume to dispense per well
-var maxTipVolume = 170;	// Tip capacity
+var maxTipVolume = MAX_TIP_VOLUME;	// Tip capacity
 var columns = n_columns;		// Total number of columns to process
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 4;		// Extra liquid volume to aspirate
@@ -7461,7 +7459,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = vol_elute;	// Volume to dispense per well
-var maxTipVolume = 170;	// Tip capacity
+var maxTipVolume = MAX_TIP_VOLUME;	// Tip capacity
 var columns = n_columns;		// Total number of columns to process
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 4;		// Extra liquid volume to aspirate
@@ -7801,7 +7799,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = vol_frag;	// Volume to dispense per well
-var maxTipVolume = 170;	// Tip capacity
+var maxTipVolume = MAX_TIP_VOLUME;	// Tip capacity
 var columns = n_columns;		// Total number of columns to process
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 4;		// Extra liquid volume to aspirate
@@ -8140,8 +8138,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -8267,7 +8264,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='6' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -8284,7 +8281,7 @@ task.Distancefromwellbottom = 50;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Extra transfer to waste to rinse tips
 task.Wellselection = mWellSelection;
-task.Volume = maxVolume;
+task.Volume = MAX_TIP_VOLUME;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mAspDistance;' />
 					<Parameters >
@@ -8328,7 +8325,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Extra transfer to waste to rinse tips
 task.Wellselection = mWellSelection;
-task.Volume = maxVolume;
+task.Volume = MAX_TIP_VOLUME;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = 25;
 task.Performtiptouch  = true;
@@ -8609,7 +8606,7 @@ if(mDoTipTouch) {
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = vol_synth1;	// Volume to dispense per well
-var maxTipVolume = 170;	// Tip capacity
+var maxTipVolume = MAX_TIP_VOLUME;	// Tip capacity
 var columns = n_columns;		// Total number of columns to process
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 4;		// Extra liquid volume to aspirate
@@ -8949,7 +8946,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var aliquotVolume = vol_synth2;	// Volume to dispense per well
-var maxTipVolume = 170;	// Tip capacity
+var maxTipVolume = MAX_TIP_VOLUME;	// Tip capacity
 var columns = n_columns;		// Total number of columns to process
 var columnsDone = 0;	// Number of columns dispensed so far
 var deadVolume = 4;		// Extra liquid volume to aspirate
@@ -9288,8 +9285,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -9415,7 +9411,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='6' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -9665,8 +9661,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];;
 var mGetTips = true;
@@ -9808,7 +9803,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='7' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -10058,8 +10053,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -10201,7 +10195,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='7' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -10456,8 +10450,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -10599,7 +10592,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='7' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -10849,8 +10842,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -10992,7 +10984,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='7' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -11247,8 +11239,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -11435,7 +11426,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
-task.Volume = maxVolume - mRinseVolume;
+task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mDispDistance;' />
 					<Parameters >
@@ -11478,7 +11469,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 						<Setting Name='Estimated time' Value='3' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
-task.Volume = maxVolume - mRinseVolume;
+task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mMixDistance;' />
 					<Parameters >
@@ -11520,7 +11511,7 @@ task.Distancefromwellbottom = mMixDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = maxVolume - mRinseVolume;
+					<TaskScript Name='TaskScript' Value='task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Mixcycles = mMixCycles;
 task.Liquidclass = mMixLiquidClass;
 task.Aspiratedistance = mMixDistance;
@@ -11746,8 +11737,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -11934,7 +11924,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
-task.Volume = maxVolume - mRinseVolume;
+task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mDispDistance;' />
 					<Parameters >
@@ -11977,7 +11967,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 						<Setting Name='Estimated time' Value='3' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
-task.Volume = maxVolume - mRinseVolume;
+task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mMixDistance;' />
 					<Parameters >
@@ -12019,7 +12009,7 @@ task.Distancefromwellbottom = mMixDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = maxVolume - mRinseVolume;
+					<TaskScript Name='TaskScript' Value='task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Mixcycles = mMixCycles;
 task.Liquidclass = mMixLiquidClass;
 task.Aspiratedistance = mMixDistance;
@@ -12245,8 +12235,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -12433,7 +12422,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
-task.Volume = maxVolume - mRinseVolume;
+task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mDispDistance;' />
 					<Parameters >
@@ -12476,7 +12465,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 						<Setting Name='Estimated time' Value='3' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
-task.Volume = maxVolume - mRinseVolume;
+task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mMixDistance;' />
 					<Parameters >
@@ -12518,7 +12507,7 @@ task.Distancefromwellbottom = mMixDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = maxVolume - mRinseVolume;
+					<TaskScript Name='TaskScript' Value='task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Mixcycles = mMixCycles;
 task.Liquidclass = mMixLiquidClass;
 task.Aspiratedistance = mMixDistance;
@@ -12744,8 +12733,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -12932,7 +12920,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
-task.Volume = maxVolume - mRinseVolume;
+task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mDispDistance;' />
 					<Parameters >
@@ -12975,7 +12963,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 						<Setting Name='Estimated time' Value='3' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
-task.Volume = maxVolume - mRinseVolume;
+task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Liquidclass = mLiquidClass;
 task.Distancefromwellbottom = mMixDistance;' />
 					<Parameters >
@@ -13017,7 +13005,7 @@ task.Distancefromwellbottom = mMixDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Volume = maxVolume - mRinseVolume;
+					<TaskScript Name='TaskScript' Value='task.Volume = MAX_TIP_VOLUME - mRinseVolume;
 task.Mixcycles = mMixCycles;
 task.Liquidclass = mMixLiquidClass;
 task.Aspiratedistance = mMixDistance;
@@ -13243,8 +13231,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -13370,7 +13357,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='6' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -13710,8 +13697,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -13842,8 +13828,8 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='31' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
-   mMixVolume = maxVolume * 0.8;
+					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; MAX_TIP_VOLUME) {
+   mMixVolume = MAX_TIP_VOLUME * 0.8;
 }
 task.Volume = mMixVolume;
 task.Mixcycles = mMixCycles;
@@ -13892,7 +13878,7 @@ task.Wellselection = mWellSelection;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);
 var mMixVolume = 0.7 * (vol_elute + vol_bind);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='7' />
@@ -14018,8 +14004,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='54' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
-   mMixVolume = maxVolume * 0.8;
+					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; MAX_TIP_VOLUME) {
+   mMixVolume = MAX_TIP_VOLUME * 0.8;
 }
 task.Volume = mMixVolume;
 task.Mixcycles = mMixCycles;
@@ -14287,8 +14273,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -14435,7 +14420,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='7' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -14560,8 +14545,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='28' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
-   mMixVolume = maxVolume * 0.8;
+					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; MAX_TIP_VOLUME) {
+   mMixVolume = MAX_TIP_VOLUME * 0.8;
 }
 task.Volume = mMixVolume;
 task.Mixcycles = mMixCycles;
@@ -14829,8 +14814,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -14961,7 +14945,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='6' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -15086,8 +15070,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='53' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
-   mMixVolume = maxVolume * 0.8;
+					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; MAX_TIP_VOLUME) {
+   mMixVolume = MAX_TIP_VOLUME * 0.8;
 }
 task.Volume = mMixVolume;
 task.Mixcycles = mMixCycles;
@@ -15355,8 +15339,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection =[[1,13-n_columns]];
 var mGetTips = true;
@@ -15487,7 +15470,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='6' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -15612,8 +15595,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='34' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
-   mMixVolume = maxVolume * 0.8;
+					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; MAX_TIP_VOLUME) {
+   mMixVolume = MAX_TIP_VOLUME * 0.8;
 }
 task.Volume = mMixVolume;
 task.Mixcycles = mMixCycles;
@@ -15881,8 +15864,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -16016,7 +15998,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='6' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -16138,8 +16120,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='21' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
-   mMixVolume = maxVolume * 0.8;
+					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; MAX_TIP_VOLUME) {
+   mMixVolume = MAX_TIP_VOLUME * 0.8;
 }
 task.Volume = mMixVolume;
 task.Mixcycles = mMixCycles;
@@ -16323,8 +16305,7 @@ if(mDoTipTouch) {
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
-var mHeadMode = head_mode;
+					<TaskScript Name='TaskScript' Value='var mHeadMode = head_mode;
 var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-n_columns]];
 var mGetTips = true;
@@ -16458,7 +16439,7 @@ task.Distancefromwellbottom = 50;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / MAX_TIP_VOLUME);' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='6' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -16580,8 +16561,8 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='21' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
-   mMixVolume = maxVolume * 0.8;
+					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; MAX_TIP_VOLUME) {
+   mMixVolume = MAX_TIP_VOLUME * 0.8;
 }
 task.Volume = mMixVolume;
 task.Mixcycles = mMixCycles;
