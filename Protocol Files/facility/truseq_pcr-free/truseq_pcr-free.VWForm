@@ -17,7 +17,7 @@
       <Property name="ForeColor">0, 0, 0</Property>
       <Property name="TabIndex">19</Property>
       <Property name="Font">Tahoma, 10pt</Property>
-      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formNanoMode;" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formNanoMode" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />

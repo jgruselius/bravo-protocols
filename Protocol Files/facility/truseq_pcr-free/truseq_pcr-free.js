@@ -9,7 +9,7 @@ var extended = !!formExtended;
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
 var altBeadPlate = true;
-var nanoMode !!formNanoMode;
+var nanoMode = !!formNanoMode;
 
 var presets = {};
 presets["End repair"] = {
