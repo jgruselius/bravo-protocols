@@ -2,8 +2,8 @@
 
 runset.clear();
 
-var path = "C:/VWorks Workspace/Protocol Files/development/jgr/nxseq/";
-var form = "nxseq.VWForm";
+var path = "C:/VWorks Workspace/Protocol Files/development/jgr/10x/";
+var form = "10x.VWForm";
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
@@ -16,33 +16,33 @@ if(testMode) print("Skipping incubations!");
 var protocols = {};
 
 protocols["Plate filler"] = {
-	file: "nxseq_filler.pro",
+	file: "10x_filler.pro",
 	settings: {
 		volumes: [400, 1300]
 	}
 };
 
 protocols["A-tailing"] = {
-	file: "nxseq_reaction.pro",
+	file: "10x_reaction.pro",
 	settings: {
 		tipColumn: 1,
 		reagentColumn: 1,
-		sampleVolume: 17,
+		sampleVolume: 50,
 		bufferVolume: 0,
-		reagentVolume: 33,
+		reagentVolume: 10,
 		doOffDeckIncubation: true
 	}
 };
 
 protocols["Ligation"] = {
-	file: "nxseq_ligation.pro",
+	file: "10x_ligation.pro",
 	settings: {
 		tipColumn: 2,
 		reagentColumn: 2,
-		sampleVolume: 50,
+		sampleVolume: 60,
 		bufferVolume: 0,
-		reagentVolume: 4,
-		adapterVolume: 3,
+		reagentVolume: 47.5,
+		adapterVolume: 2.5,
 		doOffDeckIncubation: true
 	}
 };
@@ -50,23 +50,34 @@ protocols["Ligation"] = {
 protocols["Ligation cleanup 1"] = {
 	file: "illumina_spri.pro",
 	settings: {
-		sampleVolume: 57,
-		beadVolume: 57,
-		elutionVolume: 50
+		sampleVolume: 110,
+		beadVolume: 88,
+		elutionVolume: 40
 	}
 };
 
-protocols["Ligation cleanup 2"] = {
+protocols["PCR setup"] = {
+	file: "10x_pcr.pro",
+	settings: {
+		tipColumn:3,
+		reagentColumn:3,
+		sampleVolume:40,
+		reagentVolume:55,
+		primerVolume:5
+	}
+};
+
+protocols["PCR cleanup"] = {
 	file: "illumina_spri.pro",
 	settings: {
 		sampleVolume: 100,
-		beadVolume: 75,
-		elutionVolume: 25,
+		beadVolume: 50,
+		elutionVolume: 20,
 	}
 };
 
 protocols["Library prep"] = {
-	file: "nxseq.rst"
+	file: "10x.rst"
 };
 
 protocols["Ligation cleanup"] = {
