@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='9781c4d6944bc4761922871a93e34867' version='2.0' >
-	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
+<Velocity11 file='Protocol_Data' md5sum='d1b843f4060bee8ce9b01b688ddd872c' version='2.0' >
+	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
 			<Process >
@@ -14,7 +14,8 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var global = GetGlobalObject();
 var columns = global.formColumns || 5;
-var runsetMode = global.runsetMode &amp;&amp; global.updateRunset();
+var runsetMode = global.runsetMode;
+if(runsetMode) global.updateRunset();
 var MAX_TIP_VOLUME = 175;
 var reagentVolume = global.settings.reagentVolume || 20;
 var primerVolume = global.settings.primerVolume || 10; // Total primer volume
@@ -200,7 +201,7 @@ var dph = global.dph;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='if(altPlate) plate.labware = &quot;96 Nunc Deep Well 1 mL&quot;;' />
+					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='9' />
@@ -233,7 +234,7 @@ var dph = global.dph;' />
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='ReagentPlate' />
-					<Parameter Name='Plate type' Value='96 Eppendorf Twin.tec PCR' />
+					<Parameter Name='Plate type' Value='96 Nunc Deep Well 1 mL' />
 					<Parameter Name='Simultaneous plates' Value='1' />
 					<Parameter Name='Plates have lids' Value='0' />
 					<Parameter Name='Plates enter the system sealed' Value='0' />
@@ -595,7 +596,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='42' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(runsetMode) task.Wellselection = [[1,4]];' />
 					<Parameters >

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='611dfe4628293e31d5405a698b04e2b1' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='4f5508461b8d174750154ba53ec32597' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -10,10 +10,11 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var global = GetGlobalObject();
-var runsetMode = global.runsetMode &amp;&amp; global.updateRunset();
+var runsetMode = global.runsetMode;
+if(runsetMode) global.updateRunset();
 var columns = global.formColumns || 1;
 var testMode = global.testMode;
 
@@ -22,10 +23,7 @@ var WASHES = 3;
 var PELLET_TIME = 90;
 
 var sampleVolume = global.settings.sampleVolume;
-var reagentVolume = global.settings.reagentVolume;
 var washVolume = global.settings.washVolume;
-var tipColumn = global.settings.tipColumn;
-var reagentColumn = global.settings.reagentColumn;
 
 var dph = global.dph;
 ' />
@@ -288,7 +286,7 @@ var dph = global.dph;
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var maxVolume = 175;
 var mHeadMode = &quot;1,2,1,&quot;+columns;
@@ -296,26 +294,26 @@ var mWellSelection = [[1,1]];
 var mTipSelection = [[1,13-columns]];
 var mGetTips = true;
 var mReturnTips = true;
-var mLiquidClass = &quot;j_normal_large_vol&quot;;
+var mLiquidClass = &quot;j_slow_large_vol&quot;;
 var mPreAspVolume = 10;
-var mTransferVolume = washVolume;
-var mAspDistance = 1.5;
-var mDispDistance = 2;
+var mTransferVolume = sampleVolume+5;
+var mAspDistance = 0.75;
+var mDispDistance = 30;
 var mMixVolume = 80;
 var mMixLiquidClass = &quot;j_normal_mixing&quot;;
 var mMixCycles = 8;
 var mMixAspDistance = 1.25;
 var mMixDispDistance = 1.25;
-var mBlowoutHeight = 7;
+var mBlowoutHeight = 30;
 var mDoTipTouch = true;
-var mTouchRetract = -6;' />
+var mTouchRetract = 5;' />
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Headmode = mHeadMode;' />
 					<Parameters >
@@ -333,7 +331,7 @@ var mTouchRetract = -6;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mGetTips) {
    task.Wellselection = mTipSelection;
@@ -358,6 +356,141 @@ var mTouchRetract = -6;' />
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
+				<Task Name='BuiltIn::Group Begin' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+				</Task>
+				<Task Name='BuiltIn::JavaScript' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
+				</Task>
+				<Task Name='BuiltIn::Reserve Location' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Location to use, plate' Value='SamplePlate' />
+						<Parameter Category='' Name='Location to use, location' Value='7' />
+						<Parameter Category='' Name='Reservation time' Value='0' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Loop' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Number of times to loop' TaskParameterScript='=mNumberSteps;' Value='mTemp;' />
+						<Parameter Category='' Name='Change tips every N times, N = ' Value='1' />
+					</Parameters>
+					<Variables />
+				</Task>
+				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='13' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
+task.Volume = mTransferVolume / mNumberSteps;
+task.Liquidclass = mLiquidClass;
+task.Distancefromwellbottom = mAspDistance;' />
+					<Parameters >
+						<Parameter Category='' Name='Location, plate' Value='SamplePlate' />
+						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='Volume' Name='Volume' Value='' />
+						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='' />
+						<Parameter Category='Volume' Name='Post-aspirate volume' Value='' />
+						<Parameter Category='Properties' Name='Liquid class' Value='' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='' />
+						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
+						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
+						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
+						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
+	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
+		&lt;Wells &gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+		&lt;/Wells&gt;
+	&lt;/WellSelection&gt;
+&lt;/Velocity11&gt;' />
+						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+					</Parameters>
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+					</PipetteHead>
+				</Task>
+				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='14' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
+task.Volume = mTransferVolume / mNumberSteps;
+task.Liquidclass = mLiquidClass;
+task.Distancefromwellbottom = mDispDistance;
+task.Performtiptouch = mDoTipTouch;
+task.Tiptouchretractdistance = mTouchRetract;
+task.Whichsidestousefortiptouch = &quot;South/North&quot;;' />
+					<Parameters >
+						<Parameter Category='' Name='Location, plate' Value='Waste' />
+						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='Volume' Name='Empty tips' Value='0' />
+						<Parameter Category='Volume' Name='Volume' Value='' />
+						<Parameter Category='Volume' Name='Blowout volume' Value='' />
+						<Parameter Category='Properties' Name='Liquid class' Value='' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='' />
+						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
+						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
+						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
+						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
+	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
+		&lt;Wells &gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+		&lt;/Wells&gt;
+	&lt;/WellSelection&gt;
+&lt;/Velocity11&gt;' />
+						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+					</Parameters>
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+					</PipetteHead>
+				</Task>
+				<Task Name='BuiltIn::Loop End' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+				</Task>
+				<Task Name='BuiltIn::Group End' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -371,6 +504,22 @@ var mTouchRetract = -6;' />
 					<Variables >
 						<Variable fIncrement='1' iFreqValue='0' strFrequency='Every time' strInitialValue='1' strVariableName='wash' />
 					</Variables>
+				</Task>
+				<Task Name='BuiltIn::JavaScript' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='var mLiquidClass = &quot;j_normal_large_vol&quot;;
+var mPreAspVolume = 10;
+var mTransferVolume = sampleVolume;
+var mAspDistance = 1.5;
+var mDispDistance = 2;
+var mBlowoutHeight = 7;
+var mDoTipTouch = true;
+var mTouchRetract = -6;' />
 				</Task>
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
@@ -396,7 +545,7 @@ var mTouchRetract = -6;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0) {
    task.skip();
@@ -438,7 +587,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 				</Task>
@@ -459,7 +608,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='13' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -498,7 +647,7 @@ task.Distancefromwellbottom = mAspDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -544,7 +693,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='33' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mMixVolume &gt; maxVolume) {
    mMixVolume = maxVolume * 0.8;
@@ -594,7 +743,7 @@ task.Wellselection = mWellSelection;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0 &amp;&amp; !mDoTipTouch) {
    task.skip();
@@ -667,15 +816,13 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mLiquidClass = &quot;j_slow_large_vol&quot;;
-var mPreAspVolume = 10;
-var mTransferVolume = 110;
+var mTransferVolume = washVolume + 10;
 var mAspDistance = 0.75;
 var mDispDistance = 30;
 var mBlowoutHeight = 30;
-var mDoTipTouch = true;
 var mTouchRetract = 5;' />
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -683,7 +830,7 @@ var mTouchRetract = 5;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0) {
    task.skip();
@@ -725,7 +872,7 @@ task.Distancefromwellbottom = 50;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mNumberSteps = Math.ceil(mTransferVolume / maxVolume);' />
 				</Task>
@@ -739,14 +886,16 @@ task.Distancefromwellbottom = 50;' />
 						<Parameter Category='' Name='Number of times to loop' TaskParameterScript='=mNumberSteps;' Value='mTemp;' />
 						<Parameter Category='' Name='Change tips every N times, N = ' Value='1' />
 					</Parameters>
-					<Variables />
+					<Variables >
+						<Variable fIncrement='1' iFreqValue='0' strFrequency='Every time' strInitialValue='1' strVariableName='i' />
+					</Variables>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='13' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
@@ -785,12 +934,15 @@ task.Distancefromwellbottom = mAspDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='14' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = mWellSelection;
 task.Volume = mTransferVolume / mNumberSteps;
 task.Liquidclass = mLiquidClass;
-task.Distancefromwellbottom = mDispDistance;' />
+task.Distancefromwellbottom = mDispDistance;
+task.Performtiptouch = mDoTipTouch &amp;&amp; (i &lt; mNumberSteps);
+task.Tiptouchretractdistance = mTouchRetract;
+task.Whichsidestousefortiptouch = &quot;South/North&quot;;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Waste' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -801,7 +953,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
-						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
+						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
@@ -831,7 +983,7 @@ task.Distancefromwellbottom = mDispDistance;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='13' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mPreAspVolume == 0 &amp;&amp; !mDoTipTouch) {
    task.skip();
@@ -843,7 +995,7 @@ task.Distancefromwellbottom = mBlowoutHeight;
 task.Performtiptouch = mDoTipTouch;
 if(mDoTipTouch) {
    task.Tiptouchretractdistance = mTouchRetract;
-   task.Whichsidestousefortiptouch = &quot;None&quot;;
+   task.Whichsidestousefortiptouch = &quot;South/North&quot;;
 }' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Waste' />
@@ -892,7 +1044,7 @@ if(mDoTipTouch) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(mReturnTips) {
    task.Wellselection = mTipSelection;

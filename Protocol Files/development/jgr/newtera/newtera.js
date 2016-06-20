@@ -28,7 +28,7 @@ protocols["Tagmentation"] = {
 		tipColumn: 1,
 		reagentColumn: 1,
 		sampleVolume: 10,
-		reagentVolume: 40,
+		reagentVolume: 25,
 		beadVolume: 10,
 		stopVolume: 10,
 		doOffDeckIncubation: true
@@ -38,10 +38,7 @@ protocols["Tagmentation"] = {
 protocols["Denaturation wash"] = {
 	file: "newtera_wash.pro",
 	settings: {
-		tipColumn: 3,
-		reagentColumn: 3,
 		sampleVolume: 50,
-		reagentVolume: 10,
 		washVolume: 100,
 		doOffDeckIncubation: false,
 		incubationTime: 900,
