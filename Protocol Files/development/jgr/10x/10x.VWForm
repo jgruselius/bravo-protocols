@@ -3,8 +3,35 @@
   <Property name="UseGlobalContext" value="1" />
   <Property name="RestoreDefaultsOnLoad" value="0" />
   <Property name="ShowLogInFullScreen" value="1" />
-  <Property name="FormBackgroundColor" value="-2828" />
+  <Property name="FormBackgroundColor" value="-327955" />
   <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic5" children="Controls">
+      <Property name="TabIndex">9</Property>
+      <Property name="Name">operatorConsoleStatic5</Property>
+      <Property name="Size">297, 23</Property>
+      <Property name="Text">10X Chromium Genome Kit</Property>
+      <Property name="Font">Tahoma, 12pt</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">14, 134, 255</Property>
+      <Property name="Location">22, 4</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="10X Chromium Genome Kit" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="12" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="16745998" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="10X Chromium Genome Kit" ValueToDisplay="" Hide_if="" />
+    </Object>
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic4" children="Controls">
       <Property name="TabIndex">8</Property>
       <Property name="Name">operatorConsoleStatic4</Property>
@@ -172,7 +199,7 @@
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
       <Property name="Font">Tahoma, 9pt</Property>
-      <Property name="BackColor">165, 42, 0</Property>
+      <Property name="BackColor">14, 134, 255</Property>
       <Property name="Size">75, 30</Property>
       <Property name="TabIndex">3</Property>
       <Property name="Text">RUN</Property>
@@ -183,7 +210,7 @@
       <Property name="Name">operatorConsoleButton1</Property>
       <Property name="TextImageRelation">ImageBeforeText</Property>
       <Property name="ForeColor">255, 255, 255</Property>
-      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="open(&quot;C:/VWorks Workspace/Protocol Files/development/jgr/nxseq/nxseq.js&quot;);" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="open(&quot;C:/VWorks Workspace/Protocol Files/development/jgr/10x/10x.js&quot;);" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the Script above will always execute in the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Icon" Description="A graphical image file to display in the button" Type="9" Value="" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp;*.ico)|*.jpg;*.png;*.bmp;*.ico||" Hide_if="" />
       <Parameter Name="Disable when running" Description="the button is disabled whenever a protocol is running" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
@@ -195,7 +222,7 @@
         </Ranges>
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="16777215" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="10917" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="16745998" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleLine, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleLine1" children="Controls">
@@ -238,21 +265,21 @@
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
       <Property name="TabIndex">0</Property>
       <Property name="Name">operatorConsoleStatic1</Property>
-      <Property name="Size">297, 45</Property>
-      <Property name="Text">NxSeq AmpFREE</Property>
-      <Property name="Font">Tahoma, 24pt</Property>
+      <Property name="Size">297, 42</Property>
+      <Property name="Text">Library Construction</Property>
+      <Property name="Font">Tahoma, 22pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">102, 102, 102</Property>
-      <Property name="Location">22, 24</Property>
+      <Property name="Location">22, 27</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
-      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="NxSeq AmpFREE" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Library Construction" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
       <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="24" ValueToDisplay="" Hide_if="">
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="22" ValueToDisplay="" Hide_if="">
         <Ranges>
           <Range Value="1" />
           <Range Value="72" />
@@ -260,7 +287,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="6710886" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="NxSeq AmpFREE" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Library Construction" ValueToDisplay="" Hide_if="" />
     </Object>
     <Property name="Size">10000, 30000</Property>
     <Property name="DataBindings">

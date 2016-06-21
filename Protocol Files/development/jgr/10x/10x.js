@@ -47,8 +47,8 @@ protocols["Ligation"] = {
 	}
 };
 
-protocols["Ligation cleanup 1"] = {
-	file: "illumina_spri.pro",
+protocols["Ligation cleanup"] = {
+	file: "10x_spri.pro",
 	settings: {
 		sampleVolume: 110,
 		beadVolume: 88,
@@ -68,11 +68,14 @@ protocols["PCR setup"] = {
 };
 
 protocols["PCR cleanup"] = {
-	file: "illumina_spri.pro",
+	file: "10x_double-spri.pro",
 	settings: {
 		sampleVolume: 100,
-		beadVolume: 50,
-		elutionVolume: 20,
+		beadVolume1: 50,
+		beadVolume2: 20,
+		beadDiluteVolume1: 0,
+		transferVolume: 150,
+		elutionVolume: 20
 	}
 };
 
@@ -80,22 +83,13 @@ protocols["Library prep"] = {
 	file: "10x.rst"
 };
 
-protocols["Ligation cleanup"] = {
-	file: ".rst"
-};
-
 var settings = {};
 var runsetOrder = [];
 
 if(formProtocol === "Library prep") {
 	runsetMode = true;
-	runsetOrder = ["A-tailing","Ligation","Ligation cleanup 1",
-		"Ligation cleanup 2"];
+	runsetOrder = ["A-tailing","Ligation","Ligation cleanup","PCR setup"];
 	runset.openRunsetFile(path+protocols[formProtocol].file, form);
-} else if(formProtocol === "Ligation cleanup") {
-	runsetMode = true;
-	runset.openRunsetFile(path+protocols[formProtocol].file, form);
-	updateSettings(formProtocol);
 } else {
 	runset.appendProtocolFileToRunset(path+protocols[formProtocol].file, 1, "", form);
 	updateSettings(formProtocol);
