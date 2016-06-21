@@ -1,3 +1,5 @@
+/* Joel Gruselius, 2015, National Genomics Infrastructure */
+
 runset.clear();
 
 var path = "C:/VWorks Workspace/Protocol Files/development/jgr/rna-access/";
@@ -11,109 +13,211 @@ var formColumns = parseInt(formColumns, 10);
 var testMode = !!(typeof formTestMode !== "undefined" && formTestMode);
 if(testMode) print("Skipping incubations!");
 
-var presets = {};
+var protocols = {};
 
-presets["Fragmentation"] = {
-	tipColumn:1,
-	reagentColumn:1,
-	sampleVolume:8.5,
-	reagentVolume:8.5,
-	doOffDeckIncubation:true,
-	protocolName:"Fragmentation"
-	};
+protocols["Plate filler"] = {
+	file: "rna-access_filler.pro",
+	settings: {
+		volumes: [400, 1300]
+	}
+};
 
-presets["1st strand synthesis"] = {
-	tipColumn:2,
-	reagentColumn:2,
-	sampleVolume:15,
-	reagentVolume:8,
-	doOffDeckIncubation:true,
-	protocolName:"1st strand synthesis"
-	};
+protocols["Fragmentation"] = {
+	file: "rna-access_reaction.pro",
+	settings: {
+		tipColumn: 1,
+		reagentColumn: 1,
+		sampleVolume: 8.5,
+		reagentVolume: 8.5,
+		doOffDeckIncubation: true
+	}
+};
 
-presets["2nd strand synthesis"] = {
-	tipColumn:3,
-	reagentColumn:3,
-	sampleVolume:23,
-	bufferVolume:5,
-	reagentVolume:20,
-	doOffDeckIncubation:true,
-	protocolName:"2nd strand synthesis"
-	};
+protocols["1st strand synthesis"] = {
+	file: "rna-access_reaction.pro",
+	settings: {
+		tipColumn: 2,
+		reagentColumn: 2,
+		sampleVolume: 15,
+		reagentVolume: 8,
+		doOffDeckIncubation: true
+	}
+};
 
-presets["A-tailing"] = {
-	tipColumn:4,
-	reagentColumn:4,
-	sampleVolume:17.5,
-	bufferVolume:2.5,
-	reagentVolume:12.5,
-	doOffDeckIncubation:true,
-	protocolName:"A-tailing"
-	};
+protocols["2nd strand synthesis"] = {
+	file: "rna-access_reaction.pro",
+	settings: {
+		tipColumn: 3,
+		reagentColumn: 3,
+		sampleVolume: 23,
+		bufferVolume: 5,
+		reagentVolume: 20,
+		doOffDeckIncubation: true
+	}
+};
 
-presets["Ligation"] = {
-	tipColumn:5,
-	reagentColumn:5,
-	sampleVolume:30,
-	bufferVolume:2.5,
-	reagentVolume:5,
-	adapterVolume:2.5,
-	stopVolume:5,
-	doOffDeckIncubation:false,
-	protocolName:"Ligation"
-	};
+protocols["A-tailing"] = {
+	file: "rna-access_reaction.pro",
+	settings: {
+		tipColumn: 4,
+		reagentColumn: 4,
+		sampleVolume: 17.5,
+		bufferVolume: 2.5,
+		reagentVolume: 12.5,
+		doOffDeckIncubation: true
+	}
+};
 
-presets["cDNA cleanup"] = {
-	sampleVolume:48,
-	beadVolume:90,
-	elutionVolume:17.5,
-	protocolName:"cDNA cleanup"
-	};
+protocols["Ligation"] = {
+	file: "rna-access_ligation.pro",
+	settings: {
+		tipColumn: 5,
+		reagentColumn: 5,
+		sampleVolume: 30,
+		bufferVolume: 2.5,
+		reagentVolume: 2.5,
+		adapterVolume: 2.5,
+		stopVolume: 5,
+		doOffDeckIncubation: false,
+		incubationTime: 600,
+		incubationTemperature: 30,
+	}
+};
 
-presets["Ligation cleanup 1"] = {
-	sampleVolume:42.5,
-	beadVolume:42,
-	elutionVolume:50,
-	protocolName:"Ligation cleanup 1"
-	};
+protocols["cDNA cleanup"] = {
+	file: "illumina_spri.pro",
+	settings: {
+		sampleVolume: 48,
+		beadVolume: 90,
+		elutionVolume: 17.5
+	}
+};
 
-presets["Ligation cleanup 2"] = {
-	sampleVolume:50,
-	beadVolume:50,
-	elutionVolume:20,
-	protocolName:"Ligation cleanup 2"
-	};
+protocols["Ligation cleanup 1"] = {
+	file: "illumina_spri.pro",
+	settings: {
+		sampleVolume: 42.5,
+		beadVolume: 42,
+		elutionVolume: 50
+	}
+};
 
-presets["PCR cleanup"] = {
-	sampleVolume:50,
-	beadVolume:50,
-	elutionVolume:15,
-	protocolName:"PCR cleanup"
-	};
+protocols["Ligation cleanup 2"] = {
+	file: "illumina_spri.pro",
+	settings: {
+		sampleVolume: 50,
+		beadVolume: 50,
+		elutionVolume: 20,
+	}
+};
 
-presets["PCR setup"] = {
-	tipColumn:6,
-	reagentColumn:6,
-	sampleVolume:20,
-	reagentVolume:25,
-	primerVolume:5,
-	protocolName:"PCR setup"
-	};
+protocols["PCR cleanup"] = {
+	file: "illumina_spri.pro",
+	settings: {
+		sampleVolume: 50,
+		beadVolume: 50,
+		elutionVolume: 15
+	}
+};
+
+protocols["Capture cleanup"] = {
+	file: "illumina_spri.pro",
+	settings: {
+		sampleVolume: 25,
+		beadVolume: 45,
+		elutionVolume: 25
+	}
+};
+
+protocols["PCR cleanup 2"] = {
+	file: "illumina_spri.pro",
+	settings: {
+		sampleVolume: 50,
+		beadVolume: 90,
+		elutionVolume: 30
+	}
+};
+
+protocols["PCR setup"] = {
+	file: "illumina_spri.pro",
+	settings: {
+		tipColumn: 7,
+		reagentColumn: 7,
+		sampleVolume: 20,
+		reagentVolume: 25,
+		primerVolume: 5,
+		doOffDeckIncubation: true
+	}
+};
+
+protocols["Hyb setup 1"] = {
+	file: "rna-access_hyb.pro",
+	settings: {
+		tipColumn: 1,
+		reagentColumn: 1,
+		bufferVolume: 50,
+		oligoVolume: 5,
+		sampleVolume: 45,
+		dilutionVolume: 0
+	}
+};
+
+protocols["Capture wash"] = {
+	file: "rna-access_wash.pro",
+	settings: {
+		sampleVolume: 100,
+		beadVolume: 250,
+		washVolume: 200
+	}
+};
+
+protocols["Capture elution"] = {
+	file: "rna-access_elution.pro";
+	settings: {
+		tipColumn: 1,
+		reagentColumn: 1,
+		buffer1Volume: 23,
+		buffer2Volume: 4
+	}
+};
+
+protocols["Hyb setup 2"] = {
+	file: "rna-access_hyb.pro",
+	settings: {
+		tipColumn: 1,
+		reagentColumn: 1,
+		bufferVolume: 50,
+		oligoVolume: 5,
+		sampleVolume: 25,
+		dilutionVolume: 20
+	}
+};
+
+protocols["PCR setup 2"] = {
+	file: "rna-access_pcr.pro",
+	settings: {
+		tipColumn: 1,
+		reagentColumn: 1,
+		sampleVolume: 20,
+		reagentVolume: 20,
+		primerVolume: 5,
+		doOffDeckIncubation: true
+	}
+};
+
+protocols["Library prep"] = {
+	file: "rna-access.rst"
+};
+
+protocols["Ligation cleanup"] = {
+	file: ".rst"
+};
+
+protocols["Capture"] = {
+	file: "rna-access_capture.rst"
+};
 
 var settings = {};
-
-var fileNames = {};
-fileNames["Fragmentation"] = "rna-access_reaction.pro";
-fileNames["1st strand synthesis"] = "rna-access_reaction.pro";
-fileNames["2nd strand synthesis"] = "rna-access_reaction.pro";
-fileNames["cDNA cleanup"] = "illumina_spri.pro";
-fileNames["A-tailing"] = "rna-access_reaction.pro";
-fileNames["Ligation"] = "rna-access_ligation.pro";
-fileNames["Library prep"] = "rna-access.rst";
-fileNames["Ligation cleanup"] = ".rst";
-fileNames["PCR setup"] = "rna-access_pcr.pro";
-fileNames["PCR cleanup"] = "illumina_spri.pro";
-
 var runsetOrder = [];
 
 if(formProtocol === "Library prep") {
@@ -121,27 +225,29 @@ if(formProtocol === "Library prep") {
 	runsetOrder = ["Fragmentation","1st strand synthesis", "2nd strand synthesis",
 		"cDNA cleanup","A-tailing","Ligation","Ligation cleanup 1",
 		"Ligation cleanup 2", "PCR setup"];
-	runset.openRunsetFile(path+fileNames[formProtocol], form);
-	print("Runset file loaded");
+	runset.openRunsetFile(path+protocols[formProtocol].file, form);
 } else if(formProtocol === "Ligation cleanup") {
 	runsetMode = true;
-	runset.openRunsetFile(path+fileNames[formProtocol], form);
+	runset.openRunsetFile(path+protocols[formProtocol].file, form);
 	updateSettings(formProtocol);
-}  else {
-	runsetMode = false;
-	runset.appendProtocolFileToRunset(path+fileNames[formProtocol], 1, "", form);
+} else if(formProtocol === "Capture") {
+	runsetMode = true;
+	runsetOrder = ["Capture wash", "Capture elution"];
+	runset.openRunsetFile(path+protocols[formProtocol].file, form);
+} else {
+	runset.appendProtocolFileToRunset(path+protocols[formProtocol].file, 1, "", form);
 	updateSettings(formProtocol);
 }
 
 function updateSettings(protocol) {
-	if(protocol in presets) {
-		for(var s in presets[protocol]) {
-			settings[s] = presets[protocol][s];
-		}
+	if(protocol in protocols) {
+		settings = protocols[protocol].settings;
+		settings.protocolName = protocol;
+		print(protocol + " preset loaded");
 	} else {
+		settings = {};
 		throw "EXCEPTION__UndefinedSetting:"+protocol;
 	}
-	print(protocol + " preset loaded");
 }
 
 var runsetIndex = 0;

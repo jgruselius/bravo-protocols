@@ -93,7 +93,7 @@ fileNames["Ligation cleanup 1"] = "illumina_spri.pro";
 fileNames["Ligation cleanup 2"] = "illumina_spri.pro";
 fileNames["Library prep"] = "truseq_pcr-free.rst";
 fileNames["Ligation cleanup"] = "truseq_pcr-free_cleanup.rst";
-fileNames["qPCR setup"] = "../qpcr-384/qpcr-384_setup_ver3.pro";
+fileNames["qPCR setup"] = "../qpcr-384/qpcr-384_setup_ver4.pro";
 
 var runsetOrder = [];
 
@@ -117,6 +117,7 @@ if(formProtocol === "Library prep") {
 }
 
 function updateSettings(protocol) {
+	settings = {};
 	if(protocol in presets) {
 		for(var s in presets[protocol]) {
 			settings[s] = presets[protocol][s];
