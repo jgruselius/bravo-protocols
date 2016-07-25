@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-16"?>
 <velocity11 file="Form_Data" version="1.0">
   <Property name="UseGlobalContext" value="1" />
-  <Property name="RestoreDefaultsOnLoad" value="0" />
+  <Property name="RestoreDefaultsOnLoad" value="1" />
   <Property name="ShowLogInFullScreen" value="1" />
   <Property name="FormBackgroundColor" value="-3903" />
   <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">

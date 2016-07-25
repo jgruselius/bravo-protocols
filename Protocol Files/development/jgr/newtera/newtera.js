@@ -18,7 +18,7 @@ var protocols = {};
 protocols["Plate filler"] = {
 	file: "newtera_filler.pro",
 	settings: {
-		volumes: [400, 1300]
+		volumes: [400]
 	}
 };
 
