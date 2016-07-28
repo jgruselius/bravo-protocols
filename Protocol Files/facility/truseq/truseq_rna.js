@@ -56,7 +56,8 @@ presets["CA default"] = {
 		beadResuspVolume: 10,
 		bindTime: 600,
 		elutionVolume: 30,
-		sealFinalPlate: false
+		sealFinalPlate: false,
+		beadPlateToUse: 1
 };
 presets["cDNA cleanup"] = {
 		sampleVolume: 50,
@@ -67,7 +68,8 @@ presets["cDNA cleanup"] = {
 		bindTime: 600,
 		elutionVolume: 16,
 		transferSample: false,
-		sealFinalPlate: false
+		sealFinalPlate: false,
+		beadPlateToUse: 1
 };
 presets["Ligation cleanup 1"] = {
 		sampleVolume: 42.5,
@@ -78,7 +80,8 @@ presets["Ligation cleanup 1"] = {
 		bindTime: 600,
 		elutionVolume: 50,
 		transferSample: true,
-		sealFinalPlate: false
+		sealFinalPlate: false,
+		beadPlateToUse: 2
 };
 presets["Ligation cleanup 2"] = {
 		sampleVolume: 50,
@@ -89,7 +92,8 @@ presets["Ligation cleanup 2"] = {
 		bindTime: 600,
 		elutionVolume: 20,
 		transferSample: false,
-		sealFinalPlate: true
+		sealFinalPlate: true,
+		beadPlateToUse: 3
 };
 presets["PCR cleanup"] = {
 		sampleVolume: 50,
@@ -106,17 +110,17 @@ var settings = {};
 
 var fileNames = {};
 fileNames["mRNA purification"] = "rna_prep_v1511.pro";
-fileNames["cDNA cleanup"] = "ca_p1-2.rst";
+fileNames["cDNA cleanup"] = "ca_purification_runset.pro";
 fileNames["Adenylation"] = "truseq_rna_adenylation.pro";
 fileNames["PCR setup"] = "truseq_rna_pcr.pro";
-fileNames["PCR cleanup"] = "ca_p2-3.rst";
+fileNames["PCR cleanup"] = "ca_purification_runset.pro";
 fileNames["Ligation"] = "truseq_rna_ligation.pro";
 fileNames["Adapter ligation"] = "truseq_rna_adapter_ligation.rst";
-fileNames["Ligation cleanup"] = "ca_p2-3.rst";
+fileNames["Ligation cleanup"] = "ca_double-purification.rst";
 
 if(extended) {
 	for(var p in fileNames) {
-		if(!~p.indexOf("cleanup")) {
+		if(!~p.indexOf("Ligation cleanup")) {
 			fileNames[p] = "extended/" + fileNames[p];
 		}
 	}
@@ -127,12 +131,11 @@ var runsetOrder = [];
 if(formProtocol === "Adapter ligation") {
 	runsetMode = true;
 	runsetOrder = ["cDNA cleanup","cDNA cleanup","Adenylation","Ligation",
-		"Ligation cleanup 1","Ligation cleanup 2","Ligation cleanup 2"];
+		"Ligation cleanup 1","Ligation cleanup 2"];
 	runset.appendRunsetFileToRunset(path+fileNames[formProtocol], form);
 } else if(formProtocol === "Ligation cleanup") {
 	runsetMode = true;
-	runsetOrder = ["Ligation cleanup 1","Ligation cleanup 1",
-		"Ligation cleanup 2","Ligation cleanup 2"];
+	runsetOrder = ["Ligation cleanup 1","Ligation cleanup 2"];
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
 } else {
 	runset.appendProtocolFileToRunset(path+fileNames[formProtocol], 1, "", form);
