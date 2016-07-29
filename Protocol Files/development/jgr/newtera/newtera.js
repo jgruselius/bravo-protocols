@@ -27,9 +27,9 @@ protocols["Tagmentation"] = {
 	settings: {
 		tipColumn: 1,
 		reagentColumn: 1,
-		sampleVolume: 10,
-		reagentVolume: 25,
-		beadVolume: 10,
+		sampleVolume: 30,
+		reagentVolume: 20,
+		beadVolume: 0,
 		stopVolume: 10,
 		doOffDeckIncubation: true
 	}
@@ -49,7 +49,7 @@ protocols["Denaturation wash"] = {
 protocols["PCR setup"] = {
 	file: "newtera_pcr.pro",
 	settings: {
-		tipColumn: 4,
+		tipColumn: 3,
 		reagentColumn: 4,
 		sampleVolume: 100,
 		reagentVolume: 40,
