@@ -50,7 +50,7 @@ protocols["PCR setup"] = {
 	file: "newtera_pcr.pro",
 	settings: {
 		tipColumn: 3,
-		reagentColumn: 4,
+		reagentColumn: 3,
 		sampleVolume: 100,
 		reagentVolume: 40,
 		primerVolume: 10,
