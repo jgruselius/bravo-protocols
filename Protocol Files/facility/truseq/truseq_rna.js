@@ -143,12 +143,10 @@ if(formProtocol === "Adapter ligation") {
 }
 
 function updateSettings(protocol) {
-	settings = {};
 	if(protocol in presets) {
-		for(var s in presets[protocol]) {
-			settings[s] = presets[protocol][s];
-		}
+		settings = presets[protocol];
 	} else {
+		settings = {};
 		throw "EXCEPTION__UndefinedSetting:"+protocol;
 	}
 	print(protocol + " preset loaded");
