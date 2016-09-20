@@ -11,7 +11,7 @@
       <Property name="Text">Skip timers</Property>
       <Property name="Name">operatorConsoleCheckbox2</Property>
       <Property name="UseVisualStyleBackColor">True</Property>
-      <Property name="Location">686, 566</Property>
+      <Property name="Location">614, 431</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -32,7 +32,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox1" children="Controls">
       <Property name="Size">119, 24</Property>
@@ -40,7 +40,7 @@
       <Property name="Text">Simulation On</Property>
       <Property name="Name">operatorConsoleCheckbox1</Property>
       <Property name="UseVisualStyleBackColor">True</Property>
-      <Property name="Location">686, 535</Property>
+      <Property name="Location">614, 401</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -61,7 +61,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.TimeElapsed, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="timeElapsed1" children="Controls">
       <Property name="Size">180, 24</Property>
@@ -71,7 +71,7 @@
       <Property name="Text">Elapsed Time: 00:00:00</Property>
       <Property name="Font">Tahoma, 10pt</Property>
       <Property name="Name">timeElapsed1</Property>
-      <Property name="Location">55, 566</Property>
+      <Property name="Location">53, 401</Property>
       <Property name="ForeColor">0, 0, 0</Property>
       <Property name="TabIndex">10</Property>
       <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
@@ -82,7 +82,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="02:00:33" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="00:00:00" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.InitializeAllDevices, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="initializeAllDevices1" children="Controls">
       <Property name="UseCompatibleTextRendering">True</Property>
@@ -92,7 +92,7 @@
       <Property name="Size">302, 46</Property>
       <Property name="TabIndex">9</Property>
       <Property name="Text">Initialize all devices</Property>
-      <Property name="Location">55, 318</Property>
+      <Property name="Location">55, 224</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -113,14 +113,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
-      <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="Font">Tahoma, 10pt</Property>
       <Property name="BackColor">152, 251, 152</Property>
       <Property name="Size">120, 38</Property>
       <Property name="TabIndex">8</Property>
       <Property name="Text">Run Selected Protocol(s)</Property>
-      <Property name="Location">55, 452</Property>
+      <Property name="Location">55, 320</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -155,7 +155,7 @@
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Adapter Ligation</Item>
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Reverse Transcribe</Item>
       </Property>
-      <Property name="Location">239, 148</Property>
+      <Property name="Location">239, 98</Property>
       <Property name="ForeColor">0, 0, 0</Property>
       <Property name="TabIndex">7</Property>
       <Property name="Font">Tahoma, 12pt</Property>
@@ -173,7 +173,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="Adapter Ligation + Reverse Transcribe" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="Adapter Ligation + Reverse Transcribe;Adapter Ligation;Reverse Transcribe;" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic3" children="Controls">
@@ -184,7 +184,7 @@
       <Property name="Font">Tahoma, 12pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">55, 148</Property>
+      <Property name="Location">55, 101</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -211,7 +211,7 @@
       <Property name="Font">Tahoma, 12pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">55, 239</Property>
+      <Property name="Location">55, 162</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -252,7 +252,7 @@
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">11</Item>
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">12</Item>
       </Property>
-      <Property name="Location">239, 236</Property>
+      <Property name="Location">239, 162</Property>
       <Property name="ForeColor">0, 0, 0</Property>
       <Property name="TabIndex">4</Property>
       <Property name="Font">Tahoma, 12pt</Property>
@@ -270,14 +270,14 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="12" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="1;2;3;4;5;6;7;8;9;10;11;12;" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
       <Property name="TabIndex">3</Property>
       <Property name="Name">operatorConsoleStatic1</Property>
-      <Property name="Size">202, 35</Property>
-      <Property name="Text">small RNA</Property>
+      <Property name="Size">379, 40</Property>
+      <Property name="Text">Automated TruSeq small RNA</Property>
       <Property name="Font">Tahoma, 20pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">0, 0, 0</Property>
@@ -288,7 +288,7 @@
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
-      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="small RNA" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Automated TruSeq small RNA" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
       <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="20" ValueToDisplay="" Hide_if="">
         <Ranges>
@@ -298,7 +298,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="small RNA" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Automated TruSeq small RNA" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
       <Property name="Image">
@@ -311,7 +311,7 @@
       <Property name="Size">80, 36</Property>
       <Property name="TabIndex">1</Property>
       <Property name="Text">Pause</Property>
-      <Property name="Location">211, 452</Property>
+      <Property name="Location">211, 321</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -338,7 +338,7 @@
       <Property name="Size">150, 23</Property>
       <Property name="TabIndex">2</Property>
       <Property name="Text">Full Screen on/off</Property>
-      <Property name="Location">328, 452</Property>
+      <Property name="Location">329, 328</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
