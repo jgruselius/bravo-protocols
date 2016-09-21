@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='d6f6969bf7b409b207ededd99b265908' version='2.0' >
-	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
+<Velocity11 file='Protocol_Data' md5sum='07be134493758aa0e0746e3b18edc2c1' version='2.0' >
+	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
 			<Process >
@@ -8,6 +8,7 @@
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -91,10 +92,16 @@ function dph(vol, endHeight) {
 		throw &quot;ValueException&quot;;
 	}
 }' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >1</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -111,6 +118,11 @@ var vars = [global.statusString,
 				elutionVolume];
 
 print(vars);' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::Set temperature - Position' >
 					<Devices >
@@ -118,6 +130,7 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='43' />
@@ -131,6 +144,9 @@ print(vars);' />
 						<Parameter Category='' Name='Temperature Tolerance' Value='2' />
 						<Parameter Category='' Name='Timeout' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='1' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::Set temperature - Position' >
@@ -139,6 +155,7 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -152,16 +169,25 @@ print(vars);' />
 						<Parameter Category='' Name='Temperature Tolerance' Value='2' />
 						<Parameter Category='' Name='Timeout' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='1' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Protocol started&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Plate_Parameters >
 					<Parameter Name='Plate name' Value='Startup' />
@@ -178,10 +204,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='8' />
 					</Parameters>
@@ -189,23 +219,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='BeadStirUp' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='BeadStirUp' />
@@ -214,23 +237,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='BeadDistribution' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='BeadDistribution' />
@@ -239,34 +255,29 @@ print(vars);' />
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='ElutionBufferPlate' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='IsolateBeads1' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads1' />
@@ -275,23 +286,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='RinseTips1' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips1' />
@@ -300,23 +304,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='WashBeads1' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads1' />
@@ -325,23 +322,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='RinseTips2' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips2' />
@@ -350,6 +340,7 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -375,34 +366,29 @@ print(vars);' />
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='PrecipBufferPlate' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='MakeFragSep' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='MakeFragSep' />
@@ -411,23 +397,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='Bind' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Bind' />
@@ -436,23 +415,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='IsolateBeads3' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads3' />
@@ -461,23 +433,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='RinseTips3' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips3' />
@@ -486,34 +451,29 @@ print(vars);' />
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='WashBufferPlate' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='WashBeads2' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads2' />
@@ -522,23 +482,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='RinseTips4' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips4' />
@@ -547,23 +500,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='AddElutionBuffer' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AddElutionBuffer' />
@@ -572,23 +518,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='Elute' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Elute' />
@@ -597,23 +536,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='RinseTips5' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips5' />
@@ -622,34 +554,29 @@ print(vars);' />
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='FinalPlate' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
+						<Parameter Category='' Name='Spawn parameter' Value='' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='TransferEluate' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferEluate' />
@@ -683,10 +610,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='5' />
 					</Parameters>
@@ -694,11 +625,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='BeadStirUp' />
 					</Parameters>
@@ -706,11 +643,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='BeadDistribution' />
 					</Parameters>
@@ -721,10 +664,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='7' />
 					</Parameters>
@@ -732,11 +679,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads1' />
 					</Parameters>
@@ -744,11 +697,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads1' />
 					</Parameters>
@@ -759,10 +718,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='5' />
 					</Parameters>
@@ -770,11 +733,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='BeadSampleResusp' />
 					</Parameters>
@@ -782,11 +751,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='MakeFragSep' />
 					</Parameters>
@@ -794,11 +769,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Bind' />
 					</Parameters>
@@ -809,10 +790,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='7' />
 					</Parameters>
@@ -820,11 +805,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads3' />
 					</Parameters>
@@ -832,11 +823,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads2' />
 					</Parameters>
@@ -847,10 +844,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='5' />
 					</Parameters>
@@ -858,23 +859,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='AddElutionBuffer' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AddElutionBuffer' />
@@ -883,23 +877,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='Elute' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Elute' />
@@ -908,23 +895,16 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='TransferEluate' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferEluate' />
@@ -958,10 +938,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='9' />
 					</Parameters>
@@ -969,11 +953,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='BeadSampleResusp' />
 					</Parameters>
@@ -1006,12 +996,18 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Unload based on barcode' Value='0' />
+						<Parameter Category='' Name='Barcode' Value='' />
 						<Parameter Category='' Name='unloadFrom' Value='' />
 					</Parameters>
 					<Parameter >
@@ -1027,10 +1023,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='6' />
 					</Parameters>
@@ -1038,11 +1038,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips1' />
 					</Parameters>
@@ -1050,11 +1056,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads1' />
 					</Parameters>
@@ -1062,11 +1074,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips2' />
 					</Parameters>
@@ -1074,11 +1092,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='BeadSampleResusp' />
 					</Parameters>
@@ -1086,11 +1110,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips3' />
 					</Parameters>
@@ -1098,11 +1128,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips4' />
 					</Parameters>
@@ -1110,11 +1146,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='AddElutionBuffer' />
 					</Parameters>
@@ -1122,11 +1164,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips5' />
 					</Parameters>
@@ -1137,12 +1185,16 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
 					</Parameters>
@@ -1178,12 +1230,18 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Unload based on barcode' Value='0' />
+						<Parameter Category='' Name='Barcode' Value='' />
 						<Parameter Category='' Name='unloadFrom' Value='' />
 					</Parameters>
 					<Parameter >
@@ -1199,10 +1257,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='3' />
 					</Parameters>
@@ -1210,11 +1272,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='MakeFragSep' />
 					</Parameters>
@@ -1225,12 +1293,16 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
 					</Parameters>
@@ -1266,12 +1338,18 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Unload based on barcode' Value='0' />
+						<Parameter Category='' Name='Barcode' Value='' />
 						<Parameter Category='' Name='unloadFrom' Value='' />
 					</Parameters>
 					<Parameter >
@@ -1287,10 +1365,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='3' />
 					</Parameters>
@@ -1298,11 +1380,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads2' />
 					</Parameters>
@@ -1313,12 +1401,16 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='loadIntoByLocation' Value='' />
 						<Parameter Category='' Name='loadIntoByGroup' Value='' />
 					</Parameters>
@@ -1354,10 +1446,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='1' />
 					</Parameters>
@@ -1365,11 +1461,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads1' />
 					</Parameters>
@@ -1377,11 +1479,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips1' />
 					</Parameters>
@@ -1389,11 +1497,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads1' />
 					</Parameters>
@@ -1401,11 +1515,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips2' />
 					</Parameters>
@@ -1413,11 +1533,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='IsolateBeads3' />
 					</Parameters>
@@ -1425,11 +1551,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips3' />
 					</Parameters>
@@ -1437,11 +1569,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='WashBeads2' />
 					</Parameters>
@@ -1449,11 +1587,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips4' />
 					</Parameters>
@@ -1461,11 +1605,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='RinseTips5' />
 					</Parameters>
@@ -1498,12 +1648,18 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Unload based on barcode' Value='0' />
+						<Parameter Category='' Name='Barcode' Value='' />
 						<Parameter Category='' Name='unloadFrom' Value='' />
 					</Parameters>
 					<Parameter >
@@ -1519,10 +1675,14 @@ print(vars);' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='4' />
 					</Parameters>
@@ -1530,11 +1690,17 @@ print(vars);' />
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='TransferEluate' />
 					</Parameters>
@@ -1564,13 +1730,20 @@ print(vars);' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Adding elution buffer&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -1581,6 +1754,9 @@ print(vars);' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -1589,6 +1765,7 @@ print(vars);' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -1607,6 +1784,9 @@ print(vars);' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -1615,6 +1795,7 @@ print(vars);' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -1654,6 +1835,9 @@ task.Volume = preAsp + extraPreAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -1662,6 +1846,7 @@ task.Volume = preAsp + extraPreAsp;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -1690,6 +1875,9 @@ task.Volume = preAsp + extraPreAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -1698,6 +1886,7 @@ task.Volume = preAsp + extraPreAsp;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -1726,6 +1915,9 @@ task.Volume = preAsp + extraPreAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -1734,6 +1926,7 @@ task.Volume = preAsp + extraPreAsp;' />
 				<Task Name='Bravo::secondary::Shake' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >1</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -1747,6 +1940,9 @@ task.Volume = preAsp + extraPreAsp;' />
 						<Parameter Category='' Name='Direction' Value='NWSE' />
 						<Parameter Category='' Name='Time for operation in Timed mode' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -1755,6 +1951,7 @@ task.Volume = preAsp + extraPreAsp;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='30' />
@@ -1790,6 +1987,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -1798,6 +1998,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Shake' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >1</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='1' />
@@ -1811,6 +2012,9 @@ task.Volume = mixVolume;' />
 						<Parameter Category='' Name='Direction' Value='NWSE' />
 						<Parameter Category='' Name='Time for operation in Timed mode' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -1819,6 +2023,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='12' />
@@ -1848,6 +2053,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -1856,6 +2064,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -1875,6 +2084,9 @@ task.Volume = preAsp;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -1883,9 +2095,15 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -1909,13 +2127,20 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Distributing beads&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -1927,6 +2152,9 @@ task.Headmode = &quot;1,2,1,1&quot;;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;e6581fadfee31ff9bb07b07e83081e45&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -1935,6 +2163,7 @@ task.Headmode = &quot;1,2,1,1&quot;;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -1955,6 +2184,9 @@ task.Wellselection = [[1, 12]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -1963,6 +2195,7 @@ task.Wellselection = [[1, 12]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='3' />
@@ -1995,6 +2228,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2003,6 +2239,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -2010,10 +2247,16 @@ task.Volume = preAsp;' />
 					<TaskScript Name='TaskScript' Value='var totalColumns = columnsOfSamples - 1;
 var currentColumn = 1;
 var mixVolume;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(columnsOfSamples == 1) {
@@ -2028,6 +2271,7 @@ var mixVolume;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='14' />
@@ -2063,6 +2307,9 @@ task.Volume = (mixVolume &gt; maxMixVolume)  ? maxMixVolume : mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2071,6 +2318,7 @@ task.Volume = (mixVolume &gt; maxMixVolume)  ? maxMixVolume : mixVolume;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
@@ -2102,6 +2350,9 @@ task.Volume = beadVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2110,6 +2361,7 @@ task.Volume = beadVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -2142,6 +2394,9 @@ task.Volume = beadVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2150,6 +2405,7 @@ task.Volume = beadVolume;' />
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(columnsOfSamples == 1) {
@@ -2161,6 +2417,7 @@ task.Volume = beadVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='13' />
@@ -2194,6 +2451,9 @@ task.Wellselection = [[1,columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2202,6 +2462,7 @@ task.Wellselection = [[1,columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
@@ -2222,6 +2483,9 @@ task.Wellselection = [[1, 12]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2230,9 +2494,15 @@ task.Wellselection = [[1, 12]];' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -2256,13 +2526,20 @@ task.Wellselection = [[1, 12]];' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Resuspending beads&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -2273,6 +2550,9 @@ task.Wellselection = [[1, 12]];' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2281,6 +2561,7 @@ task.Wellselection = [[1, 12]];' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='36' />
@@ -2299,6 +2580,9 @@ task.Wellselection = [[1, 12]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2307,6 +2591,7 @@ task.Wellselection = [[1, 12]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
@@ -2320,7 +2605,7 @@ task.Preaspiratevolume = preAsp;' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_small_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='10' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='2' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -2336,6 +2621,9 @@ task.Preaspiratevolume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2344,6 +2632,7 @@ task.Preaspiratevolume = preAsp;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='35' />
@@ -2374,6 +2663,9 @@ task.Dynamictipextension = dph(sampleVolume, 0.4);' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2382,6 +2674,7 @@ task.Dynamictipextension = dph(sampleVolume, 0.4);' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='14' />
@@ -2410,6 +2703,9 @@ task.Dynamictipextension = dph(sampleVolume, 0.4);' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2418,6 +2714,7 @@ task.Dynamictipextension = dph(sampleVolume, 0.4);' />
 				<Task Name='Bravo::secondary::Shake' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -2431,6 +2728,9 @@ task.Dynamictipextension = dph(sampleVolume, 0.4);' />
 						<Parameter Category='' Name='Direction' Value='NWSE' />
 						<Parameter Category='' Name='Time for operation in Timed mode' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2439,6 +2739,7 @@ task.Dynamictipextension = dph(sampleVolume, 0.4);' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='42' />
@@ -2474,6 +2775,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2482,6 +2786,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Shake' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='1' />
@@ -2495,6 +2800,9 @@ task.Volume = mixVolume;' />
 						<Parameter Category='' Name='Direction' Value='NWSE' />
 						<Parameter Category='' Name='Time for operation in Timed mode' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2503,6 +2811,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='13' />
@@ -2532,6 +2841,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2540,6 +2852,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
@@ -2560,6 +2873,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2568,12 +2884,18 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
-					<Device Device_Name='Bravo - 1' Location_Name='1' />
+					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
 				</Devices>
 				<Parameters >
 					<Parameter Name='Display confirmation' Value='Don&apos;t display' />
@@ -2594,13 +2916,20 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Resuspending beads&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -2612,6 +2941,9 @@ task.Headmode = &quot;1,2,1,1&quot;;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;e6581fadfee31ff9bb07b07e83081e45&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2620,6 +2952,7 @@ task.Headmode = &quot;1,2,1,1&quot;;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -2639,6 +2972,9 @@ task.Wellselection = [[1, 12]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2647,6 +2983,7 @@ task.Wellselection = [[1, 12]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
@@ -2676,6 +3013,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2684,6 +3024,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='37' />
@@ -2719,6 +3060,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2727,6 +3071,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='12' />
@@ -2756,6 +3101,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2764,6 +3112,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -2783,6 +3132,9 @@ task.Volume = preAsp;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='2' SubsetType='0' TipType='0' />
@@ -2791,9 +3143,15 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -2817,13 +3175,20 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Precipitating DNA&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -2843,10 +3208,16 @@ var mDispDistance = 1;
 var mBlowoutHeight = 8;
 var mDoTipTouch = true;
 var mTouchRetract = -6;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -2857,6 +3228,9 @@ var mTouchRetract = -6;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2865,6 +3239,7 @@ var mTouchRetract = -6;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -2887,6 +3262,9 @@ var mTouchRetract = -6;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2895,6 +3273,7 @@ var mTouchRetract = -6;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='3' />
@@ -2926,6 +3305,9 @@ task.Liquidclass = &quot;j_normal_large_vol&quot;;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2934,6 +3316,7 @@ task.Liquidclass = &quot;j_normal_large_vol&quot;;' />
 				<Task Name='Bravo::secondary::Shake' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='1' />
@@ -2947,6 +3330,9 @@ task.Liquidclass = &quot;j_normal_large_vol&quot;;' />
 						<Parameter Category='' Name='Direction' Value='NWSE' />
 						<Parameter Category='' Name='Time for operation in Timed mode' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -2955,6 +3341,7 @@ task.Liquidclass = &quot;j_normal_large_vol&quot;;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='116' />
@@ -2998,6 +3385,9 @@ if(mAspDistance !== mDispDistance) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3006,6 +3396,7 @@ if(mAspDistance !== mDispDistance) {
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='451' />
@@ -3056,6 +3447,9 @@ if(mAspDistance !== mDispDistance) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3064,6 +3458,7 @@ if(mAspDistance !== mDispDistance) {
 				<Task Name='Bravo::secondary::Shake' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -3077,6 +3472,9 @@ if(mAspDistance !== mDispDistance) {
 						<Parameter Category='' Name='Direction' Value='NWSE' />
 						<Parameter Category='' Name='Time for operation in Timed mode' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3085,6 +3483,7 @@ if(mAspDistance !== mDispDistance) {
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='14' />
@@ -3121,6 +3520,9 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3129,6 +3531,7 @@ if(mDoTipTouch) {
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -3152,6 +3555,9 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3160,9 +3566,15 @@ if(mDoTipTouch) {
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -3186,13 +3598,20 @@ if(mDoTipTouch) {
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Eluting&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -3212,10 +3631,16 @@ var mDispDistance = 0.8;
 var mBlowoutHeight = 6;
 var mDoTipTouch = true;
 var mTouchRetract = -5;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -3226,6 +3651,9 @@ var mTouchRetract = -5;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3234,6 +3662,7 @@ var mTouchRetract = -5;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -3256,6 +3685,9 @@ var mTouchRetract = -5;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3264,6 +3696,7 @@ var mTouchRetract = -5;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
@@ -3296,6 +3729,9 @@ task.Liquidclass = &quot;j_normal_large_vol&quot;;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3304,6 +3740,7 @@ task.Liquidclass = &quot;j_normal_large_vol&quot;;' />
 				<Task Name='Bravo::secondary::Shake' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >1</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -3317,6 +3754,9 @@ task.Liquidclass = &quot;j_normal_large_vol&quot;;' />
 						<Parameter Category='' Name='Direction' Value='NWSE' />
 						<Parameter Category='' Name='Time for operation in Timed mode' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3325,6 +3765,7 @@ task.Liquidclass = &quot;j_normal_large_vol&quot;;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='43' />
@@ -3368,6 +3809,9 @@ if(mAspDistance !== mDispDistance) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3376,6 +3820,7 @@ if(mAspDistance !== mDispDistance) {
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='69' />
@@ -3426,6 +3871,9 @@ if(mAspDistance !== mDispDistance) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3434,6 +3882,7 @@ if(mAspDistance !== mDispDistance) {
 				<Task Name='Bravo::secondary::Shake' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >1</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -3447,6 +3896,9 @@ if(mAspDistance !== mDispDistance) {
 						<Parameter Category='' Name='Direction' Value='NWSE' />
 						<Parameter Category='' Name='Time for operation in Timed mode' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3455,6 +3907,7 @@ if(mAspDistance !== mDispDistance) {
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='13' />
@@ -3491,6 +3944,9 @@ if(mDoTipTouch) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3499,6 +3955,7 @@ if(mDoTipTouch) {
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -3522,6 +3979,9 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3530,9 +3990,15 @@ if(mDoTipTouch) {
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -3556,13 +4022,20 @@ if(mDoTipTouch) {
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Removing bead storage buffer&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -3573,6 +4046,9 @@ if(mDoTipTouch) {
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3581,6 +4057,7 @@ if(mDoTipTouch) {
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -3599,6 +4076,9 @@ if(mDoTipTouch) {
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3607,10 +4087,14 @@ if(mDoTipTouch) {
 				<Task Name='BuiltIn::Reserve Location' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='task.Reservationtime = pelletTimeShort;' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Location to use, plate' Value='BeadPlate' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
 						<Parameter Category='' Name='Reservation time' Value='0' />
@@ -3619,6 +4103,7 @@ if(mDoTipTouch) {
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='17' />
@@ -3648,6 +4133,9 @@ task.Preaspiratevolume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3656,6 +4144,7 @@ task.Preaspiratevolume = preAsp;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
@@ -3685,6 +4174,9 @@ task.Blowoutvolume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3693,6 +4185,7 @@ task.Blowoutvolume = preAsp;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -3712,6 +4205,9 @@ task.Blowoutvolume = preAsp;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3720,9 +4216,15 @@ task.Blowoutvolume = preAsp;' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -3746,13 +4248,20 @@ task.Blowoutvolume = preAsp;' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Isolating beads&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -3763,6 +4272,9 @@ task.Blowoutvolume = preAsp;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3771,6 +4283,7 @@ task.Blowoutvolume = preAsp;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -3789,6 +4302,9 @@ task.Blowoutvolume = preAsp;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3797,10 +4313,14 @@ task.Blowoutvolume = preAsp;' />
 				<Task Name='BuiltIn::Reserve Location' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='task.Reservationtime = pelletTimeLong;' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Location to use, plate' Value='BeadPlate' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
 						<Parameter Category='' Name='Reservation time' Value='0' />
@@ -3809,6 +4329,7 @@ task.Blowoutvolume = preAsp;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
@@ -3838,6 +4359,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3846,6 +4370,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -3855,10 +4380,16 @@ task.Volume = preAsp;' />
 // aspiration:
 aspRepeats =Math.ceil((precipVolume + sampleVolume + beadResuspVolume + 5) / maxAspVolume);
 stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -3871,6 +4402,7 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='13' />
@@ -3899,6 +4431,9 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3907,6 +4442,7 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -3935,6 +4471,9 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3943,6 +4482,7 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -3950,6 +4490,7 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -3978,6 +4519,9 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -3986,6 +4530,7 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -4005,6 +4550,9 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4013,9 +4561,15 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -4039,13 +4593,20 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Making fragment separation mixture&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -4056,6 +4617,9 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4064,6 +4628,7 @@ stepVolume = (precipVolume + sampleVolume + beadResuspVolume) / aspRepeats;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -4083,6 +4648,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4091,6 +4659,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
@@ -4120,6 +4689,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4128,6 +4700,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -4142,10 +4715,16 @@ if(stepVolume &gt; maxAspVolume) {
    aspRepeats = Math.ceil(stepVolume / maxAspVolume);
    stepVolume = Math.round(stepVolume / aspRepeats);
 }' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -4158,6 +4737,7 @@ if(stepVolume &gt; maxAspVolume) {
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='22' />
@@ -4186,6 +4766,9 @@ if(stepVolume &gt; maxAspVolume) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4194,6 +4777,7 @@ if(stepVolume &gt; maxAspVolume) {
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='16' />
@@ -4222,6 +4806,9 @@ if(stepVolume &gt; maxAspVolume) {
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4230,6 +4817,7 @@ if(stepVolume &gt; maxAspVolume) {
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -4237,6 +4825,7 @@ if(stepVolume &gt; maxAspVolume) {
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='35' />
@@ -4273,6 +4862,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4281,6 +4873,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Shake' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -4294,6 +4887,9 @@ task.Volume = mixVolume;' />
 						<Parameter Category='' Name='Direction' Value='NWSE' />
 						<Parameter Category='' Name='Time for operation in Timed mode' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4302,6 +4898,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='63' />
@@ -4337,6 +4934,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4345,6 +4945,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Shake' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='1' />
@@ -4358,6 +4959,9 @@ task.Volume = mixVolume;' />
 						<Parameter Category='' Name='Direction' Value='NWSE' />
 						<Parameter Category='' Name='Time for operation in Timed mode' Value='10' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4366,6 +4970,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='14' />
@@ -4394,6 +4999,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4402,6 +5010,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -4421,6 +5030,9 @@ task.Volume = mixVolume;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4429,9 +5041,15 @@ task.Volume = mixVolume;' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -4455,13 +5073,20 @@ task.Volume = mixVolume;' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Rinsing tips&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -4472,6 +5097,9 @@ task.Volume = mixVolume;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4480,6 +5108,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -4498,6 +5127,9 @@ task.Volume = mixVolume;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4506,6 +5138,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
@@ -4534,6 +5167,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4542,6 +5178,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -4574,6 +5211,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4582,6 +5222,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='3' />
@@ -4610,6 +5251,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4618,6 +5262,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='11' />
@@ -4649,6 +5294,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4657,6 +5305,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -4685,6 +5334,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4693,6 +5345,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -4712,6 +5365,9 @@ task.Volume = mixVolume;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4720,9 +5376,15 @@ task.Volume = mixVolume;' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -4746,13 +5408,20 @@ task.Volume = mixVolume;' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Rinsing tips&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -4763,6 +5432,9 @@ task.Volume = mixVolume;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4771,6 +5443,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -4789,6 +5462,9 @@ task.Volume = mixVolume;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4797,6 +5473,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -4825,6 +5502,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4833,6 +5513,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -4865,6 +5546,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4873,6 +5557,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='3' />
@@ -4901,6 +5586,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4909,6 +5597,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='11' />
@@ -4940,6 +5629,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4948,6 +5640,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -4976,6 +5669,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -4984,6 +5680,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -5003,6 +5700,9 @@ task.Volume = mixVolume;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5011,9 +5711,15 @@ task.Volume = mixVolume;' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -5037,13 +5743,20 @@ task.Volume = mixVolume;' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Rinsing tips&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -5054,6 +5767,9 @@ task.Volume = mixVolume;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5062,6 +5778,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -5080,6 +5797,9 @@ task.Volume = mixVolume;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5088,6 +5808,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
@@ -5116,6 +5837,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5124,6 +5848,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -5156,6 +5881,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5164,6 +5892,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='3' />
@@ -5192,6 +5921,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5200,6 +5932,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='11' />
@@ -5231,6 +5964,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5239,6 +5975,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -5267,6 +6004,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5275,6 +6015,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -5295,6 +6036,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5303,9 +6047,15 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -5329,13 +6079,20 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Rinsing tips&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -5346,6 +6103,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5354,6 +6114,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -5372,6 +6133,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5380,6 +6144,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -5408,6 +6173,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5416,6 +6184,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -5448,6 +6217,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5456,6 +6228,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='3' />
@@ -5484,6 +6257,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5492,6 +6268,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='11' />
@@ -5523,6 +6300,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5531,6 +6311,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -5559,6 +6340,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5567,6 +6351,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -5586,6 +6371,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5594,9 +6382,15 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -5620,13 +6414,20 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Rinsing tips&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -5637,6 +6438,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5645,6 +6449,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -5663,6 +6468,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5671,6 +6479,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
@@ -5699,6 +6508,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5707,6 +6519,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -5739,6 +6552,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5747,6 +6563,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='3' />
@@ -5775,6 +6592,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5783,6 +6603,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='12' />
@@ -5814,6 +6635,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5822,6 +6646,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -5850,6 +6675,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5858,6 +6686,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -5878,6 +6707,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5886,9 +6718,15 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -5912,6 +6750,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -5925,6 +6764,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 						<Parameter Category='' Name='Temperature Tolerance' Value='1' />
 						<Parameter Category='' Name='Timeout' Value='1' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='1' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='1' />
@@ -5933,13 +6775,20 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Isolating eluate&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -5950,6 +6799,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5958,6 +6810,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -5977,6 +6830,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -5985,6 +6841,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Move To Location' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -5992,6 +6849,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 					<TaskScript Name='TaskScript' Value='if(elutionVolume &gt; 24) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Location' Value='1' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6000,6 +6860,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -6009,17 +6870,28 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 						<Parameter Category='' Name='Title' Value='Spin down' />
 						<Parameter Category='' Name='Body' Value='Take the Nunc plate from position 7 and spin down for 5 s. Return the plate and click &apos;Continue&apos;.' />
 						<Parameter Category='' Name='Only show the first time' Value='' />
+						<Parameter Category='' Name='Display dialog box' Value='1' />
+						<Parameter Category='' Name='Pause process' Value='1' />
+						<Parameter Category='' Name='Email' Value='0' />
+						<Parameter Category='' Name='Twitter message' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Reserve Location' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='task.Reservationtime = pelletTime;' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Location to use, plate' Value='BeadPlate' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
 						<Parameter Category='' Name='Reservation time' Value='' />
@@ -6028,6 +6900,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
@@ -6056,6 +6929,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6064,6 +6940,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='26' />
@@ -6092,6 +6969,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6100,6 +6980,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -6128,6 +7009,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6136,6 +7020,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='20' />
@@ -6165,6 +7050,9 @@ task.Volume = elutionVolume * 0.9;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6173,6 +7061,7 @@ task.Volume = elutionVolume * 0.9;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='11' />
@@ -6203,6 +7092,9 @@ task.Dynamictipretraction = 4 / (elutionVolume * 0.9);' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6211,6 +7103,7 @@ task.Dynamictipretraction = 4 / (elutionVolume * 0.9);' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='12' />
@@ -6240,6 +7133,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6248,6 +7144,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5' />
@@ -6267,6 +7164,9 @@ task.Volume = preAsp;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6275,20 +7175,33 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Move To Location' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='2' />
@@ -6296,6 +7209,9 @@ task.Volume = preAsp;' />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Location' Value='1' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6304,6 +7220,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -6313,13 +7230,21 @@ task.Volume = preAsp;' />
 						<Parameter Category='' Name='Title' Value='Temperature reset' />
 						<Parameter Category='' Name='Body' Value='The protocol has finished. Remove sample plate from position 4 and confirm to turn off cooling.' />
 						<Parameter Category='' Name='Only show the first time' Value='' />
+						<Parameter Category='' Name='Display dialog box' Value='1' />
+						<Parameter Category='' Name='Pause process' Value='1' />
+						<Parameter Category='' Name='Email' Value='0' />
+						<Parameter Category='' Name='Twitter message' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -6333,6 +7258,9 @@ task.Volume = preAsp;' />
 						<Parameter Category='' Name='Temperature Tolerance' Value='' />
 						<Parameter Category='' Name='Timeout' Value='1' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6341,6 +7269,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -6354,6 +7283,9 @@ task.Volume = preAsp;' />
 						<Parameter Category='' Name='Temperature Tolerance' Value='' />
 						<Parameter Category='' Name='Timeout' Value='1' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6362,9 +7294,15 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -6388,13 +7326,20 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Washing beads&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -6405,6 +7350,9 @@ task.Volume = preAsp;' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6413,6 +7361,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='5.0' />
@@ -6431,6 +7380,9 @@ task.Volume = preAsp;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6439,6 +7391,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -6451,6 +7404,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -6480,6 +7434,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6488,6 +7445,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -6496,10 +7454,16 @@ task.Volume = preAsp;' />
 // more than one step if volume is large
 aspRepeats =Math.ceil((beadWashVolume + preAsp + 5) / maxAspVolume);
 stepVolume = beadWashVolume / aspRepeats;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -6512,6 +7476,7 @@ stepVolume = beadWashVolume / aspRepeats;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -6540,6 +7505,9 @@ stepVolume = beadWashVolume / aspRepeats;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6548,6 +7516,7 @@ stepVolume = beadWashVolume / aspRepeats;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -6576,6 +7545,9 @@ stepVolume = beadWashVolume / aspRepeats;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6584,6 +7556,7 @@ stepVolume = beadWashVolume / aspRepeats;' />
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -6591,6 +7564,7 @@ stepVolume = beadWashVolume / aspRepeats;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='46' />
@@ -6626,6 +7600,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6634,6 +7611,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='11' />
@@ -6662,6 +7640,9 @@ task.Volume = mixVolume;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6670,10 +7651,14 @@ task.Volume = mixVolume;' />
 				<Task Name='BuiltIn::Reserve Location' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='task.Reservationtime = pelletTimeShort;' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Location to use, plate' Value='BeadPlate' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
 						<Parameter Category='' Name='Reservation time' Value='0' />
@@ -6682,6 +7667,7 @@ task.Volume = mixVolume;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
@@ -6711,6 +7697,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6719,6 +7708,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -6731,6 +7721,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='13' />
@@ -6759,6 +7750,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6767,6 +7761,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -6795,6 +7790,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6803,6 +7801,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -6810,6 +7809,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -6839,6 +7839,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6847,6 +7850,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -6854,6 +7858,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -6874,6 +7879,9 @@ task.Wellselection = [[1,13 - columnsOfSamples]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6882,9 +7890,15 @@ task.Wellselection = [[1,13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
@@ -6908,13 +7922,20 @@ task.Wellselection = [[1,13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Group Begin' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='global.statusString = &quot;Washing beads&quot;;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='Bravo::secondary::Set Head Mode' Task_Type='512' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -6925,6 +7946,9 @@ task.Wellselection = [[1,13 - columnsOfSamples]];' />
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;5929d18748dd2bd11633d3faafa655d1&apos; version=&apos;1.0&apos; &gt;
 	&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6933,6 +7957,7 @@ task.Wellselection = [[1,13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Tips On' Task_Type='16' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='7' />
@@ -6952,6 +7977,9 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -6960,6 +7988,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -6972,6 +8001,7 @@ task.Wellselection = [[1, 13 - columnsOfSamples]];' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
@@ -7001,6 +8031,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -7009,6 +8042,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::JavaScript' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
@@ -7017,10 +8051,16 @@ task.Volume = preAsp;' />
 // more than one step if volume is large
 aspRepeats =Math.ceil((dnaWashVolume + preAsp + 5) / maxAspVolume);
 stepVolume = dnaWashVolume / aspRepeats;' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -7033,6 +8073,7 @@ stepVolume = dnaWashVolume / aspRepeats;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
@@ -7061,6 +8102,9 @@ stepVolume = dnaWashVolume / aspRepeats;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -7069,6 +8113,7 @@ stepVolume = dnaWashVolume / aspRepeats;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='8' />
@@ -7097,6 +8142,9 @@ stepVolume = dnaWashVolume / aspRepeats;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -7105,6 +8153,7 @@ stepVolume = dnaWashVolume / aspRepeats;' />
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -7112,6 +8161,7 @@ stepVolume = dnaWashVolume / aspRepeats;' />
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='39' />
@@ -7148,6 +8198,9 @@ task.Mixcycles = dnaWashMixes;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -7156,6 +8209,7 @@ task.Mixcycles = dnaWashMixes;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -7184,6 +8238,9 @@ task.Mixcycles = dnaWashMixes;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -7192,10 +8249,14 @@ task.Mixcycles = dnaWashMixes;' />
 				<Task Name='BuiltIn::Reserve Location' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='task.Reservationtime = pelletTime;' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Location to use, plate' Value='BeadPlate' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
 						<Parameter Category='' Name='Reservation time' Value='0' />
@@ -7204,6 +8265,7 @@ task.Mixcycles = dnaWashMixes;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='4' />
@@ -7233,6 +8295,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -7241,6 +8306,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Loop' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -7253,6 +8319,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='16' />
@@ -7281,6 +8348,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -7289,6 +8359,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='9' />
@@ -7317,6 +8388,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -7325,6 +8399,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -7332,6 +8407,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -7361,6 +8437,9 @@ task.Volume = preAsp;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -7369,6 +8448,7 @@ task.Volume = preAsp;' />
 				<Task Name='BuiltIn::Loop End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
@@ -7376,6 +8456,7 @@ task.Volume = preAsp;' />
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='6' />
@@ -7396,6 +8477,9 @@ task.Wellselection = [[1,13 - columnsOfSamples]];' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
@@ -7404,6 +8488,7 @@ task.Wellselection = [[1,13 - columnsOfSamples]];' />
 				<Task Name='BuiltIn::Reserve Location' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='// Let ethanol evaporate
@@ -7411,6 +8496,9 @@ task.Reservationtime = ethanolDryTime;
 
 global.statusString = &quot;Allowing wash buffer to dry&quot;;' />
 					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Location to use, plate' Value='BeadPlate' />
 						<Parameter Category='' Name='Location to use, location' Value='7' />
 						<Parameter Category='' Name='Reservation time' Value='' />
@@ -7419,9 +8507,15 @@ global.statusString = &quot;Allowing wash buffer to dry&quot;;' />
 				<Task Name='BuiltIn::Group End' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='1' />
