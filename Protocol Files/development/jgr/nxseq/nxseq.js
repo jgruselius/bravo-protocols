@@ -9,6 +9,7 @@ run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat",
 
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 var formColumns = parseInt(formColumns, 10);
+var formFragCleanup = !!formFragCleanup;
 
 var testMode = !!(typeof formTestMode !== "undefined" && formTestMode);
 if(testMode) print("Skipping incubations!");
@@ -19,6 +20,15 @@ protocols["Plate filler"] = {
 	file: "nxseq_filler.pro",
 	settings: {
 		volumes: [400, 1300]
+	}
+};
+
+protocols["Fragmentation cleanup"] = {
+	file: "illumina_spri.pro",
+	settings: {
+		sampleVolume: 50,
+		beadVolume: 90,
+		elutionVolume: 17
 	}
 };
 
@@ -66,7 +76,8 @@ protocols["Ligation cleanup 2"] = {
 };
 
 protocols["Library prep"] = {
-	file: "nxseq.rst"
+	file: "nxseq.rst",
+	file2: "ampure-nxseq.rst"
 };
 
 protocols["Ligation cleanup"] = {
@@ -78,9 +89,15 @@ var runsetOrder = [];
 
 if(formProtocol === "Library prep") {
 	runsetMode = true;
-	runsetOrder = ["A-tailing","Ligation","Ligation cleanup 1",
-		"Ligation cleanup 2"];
-	runset.openRunsetFile(path+protocols[formProtocol].file, form);
+	if(formFragCleanup) {
+		runsetOrder = ["Fragmentation cleanup","A-tailing","Ligation",
+			"Ligation cleanup 1","Ligation cleanup 2"];
+		runset.openRunsetFile(path+protocols[formProtocol].file2, form);
+	} else {
+		runsetOrder = ["A-tailing","Ligation","Ligation cleanup 1",
+			"Ligation cleanup 2"];
+		runset.openRunsetFile(path+protocols[formProtocol].file, form);
+	}
 } else if(formProtocol === "Ligation cleanup") {
 	runsetMode = true;
 	runset.openRunsetFile(path+protocols[formProtocol].file, form);
