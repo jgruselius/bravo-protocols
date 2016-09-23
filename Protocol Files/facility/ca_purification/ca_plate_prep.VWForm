@@ -163,7 +163,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="15790320" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Protocol file" Description="The protocol to be launched when this button is pressed" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\ca_purification\ca_preparation_v1404.pro" ValueToDisplay="Protocol Files(*.pro)|*.pro||" Hide_if="" />
+      <Parameter Name="Protocol file" Description="The protocol to be launched when this button is pressed" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\ca_purification\ca_preparation.pro" ValueToDisplay="Protocol Files(*.pro)|*.pro||" Hide_if="" />
       <Parameter Name="Number of times to run" Description="Run this protocol N times" Type="8" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
     </Object>
