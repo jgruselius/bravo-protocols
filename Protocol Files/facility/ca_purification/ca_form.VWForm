@@ -4,16 +4,16 @@
   <Property name="RestoreDefaultsOnLoad" value="1" />
   <Property name="ShowLogInFullScreen" value="1" />
   <Property name="FormBackgroundColor" value="-1" />
-  <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
-    <Object type="ToolboxLibrary.OperatorConsoleGroup, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleGroup1" children="Controls">
-      <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic15" children="Controls">
+  <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleGroup, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleGroup1" children="Controls">
+      <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic15" children="Controls">
         <Property name="TabIndex">1</Property>
-        <Property name="Font">Tahoma, 8pt</Property>
-        <Property name="ForeColor">102, 102, 102</Property>
-        <Property name="Size">192, 59</Property>
         <Property name="Name">operatorConsoleStatic15</Property>
+        <Property name="Size">192, 59</Property>
         <Property name="Text">When setting the elution volume to 24 uL or less the protocol will pause before the final step and you will be instructed to centrifuge the plate.</Property>
+        <Property name="Font">Tahoma, 8pt</Property>
         <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="ForeColor">102, 102, 102</Property>
         <Property name="Location">6, 36</Property>
         <Property name="DataBindings">
           <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -33,14 +33,14 @@
         <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
         <Parameter Name="Value" Description="" Type="1" Value="When setting the elution volume to 24 uL or less the protocol will pause before the final step and you will be instructed to centrifuge the plate." ValueToDisplay="" Hide_if="" />
       </Object>
-      <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic14" children="Controls">
+      <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic14" children="Controls">
         <Property name="TabIndex">0</Property>
-        <Property name="Font">Tahoma, 10pt</Property>
-        <Property name="ForeColor">40, 40, 40</Property>
-        <Property name="Size">93, 19</Property>
         <Property name="Name">operatorConsoleStatic14</Property>
+        <Property name="Size">93, 19</Property>
         <Property name="Text">IMPORTANT:</Property>
+        <Property name="Font">Tahoma, 10pt</Property>
         <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="ForeColor">40, 40, 40</Property>
         <Property name="Location">6, 17</Property>
         <Property name="DataBindings">
           <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -61,16 +61,16 @@
         <Parameter Name="Value" Description="" Type="1" Value="IMPORTANT:" ValueToDisplay="" Hide_if="" />
       </Object>
       <Property name="TabIndex">24</Property>
-      <Property name="Name">operatorConsoleGroup1</Property>
       <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="Size">205, 100</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="Location">280, 100</Property>
-      <Property name="TabStop">False</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="TabStop">False</Property>
+      <Property name="Name">operatorConsoleGroup1</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Group name" Description="The name of this group" Type="1" Value="" ValueToDisplay="" Hide_if="" />
@@ -84,14 +84,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic13" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic13" children="Controls">
       <Property name="TabIndex">23</Property>
-      <Property name="Font">Tahoma, 7pt</Property>
-      <Property name="ForeColor">192, 192, 192</Property>
-      <Property name="Size">193, 13</Property>
       <Property name="Name">operatorConsoleStatic13</Property>
+      <Property name="Size">193, 13</Property>
       <Property name="Text">Science for Life Laboratory Stockholm 2012</Property>
+      <Property name="Font">Tahoma, 7pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">192, 192, 192</Property>
       <Property name="Location">151, 436</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -111,14 +111,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Science for Life Laboratory Stockholm 2012" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic12" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic12" children="Controls">
       <Property name="TabIndex">22</Property>
-      <Property name="Font">Tahoma, 7pt</Property>
-      <Property name="ForeColor">192, 192, 192</Property>
-      <Property name="Size">114, 13</Property>
       <Property name="Name">operatorConsoleStatic12</Property>
+      <Property name="Size">114, 13</Property>
       <Property name="Text">Created by Joel Gruselius</Property>
+      <Property name="Font">Tahoma, 7pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">192, 192, 192</Property>
       <Property name="Location">19, 436</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -138,14 +138,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Created by Joel Gruselius" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic9" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic9" children="Controls">
       <Property name="TabIndex">21</Property>
-      <Property name="Font">Tahoma, 14pt</Property>
-      <Property name="ForeColor">125, 158, 192</Property>
-      <Property name="Size">148, 26</Property>
       <Property name="Name">operatorConsoleStatic9</Property>
+      <Property name="Size">148, 26</Property>
       <Property name="Text">DNA purification</Property>
+      <Property name="Font">Tahoma, 14pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">125, 158, 192</Property>
       <Property name="Location">19, 57</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -165,9 +165,9 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="DNA purification" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
+    <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
       <Property name="Image">
-        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOwQAADsEBuJFr7QAAAT9JREFUOE+dks1qg2AQReMTtX3gYB7BpYkGSQQxf9RFwEVEJSGKCxcaFEMW094pM6SFLOrAQWXuufCphmma74ZhfE5GDBF9TGazGT0ej1HA5YL7/U5N0/wLOFowDAPVdc1cLhfa7XYM7v8+Sw6OFvR9T1VVMZvN5vtoP3M8HhkZ7CQHRwu6rqOiKJjVaqXC4XAgIIOd5OBowe12o/P5zHiep8J2uyUgg53k4GhB27aUpimzXC5VCMOQgAx2koOjBTjX6XRiHMdRIQgCAjLYSQ6OFpRlSXEcM/P5XAXf9wnIYCc5OFpwvV71jdu2/eulPb9U7OTLwNECfOsoipjFYqEF6/WagAx2koOjBXme036/Z3Bmy7IY13UZecZOcnC0IMsy/oGASK+ukoOjBUmSkCBnfHV9znLBdDp9w80Y4H4B6ddHniDV34sAAAAASUVORK5CYII=</Binary>
+        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE8SURBVDhPnZLBqoJQEIZ7o+4LSz1CyyxDMhDNhBZCi8JEUXHhQqNIWkz8c88McaHFdeCDI/P9P5xTk9ls9jOfz2kMyE5weL1eo0CWC4ZhoK7r/gUyWvB8PqltW6YoCoqiiMH577d4yGjB4/GgpmmYMAxJJkkSRgY78ZDRgvv9TlVVMdvt1uhEcRwzMtiJh4wW3G43yvOccV3X6ET7/Z6RwU48ZLSg73tK05TZbDZGJwqCgJHBTjxktAB3Op/PzHq9NjqR7/uMDHbiIaMFdV3T6XRibNs2OtFut2NksBMPGS0oy1JffLlcGv330T4fFTvxkNEC/L7H45FZrVZGJ/I8j5HBTjxktCDLMjocDgzuvFgsGMdxGPnGTjxktOB6vfKfBEjoG+IhowWXy0WRO37j0+UCy7KmOIzBsqzpG3j2bdwSxTLSAAAAAElFTkSuQmCC</Binary>
       </Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
@@ -195,13 +195,13 @@
       <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="15790320" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic11" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic11" children="Controls">
       <Property name="TabIndex">19</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">102, 102, 102</Property>
-      <Property name="Size">238, 25</Property>
       <Property name="Name">operatorConsoleStatic11</Property>
+      <Property name="Size">238, 25</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 118, 196</Property>
       <Property name="Location">19, 314</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -217,18 +217,18 @@
           <Range Value="72" />
         </Ranges>
       </Parameter>
-      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="6710886" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="12875264" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic10" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic10" children="Controls">
       <Property name="TabIndex">18</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">50, 18</Property>
       <Property name="Name">operatorConsoleStatic10</Property>
+      <Property name="Size">50, 18</Property>
       <Property name="Text">Status:</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="Location">18, 296</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -248,9 +248,9 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Status:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
       <Property name="Image">
-        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOwQAADsEBuJFr7QAAAWZJREFUOE+dkdlqwmAUhM0TtX1g0ScQISBuMRoxrlAvBEHFuGCC20UURfFi6pySg9VaqD8M/NGZ7yy/kUgk3g3D+Iy9cAB8xJLJJC6Xy0tiVgDn8xlhGP5LzCjgdDphu91iPp+j3W6LptOp/PZMzCjgeDxiuVyi2WxKoNVqwbZt+R6Px/LfvZhRwOFwgO/7qFQq1718n81mI4BSqYR6vY7hcCieSMwoYL/fYzabSdX7Q1Cj0UCxWEStVsNgMBAvMwrY7XbSqmVZD4DbjtiJ4zjiZUYBnI8tFgqFp4D1eg3XdWVMeplRQBAE6Pf7yOVyD4DVaiVVM5mM7KPb7YqXGQUsFgv0ej1ks1kFMMhq6XRawtVqVTyRmFEA35/kfD4PBrnMVCoF0zTlzuVR9ERiRgGTyQSdTkdmZBesyn2Uy+UfoicSMwrwPE/enOJz/aXIx4wCRqMRIt3O+dv91iuAeDz+xssrYvYLjB9FcGXsjAwAAAAASUVORK5CYII=</Binary>
+        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPnZHbioJQFIZ7o+aFJZ8ggkDSjhppWhddCEJFB6OisouKpPBiDf8aXTU1MzBu+GGX//ftU6FUKn2oqkp5AraASZIkuQKWBff7nU6n078CRgS3242OxyOtVisaDAac5XLJ//0WMCKI45h2ux25rssfPc+jdrvNv2ezGX97DRgRXK9X2mw2ZJomZSOKIha0Wi1yHIcmkwl3soARweVyoTAMedXXAVG/36dGo0G9Xo/G4zF3wYjgfD7zVpvNZoq9D4iwE8uyuAtGBDgTtliv19P6+zgcDmTbNh8TXTAi2G63FAQB6bqe1h9jv9/zqpqm8X2MRiPughHBer0m3/epVqul2BeI1SqVCsPdbpc7WcCIAO8Ps2EYDOIyy+UyVatVnuPyEHSygBHBYrGg4XDIZ8QusCruo9PpfAs6WcCIYD6f85sjeK6/kvXAiGA6nUqez/lTnrssUBSliEmeKIpS/AQbPmuu0fJ9NAAAAABJRU5ErkJggg==</Binary>
       </Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
@@ -266,7 +266,7 @@
       <Property name="Name">operatorConsoleButton1</Property>
       <Property name="TextImageRelation">ImageBeforeText</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="run(&quot;C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat&quot;, true);&#xA;runset.openRunsetFile(&quot;C:/VWorks Workspace/Protocol Files/facility/ca_purification/ca_purification_v1202.rst&quot;, &quot;ca_form.VWForm&quot;);" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="run(&quot;C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat&quot;, true);&#xA;runset.clear();&#xA;runset.openRunsetFile(&quot;C:/VWorks Workspace/Protocol Files/facility/ca_purification/ca_purification.rst&quot;, &quot;ca_form.VWForm&quot;);" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the Script above will always execute in the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Icon" Description="A graphical image file to display in the button" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\resources\1313497517_media_controls_light_play.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp;*.ico)|*.jpg;*.png;*.bmp;*.ico||" Hide_if="" />
       <Parameter Name="Disable when running" Description="the button is disabled whenever a protocol is running" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
@@ -281,14 +281,14 @@
       <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="15790320" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic8" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic8" children="Controls">
       <Property name="TabIndex">15</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">179, 18</Property>
       <Property name="Name">operatorConsoleStatic8</Property>
+      <Property name="Size">179, 18</Property>
       <Property name="Text">Columns of samples:</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="Location">19, 269</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -308,14 +308,13 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Columns of samples:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist1" children="Controls">
-      <Property name="Location">204, 267</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist1" children="Controls">
       <Property name="DropDownStyle">DropDownList</Property>
-      <Property name="TabIndex">14</Property>
+      <Property name="FormattingEnabled">True</Property>
+      <Property name="Size">53, 22</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="FormattingEnabled">True</Property>
       <Property name="Name">operatorConsoleDroplist1</Property>
       <Property name="Items">
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">1</Item>
@@ -331,9 +330,10 @@
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">11</Item>
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">12</Item>
       </Property>
-      <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="Location">204, 267</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">53, 22</Property>
+      <Property name="TabIndex">14</Property>
+      <Property name="Font">Tahoma, 9pt</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formColumns" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="1;2;3;4;5;6;7;8;9;10;11;12" ValueToDisplay="" Hide_if="" />
@@ -351,15 +351,15 @@
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="1;2;3;4;5;6;7;8;9;10;11;12;" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox6" children="Controls">
-      <Property name="Location">204, 239</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox6" children="Controls">
       <Property name="Size">53, 22</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleTextBox6</Property>
       <Property name="Text">30</Property>
       <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="Name">operatorConsoleTextBox6</Property>
+      <Property name="Location">204, 239</Property>
       <Property name="ForeColor">0, 0, 0</Property>
       <Property name="TabIndex">12</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formElutionVolume" ValueToDisplay="" Hide_if="" />
@@ -389,15 +389,15 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox5" children="Controls">
-      <Property name="Location">204, 211</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox5" children="Controls">
       <Property name="Size">53, 22</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleTextBox5</Property>
       <Property name="Text">10</Property>
       <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="Name">operatorConsoleTextBox5</Property>
+      <Property name="Location">204, 211</Property>
       <Property name="ForeColor">0, 0, 0</Property>
       <Property name="TabIndex">11</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formResuspVolume" ValueToDisplay="" Hide_if="" />
@@ -427,15 +427,15 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox4" children="Controls">
-      <Property name="Location">204, 183</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox4" children="Controls">
       <Property name="Size">53, 22</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleTextBox4</Property>
       <Property name="Text">10</Property>
       <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="Name">operatorConsoleTextBox4</Property>
+      <Property name="Location">204, 183</Property>
       <Property name="ForeColor">0, 0, 0</Property>
       <Property name="TabIndex">10</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formBindTime" ValueToDisplay="" Hide_if="" />
@@ -465,15 +465,15 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox3" children="Controls">
-      <Property name="Location">204, 155</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox3" children="Controls">
       <Property name="Size">53, 22</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleTextBox3</Property>
       <Property name="Text">100</Property>
       <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="Name">operatorConsoleTextBox3</Property>
+      <Property name="Location">204, 155</Property>
       <Property name="ForeColor">0, 0, 0</Property>
       <Property name="TabIndex">9</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formPrecipVolume" ValueToDisplay="" Hide_if="" />
@@ -503,15 +503,15 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox2" children="Controls">
-      <Property name="Location">204, 127</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox2" children="Controls">
       <Property name="Size">53, 22</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleTextBox2</Property>
       <Property name="Text">20</Property>
       <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="Name">operatorConsoleTextBox2</Property>
+      <Property name="Location">204, 127</Property>
       <Property name="ForeColor">0, 0, 0</Property>
       <Property name="TabIndex">8</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formBeadVolume" ValueToDisplay="" Hide_if="" />
@@ -541,15 +541,15 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox1" children="Controls">
-      <Property name="Location">204, 100</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox1" children="Controls">
       <Property name="Size">53, 22</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleTextBox1</Property>
       <Property name="Text">50</Property>
       <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="Name">operatorConsoleTextBox1</Property>
+      <Property name="Location">204, 100</Property>
       <Property name="ForeColor">0, 0, 0</Property>
       <Property name="TabIndex">7</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formSampleVolume" ValueToDisplay="" Hide_if="" />
@@ -579,14 +579,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic7" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic7" children="Controls">
       <Property name="TabIndex">6</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">179, 18</Property>
       <Property name="Name">operatorConsoleStatic7</Property>
+      <Property name="Size">179, 18</Property>
       <Property name="Text">Elution volume:</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="Location">19, 241</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -606,14 +606,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Elution volume:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic6" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic6" children="Controls">
       <Property name="TabIndex">5</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">179, 18</Property>
       <Property name="Name">operatorConsoleStatic6</Property>
+      <Property name="Size">179, 18</Property>
       <Property name="Text">Resuspension volume:</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="Location">19, 213</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -633,14 +633,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Resuspension volume:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic5" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic5" children="Controls">
       <Property name="TabIndex">4</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">179, 18</Property>
       <Property name="Name">operatorConsoleStatic5</Property>
+      <Property name="Size">179, 18</Property>
       <Property name="Text">Bind time:</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="Location">19, 185</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -660,14 +660,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Bind time:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic4" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic4" children="Controls">
       <Property name="TabIndex">3</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">179, 18</Property>
       <Property name="Name">operatorConsoleStatic4</Property>
+      <Property name="Size">179, 18</Property>
       <Property name="Text">Precipitation buffer volume:</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="Location">19, 157</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -687,14 +687,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Precipitation buffer volume:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic3" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic3" children="Controls">
       <Property name="TabIndex">2</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">179, 18</Property>
       <Property name="Name">operatorConsoleStatic3</Property>
+      <Property name="Size">179, 18</Property>
       <Property name="Text">Bead volume:</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="Location">19, 129</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -714,14 +714,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Bead volume:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic2" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic2" children="Controls">
       <Property name="TabIndex">1</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">179, 18</Property>
       <Property name="Name">operatorConsoleStatic2</Property>
+      <Property name="Size">179, 18</Property>
       <Property name="Text">Sample volume:</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="Location">19, 103</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
@@ -741,14 +741,14 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Sample volume:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5230.13444, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
       <Property name="TabIndex">0</Property>
-      <Property name="Font">Tahoma, 20pt</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Size">227, 43</Property>
       <Property name="Name">operatorConsoleStatic1</Property>
+      <Property name="Size">227, 43</Property>
       <Property name="Text">CA purification</Property>
+      <Property name="Font">Tahoma, 20pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="Location">19, 14</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
