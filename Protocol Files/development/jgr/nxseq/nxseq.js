@@ -37,9 +37,9 @@ protocols["A-tailing"] = {
 	settings: {
 		tipColumn: 1,
 		reagentColumn: 1,
-		sampleVolume: 17,
+		sampleVolume: 15,
 		bufferVolume: 0,
-		reagentVolume: 33,
+		reagentVolume: 35,
 		doOffDeckIncubation: true
 	}
 };
@@ -62,7 +62,7 @@ protocols["Ligation cleanup 1"] = {
 	settings: {
 		sampleVolume: 57,
 		beadVolume: 57,
-		elutionVolume: 50
+		elutionVolume: 100
 	}
 };
 
