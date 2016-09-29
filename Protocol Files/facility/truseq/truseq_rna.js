@@ -22,6 +22,8 @@ var extended = !!formExtended;
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
 
+var testMode = false;
+
 var presets = {};
 
 presets["Adenylation"] = {
@@ -130,7 +132,7 @@ var runsetOrder = [];
 
 if(formProtocol === "Adapter ligation") {
 	runsetMode = true;
-	runsetOrder = ["cDNA cleanup","cDNA cleanup","Adenylation","Ligation",
+	runsetOrder = ["cDNA cleanup","Adenylation","Ligation",
 		"Ligation cleanup 1","Ligation cleanup 2"];
 	runset.appendRunsetFileToRunset(path+fileNames[formProtocol], form);
 } else if(formProtocol === "Ligation cleanup") {
