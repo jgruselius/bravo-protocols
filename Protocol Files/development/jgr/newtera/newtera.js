@@ -72,7 +72,7 @@ protocols["Size selection"] = {
 	settings: {
 		sampleVolume: 45,
 		beadVolume1: 45,
-		beadVolume2: 15,
+		beadVolume2: 17.5,
 		beadDiluteVolume1: 40,
 		beadDiluteVolume2: 0,
 		transferVolume: 125,
