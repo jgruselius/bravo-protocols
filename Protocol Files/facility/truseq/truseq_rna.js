@@ -71,7 +71,8 @@ presets["cDNA cleanup"] = {
 		elutionVolume: 16,
 		transferSample: false,
 		sealFinalPlate: false,
-		beadPlateToUse: 1
+		beadPlateToUse: 1,
+		precipBuffer: 1
 };
 presets["Ligation cleanup 1"] = {
 		sampleVolume: 42.5,
@@ -83,7 +84,8 @@ presets["Ligation cleanup 1"] = {
 		elutionVolume: 50,
 		transferSample: true,
 		sealFinalPlate: false,
-		beadPlateToUse: 2
+		beadPlateToUse: 2,
+		precipBuffer: 2
 };
 presets["Ligation cleanup 2"] = {
 		sampleVolume: 50,
@@ -95,7 +97,8 @@ presets["Ligation cleanup 2"] = {
 		elutionVolume: 20,
 		transferSample: false,
 		sealFinalPlate: true,
-		beadPlateToUse: 3
+		beadPlateToUse: 3,
+		precipBuffer: 2
 };
 presets["PCR cleanup"] = {
 		sampleVolume: 50,
