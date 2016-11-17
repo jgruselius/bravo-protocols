@@ -105,7 +105,7 @@ presets["PCR cleanup"] = {
 var settings = {};
 
 var fileNames = {};
-fileNames["mRNA purification"] = "rna_prep_v1511.pro";
+fileNames["mRNA purification"] = extended ? "rna_prep_v1511.pro" : "rna_prep_v1203.pro";
 fileNames["cDNA cleanup"] = "ca_p1-2.rst";
 fileNames["Adenylation"] = "truseq_rna_adenylation.pro";
 fileNames["PCR setup"] = "truseq_rna_pcr.pro";
