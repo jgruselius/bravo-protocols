@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='8992be14bca7be9dc3b4c0f896fca0db' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='2e4e87836c1af30ff91f188669fa83cc' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -69,7 +69,8 @@ if(global.formLog) {
 var ignoreBarcodes = !!global.formIgnoreBarcodes;
 var bc = new BarcodeManager(3);
 
-' />
+global.transfersDone = 0;
+global.totalTransfers = tm.getSize();' />
 				</Task>
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
@@ -273,6 +274,19 @@ task.Body = msg;
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
@@ -726,6 +740,7 @@ var counter = 0;' />
 	task.Volume = (vol &lt;= MAX_VOLUME) ? vol : MAX_VOLUME;
 	task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];
 	counter++;
+	global.transfersDone++;
 } else {
 	task.skip();
 }' />
@@ -1072,6 +1087,7 @@ if(buffer96Mode) {
 					<TaskScript Name='TaskScript' Value='// Blowout
 if(hasTransfer) {
 	task.Wellselection =  sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];
+	global.transfersDone++;
 } else {
 	task.skip();
 }' />
