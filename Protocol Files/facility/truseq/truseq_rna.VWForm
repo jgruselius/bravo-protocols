@@ -5,6 +5,61 @@
   <Property name="ShowLogInFullScreen" value="1" />
   <Property name="FormBackgroundColor" value="-1" />
   <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic12" children="Controls">
+      <Property name="TabIndex">28</Property>
+      <Property name="Name">operatorConsoleStatic12</Property>
+      <Property name="Size">148, 23</Property>
+      <Property name="Text">Pause before A-tailing:</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">102, 102, 102</Property>
+      <Property name="Location">15, 237</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Pause before A-tailing:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="6710886" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Pause before A-tailing:" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox3" children="Controls">
+      <Property name="Size">20, 24</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Name">operatorConsoleCheckbox3</Property>
+      <Property name="UseVisualStyleBackColor">True</Property>
+      <Property name="Location">202, 234</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="TabIndex">27</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formReagentPause" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
+      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="8" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Caption" Description="The string to display in the button" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+    </Object>
     <Object type="ToolboxLibrary.OperatorConsoleDropdown, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDropdown2" children="Controls">
       <Property name="FormattingEnabled">True</Property>
       <Property name="Size">121, 24</Property>
@@ -37,7 +92,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="PCR setup" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic11" children="Controls">
       <Property name="TabIndex">25</Property>
@@ -92,7 +147,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic10" children="Controls">
       <Property name="TabIndex">23</Property>
@@ -129,7 +184,7 @@
       <Property name="Font">Tahoma, 8pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">127, 127, 127</Property>
-      <Property name="Location">47, 380</Property>
+      <Property name="Location">47, 426</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -159,7 +214,7 @@
       <Property name="Size">157, 36</Property>
       <Property name="TabIndex">21</Property>
       <Property name="Text">Initialize all devices</Property>
-      <Property name="Location">47, 329</Property>
+      <Property name="Location">47, 375</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -205,7 +260,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic8" children="Controls">
       <Property name="TabIndex">19</Property>
@@ -245,7 +300,7 @@
       <Property name="Size">80, 36</Property>
       <Property name="TabIndex">18</Property>
       <Property name="Text"> START</Property>
-      <Property name="Location">27, 453</Property>
+      <Property name="Location">27, 499</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -278,7 +333,7 @@
       <Property name="Size">80, 36</Property>
       <Property name="TabIndex">17</Property>
       <Property name="Text"> PAUSE</Property>
-      <Property name="Location">124, 453</Property>
+      <Property name="Location">124, 499</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -304,7 +359,7 @@
       <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">102, 102, 102</Property>
-      <Property name="Location">79, 269</Property>
+      <Property name="Location">79, 315</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -331,7 +386,7 @@
       <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">15, 269</Property>
+      <Property name="Location">15, 315</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -391,7 +446,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="6" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic6" children="Controls">
       <Property name="TabIndex">6</Property>
@@ -428,7 +483,7 @@
       <Property name="Font">Tahoma, 7pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">192, 192, 192</Property>
-      <Property name="Location">151, 513</Property>
+      <Property name="Location">151, 559</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -455,7 +510,7 @@
       <Property name="Font">Tahoma, 7pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">192, 192, 192</Property>
-      <Property name="Location">27, 513</Property>
+      <Property name="Location">27, 559</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>

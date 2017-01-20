@@ -21,6 +21,7 @@ run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat",
 var extended = !!formExtended;
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
+var reagentPause = !!formReagentPause;
 
 var testMode = false;
 
