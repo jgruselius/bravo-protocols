@@ -46,9 +46,9 @@ presets["Ligation"] = {
 		incubationTime: 600,
 };
 presets["PCR setup"] = {
-		sampleVolume: 30,
-		reagentVolume: 37.5,
-		primerVolume: 7.5,
+		sampleVolume: 20,
+		reagentVolume: 25,
+		primerVolume: 5,
 		tipColumn: 1,
 		reagentColumn: 1
 };
