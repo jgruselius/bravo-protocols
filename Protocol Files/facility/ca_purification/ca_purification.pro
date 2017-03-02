@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='b54c446fcb8a9fb851204a3c6e99735a' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='e2a06b5da741e45d441ba5c38986b1c4' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -194,19 +194,6 @@ print(vars);' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='BeadDistribution' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='BeadDistribution' />
 					</Parameters>
@@ -7001,5 +6988,40 @@ global.statusString = &quot;Allowing wash buffer to dry&quot;;' />
 				<Dependencies />
 			</Pipette_Process>
 		</Main_Processes>
+		<Cleanup_Processes >
+			<Process >
+				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::JavaScript' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='var email = global.formEmail;
+var protocolName = &quot;CA purification&quot;;
+
+if(typeof email === &quot;string&quot; &amp;&amp; email.match(/[\w\d\.]+@[\w\d\.]+/)) {
+	(function() {
+		var msg = {
+			body: protocolName+&quot; completed on &quot;+new Date().toLocaleString(),
+			sub: protocolName+&quot; has completed&quot;,
+			to: email
+		};
+		// Quote-ilize:
+		for(var i in msg) msg[i] = msg[i].replace(/.+/, &quot;\&quot;$&amp;\&quot;&quot;);
+		var script = &quot;C:\\VWorks Workspace\\bravo_mailer.bat&quot;
+		run([script, msg.to, msg.sub, msg.body].join(&quot; &quot;));
+	})();
+}
+
+global.formEmail = &quot;&quot;;' />
+				</Task>
+				<Plate_Parameters >
+					<Parameter Name='Plate name' Value='finish' />
+				</Plate_Parameters>
+				<Quarantine_After_Process >0</Quarantine_After_Process>
+			</Process>
+		</Cleanup_Processes>
 	</Processes>
 </Velocity11>
