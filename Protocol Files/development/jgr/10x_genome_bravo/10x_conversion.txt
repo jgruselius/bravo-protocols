@@ -1,0 +1,20 @@
+/c/VWorks Workspace/Protocol Files/development/jgr/10x_genome_bravo/
+
+* Change device file.
+* Replace tip waste with tip handling using boxes only.
+
+1_Quant.pro
+	Will not be used.
+
+2_Normalize.pro
+	Will not be used.
+
+3_Quant.pro
+	Will not be used.
+
+4_Make_Plate.pro
+	* Switched tip waste on 4 to empty tipbox.
+	* First set of tips (1) dumped in empty box (4), 2nd set (3) dumped in 1. 3rd set of tips by replacing box on 3, dumped in the same (3).
+
+5_Load_Chromium_Controller_Chip.pro
+	* Switched tip waste on 4 to empty tipbox.
