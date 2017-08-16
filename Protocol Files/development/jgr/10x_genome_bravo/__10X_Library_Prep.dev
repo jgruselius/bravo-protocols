@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='ASCII' ?>
+<Velocity11 file='Device_Data' md5sum='3dbea7c8a199bf87662515c0fc8a4b7e' version='2.0' >
+	<Devices >
+		<Device Name='10X Setup' Object_Type='Bravo' >
+			<Locations >
+				<Location DeadlockAvoidance='1' Door='' Name='1' Stack_Height='100' >
+					<Teachpoints >
+						<Teachpoint Name='1' Robot='10X Setup' />
+					</Teachpoints>
+					<Allowed_Labware_Classes >
+						<Allowed_Labware_Class Name='Uses Standard Platepad' />
+					</Allowed_Labware_Classes>
+				</Location>
+				<Location DeadlockAvoidance='1' Door='' Name='2' >
+					<Teachpoints >
+						<Teachpoint Name='2' Robot='10X Setup' />
+					</Teachpoints>
+					<Allowed_Labware_Classes >
+						<Allowed_Labware_Class Name='Uses Standard Platepad' />
+					</Allowed_Labware_Classes>
+				</Location>
+				<Location DeadlockAvoidance='1' Door='' Name='3' Stack_Height='100' >
+					<Teachpoints >
+						<Teachpoint Name='3' Robot='10X Setup' />
+					</Teachpoints>
+					<Allowed_Labware_Classes >
+						<Allowed_Labware_Class Name='Uses Standard Platepad' />
+					</Allowed_Labware_Classes>
+				</Location>
+				<Location DeadlockAvoidance='1' Door='' Name='4' Stack_Height='100' >
+					<Teachpoints >
+						<Teachpoint Name='4' Robot='10X Setup' />
+					</Teachpoints>
+					<Allowed_Labware_Classes >
+						<Allowed_Labware_Class Name='Uses Standard Platepad' />
+					</Allowed_Labware_Classes>
+				</Location>
+				<Location DeadlockAvoidance='1' Door='' Name='5' Stack_Height='100' >
+					<Teachpoints >
+						<Teachpoint Name='5' Robot='10X Setup' />
+					</Teachpoints>
+					<Allowed_Labware_Classes >
+						<Allowed_Labware_Class Name='Uses Standard Platepad' />
+					</Allowed_Labware_Classes>
+				</Location>
+				<Location DeadlockAvoidance='1' Door='' Name='6' Stack_Height='100' >
+					<Teachpoints >
+						<Teachpoint Name='6' Robot='10X Setup' />
+					</Teachpoints>
+					<Allowed_Labware_Classes >
+						<Allowed_Labware_Class Name='Uses Standard Platepad' />
+					</Allowed_Labware_Classes>
+				</Location>
+				<Location DeadlockAvoidance='1' Door='' Name='7' Stack_Height='100' >
+					<Teachpoints >
+						<Teachpoint Name='7' Robot='10X Setup' />
+					</Teachpoints>
+					<Allowed_Labware_Classes >
+						<Allowed_Labware_Class Name='Uses Standard Platepad' />
+					</Allowed_Labware_Classes>
+				</Location>
+				<Location DeadlockAvoidance='1' Door='' Name='8' Stack_Height='100' >
+					<Teachpoints >
+						<Teachpoint Name='8' Robot='10X Setup' />
+					</Teachpoints>
+					<Allowed_Labware_Classes >
+						<Allowed_Labware_Class Name='Uses Standard Platepad' />
+					</Allowed_Labware_Classes>
+				</Location>
+				<Location DeadlockAvoidance='1' Door='' Name='9' Stack_Height='100' >
+					<Teachpoints >
+						<Teachpoint Name='9' Robot='10X Setup' />
+					</Teachpoints>
+					<Allowed_Labware_Classes >
+						<Allowed_Labware_Class Name='Uses Standard Platepad' />
+					</Allowed_Labware_Classes>
+				</Location>
+				<Location DeadlockAvoidance='1' Door='' Name='Default Location' >
+					<Allowed_Labware_Classes >
+						<Allowed_Labware_Class Name='Uses Standard Platepad' />
+					</Allowed_Labware_Classes>
+				</Location>
+			</Locations>
+			<Parameters >
+				<Parameter Name='Profile' Value='10X Bravo' />
+			</Parameters>
+		</Device>
+	</Devices>
+</Velocity11>
