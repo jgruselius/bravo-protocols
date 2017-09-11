@@ -60,6 +60,7 @@ presets["CA default"] = {
 		bindTime: 600,
 		elutionVolume: 30,
 		sealFinalPlate: false,
+		finalHold: false,
 		beadPlateToUse: 1
 };
 presets["cDNA cleanup"] = {
@@ -67,11 +68,11 @@ presets["cDNA cleanup"] = {
 		beadVolume: 15,
 		precipVolume: 100,
 		beadResuspVolume: 10,
-		dilutionVolume: 0,
 		bindTime: 600,
-		elutionVolume: 16,
+		elutionVolume: 18,
 		transferSample: false,
 		sealFinalPlate: false,
+		finalHold: false,
 		beadPlateToUse: 1,
 		precipBuffer: 1
 };
@@ -79,12 +80,12 @@ presets["Ligation cleanup 1"] = {
 		sampleVolume: 42.5,
 		beadVolume: 20,
 		precipVolume: 100,
-		beadResuspVolume: 0,
-		dilutionVolume: 17.5,
+		beadResuspVolume: 17.5,
 		bindTime: 600,
-		elutionVolume: 50,
+		elutionVolume: 52,
 		transferSample: true,
 		sealFinalPlate: false,
+		finalHold: false,
 		beadPlateToUse: 2,
 		precipBuffer: 2
 };
@@ -92,12 +93,12 @@ presets["Ligation cleanup 2"] = {
 		sampleVolume: 50,
 		beadVolume: 20,
 		precipVolume: 100,
-		beadResuspVolume: 0,
-		dilutionVolume: 10,
+		beadResuspVolume: 10,
 		bindTime: 600,
-		elutionVolume: 20,
+		elutionVolume: 22,
 		transferSample: false,
 		sealFinalPlate: true,
+		finalHold: !!formFinalHold,
 		beadPlateToUse: 3,
 		precipBuffer: 2
 };
@@ -107,9 +108,10 @@ presets["PCR cleanup"] = {
 		precipVolume: 100,
 		beadResuspVolume: 10,
 		bindTime: 600,
-		elutionVolume: 30,
+		elutionVolume: 32,
 		transferSample: true,
-		sealFinalPlate: true
+		sealFinalPlate: true,
+		finalHold: !!formFinalHold
 };
 
 var settings = {};
@@ -122,6 +124,7 @@ fileNames["PCR setup"] = "truseq_rna_pcr.pro";
 fileNames["PCR cleanup"] = "ca_purification_runset.pro";
 fileNames["Ligation"] = "truseq_rna_ligation.pro";
 fileNames["Adapter ligation"] = "truseq_rna_adapter_ligation.rst";
+fileNames["Adapter ligation (no cDNA cleanup)"] = "truseq_rna_adapter_ligation_short.rst";
 fileNames["Ligation cleanup"] = "ca_double-purification.rst";
 
 if(extended) {
@@ -138,6 +141,11 @@ if(formProtocol === "Adapter ligation") {
 	runsetMode = true;
 	runsetOrder = ["cDNA cleanup","Adenylation","Ligation",
 		"Ligation cleanup 1","Ligation cleanup 2"];
+	runset.appendRunsetFileToRunset(path+fileNames[formProtocol], form);
+} else if(formProtocol === "Adapter ligation (no cDNA cleanup)") {
+	runsetMode = true;
+	runsetOrder = ["Adenylation","Ligation", "Ligation cleanup 1",
+		"Ligation cleanup 2"];
 	runset.appendRunsetFileToRunset(path+fileNames[formProtocol], form);
 } else if(formProtocol === "Ligation cleanup") {
 	runsetMode = true;
