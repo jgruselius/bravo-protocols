@@ -50,7 +50,8 @@ presets["PCR setup"] = {
 		reagentVolume: 25,
 		primerVolume: 5,
 		tipColumn: 1,
-		reagentColumn: 1
+		reagentColumn: 1,
+		finalHold: !!formFinalHold
 };
 presets["CA default"] = {
 		sampleVolume: 50,

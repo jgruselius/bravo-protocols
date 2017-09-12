@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='dddc3cf1d199dc18323f06b67e678c39' version='2.0' >
-	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
+<Velocity11 file='Protocol_Data' md5sum='23c7698de6245e06e0e1a19bca072b64' version='2.0' >
+	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
 			<Process >
@@ -24,6 +24,8 @@ var primerVolume = global.settings.primerVolume;
 var sampleVolume = global.settings.sampleVolume;
 var tipColumn = global.settings.tipColumn;
 var reagentColumn = global.settings.reagentColumn;
+var finalHold = global.settings.finalHold;
+var extended = global.extended;
 var dph = global.dph;
 //var protocolName = global.formProtocol;
 
@@ -31,6 +33,31 @@ var dph = global.dph;
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='1' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::Set temperature - Position' >
+					<Devices >
+						<Device Device_Name='Bravo - 1' Location_Name='6' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='2' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Location' Value='6' />
+						<Parameter Category='' Name='Turn off temperature' Value='0' />
+						<Parameter Category='' Name='Temperature' Value='4' />
+						<Parameter Category='' Name='Wait' Value='' />
+						<Parameter Category='' Name='Temperature Tolerance' Value='2' />
+						<Parameter Category='' Name='Timeout' Value='1' />
+						<Parameter Category='' Name='Allow concurrent operation' Value='1' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set temperature - Position (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -59,24 +86,6 @@ var dph = global.dph;
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='2' />
-					</Parameters>
-				</Task>
-				<Task Name='BuiltIn::Place Plate' >
-					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='3' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='if(columns &lt; 11) task.skip();' />
-					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='2' />
-						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='3' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
@@ -130,6 +139,28 @@ var dph = global.dph;
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='aliquotPrimer' />
 					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Storage Incubate' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='if(columns &lt; 11) task.skip();' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Storage Incubate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='incubateAtLocation' Value='' />
+						<Parameter Category='' Name='newIncubationTime' Value='0' />
+					</Parameters>
+					<Parameter >
+						<IncubationTime Incubation_Time_MS='10' />
+						<RelativeTiming bRelative_Timing='0' />
+						<AssignedLocations_Node >
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 1, slot 2' />
+						</AssignedLocations_Node>
+					</Parameter>
 				</Task>
 				<Task Name='BuiltIn::Spawn Process' >
 					<Enable_Backup >0</Enable_Backup>
@@ -470,7 +501,7 @@ var dph = global.dph;
 				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='6' />
+						<Device Device_Name='Bravo - 1' Location_Name='5' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -483,7 +514,7 @@ var dph = global.dph;
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='6' />
+						<Parameter Category='' Name='Location to use' Value='5' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
@@ -562,7 +593,7 @@ var dph = global.dph;
 				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='5' />
+						<Device Device_Name='Bravo - 1' Location_Name='6' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -575,7 +606,7 @@ var dph = global.dph;
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='5' />
+						<Parameter Category='' Name='Location to use' Value='6' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
@@ -636,7 +667,7 @@ var dph = global.dph;
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='if(!extended) task.skip();' />
 					<Parameters >
 						<Parameter Category='' Name='Process to spawn' Value='SpinDown' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='1' />
@@ -645,7 +676,7 @@ var dph = global.dph;
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='5' />
+						<Device Device_Name='Bravo - 1' Location_Name='6' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -658,7 +689,33 @@ var dph = global.dph;
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='5' />
+						<Parameter Category='' Name='Location to use' Value='6' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::SubProcess' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='finishUp' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
+						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='finishUp' />
 					</Parameters>
 				</Task>
 				<Plate_Parameters >
@@ -683,9 +740,51 @@ var dph = global.dph;
 			</Process>
 			<Process >
 				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::Unload' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='if(columns &lt; 11) task.skip();' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Unload' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Unload based on barcode' Value='0' />
+						<Parameter Category='' Name='Barcode' Value='' />
+						<Parameter Category='' Name='unloadFrom' Value='' />
+					</Parameters>
+					<Parameter >
+						<RemoveFromGroups Name='RemoveFromGroups' Value='0' />
+						<AssignedLocations_Node >
+							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 1, slot 1' />
+						</AssignedLocations_Node>
+					</Parameter>
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='1' />
+						<Device Device_Name='Bravo - 1' Location_Name='7' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='if(columns &gt;10) task.skip();' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
+						<Parameter Category='' Name='Location to use' Value='7' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Place Plate' >
+					<Devices >
+						<Device Device_Name='Bravo - 1' Location_Name='2' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -694,11 +793,11 @@ var dph = global.dph;
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(columns &lt; 11) task.skip();' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='1' />
+						<Parameter Category='' Name='Location to use' Value='2' />
 					</Parameters>
 				</Task>
 				<Task Name='Bravo::SubProcess' >
@@ -725,24 +824,6 @@ var dph = global.dph;
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferSample' />
-					</Parameters>
-				</Task>
-				<Task Name='BuiltIn::Place Plate' >
-					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='2' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='if(columns &lt; 11) task.skip();' />
-					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='3' />
-						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='2' />
 					</Parameters>
 				</Task>
 				<Plate_Parameters >
@@ -776,7 +857,7 @@ var dph = global.dph;
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -797,7 +878,7 @@ var dph = global.dph;
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='29' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -1265,7 +1346,7 @@ var aspirateSteps = Math.ceil(transferVolume / maxVolume);' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,tipColumn]];' />
 					<Parameters >
@@ -1329,7 +1410,7 @@ var dispenseSteps = (tipVolume - deadVolume) / aliquotVolume;' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,reagentColumn]];' />
 					<Parameters >
@@ -1538,6 +1619,109 @@ task.Wellselection = [[1,reagentColumn]];' />
 				</Parameters>
 				<Dependencies />
 			</Pipette_Process>
+			<Pipette_Process Name='finishUp' >
+				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::Reserve Location' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='Reserve Location' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Location to use, plate' Value='ReactionPlate' />
+						<Parameter Category='' Name='Location to use, location' Value='6' />
+						<Parameter Category='' Name='Reservation time' Value='0' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::secondary::Move To Location' Task_Type='1024' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='2' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Location' Value='2' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='Move To Location (Bravo)' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='1' />
+					</PipetteHead>
+				</Task>
+				<Task Name='BuiltIn::User Message' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='14' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='if(!finalHold) task.skip();' />
+					<Parameters >
+						<Parameter Category='' Name='Title' Value='Final cold' />
+						<Parameter Category='' Name='Body' Value='Protocol finished, select Continue to turn off cooling.' />
+						<Parameter Category='' Name='Only show the first time' Value='' />
+						<Parameter Category='' Name='Display dialog box' Value='1' />
+						<Parameter Category='' Name='Pause process' Value='1' />
+						<Parameter Category='' Name='Email' Value='0' />
+						<Parameter Category='' Name='Twitter message' Value='0' />
+						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
+						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='3' />
+						<Parameter Category='Task Description' Name='Task description' Value='User Message' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='1' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Location' Value='6' />
+						<Parameter Category='' Name='Turn off temperature' Value='1' />
+						<Parameter Category='' Name='Temperature' Value='' />
+						<Parameter Category='' Name='Wait' Value='' />
+						<Parameter Category='' Name='Temperature Tolerance' Value='' />
+						<Parameter Category='' Name='Timeout' Value='2' />
+						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Set temperature - Position (Bravo)' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='1' />
+					</PipetteHead>
+				</Task>
+				<Devices >
+					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
+				</Devices>
+				<Parameters >
+					<Parameter Name='Display confirmation' Value='Don&apos;t display' />
+					<Parameter Name='1' Value='&lt;use default&gt;' />
+					<Parameter Name='2' Value='&lt;use default&gt;' />
+					<Parameter Name='3' Value='&lt;use default&gt;' />
+					<Parameter Name='4' Value='&lt;use default&gt;' />
+					<Parameter Name='5' Value='&lt;use default&gt;' />
+					<Parameter Name='6' Value='&lt;use default&gt;' />
+					<Parameter Name='7' Value='&lt;use default&gt;' />
+					<Parameter Name='8' Value='&lt;use default&gt;' />
+					<Parameter Name='9' Value='&lt;use default&gt;' />
+				</Parameters>
+				<Dependencies />
+			</Pipette_Process>
 			<Pipette_Process Name='transferSample' >
 				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Group Begin' >
@@ -1629,7 +1813,7 @@ task.Wellselection = [[1,13-columns]];' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='12' />
+						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = sampleVolume;
 task.Distancefromwellbottom = 0.5;
@@ -1671,7 +1855,7 @@ task.Dynamictipextension = dph(sampleVolume, 0.5);' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='12' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = reagentVolume;
 task.Distancefromwellbottom = 0.5;
@@ -1713,7 +1897,7 @@ task.Dynamictipextension = dph(reagentVolume, 0.5);' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='15' />
+						<Setting Name='Estimated time' Value='14' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = sampleVolume + reagentVolume;
 task.Dynamictipretraction = 5 / (sampleVolume + reagentVolume);' />
@@ -1754,7 +1938,7 @@ task.Dynamictipretraction = 5 / (sampleVolume + reagentVolume);' />
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='34' />
+						<Setting Name='Estimated time' Value='32' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = 0.7 * (sampleVolume + reagentVolume + primerVolume);' />
 					<Parameters >
@@ -1839,25 +2023,6 @@ task.Dynamictipretraction = 5 / (sampleVolume + reagentVolume);' />
 						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
-				</Task>
-				<Task Name='Bravo::secondary::Move To Location' Task_Type='1024' >
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='2' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Location' Value='2' />
-						<Parameter Category='Task Description' Name='Task number' Value='11' />
-						<Parameter Category='Task Description' Name='Task description' Value='Move To Location (Bravo)' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-					</Parameters>
-					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
-					</PipetteHead>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />

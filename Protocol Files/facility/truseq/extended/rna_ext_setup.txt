@@ -1,0 +1,15 @@
+BRAVO
+1:           2:            3:
+4: Samples   5:            6: 
+7:           8:            9: Reagents (Epp)
+
+BENCHCEL
+1: Tipbox (5) 2: Epp (6)    3:           4:
+
+MINIHUB
+      1         2           3          4
+5  Indexes     DS PEG     Waste       Nunc
+4
+3
+2  E. tipbox   LMW plate  EB plate    Nunc             
+1  Tipbox      CA beads   EtOH plate  Nunc
