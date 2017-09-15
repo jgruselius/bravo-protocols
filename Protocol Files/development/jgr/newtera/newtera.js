@@ -25,7 +25,7 @@ protocols["Plate filler"] = {
 protocols["Tagmentation"] = {
 	file: "newtera.pro",
 	settings: {
-		tipColumn: 1,
+		tipColumn: 12,
 		reagentColumn: 1,
 		sampleVolume: 30,
 		reagentVolume: 20,
@@ -49,8 +49,8 @@ protocols["Denaturation wash"] = {
 protocols["PCR setup"] = {
 	file: "newtera_pcr.pro",
 	settings: {
-		tipColumn: 3,
-		reagentColumn: 3,
+		tipColumn: 1,
+		reagentColumn: 1,
 		sampleVolume: 100,
 		reagentVolume: 40,
 		primerVolume: 10,
@@ -71,8 +71,8 @@ protocols["Size selection"] = {
 	file: "newtera_double-spri.pro",
 	settings: {
 		sampleVolume: 45,
-		beadVolume1: 45,
-		beadVolume2: 17.5,
+		beadVolume1: 50,
+		beadVolume2: 15,
 		beadDiluteVolume1: 40,
 		beadDiluteVolume2: 0,
 		transferVolume: 125,
