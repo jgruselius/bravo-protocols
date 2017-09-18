@@ -7,6 +7,7 @@ run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat",
 
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
+var ltMode = (formKitMode === "LT");
 
 var presets = {};
 presets["End repair"] = {
@@ -77,10 +78,10 @@ presets["Ligation cleanup 2"] = {
 	elutionVolume:25
 	};
 
-	// Bead volume should be 50 if using single index
+	// Bead volume should be 50 if using single index, 47.5 for dual
 presets["PCR cleanup"] = {
 	sampleVolume:50,
-	beadVolume:50,
+	beadVolume: ltMode? 50 : 47.5,
 	elutionVolume:30
 	};
 

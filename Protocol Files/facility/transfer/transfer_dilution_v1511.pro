@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='8992be14bca7be9dc3b4c0f896fca0db' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='3242d22b6fc9f18cb87ece836bea2668' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -69,7 +69,8 @@ if(global.formLog) {
 var ignoreBarcodes = !!global.formIgnoreBarcodes;
 var bc = new BarcodeManager(3);
 
-' />
+global.transfersDone = 0;
+global.totalTransfers = tm.getSize();' />
 				</Task>
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
@@ -726,6 +727,7 @@ var counter = 0;' />
 	task.Volume = (vol &lt;= MAX_VOLUME) ? vol : MAX_VOLUME;
 	task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];
 	counter++;
+	global.transfersDone++;
 } else {
 	task.skip();
 }' />
@@ -1072,6 +1074,7 @@ if(buffer96Mode) {
 					<TaskScript Name='TaskScript' Value='// Blowout
 if(hasTransfer) {
 	task.Wellselection =  sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];
+	global.transfersDone++;
 } else {
 	task.skip();
 }' />
@@ -1231,5 +1234,40 @@ if(sample96Mode) {
 				</Dependencies>
 			</Pipette_Process>
 		</Main_Processes>
+		<Cleanup_Processes >
+			<Process >
+				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::JavaScript' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='var email = global.formEmail;
+var protocolName = &quot;Dilution/normalization&quot;;
+
+if(typeof email === &quot;string&quot; &amp;&amp; email.match(/[\w\d\.]+@[\w\d\.]+/)) {
+	(function() {
+		var msg = {
+			body: protocolName+&quot; completed on &quot;+new Date().toLocaleString(),
+			sub: protocolName+&quot; has completed&quot;,
+			to: email
+		};
+		// Quote-ilize:
+		for(var i in msg) msg[i] = msg[i].replace(/.+/, &quot;\&quot;$&amp;\&quot;&quot;);
+		var script = &quot;C:\\VWorks Workspace\\bravo_mailer.bat&quot;
+		run([script, msg.to, msg.sub, msg.body].join(&quot; &quot;));
+	})();
+}
+
+global.formEmail = &quot;&quot;;' />
+				</Task>
+				<Plate_Parameters >
+					<Parameter Name='Plate name' Value='finish' />
+				</Plate_Parameters>
+				<Quarantine_After_Process >0</Quarantine_After_Process>
+			</Process>
+		</Cleanup_Processes>
 	</Processes>
 </Velocity11>
