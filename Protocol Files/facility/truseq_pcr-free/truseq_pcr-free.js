@@ -1,31 +1,105 @@
 runset.clear();
 
 var path = "C:/VWorks Workspace/Protocol Files/facility/truseq_pcr-free/";
-var form = "truseq_pcr-free.VWForm"
+var form = "truseq_pcr-free.VWForm";
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
+var extended = !!formExtended;
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
+var altBeadPlate = true;
+var nanoMode = !!formNanoMode;
 
 var presets = {};
-presets["End repair"] = {tipColumn:1,reagentColumn:1,sampleVolume:50,reagentVolume:50,incubationTemperature:30,incubationTime:1800,doOffDeckIncubation:true};
-presets["A-tailing"] = {tipColumn:2,reagentColumn:2,sampleVolume:15,reagentVolume:15,incubationTemperature:37,incubationTime:1800,doOffDeckIncubation:true};
-presets["Ligation"] = {tipColumn:3,reagentColumn:3,sampleVolume:30,reagentVolume:5,bufferVolume:5,adapterVolume:2.5,incubationTemperature:30,incubationTime:600,doOffDeckIncubation:true};
+presets["End repair"] = {
+	tipColumn:1,
+	reagentColumn:1,
+	sampleVolume:50,
+	reagentVolume:50,
+	incubationTemperature:30,
+	incubationTime:1800,
+	doOffDeckIncubation:true,
+	cyclerProgram:"2,1,ts-er"
+};
 
-presets["Fragmentation cleanup"] = {sampleVolume:50,beadVolume:80,elutionVolume:50};
-presets["Size selection 350 bp"] = {sampleVolume:100,beadVolume1:95,beadVolume2:30,bindVolume:160,transferVolume:250,elutionVolume:15};
-presets["Size selection 550 bp"] = {sampleVolume:100,beadVolume1:80,beadVolume2:30,bindVolume:160,transferVolume:250,elutionVolume:15};
-presets["Ligation cleanup 1"] = {sampleVolume:42.5,beadVolume:42.5,elutionVolume:50};
-presets["Ligation cleanup 2"] = {sampleVolume:50,beadVolume:50,elutionVolume:20};
+presets["A-tailing"] = {
+	tipColumn:2,
+	reagentColumn:2,
+	sampleVolume:15,
+	reagentVolume:15,
+	incubationTemperature:37,
+	incubationTime:1800,
+	doOffDeckIncubation:true,
+	cyclerProgram:"2,2,ts-at"
+};
+
+presets["Ligation"] = {
+	tipColumn:3,
+	reagentColumn:3,
+	sampleVolume:30,
+	reagentVolume:5,
+	bufferVolume:5,
+	adapterVolume:2.5,
+	incubationTemperature:30,
+	incubationTime:600,
+	doOffDeckIncubation:true,
+	cyclerProgram:"2,3,ts-lig"
+};
+
+presets["Fragmentation cleanup"] = {
+	sampleVolume:50,
+	beadVolume:80,
+	elutionVolume:50
+};
+
+presets["Size selection 350 bp"] = {
+	sampleVolume:100,
+	beadVolume1:95,
+	beadVolume2:30,
+	bindVolume:160,
+	transferVolume:250,
+	elutionVolume:15
+};
+
+presets["Size selection 550 bp"] = {
+	sampleVolume:100,
+	beadVolume1:80,
+	beadVolume2:30,
+	bindVolume:160,
+	transferVolume:250,
+	elutionVolume:15
+};
+
+presets["Ligation cleanup 1"] = {
+	sampleVolume:42.5,
+	beadVolume:42.5,
+	elutionVolume:50
+};
+
+presets["Ligation cleanup 2"] = {
+	sampleVolume:50,
+	beadVolume:50,
+	elutionVolume: (nanoMode) ? 20 : 25,
+	keepSeal:true
+};
+
+// For TruSeq Nano only:
+presets["PCR setup"] = {
+	tipColumn:5,
+	reagentColumn:5,
+	sampleVolume:25,
+	reagentVolume:20,
+	primerVolume:5
+};
 
 presets["qPCR setup"] = {};
 
 var settings = {};
 
 var fileNames = {};
-fileNames["End repair"] = "truseq_pcr-free_reaction.pro";
-fileNames["A-tailing"] = "truseq_pcr-free_reaction.pro";
+fileNames["End repair"] = "truseq_pcr-free_end_repair.pro";
+fileNames["A-tailing"] = "truseq_pcr-free_a-tailing.pro";
 fileNames["Ligation"] = "truseq_pcr-free_ligation.pro";
 fileNames["Fragmentation cleanup"] = "illumina_spri.pro";
 fileNames["Size selection 350 bp"] = "illumina_double-spri.pro";
@@ -34,7 +108,16 @@ fileNames["Ligation cleanup 1"] = "illumina_spri.pro";
 fileNames["Ligation cleanup 2"] = "illumina_spri.pro";
 fileNames["Library prep"] = "truseq_pcr-free.rst";
 fileNames["Ligation cleanup"] = "truseq_pcr-free_cleanup.rst";
-fileNames["qPCR setup"] = "../qpcr-384/qpcr-384_setup_ver2.pro";
+fileNames["qPCR setup"] = "../qpcr-384/qpcr-384_setup_ver4.pro";
+fileNames["PCR setup"] = "truseq_nano_pcr.pro";
+
+if(extended) {
+	for(var p in fileNames) {
+		if(p !== "qPCR setup") {
+			fileNames[p] = "extended/" + fileNames[p];
+		}
+	}
+}
 
 var runsetOrder = [];
 
@@ -42,6 +125,9 @@ if(formProtocol === "Library prep") {
 	runsetMode = true;
 	runsetOrder = ["Fragmentation cleanup","End repair","Size selection "+formInsertSize,
 			"A-tailing","Ligation","Ligation cleanup 1","Ligation cleanup 2"];
+	if(!extended) {
+		runsetOrder.shift();
+	}
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
 } else if(formProtocol === "Size selection") {
 	runsetMode = false;
@@ -58,6 +144,7 @@ if(formProtocol === "Library prep") {
 }
 
 function updateSettings(protocol) {
+	settings = {};
 	if(protocol in presets) {
 		for(var s in presets[protocol]) {
 			settings[s] = presets[protocol][s];
@@ -71,4 +158,14 @@ function updateSettings(protocol) {
 var runsetIndex = 0;
 function updateRunset() {
 	updateSettings(runsetOrder[runsetIndex++]);
+}
+
+function dph(vol, endHeight) {
+	var v = parseFloat(vol);
+	var e = parseFloat(endHeight);
+	if(v > 0 && e > 0 && !isNaN(v+e)) {
+		return 0.078 - 9.501E-5*v + (0.734-e)/v;
+	} else {
+		throw "ValueException";
+	}
 }

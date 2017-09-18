@@ -1,0 +1,11 @@
+*        text=auto
+
+*.js     text
+*.txt    text
+*.pro    -text
+*.rst    -text
+*.VWForm -text
+*.png    binary
+*.ico    binary
+*.sql    text
+*.bat    -text
