@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='f13a8a0e8a793cf7e2cc936253b10f39' version='2.0' >
-	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Bravo 96LT.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
+<Velocity11 file='Protocol_Data' md5sum='57646568e935729bb5de01fb51dd013b' version='2.0' >
+	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Bravo 96LT magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
 			<Process >
@@ -12,8 +12,13 @@
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var volumes = [0.5, 1, 2, 3, 4, 5];
-var startColumn = 1;' />
+					<TaskScript Name='TaskScript' Value='var volume = {
+	buffer: 100,
+	source: [1, 1, 1, 2, 2, 2]
+};
+var settings = {
+	startColumn: 1
+};' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='1' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -76,12 +81,12 @@ var startColumn = 1;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='11' />
+						<Setting Name='Estimated time' Value='25' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Title' Value='Replace tipbox' />
-						<Parameter Category='' Name='Body' Value='Replace the tipbox at position 2.' />
+						<Parameter Category='' Name='Body' Value='Replace the tipbox at position 5.' />
 						<Parameter Category='' Name='Only show the first time' Value='' />
 						<Parameter Category='Scripting variable data entry' Name='User data entry into variable' Value='0' />
 						<Parameter Category='Scripting variable data entry' Name='Variable name' Value='' />
@@ -456,7 +461,7 @@ var startColumn = 1;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -491,7 +496,7 @@ var startColumn = 1;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Buffer' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
-						<Parameter Category='Volume' Name='Volume' Value='100' />
+						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=volume.buffer' Value='100' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='5' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_medium_vol' />
@@ -524,14 +529,14 @@ var startColumn = 1;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='10' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Dest' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
-						<Parameter Category='Volume' Name='Volume' Value='100' />
+						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=volume.buffer' Value='100' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='5' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_medium_vol' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
@@ -563,7 +568,7 @@ var startColumn = 1;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -605,7 +610,7 @@ var startColumn = 1;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='3' />
+						<Setting Name='Estimated time' Value='2' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -680,7 +685,7 @@ var startColumn = 1;' />
 						<Parameter Category='Task Description' Name='Task number' Value='0' />
 						<Parameter Category='Task Description' Name='Task description' Value='' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-						<Parameter Category='' Name='Number of times to loop' TaskParameterScript='=volumes.length;' Value='1' />
+						<Parameter Category='' Name='Number of times to loop' TaskParameterScript='=volume.source.length;' Value='1' />
 						<Parameter Category='' Name='Change tips every N times, N = ' Value='1' />
 					</Parameters>
 					<Variables >
@@ -700,11 +705,11 @@ var startColumn = 1;' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;dde7bf525f4b6a5b5cea6521b88e5b18&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;8d004d0b695f93c5700523356cd877df&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;5&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -721,17 +726,17 @@ var startColumn = 1;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='9' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Source' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
-						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=volumes[i];' Value='10' />
+						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=volume.source[i];' Value='10' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='2' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_medium_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.8' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -760,14 +765,14 @@ var startColumn = 1;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='10' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,startColumn+i]];' />
+					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,settings.startColumn+i]];' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Dest' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
-						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=volumes[i];' Value='10' />
+						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=volume.source[i];' Value='10' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='2' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_medium_vol' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.1' />
@@ -799,7 +804,7 @@ var startColumn = 1;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,1+i]];' />
 					<Parameters >
@@ -808,11 +813,11 @@ var startColumn = 1;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;dde7bf525f4b6a5b5cea6521b88e5b18&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;8d004d0b695f93c5700523356cd877df&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;5&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -853,7 +858,7 @@ var startColumn = 1;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='3' />
+						<Setting Name='Estimated time' Value='2' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
