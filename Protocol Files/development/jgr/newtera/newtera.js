@@ -9,6 +9,7 @@ run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat",
 
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 var formColumns = parseInt(formColumns, 10);
+var originalIndexPlate = !!formOriginalIndexPlate;
 
 var testMode = !!(typeof formTestMode !== "undefined" && formTestMode);
 if(testMode) print("Running in test mode: Skipping incubations!");
@@ -71,7 +72,7 @@ protocols["Size selection"] = {
 	file: "newtera_double-spri.pro",
 	settings: {
 		sampleVolume: 45,
-		beadVolume1: 50,
+		beadVolume1: 47.5,
 		beadVolume2: 15,
 		beadDiluteVolume1: 40,
 		beadDiluteVolume2: 0,
