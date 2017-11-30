@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='9e4fd6ce92af65433a8c74f891a19734' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='4b048d63447276957a739cb69699ec92' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -13,13 +13,13 @@
 						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var global = GetGlobalObject();
-var columns = global.formColumns || 5;
+var columns = global.formColumns || 1;
 var runsetMode = global.runsetMode;
 if(runsetMode) global.updateRunset();
 var MAX_TIP_VOLUME = 175;
-var reagentVolume = global.settings.reagentVolume || 20;
-var primerVolume = global.settings.primerVolume || 10; // Total primer volume
-var sampleVolume = global.settings.sampleVolume || 20;
+var reagentVolume = global.settings.reagentVolume;
+var primerVolume = global.settings.primerVolume; // Total primer volume
+var sampleVolume = global.settings.sampleVolume;
 var tipColumn = global.settings.tipColumn;
 var reagentColumn = global.settings.reagentColumn;
 var altPlate = (runsetMode || columns &gt; 8);
@@ -72,19 +72,6 @@ var dph = global.dph;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='aliquotReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='aliquotReagent' />
 					</Parameters>
 				</Task>
@@ -96,19 +83,6 @@ var dph = global.dph;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferReagent' />
 					</Parameters>
@@ -158,19 +132,6 @@ var dph = global.dph;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferReagent' />
 					</Parameters>
 				</Task>
@@ -218,19 +179,6 @@ var dph = global.dph;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='aliquotReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='aliquotReagent' />
 					</Parameters>
@@ -280,19 +228,6 @@ var dph = global.dph;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='aliquotReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='aliquotReagent' />
 					</Parameters>
 				</Task>
@@ -304,19 +239,6 @@ var dph = global.dph;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferReagent' />
 					</Parameters>
@@ -366,19 +288,6 @@ var dph = global.dph;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='aliquotReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='aliquotReagent' />
 					</Parameters>
 				</Task>
@@ -390,19 +299,6 @@ var dph = global.dph;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferReagent' />
 					</Parameters>
@@ -452,19 +348,6 @@ var dph = global.dph;' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
-					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferReagent' />
 					</Parameters>
 				</Task>
@@ -512,19 +395,6 @@ var dph = global.dph;' />
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferReagent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
-					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferReagent' />
 					</Parameters>
@@ -887,17 +757,17 @@ if(runsetMode) task.Wellselection = [[1,reagentColumn]];' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;0fd04b3c1da45250a45689b716995bbd&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;2&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;8&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='2' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -905,9 +775,9 @@ if(runsetMode) task.Wellselection = [[1,reagentColumn]];' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='14' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='var useVolume = orginalIndexPlate ? primerVolume : reagentVolume;
+					<TaskScript Name='TaskScript' Value='var useVolume = originalIndexPlate ? primerVolume : reagentVolume;
 task.Location_plate = originalIndexPlate ? &quot;IndexPlate&quot; : &quot;TransferPlate&quot;;
 task.Volume = useVolume;
 task.Distancefromwellbottom = 0.5;
@@ -926,9 +796,9 @@ task.Dynamictipextension = dph(useVolume, 0.5);' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;229c8fbb512e1408cffeefbb01660d24&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;2&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -937,7 +807,7 @@ task.Dynamictipextension = dph(useVolume, 0.5);' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='2' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -945,7 +815,7 @@ task.Dynamictipextension = dph(useVolume, 0.5);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='12' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Location_plate = originalIndexPlate ?  &quot;TransferPlate&quot; : &quot;IndexPlate&quot;;
 task.Volume = useVolume;' />
@@ -963,9 +833,9 @@ task.Volume = useVolume;' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;229c8fbb512e1408cffeefbb01660d24&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;2&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -974,7 +844,7 @@ task.Volume = useVolume;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='2' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -982,7 +852,7 @@ task.Volume = useVolume;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='12' />
+						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Location_plate = originalIndexPlate ?  &quot;TransferPlate&quot; : &quot;IndexPlate&quot;;
 task.Volume = reagentVolume + primerVolume;
@@ -1002,9 +872,9 @@ task.Dynamictipextension = dph(reagentVolume + primerVolume, 0.4);' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;229c8fbb512e1408cffeefbb01660d24&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;6d9e778ac7f7235a77c7705582d38a22&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;2&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -1013,7 +883,7 @@ task.Dynamictipextension = dph(reagentVolume + primerVolume, 0.4);' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='2' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -1050,7 +920,7 @@ task.Dynamictipretraction = 6 / (primerVolume + reagentVolume);' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='2' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
@@ -1089,7 +959,7 @@ task.Dynamictipretraction = 6 / (primerVolume + reagentVolume);' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='2' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -1125,7 +995,7 @@ task.Dynamictipretraction = 6 / (primerVolume + reagentVolume);' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='2' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -1149,17 +1019,17 @@ task.Dynamictipretraction = 6 / (primerVolume + reagentVolume);' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;bf71066f187cf57903f61f101f9da5c0&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b37e670787c8474f935b41a6ceb5f9f6&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;2&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;12&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;0&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;3&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='2' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Group End' >
@@ -1200,7 +1070,7 @@ task.skip;' />
 						<Parameter Category='' Name='Allow concurrent operation' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='2' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Move To Location' Task_Type='1024' >
@@ -1215,7 +1085,7 @@ task.skip;' />
 						<Parameter Category='' Name='Location' Value='2' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='2' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Devices >
