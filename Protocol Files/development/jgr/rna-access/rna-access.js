@@ -172,7 +172,7 @@ protocols["Capture wash"] = {
 };
 
 protocols["Capture elution"] = {
-	file: "rna-access_elution.pro";
+	file: "rna-access_elution.pro",
 	settings: {
 		tipColumn: 1,
 		reagentColumn: 1,
