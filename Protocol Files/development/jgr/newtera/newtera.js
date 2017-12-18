@@ -72,7 +72,7 @@ protocols["Size selection"] = {
 	file: "newtera_double-spri.pro",
 	settings: {
 		sampleVolume: 45,
-		beadVolume1: 42,
+		beadVolume1: 42.5,
 		beadVolume2: 15,
 		beadDiluteVolume1: 40,
 		beadDiluteVolume2: 0,
