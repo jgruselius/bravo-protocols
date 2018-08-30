@@ -239,12 +239,14 @@
     <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=1.0.5372.42345, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox1" children="Controls">
       <Property name="Size">20, 24</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Checked">True</Property>
       <Property name="Name">operatorConsoleCheckbox1</Property>
       <Property name="UseVisualStyleBackColor">True</Property>
       <Property name="Location">286, 174</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="CheckState">Checked</Property>
       <Property name="ForeColor">0, 0, 0</Property>
       <Property name="TabIndex">20</Property>
       <Property name="Font">Tahoma, 10pt</Property>
@@ -252,7 +254,7 @@
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
-      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="8" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="8" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Caption" Description="The string to display in the button" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
         <Ranges>
@@ -303,10 +305,10 @@
       <Property name="TabIndex">18</Property>
       <Property name="Text"> START</Property>
       <Property name="Location">27, 499</Property>
+      <Property name="Name">operatorConsoleButton1</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleButton1</Property>
       <Property name="TextImageRelation">ImageBeforeText</Property>
       <Property name="ForeColor">0, 0, 0</Property>
       <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="open(&quot;C:/VWorks Workspace/Protocol Files/facility/truseq/truseq_rna.js&quot;);" ValueToDisplay="" Hide_if="" />
