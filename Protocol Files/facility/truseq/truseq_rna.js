@@ -94,10 +94,10 @@ var settings = {};
 
 var fileNames = {};
 fileNames["mRNA purification"] = "rna_prep_v1511.pro";
-fileNames["cDNA cleanup"] = "illumina_spri_runset.pro";
+fileNames["cDNA cleanup"] = "illumina_spri.pro";
 fileNames["Adenylation"] = "truseq_rna_adenylation.pro";
 fileNames["PCR setup"] = "truseq_rna_pcr.pro";
-fileNames["PCR cleanup"] = "illumina_spri_runset.pro";
+fileNames["PCR cleanup"] = "illumina_spri.pro";
 fileNames["Ligation"] = "truseq_rna_ligation.pro";
 fileNames["Adapter ligation"] = "truseq_rna_adapter_ligation.rst";
 fileNames["Adapter ligation (no cDNA cleanup)"] = "truseq_rna_adapter_ligation_short.rst";
