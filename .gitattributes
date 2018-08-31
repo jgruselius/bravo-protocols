@@ -9,3 +9,6 @@
 *.ico    binary
 *.sql    text
 *.bat    -text
+*.pro linguist-generated=true
+*.rst linguist-generated=true
+*.VWForm linguist-generated=true
