@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='3242d22b6fc9f18cb87ece836bea2668' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='cf8f4d29865c40646c2abd2a9ba55c46' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -35,11 +35,13 @@ if(!tm.errorState) {
 
 var MAX_VOLUME = 170;
 
-var sourcePlate, destinationPlate;
+var sourcePlate, destinationPlate, diluentPlate;
 var plateSet = {
 	&quot;Eppendorf twin.tec 96&quot;: &quot;96 Eppendorf Twin.tec PCR&quot;,
 	&quot;Thermo-Fast skirted 96 (AB-0800)&quot;: &quot;96 Thermo-Fast Skirted PCR&quot;,
-	&quot;ABgene TF LP 96 (AB-1300)&quot;: &quot;96 ABgene Thermo-Fast LP PCR&quot;
+	&quot;ABgene TF LP 96 (AB-1300)&quot;: &quot;96 ABgene Thermo-Fast LP PCR&quot;,
+	&quot;Nunc Deepwell&quot;: &quot;96 Nunc Deep Well 1 mL&quot;,
+   &quot;Reservoir&quot;: &quot;96 Matrix open reservoir movable&quot;
 };
 if(global.formDestinationPlate in plateSet) {
 	destinationPlate = plateSet[global.formDestinationPlate];
@@ -51,8 +53,14 @@ if(global.formSourcePlate in plateSet) {
 } else {
 	sourcePlate = &quot;96 Eppendorf Twin.tec PCR&quot;;
 }
+if(global.formDiluentPlate in plateSet) {
+	diluentPlate = plateSet[global.formDiluentPlate];
+} else {
+	diluentPlate = &quot;96 Matrix open reservoir movable&quot;;
+}
 print(&quot;sourcePlate=&quot;+sourcePlate);
 print(&quot;destinationPlate=&quot;+destinationPlate);
+print(&quot;diluentPlate=&quot;+diluentPlate);
 
 if(global.formLog) {
 	print(&quot;Input file: &quot; + filePath);
@@ -327,7 +335,7 @@ task.Body = msg;
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='plate.labware = diluentPlate;' />
 					<Parameters >
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='6' />
