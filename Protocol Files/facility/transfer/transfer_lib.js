@@ -327,6 +327,14 @@ function parseAdapterTransfers(str, indexSet) {
 		1:"A1", 2:"B1", 3:"C1", 4:"D1", 5:"E1", 6:"F1", 7:"G1", 8:"H1",
 		9:"A2", 10:"B2", 11:"C2", 12:"D2", 13:"E2"
 	};
+	
+	INDEX_SETS["lucigen"] = {
+		1:"A1", 2:"B1", 3:"C1", 4:"D1", 5:"A2", 6:"B2", 7:"C2", 8:"D2",
+		9:"A3", 10:"B3", 11:"C3", 12:"D3", 13:"A4", 14:"B4", 15:"C4",
+		16:"D4", 17:"A5", 18:"B5", 19:"C5", 20:"D5", 21:"A6", 22:"B6",
+		23:"C6", 24:"D6"
+	};
+	
 	// TruSeq dual indexes are numbered column-wise for the SciLife ID (dualNN)
 	INDEX_SETS["truseq_dual"] = {};
 	for(var i=1; i<=96; i++) {
