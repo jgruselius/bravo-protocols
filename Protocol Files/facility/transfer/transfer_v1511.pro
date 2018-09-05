@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='f83851e43f8dd9499871ff7152bb0ef4' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='989be2f2544f5498f988aceaf2775b53' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -185,7 +185,7 @@ if(typeof tm.current !== &quot;undefined&quot;) {
 	expected = tm.next.sourcePlate;
 }
 if(!bc.hasBc(plate)) {
-   msg = &quot;It appears the plate has no barcode or the barcode could not be read. Check plate identity and either abort or proceed with the run anyway.&quot;;
+   msg = &quot;It appears the plate has no barcode or the barcode could not be read , expected [&quot; + expected + &quot;]. Check plate identity and either abort or proceed with the run anyway.&quot;;
    bc.logBc(plate, task, &quot;Barcode could not be read (expected: &quot; + expected + &quot;)&quot;);
 } else if(!bc.bcMatches(plate, expected)) {
    msg = &quot;The read plate barcode [&quot; + plate.barcode[3] +

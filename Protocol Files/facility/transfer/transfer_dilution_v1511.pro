@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='cf8f4d29865c40646c2abd2a9ba55c46' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='835b8ff3306b10d3e3cad59484c37d35' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -253,7 +253,7 @@ if(global.formLog) bc.printBc(plate);
 // since the first source in the transfer list will be buffer:
 var expected = (tm.plate === 0) ? tm.transfers[1][0].sourcePlate : tm.current.sourcePlate;
 if(!bc.hasBc(plate)) {
-   msg = &quot;It appears the plate has no barcode or the barcode could not be read. Check plate identity and either abort or proceed with the run anyway.&quot;;
+   msg = &quot;It appears the plate has no barcode or the barcode could not be read , expected [&quot; + expected + &quot;]. Check plate identity and either abort or proceed with the run anyway.&quot;;
    bc.logBc(plate, task, &quot;Barcode could not be read (expected: &quot; + expected + &quot;)&quot;);
 } else if(!bc.bcMatches(plate, expected)) {
    msg = &quot;The read plate barcode [&quot; + plate.barcode[3] +
@@ -282,6 +282,19 @@ task.Body = msg;
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
