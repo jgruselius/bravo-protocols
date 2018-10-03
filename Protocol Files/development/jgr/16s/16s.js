@@ -19,9 +19,9 @@ var protocols = {};
 protocols["PCR setup 1"] = {
 	file: "16s_first_pcr.pro",
 	settings: {
-		sampleVolume: 20,
-		reagentVolume: 25,
-		primerVolume: 5,
+		sampleVolume: 4,
+		reagentVolume: 11,
+		primerVolume: 6,
 		tipColumn: 1,
 		reagentColumn: 1,
 		finalHold: false
@@ -31,11 +31,11 @@ protocols["PCR setup 1"] = {
 protocols["PCR setup 2"] = {
 	file: "16s_second_pcr.pro",
 	settings: {
-		sampleVolume: 20,
-		reagentVolume: 25,
-		primerVolume: 5,
-		tipColumn: 2,
-		reagentColumn: 2,
+		sampleVolume: 10,
+		reagentVolume: 14,
+		primerVolume: 4,
+		tipColumn: 1,
+		reagentColumn: 1,
 		finalHold: false,
 		originalIndexPlate: false
 	}
@@ -44,21 +44,23 @@ protocols["PCR setup 2"] = {
 protocols["PCR cleanup 1"] = {
 	file: "ampure_xp.pro",
 	settings: {
-		sampleVolume: 50,
-		beadVolume: 90,
+		sampleVolume: 21,
+		beadVolume: 37.8,
 		bindTime: 300,
-		elutionVolume: 18,
-		beadPlateToUse: 1
+		elutionVolume: 10,
+		beadPlateToUse: 1,
+		altBindPlate: true
 	}
 };
 
 protocols["PCR cleanup 2"] = {
 	file: "ampure_xp.pro",
 	settings: {
-		sampleVolume: 50,
-		beadVolume: 40,
+		sampleVolume: 28,
+		beadVolume: 50.4,
 		bindTime: 300,
-		elutionVolume: 32
+		elutionVolume: 30,
+		altBindPlate: true
 	}
 };
 
