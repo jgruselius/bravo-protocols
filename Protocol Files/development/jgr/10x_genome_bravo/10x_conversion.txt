@@ -22,3 +22,7 @@
 
 5_Load_Chromium_Controller_Chip.pro
 	* Switched tip waste on 4 to empty tipbox.
+
+7_DynaBead_Cleanup.pro
+	* Don't change tips in EtOH wash 1?
+	* 
