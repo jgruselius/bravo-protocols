@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='d97d967923200ee868af06297dab4754' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='0db81eb0aa9ad0bf9ff246505d5f3bbc' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Bravo 96LT magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -31,8 +31,8 @@ volume.sample = parseFloat(global.formVolumeSample) || 2;
 var sampleWells = [[1,1],[1,2],[2,1]];
 var standardWells = [[2,2],[2,4],[2,6]];' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='1' />
+						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -311,17 +311,9 @@ var standardWells = [[2,2],[2,4],[2,6]];' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferSamples' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferSamples' />
@@ -375,17 +367,9 @@ var standardWells = [[2,2],[2,4],[2,6]];' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferStandards' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferStandards' />
@@ -439,17 +423,9 @@ var standardWells = [[2,2],[2,4],[2,6]];' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferSamples' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferSamples' />
@@ -464,17 +440,9 @@ var standardWells = [[2,2],[2,4],[2,6]];' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transferStandards' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferStandards' />
@@ -530,8 +498,8 @@ var standardWells = [[2,2],[2,4],[2,6]];' />
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -540,7 +508,7 @@ var standardWells = [[2,2],[2,4],[2,6]];' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,13-columns]];' />
 					<Parameters >
@@ -569,7 +537,7 @@ var standardWells = [[2,2],[2,4],[2,6]];' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='14' />
+						<Setting Name='Estimated time' Value='18' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,startColumn]];' />
 					<Parameters >
@@ -595,8 +563,8 @@ var standardWells = [[2,2],[2,4],[2,6]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -634,8 +602,8 @@ var standardWells = [[2,2],[2,4],[2,6]];' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -647,7 +615,7 @@ var standardWells = [[2,2],[2,4],[2,6]];' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='48' />
+						<Setting Name='Estimated time' Value='47' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mixVol = 0.8 * volume.buffer;
 task.Volume = (mixVol &lt;= volume.maxMix) ? mixVol : volume.maxMix;' />
@@ -677,8 +645,8 @@ task.Volume = (mixVol &lt;= volume.maxMix) ? mixVol : volume.maxMix;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -690,7 +658,7 @@ task.Volume = (mixVol &lt;= volume.maxMix) ? mixVol : volume.maxMix;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='16' />
+						<Setting Name='Estimated time' Value='12' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = sampleWells.length * volume.assay + volume.extra;' />
 					<Parameters >
@@ -716,8 +684,8 @@ task.Volume = (mixVol &lt;= volume.maxMix) ? mixVol : volume.maxMix;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -746,10 +714,10 @@ task.Volume = (mixVol &lt;= volume.maxMix) ? mixVol : volume.maxMix;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [sampleWells[i]];
-task.Dynamictipretraction = 6 / volume.assay;' />
+task.Dynamictipretraction = 5 / volume.assay;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Assay' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -757,7 +725,7 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=volume.assay;' Value='10' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_small_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='1.5' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='2.5' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -772,9 +740,9 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Properties' Name='Pipette technique' Value='384 adjust 35 right' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -798,7 +766,7 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='14' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -824,8 +792,8 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -854,8 +822,8 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -869,8 +837,8 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -921,8 +889,8 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='2' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group Begin' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -960,7 +928,7 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='18' />
+						<Setting Name='Estimated time' Value='21' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -986,8 +954,8 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='4' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -999,7 +967,7 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -1025,8 +993,8 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='5' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -1038,7 +1006,7 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='48' />
+						<Setting Name='Estimated time' Value='47' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var mixVol = 0.8 * volume.buffer;
 task.Volume = (mixVol &lt;= volume.maxMix) ? mixVol : volume.maxMix;' />
@@ -1068,8 +1036,8 @@ task.Volume = (mixVol &lt;= volume.maxMix) ? mixVol : volume.maxMix;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='6' />
+						<Parameter Category='Task Description' Name='Task description' Value='Mix (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -1081,7 +1049,7 @@ task.Volume = (mixVol &lt;= volume.maxMix) ? mixVol : volume.maxMix;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='16' />
+						<Setting Name='Estimated time' Value='12' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = standardWells.length * volume.assay + volume.extra;' />
 					<Parameters >
@@ -1107,8 +1075,8 @@ task.Volume = (mixVol &lt;= volume.maxMix) ? mixVol : volume.maxMix;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='7' />
+						<Parameter Category='Task Description' Name='Task description' Value='Aspirate (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -1137,10 +1105,10 @@ task.Volume = (mixVol &lt;= volume.maxMix) ? mixVol : volume.maxMix;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [standardWells[i]];
-task.Dynamictipretraction = 6 / volume.assay;' />
+task.Dynamictipretraction = 5 / volume.assay;' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Assay' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -1148,7 +1116,7 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=volume.assay;' Value='10' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_small_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='1.5' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='2.5' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -1163,9 +1131,9 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Properties' Name='Pipette technique' Value='384 adjust 35 right' />
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -1189,7 +1157,7 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='14' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -1215,8 +1183,8 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='11' />
+						<Parameter Category='Task Description' Name='Task description' Value='Dispense (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -1245,8 +1213,8 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='12' />
+						<Parameter Category='Task Description' Name='Task description' Value='Tips Off (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
@@ -1260,8 +1228,8 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='13' />
+						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 				</Task>
@@ -1275,8 +1243,8 @@ task.Dynamictipretraction = 6 / volume.assay;' />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Location' Value='1' />
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Task number' Value='14' />
+						<Parameter Category='Task Description' Name='Task description' Value='Move To Location (Bravo)' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
