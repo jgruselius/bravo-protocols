@@ -47,7 +47,7 @@ protocols["PCR cleanup 1"] = {
 		sampleVolume: 21,
 		beadVolume: 37.8,
 		bindTime: 300,
-		elutionVolume: 10,
+		elutionVolume: 20,
 		beadPlateToUse: 1,
 		altBindPlate: true
 	}
