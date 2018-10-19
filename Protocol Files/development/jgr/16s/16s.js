@@ -7,7 +7,6 @@ var form = "16s.VWForm"
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
-var runsetMode = false;	// Alt settings for library prep runset (true/false)
 var columns = parseInt(formColumns, 10);
 var originalIndexPlate = !!formOriginalIndexPlate;
 
@@ -42,19 +41,20 @@ protocols["PCR setup 2"] = {
 };
 
 protocols["PCR cleanup 1"] = {
-	file: "ampure_xp.pro",
+	file: "16s_ampure_xp.pro",
 	settings: {
 		sampleVolume: 21,
 		beadVolume: 37.8,
 		bindTime: 300,
 		elutionVolume: 20,
 		beadPlateToUse: 1,
-		altBindPlate: true
+		altBindPlate: true,
+		splitEluateVolume: 10
 	}
 };
 
 protocols["PCR cleanup 2"] = {
-	file: "ampure_xp.pro",
+	file: "16s_ampure_xp.pro",
 	settings: {
 		sampleVolume: 28,
 		beadVolume: 50.4,
@@ -65,15 +65,12 @@ protocols["PCR cleanup 2"] = {
 };
 
 var settings = {};
-var runsetOrder = [];
 
-if(formProtocol === "Library prep") {
-	runsetMode = true;
-	runsetOrder = ["Tagmentation","Denaturation wash", "PCR setup"];
-	runset.openRunsetFile(path+protocols[formProtocol].file, form);
-} else {
-	runset.appendProtocolFileToRunset(path+protocols[formProtocol].file, 1, "", form);
-	updateSettings(formProtocol);
+updateSettings(formProtocol);
+runset.appendProtocolFileToRunset(path+protocols[formProtocol].file, 1, "", form);
+
+if(formProtocol === "PCR cleanup 1" && settings.splitEluateVolume > 0) {
+	runset.appendProtocolFileToRunset(path+"16s_transfer_volume.pro", 1, "", form);
 }
 
 function updateSettings(protocol) {
