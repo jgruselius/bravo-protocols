@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='87f917a97cb15a9c9e09d24ec23af2d2' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='f052059ad536c73f56bd904c70f3e3bc' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Bravo 96LT magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -40,11 +40,15 @@ if(!tm.errorState) {
 
 var MAX_VOLUME = 170;
 
-var sourcePlate, destinationPlate;
+var sourcePlate, destinationPlate, diluentPlate;
 var plateSet = {
 	&quot;Eppendorf twin.tec 96&quot;: &quot;96 Eppendorf Twin.tec PCR&quot;,
 	&quot;Thermo-Fast skirted 96 (AB-0800)&quot;: &quot;96 Thermo-Fast Skirted PCR&quot;,
 	&quot;ABgene TF LP 96 (AB-1300)&quot;: &quot;96 ABgene Thermo-Fast LP PCR&quot;
+};
+var diluentPlateSet = {
+	&quot;Nunc Deepwell&quot;: &quot;96 Nunc Deep Well 1 mL&quot;,
+	&quot;Reservoir&quot;: &quot;96 Matrix open reservoir movable&quot;
 };
 if(global.formDestinationPlate in plateSet) {
 	destinationPlate = plateSet[global.formDestinationPlate];
@@ -56,8 +60,14 @@ if(global.formSourcePlate in plateSet) {
 } else {
 	sourcePlate = &quot;96 Eppendorf Twin.tec PCR&quot;;
 }
+if(global.formDiluentPlate in diluentPlateSet) {
+	diluentPlate = diluentPlateSet[global.formDiluentPlate];
+} else {
+	diluentPlate = &quot;96 Matrix open reservoir movable&quot;;
+}
 print(&quot;sourcePlate=&quot;+sourcePlate);
 print(&quot;destinationPlate=&quot;+destinationPlate);
+print(&quot;diluentPlate=&quot;+diluentPlate);
 
 if(global.formLog) {
 	print(&quot;Input file: &quot; + filePath);
@@ -281,17 +291,9 @@ task.Body = &quot;Place plate &quot; + tm.next.sourcePlate + &quot; on position 
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='transfer' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
@@ -327,7 +329,7 @@ task.Body = &quot;Place plate &quot; + tm.next.sourcePlate + &quot; on position 
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='plate.labware = diluentPlate;' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='1' />
 						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
@@ -1260,11 +1262,11 @@ if(hasTransfer) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(tm.hasTip()) task.skip();' />
 					<Parameters >
-						<Parameter Category='' Name='Plate to change' Value='newTips' />
-						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 						<Parameter Category='Task Description' Name='Task number' Value='27' />
 						<Parameter Category='Task Description' Name='Task description' Value='Change Instance' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Plate to change' Value='newTips' />
+						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Change Instance' >
@@ -1274,11 +1276,11 @@ if(hasTransfer) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(tm.hasTip()) task.skip();' />
 					<Parameters >
-						<Parameter Category='' Name='Plate to change' Value='usedTips' />
-						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 						<Parameter Category='Task Description' Name='Task number' Value='28' />
 						<Parameter Category='Task Description' Name='Task description' Value='Change Instance' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Plate to change' Value='usedTips' />
+						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
@@ -1333,11 +1335,11 @@ if(sample96Mode) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(!tm.changePlate()) task.skip();' />
 					<Parameters >
-						<Parameter Category='' Name='Plate to change' Value='source' />
-						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 						<Parameter Category='Task Description' Name='Task number' Value='32' />
 						<Parameter Category='Task Description' Name='Task description' Value='Change Instance' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Plate to change' Value='source' />
+						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Loop End' >
