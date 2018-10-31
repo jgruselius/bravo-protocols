@@ -25,4 +25,5 @@
 
 7_DynaBead_Cleanup.pro
 	* Don't change tips in EtOH wash 1?
-	* 
+	* TODO: Manual tip trackin!
+	* Try to compile - fix errrors
