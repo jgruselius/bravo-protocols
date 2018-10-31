@@ -30,8 +30,8 @@ protocols["PCR setup 1"] = {
 protocols["PCR setup 2"] = {
 	file: "16s_second_pcr.pro",
 	settings: {
-		sampleVolume: 10,
-		reagentVolume: 14,
+		sampleVolume: 6,
+		reagentVolume: 10,
 		primerVolume: 4,
 		tipColumn: 1,
 		reagentColumn: 1,
@@ -46,20 +46,20 @@ protocols["PCR cleanup 1"] = {
 		sampleVolume: 21,
 		beadVolume: 37.8,
 		bindTime: 300,
-		elutionVolume: 20,
+		elutionVolume: 12,
 		beadPlateToUse: 1,
 		altBindPlate: true,
-		splitEluateVolume: 10
+		splitEluateVolume: 6
 	}
 };
 
 protocols["PCR cleanup 2"] = {
 	file: "16s_ampure_xp.pro",
 	settings: {
-		sampleVolume: 28,
-		beadVolume: 50.4,
+		sampleVolume: 20,
+		beadVolume: 36,
 		bindTime: 300,
-		elutionVolume: 30,
+		elutionVolume: 20,
 		altBindPlate: true
 	}
 };
