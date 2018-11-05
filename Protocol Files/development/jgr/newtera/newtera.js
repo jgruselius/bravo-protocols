@@ -39,7 +39,7 @@ protocols["Tagmentation"] = {
 protocols["Denaturation wash"] = {
 	file: "newtera_wash.pro",
 	settings: {
-		sampleVolume: 50,
+		sampleVolume: 60,
 		washVolume: 100,
 		doOffDeckIncubation: false,
 		incubationTime: 900,
