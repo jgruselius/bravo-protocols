@@ -6,10 +6,15 @@ This repository contains files for *VWorks Automation Control* used to control t
 The repository provides means to backup, track versions and share these protocols through a easily accessible resource. The repo is maintained by [Joel Gruselius](mailto:joel.gruselius@scilifelab.se).
 
 #### Versions
-There are currently three maintained branches of the repository:
-- *master* &mdash; contains all files including protocols under development
-- *production* &mdash; only contains validated protocols.
-- *hal* &mdash; protcols made or modified for the standalone Bravo system
+Previosly there was a `master` and a `production` branch, the first containing all protocols including things in development and the latter was supposed to only hold validated protocols. This has changed so that the main three branches correspond to the different configurations of the robots which makes more sense:
+- *marvin* &mdash; This is an Agilent NGS Workstation Option B setup (Bravo + BenchCel + MiniHub) and also contains many in-development protocols.
+- *bender* &mdash; This is a custom configuration consisting of the Option B plus the following equipment (only some protocols utilize these and must be modified if to be run on a standard Option B setup):
+	- BenchBot robot arm
+	- Xpeel
+	- Centrifuge
+	- tRobot thermal cycler
+	- PlateLoc sealer
+- *hal* &mdash; This system is a standalone Bravo (Option A but with things moved around a little bit).
 
 ### Installation
 Clone the desired branch of the repository and place the files and folders of the resulting `bravo-protocols/` into `VWorks Workspace/`. Note that for many protocols the appropriate device files are required under `VWorks Workspace/Device Files/`. Also, the associated labware and liquid class entries are required in the Windows registry.
@@ -29,10 +34,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-The full license can also be found in the file [LICENSE](https://github.com/jgruselius/bravo-protocols/blob/master/LICENSE) and must included when redistributing the software.
+The full license can also be found in the file [LICENSE](https://github.com/jgruselius/bravo-protocols/blob/hal/LICENSE) and must included when redistributing the software.
 
 *VWorks Automation Control*, *Bravo* and other things relating to the *Agilent NGS Workstation* are trademarks owned by Agilent Technologies, Inc. (Santa Clara, CA 95052-8058, US).
 
 ### Contact
 Joel Gruselius ([joel.gruselius@scilifelab.se](mailto:joel.gruselius@scilifelab.se))<br />
-Science for Life Laboratory, Stockholm<br />
+[NGI Stockholm](https://www.scilifelab.se/facilities/ngi-stockholm/) at SciLifeLab<br />
+
