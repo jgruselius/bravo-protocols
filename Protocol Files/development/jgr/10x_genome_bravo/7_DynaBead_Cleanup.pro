@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='725addb4e99fd46b5e9341743b407ee6' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='eb43a9b7d53047794919eb39d99ad1e8' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -75,6 +75,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Add Cleanup Mix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Add Cleanup Mix' />
 					</Parameters>
 				</Task>
@@ -147,6 +160,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Transfer Bind Mix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Transfer Bind Mix' />
 					</Parameters>
@@ -249,6 +275,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='EtoH Wash 2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='EtoH Wash 2' />
 					</Parameters>
 				</Task>
@@ -275,6 +314,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Add Elution Buffer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Add Elution Buffer' />
 					</Parameters>
@@ -317,6 +369,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Dislodge Pellet' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Dislodge Pellet' />
 					</Parameters>
 				</Task>
@@ -328,6 +393,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Incubate and Mix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Incubate and Mix' />
 					</Parameters>
@@ -461,6 +539,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Add Cleanup Mix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Add Cleanup Mix' />
 					</Parameters>
 				</Task>
@@ -533,6 +624,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Add Elution Buffer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Add Elution Buffer' />
 					</Parameters>
 				</Task>
@@ -600,6 +704,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Transfer Eluent' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Transfer Eluent' />
 					</Parameters>
 				</Task>
@@ -663,6 +780,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Add Elution Buffer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Add Elution Buffer' />
 					</Parameters>
 				</Task>
@@ -674,6 +804,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Dislodge Pellet' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Dislodge Pellet' />
 					</Parameters>
@@ -687,6 +830,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Incubate and Mix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Incubate and Mix' />
 					</Parameters>
 				</Task>
@@ -698,6 +854,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Transfer Eluent' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Transfer Eluent' />
 					</Parameters>
@@ -747,6 +916,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Add Cleanup Mix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Add Cleanup Mix' />
 					</Parameters>
 				</Task>
@@ -758,6 +940,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Transfer Bind Mix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Transfer Bind Mix' />
 					</Parameters>
@@ -771,6 +966,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Transfer Supernatant' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Transfer Supernatant' />
 					</Parameters>
 				</Task>
@@ -782,6 +990,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='EtOH Wash 1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='EtOH Wash 1' />
 					</Parameters>
@@ -795,6 +1016,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='EtoH Wash 2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='EtoH Wash 2' />
 					</Parameters>
 				</Task>
@@ -806,6 +1040,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Move Tips' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Move Tips' />
 					</Parameters>
@@ -878,6 +1125,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Transfer Supernatant' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Transfer Supernatant' />
 					</Parameters>
 				</Task>
@@ -889,6 +1149,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='EtOH Wash 1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='EtOH Wash 1' />
 					</Parameters>
@@ -902,6 +1175,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='EtoH Wash 2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='EtoH Wash 2' />
 					</Parameters>
 				</Task>
@@ -913,6 +1199,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Move Tips' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Move Tips' />
 					</Parameters>
@@ -926,6 +1225,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Incubate and Mix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Incubate and Mix' />
 					</Parameters>
 				</Task>
@@ -937,6 +1249,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='Transfer Eluent' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='Transfer Eluent' />
 					</Parameters>
@@ -1007,6 +1332,19 @@
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='EtOH Wash 1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='EtOH Wash 1' />
 					</Parameters>
 				</Task>
@@ -1018,6 +1356,19 @@
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='EtoH Wash 2' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='EtoH Wash 2' />
 					</Parameters>
@@ -1589,12 +1940,12 @@
 						<Parameter Category='Volume' Name='Volume' Value='54.5' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='30 ul/s Fast-Z' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='1.5' />
-						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.11' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.018' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
-						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
-						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='30' />
-						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='-1.5' />
+						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='15' />
+						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
@@ -1751,9 +2102,9 @@
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='10' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 50 - 180ul aq' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='1' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.06' />
-						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
+						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='5' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
@@ -1787,7 +2138,7 @@
 						<Parameter Category='Volume' Name='Volume' Value='45' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip - Fast Mix' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='6' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='3' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -1823,9 +2174,9 @@
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 50 - 180ul aq' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='1' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.06' />
-						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='' />
+						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='5' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
@@ -1859,7 +2210,7 @@
 						<Parameter Category='Volume' Name='Volume' Value='45' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip - Fast Mix' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='6' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='3' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -1895,8 +2246,8 @@
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 50 - 180ul aq' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='1' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.06' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='5' />
@@ -1931,7 +2282,7 @@
 						<Parameter Category='Volume' Name='Volume' Value='45' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip - Fast Mix' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='6' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='3' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -1967,8 +2318,8 @@
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 50 - 180ul aq' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='1' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.06' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='5' />
@@ -2003,7 +2354,7 @@
 						<Parameter Category='Volume' Name='Volume' Value='45' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip - Fast Mix' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='6' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='3' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -2039,8 +2390,8 @@
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 50 - 180ul aq' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='1' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.06' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='5' />
@@ -2075,7 +2426,7 @@
 						<Parameter Category='Volume' Name='Volume' Value='45' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip - Fast Mix' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='6' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='3' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -2111,8 +2462,8 @@
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip 50 - 180ul aq' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='1' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.06' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='5' />
@@ -2147,7 +2498,7 @@
 						<Parameter Category='Volume' Name='Volume' Value='45' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip - Fast Mix' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='6' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='3' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -2183,11 +2534,11 @@
 						<Parameter Category='Volume' Name='Volume' Value='10' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='2' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='3' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
-						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
+						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
-						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='-2' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
@@ -2320,10 +2671,10 @@
 						<Parameter Category='' Name='Location, plate' Value='Ethanol Plate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Volume' Value='150' />
-						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='4' />
+						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='6' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='Ethanol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='5' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='1.5' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -2359,11 +2710,11 @@
 						<Parameter Category='Volume' Name='Volume' Value='154' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='15 ul/s Fast-Z' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='2' />
-						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.082' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='1' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.021' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
-						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='15' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='2' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
@@ -2392,10 +2743,10 @@
 						<Parameter Category='' Name='Location, plate' Value='Ethanol Plate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Volume' Value='100' />
-						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='6' />
+						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='4' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='Ethanol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='2' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='1.5' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -2431,11 +2782,11 @@
 						<Parameter Category='Volume' Name='Volume' Value='104' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='15 ul/s Fast-Z' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='8' />
-						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.07' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='4.2' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.015' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
-						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='15' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='12' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
@@ -2479,8 +2830,8 @@
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='15 ul/s Fast-Z' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='3' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.013' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='5.5' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.018' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
@@ -2515,11 +2866,11 @@
 						<Parameter Category='Volume' Name='Volume' Value='156' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='Ethanol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='10' />
-						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='1' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.0206' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
-						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='15' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='12' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;751c4144b7519e33712e8c0af4e44905&apos; version=&apos;1.0&apos; &gt;
@@ -2552,7 +2903,7 @@
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip - normalization' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.3' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.025' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.02' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
@@ -2587,11 +2938,11 @@
 						<Parameter Category='Volume' Name='Volume' Value='111' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='Ethanol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='10' />
-						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='4.2' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.012' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
-						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='15' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='12' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;751c4144b7519e33712e8c0af4e44905&apos; version=&apos;1.0&apos; &gt;
@@ -2727,7 +3078,7 @@
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='5' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='Ethanol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.8' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -2742,7 +3093,7 @@
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Properties' Name='Pipette technique' Value='offset 30% - Front' />
+						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
@@ -2763,12 +3114,12 @@
 						<Parameter Category='Volume' Name='Volume' Value='126' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='15 ul/s Fast-Z' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='3' />
-						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.082' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='1' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.0159' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
-						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='30' />
-						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='-2' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='14' />
+						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
@@ -2847,11 +3198,11 @@
 						<Parameter Category='Volume' Name='Volume' Value='136' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='4' />
 						<Parameter Category='Properties' Name='Liquid class' Value='Ethanol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='12' />
-						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='5.5' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.011' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
-						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='West' />
-						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
+						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='9' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;751c4144b7519e33712e8c0af4e44905&apos; version=&apos;1.0&apos; &gt;
@@ -2862,7 +3213,7 @@
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
-						<Parameter Category='Properties' Name='Pipette technique' Value='offset 30% - Front' />
+						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
 						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
@@ -3173,8 +3524,8 @@
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Distance From Well Bottom' Name='Aspirate distance' Value='1' />
 						<Parameter Category='Distance From Well Bottom' Name='Dispense at different distance' Value='1' />
-						<Parameter Category='Distance From Well Bottom' Name='Dispense distance' Value='3.5' />
-						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
+						<Parameter Category='Distance From Well Bottom' Name='Dispense distance' Value='1.5' />
+						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='East' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='2' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='-1' />
@@ -3248,7 +3599,7 @@
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip - Fast Mix' />
 						<Parameter Category='Properties' Name='Mix cycles' Value='25' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.08' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Distance From Well Bottom' Name='Aspirate distance' Value='0.5' />
 						<Parameter Category='Distance From Well Bottom' Name='Dispense at different distance' Value='1' />
 						<Parameter Category='Distance From Well Bottom' Name='Dispense distance' Value='1.5' />
@@ -3286,8 +3637,8 @@
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='15 ul/s Fast-Z' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.1' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.3' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.024' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
@@ -3322,12 +3673,12 @@
 						<Parameter Category='Volume' Name='Volume' Value='55' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='15 ul/s Fast-Z' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='1' />
-						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.095' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.3' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.03' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
-						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='West/East' />
-						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0.5' />
-						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='-1' />
+						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='-1' />
+						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
@@ -3899,7 +4250,7 @@
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0.5' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 diposable tip - normalization slow' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.3' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.06' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
@@ -3934,12 +4285,12 @@
 						<Parameter Category='Volume' Name='Volume' Value='51' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='15 ul/s Fast-Z' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='1' />
-						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.085' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.039' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
-						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='West/East' />
-						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='1' />
-						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='-1.5' />
+						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='-2' />
+						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;54677744773571b70228eb3bd8d24bc5&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
@@ -4085,12 +4436,12 @@
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='BindPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
-						<Parameter Category='Volume' Name='Volume' Value='155' />
-						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
+						<Parameter Category='Volume' Name='Volume' Value='150' />
+						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='5' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='15 ul/s Fast-Z' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='3' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.013' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='2.5' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.0167' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
@@ -4122,11 +4473,11 @@
 						<Parameter Category='' Name='Location, plate' Value='BindPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
-						<Parameter Category='Volume' Name='Volume' Value='156' />
+						<Parameter Category='Volume' Name='Volume' Value='151' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='30 ul/s Fast-Z' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='3' />
-						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.06' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.0247' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='15' />
@@ -4157,12 +4508,12 @@
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='BindPlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
-						<Parameter Category='Volume' Name='Volume' Value='135' />
+						<Parameter Category='Volume' Name='Volume' Value='130' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='1' />
 						<Parameter Category='Properties' Name='Liquid class' Value='96 disposable tip - normalization' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.25' />
-						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.0222' />
+						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0.0196' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
@@ -4197,8 +4548,8 @@
 						<Parameter Category='Volume' Name='Volume' Value='136' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='30 ul/s Fast-Z' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='13' />
-						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.03' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='4' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.011' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='15' />
