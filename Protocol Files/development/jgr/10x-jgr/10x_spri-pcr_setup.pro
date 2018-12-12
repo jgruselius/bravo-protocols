@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='db9ecbece11427d95f35a79a1ffb616f' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='7c8d9e0570807d321291b0a146d7f722' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Main_Processes >
@@ -195,7 +195,7 @@
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(columns &lt; 9 || (!runsetMode &amp;&amp; columns &lt; 12)) task.skip();' />
 					<Parameters >
-						<Parameter Category='' Name='Process to spawn' Value='' />
+						<Parameter Category='' Name='Process to spawn' Value='NewTips2' />
 						<Parameter Category='' Name='Spawn as subroutine' Value='' />
 					</Parameters>
 				</Task>

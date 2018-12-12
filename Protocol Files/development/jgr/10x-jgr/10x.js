@@ -29,20 +29,19 @@ protocols["A-tailing"] = {
 		reagentColumn: 1,
 		sampleVolume: 50,
 		bufferVolume: 0,
-		reagentVolume: 10,
+		reagentVolume: 25,
 		doOffDeckIncubation: true
 	}
 };
 
 protocols["Ligation"] = {
-	file: "10x_ligation.pro",
+	file: "10x_reaction.pro",
 	settings: {
 		tipColumn: 2,
 		reagentColumn: 2,
-		sampleVolume: 60,
+		sampleVolume: 75,
 		bufferVolume: 0,
-		reagentVolume: 47.5,
-		adapterVolume: 2.5,
+		reagentVolume: 35.5,
 		doOffDeckIncubation: true
 	}
 };
@@ -50,7 +49,7 @@ protocols["Ligation"] = {
 protocols["Ligation cleanup"] = {
 	file: "10x_spri.pro",
 	settings: {
-		sampleVolume: 110,
+		sampleVolume: 100,
 		beadVolume: 88,
 		elutionVolume: 40
 	}
@@ -70,11 +69,11 @@ protocols["PCR setup"] = {
 protocols["PCR cleanup"] = {
 	file: "10x_double-spri.pro",
 	settings: {
-		sampleVolume: 100,
-		beadVolume1: 50,
-		beadVolume2: 20,
+		sampleVolume: 96,
+		beadVolume1: 48,
+		beadVolume2: 18,
 		beadDiluteVolume1: 0,
-		transferVolume: 150,
+		transferVolume: 135,
 		elutionVolume: 20
 	}
 };
