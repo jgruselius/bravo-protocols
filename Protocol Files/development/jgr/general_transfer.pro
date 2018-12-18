@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='4de508d27523727d632497e80f19f5e8' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='d9ba0732fb698c88c7946c1776b3a264' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -36,19 +36,37 @@ var columns = parseInt(global.formColumns);
 var putTipsIn  = (global.formSingleTipBox) ? &quot;newTips&quot; : &quot;usedTips&quot;;
 var sourceOffset = parseInt(global.formSourceOffset);
 var destinationOffset = parseInt(global.formDestinationOffset);
+var moveAsp = !!global.formMoveAsp;
 
 // Set pipetting speed and height:
-var liquidClass;
 var aspHeight;
+var liquidClass = &quot;j_&quot;;
 if(global.formSpeed == &quot;Slow&quot;) {
+	liquidClass += &quot;slow_&quot;;
 	aspHeight = 0.75;
-	liquidClass = &quot;j_slow_medium_vol&quot;
-} else if(global.formSpeed == &quot;Medium&quot;) {
-	aspHeight = 1;
-	liquidClass = &quot;j_normal_medium_vol&quot;
 } else {
-	aspHeight = 1.5;
-	liquidClass = &quot;j_normal_large_vol&quot;;
+	liquidClass += &quot;normal_&quot;;
+	aspHeight = 1;
+}
+if(transferVolume &gt; 50) {
+	liquidClass += &quot;large_vol&quot;;
+	aspHeight += 0.25;
+} else if(transferVolume &gt; 15) {
+	liquidClass += &quot;medium_vol&quot;;
+} else {
+	liquidClass += &quot;small_vol&quot;;
+	aspHeight -= 0.25;
+}
+
+// Dynamic Pipetting Height 2.0:
+function dph(vol, endHeight) {
+	var v = parseFloat(vol);
+	var e = parseFloat(endHeight);
+	if(v &gt; 0 &amp;&amp; e &gt; 0 &amp;&amp; !isNaN(v+e)) {
+		return 0.078 - 9.501E-5*v + (0.734-e)/v;
+	} else {
+		throw &quot;ValueException&quot;;
+	}
 }' />
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
@@ -66,6 +84,12 @@ var settingsValid =
 		(transferVolume &lt; 2000) &amp;&amp;
 		(global.formSourcePlate in plateMap) &amp;&amp;
 		(global.formDestinationPlate in plateMap);
+
+print(&quot;Pipette from: &quot; + sourcePlate);
+print(&quot;Pipette to: &quot; + destinationPlate);
+print(&quot;Volume: &quot; + transferVolume + &quot; uL&quot;);
+print(&quot;Asp height: &quot; + aspHeight + &quot; mm&quot;);
+print(&quot;Liquid class: &quot; + liquidClass);
 ' />
 				</Task>
 				<Task Name='BuiltIn::User Message' >
@@ -116,6 +140,19 @@ var settingsValid =
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer1' />
 					</Parameters>
 				</Task>
@@ -163,6 +200,19 @@ var settingsValid =
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer1' />
 					</Parameters>
@@ -212,6 +262,19 @@ var settingsValid =
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
+					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer1' />
 					</Parameters>
 				</Task>
@@ -259,6 +322,19 @@ var settingsValid =
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer1' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer1' />
 					</Parameters>
@@ -370,7 +446,7 @@ task.Wellselection = sourceWellSelection;' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_large_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='40' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='30' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -401,18 +477,24 @@ task.Wellselection = sourceWellSelection;' />
 						<Parameter Category='' Name='Number of times to loop' TaskParameterScript='=repeats' Value='' />
 						<Parameter Category='' Name='Change tips every N times, N = ' Value='1' />
 					</Parameters>
-					<Variables />
+					<Variables >
+						<Variable fIncrement='1' iFreqValue='0' strFrequency='Every time' strInitialValue='1' strVariableName='i' />
+					</Variables>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(!settingsValid) { task.skip(); }
 task.Wellselection = sourceWellSelection;
-task.Volume = transferVolume / Math.ceil(transferVolume / MAX_VOLUME);' />
+if(moveAsp &amp;&amp; i === repeats) {
+	task.Dynamictipextension = dph(stepVolume, 0.5);
+	task.Distancefromwellbottom = 0.5;
+}
+' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='sourcePlate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
@@ -420,7 +502,7 @@ task.Volume = transferVolume / Math.ceil(transferVolume / MAX_VOLUME);' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' TaskParameterScript='=liquidClass' Value='' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='2' />
+						<Parameter Category='Properties' Name='Distance from well bottom' TaskParameterScript='=aspHeight' Value='0.5' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
@@ -446,7 +528,7 @@ task.Volume = transferVolume / Math.ceil(transferVolume / MAX_VOLUME);' />
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='8' />
+						<Setting Name='Estimated time' Value='10' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(!settingsValid) { task.skip(); }
 task.Wellselection = destinationWellSelection;' />
