@@ -66,7 +66,7 @@ protocols["PCR setup"] = {
 	}
 };
 
-protocols["PCR cleanup"] = {
+protocols["Post-PCR size selection"] = {
 	file: "10x_double-spri.pro",
 	settings: {
 		sampleVolume: 96,
