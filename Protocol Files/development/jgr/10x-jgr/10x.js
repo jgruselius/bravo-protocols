@@ -2,7 +2,7 @@
 
 runset.clear();
 
-var path = "C:/VWorks Workspace/Protocol Files/development/jgr/10x/";
+var path = "C:/VWorks Workspace/Protocol Files/development/jgr/10x-jgr/";
 var form = "10x.VWForm";
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
@@ -79,7 +79,7 @@ protocols["Post-PCR size selection"] = {
 };
 
 protocols["Library prep"] = {
-	file: "10x.rst"
+	file: "10x_library_prep.rst"
 };
 
 var settings = {};
