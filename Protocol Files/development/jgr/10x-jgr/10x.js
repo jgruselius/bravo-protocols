@@ -73,6 +73,7 @@ protocols["Post-PCR size selection"] = {
 		beadVolume1: 48,
 		beadVolume2: 18,
 		beadDiluteVolume1: 0,
+		beadDiluteVolume2: 0,
 		transferVolume: 135,
 		elutionVolume: 20
 	}
