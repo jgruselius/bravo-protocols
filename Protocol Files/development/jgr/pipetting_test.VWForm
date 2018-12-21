@@ -4,10 +4,10 @@
   <Property name="RestoreDefaultsOnLoad" value="0" />
   <Property name="ShowLogInFullScreen" value="1" />
   <Property name="FormBackgroundColor" value="-1" />
-  <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
-    <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
+  <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.4672.4034, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
+    <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=1.0.4672.4034, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
       <Property name="Image">
-        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATxJREFUOE+dksGqglAQhnuj7gtLPULLLEMyEM2EFkKLwkRRceFCo0haTPxzzwxxocV14IMj8/0/nFOT2Wz2M5/PaQzITnB4vV6jQJYLhmGgruv+BTJa8Hw+qW1bpigKiqKIwfnvt3jIaMHj8aCmaZgwDEkmSRJGBjvxkNGC+/1OVVUx2+3W6ERxHDMy2ImHjBbcbjfK85xxXdfoRPv9npHBTjxktKDve0rTlNlsNkYnCoKAkcFOPGS0AHc6n8/Mer02OpHv+4wMduIhowV1XdPpdGJs2zY60W63Y2SwEw8ZLSjLUl98uVwa/ffRPh8VO/GQ0QL8vsfjkVmtVkYn8jyPkcFOPGS0IMsyOhwODO68WCwYx3EY+cZOPGS04Hq98p8ESOgb4iGjBZfLRZE7fuPT5QLLsqY4jMGyrOkbePZt3BLFMtIAAAAASUVORK5CYII=</Binary>
+        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAATdJREFUOE+dk82KgmAUhrujmRsOuwSX/hIqhL/QQnBhlCgWLVqUKEqLM7wHzqEZaDEdeDA57/PC91UrwzC+N5sNfQLcFcTn8/kRcLlgWRa63+//Ao4WzPNMt9uN6bqOsixj8Pnvu+TgaME0TXS9XpkkSUimLEsCMthJDo4WjONI5/OZCYJAhaIoCMhgJzk4WjAMA7Vty2y3WxXSNCUgg53k4GjB4/Gg4/HI+L6vQhzHBGSwkxwcLcC56rpmXNdVYbfbEZDBTnJwtOByuVBVVYxt2ypEUURABjvJwdGCvu/5toFlWb8u7fVSsZMcHC3Ad73f7xnHcbQgDEMCMthJDo4WNE1DeZ4zOLNpmozneYy8Yyc5OFpwOp34BwREeveUHBwtOBwOJMgZ3z1fs1ywXq+/Pvkrw4H7A3j2bdxhxQ7oAAAAAElFTkSuQmCC</Binary>
       </Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
@@ -35,9 +35,9 @@
       <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="15790320" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=1.0.4672.4034, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
       <Property name="Image">
-        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAWRJREFUOE+dkduKglAUhnuj5oUlnyCCQNKOGmlaF10IQkUHo6Kyi4qk8GIN/xpdNTUzMG74YZf/9+1ToVQqfaiqSnkCtoBJkiS5ApYF9/udTqfTvwJGBLfbjY7HI61WKxoMBpzlcsn//RYwIojjmHa7Hbmuyx89z6N2u82/Z7MZf3sNGBFcr1fabDZkmiZlI4oiFrRaLXIchyaTCXeygBHB5XKhMAx51dcBUb/fp0ajQb1ej8bjMXfBiOB8PvNWm81mir0PiLATy7K4C0YEOBO2WK/X0/r7OBwOZNs2HxNdMCLYbrcUBAHpup7WH2O/3/OqmqbxfYxGI+6CEcF6vSbf96lWq6XYF4jVKpUKw91ulztZwIgA7w+zYRgM4jLL5TJVq1We4/IQdLKAEcFisaDhcMhnxC6wKu6j0+l8CzpZwIhgPp/zmyN4rr+S9cCIYDqdSp7P+VOeuyxQFKWISZ4oilL8BBs+a67R8n00AAAAAElFTkSuQmCC</Binary>
+        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAV9JREFUOE+dk8mKwkAURf2j7h+W+AVBEIJx1qBxWmQREFQcMUGjCxVFcXGb+6AeDm1DG7gQ9Z5Tr6owZVnWdyaTwSchmyJ4u90+ClkRXK9X7Pf7f4WMCi6XC3a7HZbLJXq9nmQ+n8t370JGBefzGev1Gp1OR4But4tqtSqfJ5OJ/PYcMio4nU6Iogj1eh3m2W63IqhUKvB9H6PRSDomZFRwPB6xWCxk1eeHona7jVKphGazieFwKF0yKjgcDjJquVx+EdxPxEkajYZ0yaiA++OIxWLxrSBJErRaLdkmu2RUEMcxBoMBXNd9EWw2G1nVcRw5jyAIpEtGBavVCmEYIp/Pq4AgV8tmswJ7nicdEzIq4P3TXCgUQJCHads2crmcvPPwGHZMyKhgNpuh3+/LHjkFV+V51Gq1h7BjQkYF0+lU7pzhdf0V0yOjgvF4DJP7ff72ft8VQTqd/vrkr0yG7A8bPmuuvrgf/QAAAABJRU5ErkJggg==</Binary>
       </Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
@@ -68,7 +68,7 @@
       <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="15790320" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleDropdown, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDropdown1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleDropdown, Toolbox, Version=1.0.4672.4034, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDropdown1" children="Controls">
       <Property name="FormattingEnabled">True</Property>
       <Property name="Size">137, 24</Property>
       <Property name="DataBindings">
@@ -76,7 +76,7 @@
       </Property>
       <Property name="Name">operatorConsoleDropdown1</Property>
       <Property name="Items">
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Reference (column)</Item>
+        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Reference (columns)</Item>
         <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Spread (96)</Item>
       </Property>
       <Property name="Location">135, 72</Property>
@@ -85,7 +85,7 @@
       <Property name="Font">Tahoma, 10pt</Property>
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formProtocol" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="Reference (column);Spread (96)" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="Reference (columns);Spread (96)" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
       <Parameter Name="Mandatory" Description="If checked, the operator MUST enter something in this field prior to running" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) == Const(1) || Variable(Data entry) == Const(0)" />
@@ -100,7 +100,7 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic2" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4672.4034, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic2" children="Controls">
       <Property name="TabIndex">1</Property>
       <Property name="Name">operatorConsoleStatic2</Property>
       <Property name="Size">100, 23</Property>
@@ -127,7 +127,7 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Select protocol:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4672.4034, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
       <Property name="TabIndex">0</Property>
       <Property name="Name">operatorConsoleStatic1</Property>
       <Property name="Size">282, 38</Property>
