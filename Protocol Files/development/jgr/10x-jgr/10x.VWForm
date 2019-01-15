@@ -162,8 +162,8 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="12" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="6" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="12;11;10;9;8;7;6;5;4;3;2;1;" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleDropdown, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDropdown1" children="Controls">
       <Property name="FormattingEnabled">True</Property>
@@ -200,7 +200,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Library prep" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox1" children="Controls">
       <Property name="Size">116, 24</Property>
@@ -232,8 +232,8 @@
       <Parameter Name="Value" Description="" Type="1" Value="0" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
-      <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="Font">Tahoma, 9pt</Property>
       <Property name="BackColor">14, 134, 255</Property>
       <Property name="Size">75, 30</Property>
@@ -286,7 +286,7 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="A-tailing started" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
       <Property name="TabIndex">0</Property>
