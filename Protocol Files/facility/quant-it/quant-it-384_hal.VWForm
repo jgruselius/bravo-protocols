@@ -5,9 +5,69 @@
   <Property name="ShowLogInFullScreen" value="1" />
   <Property name="FormBackgroundColor" value="-2952961" />
   <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.4672.4034, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleDropdown, Toolbox, Version=1.0.4672.4034, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDropdown3" children="Controls">
+      <Property name="FormattingEnabled">True</Property>
+      <Property name="Size">101, 24</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="Name">operatorConsoleDropdown3</Property>
+      <Property name="Items">
+        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">9 (default)</Item>
+        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">3 (magnet)</Item>
+      </Property>
+      <Property name="Text">9 (default)</Property>
+      <Property name="Location">222, 184</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="TabIndex">14</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formSampleLocation" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="9 (default);3 (magnet)" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
+      <Parameter Name="Mandatory" Description="If checked, the operator MUST enter something in this field prior to running" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) == Const(1) || Variable(Data entry) == Const(0)" />
+      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="9 (default)" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="9 (default)" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4672.4034, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic6" children="Controls">
+      <Property name="TabIndex">13</Property>
+      <Property name="Name">operatorConsoleStatic6</Property>
+      <Property name="Size">140, 23</Property>
+      <Property name="Text">Sample plate location:</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">14, 187</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Sample plate location:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Sample plate location:" ValueToDisplay="" Hide_if="" />
+    </Object>
     <Object type="ToolboxLibrary.RunProtocolScript, Toolbox, Version=1.0.4672.4034, Culture=neutral, PublicKeyToken=null" name="runProtocolScript1" children="Controls">
       <Property name="Image">
-        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFfSURBVDhPnZPJisJAFEX9o+4flvgFQRCCcdagcVpkERBUHDFBowsVRXFxm/ugHg5tQxu4EPWeU6+qMGVZ1ncmk8EnIZsieLvdPgpZEVyvV+z3+3+FjAoulwt2ux2WyyV6vZ5kPp/Ld+9CRgXn8xnr9RqdTkeAbreLarUqnyeTifz2HDIqOJ1OiKII9Xod5tlutyKoVCrwfR+j0Ug6JmRUcDwesVgsZNXnh6J2u41SqYRms4nhcChdMio4HA4yarlcfhHcT8RJGo2GdMmogPvjiMVi8a0gSRK0Wi3ZJrtkVBDHMQaDAVzXfRFsNhtZ1XEcOY8gCKRLRgWr1QphGCKfz6uAIFfLZrMCe54nHRMyKuD901woFECQh2nbNnK5nLzz8Bh2TMioYDabod/vyx45BVfledRqtYewY0JGBdPpVO6c4XX9FdMjo4LxeAyT+33+9n7fFUE6nf765K9MhuwPGz5rrr64H/0AAAAASUVORK5CYII=</Binary>
+        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAFfSURBVDhPnZPJisJAFEX9o+4flvgFQRCCcdagcVpkERBUHDFBowsVRXFxm/ugHg5tQxu4EPWeU6+qMGVZ1ncmk8EnIZsieLvdPgpZEVyvV+z3+3+FjAoulwt2ux2WyyV6vZ5kPp/Ld+9CRgXn8xnr9RqdTkeAbreLarUqnyeTifz2HDIqOJ1OiKII9Xod5tlutyKoVCrwfR+j0Ug6JmRUcDwesVgsZNXnh6J2u41SqYRms4nhcChdMio4HA4yarlcfhHcT8RJGo2GdMmogPvjiMVi8a0gSRK0Wi3ZJrtkVBDHMQaDAVzXfRFsNhtZ1XEcOY8gCKRLRgWr1QphGCKfz6uAIFfLZrMCe54nHRMyKuD901woFECQh2nbNnK5nLzz8Bh2TMioYDabod/vyx45BVfledRqtYewY0JGBdPpVO6c4XX9FdMjo4LxeAyT+33+9n7fFUE6nf765K9MhuwPGz5rrr64H/0AAAAASUVORK5CYII=</Binary>
       </Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
@@ -16,7 +76,7 @@
       <Property name="Size">75, 31</Property>
       <Property name="TabIndex">12</Property>
       <Property name="Text"> START</Property>
-      <Property name="Location">37, 214</Property>
+      <Property name="Location">37, 255</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -39,7 +99,7 @@
     </Object>
     <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=1.0.4672.4034, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
       <Property name="Image">
-        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAE3SURBVDhPnZPNioJgFIa7o5kbDrsEl/4SKoS/0EJwYZQoFi1alChKizO8B86hGWgxHXgwOe/zwvdVK8MwvjebDX0C3BXE5/P5EXC5YFkWut/v/wKOFszzTLfbjem6jrIsY/D577vk4GjBNE10vV6ZJElIpixLAjLYSQ6OFozjSOfzmQmCQIWiKAjIYCc5OFowDAO1bctst1sV0jQlIIOd5OBowePxoOPxyPi+r0IcxwRksJMcHC3Aueq6ZlzXVWG32xGQwU5ycLTgcrlQVVWMbdsqRFFEQAY7ycHRgr7v+baBZVm/Lu31UrGTHBwtwHe93+8Zx3G0IAxDAjLYSQ6OFjRNQ3meMzizaZqM53mMvGMnOThacDqd+AcERHr3lBwcLTgcDiTIGd89X7NcsF6vvz75K8OB+wN49m3cYcUO6AAAAABJRU5ErkJggg==</Binary>
+        <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAE3SURBVDhPnZPNioJgFIa7o5kbDrsEl/4SKoS/0EJwYZQoFi1alChKizO8B86hGWgxHXgwOe/zwvdVK8MwvjebDX0C3BXE5/P5EXC5YFkWut/v/wKOFszzTLfbjem6jrIsY/D577vk4GjBNE10vV6ZJElIpixLAjLYSQ6OFozjSOfzmQmCQIWiKAjIYCc5OFowDAO1bctst1sV0jQlIIOd5OBowePxoOPxyPi+r0IcxwRksJMcHC3Aueq6ZlzXVWG32xGQwU5ycLTgcrlQVVWMbdsqRFFEQAY7ycHRgr7v+baBZVm/Lu31UrGTHBwtwHe93+8Zx3G0IAxDAjLYSQ6OFjRNQ3meMzizaZqM53mMvGMnOThacDqd+AcERHr3lBwcLTgcDiTIGd89X7NcsF6vvz75K8OB+wN49m3cYcUO6AAAAABJRU5ErkJggg==</Binary>
       </Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
@@ -48,7 +108,7 @@
       <Property name="Size">75, 31</Property>
       <Property name="TabIndex">11</Property>
       <Property name="Text"> PAUSE</Property>
-      <Property name="Location">182, 214</Property>
+      <Property name="Location">182, 255</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
