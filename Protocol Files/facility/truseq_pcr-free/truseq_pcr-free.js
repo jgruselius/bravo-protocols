@@ -9,6 +9,7 @@ var extended = !!formExtended;
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 formColumns = parseInt(formColumns, 10);
 var altBeadPlate = true;
+var nanoMode = !!formNanoMode;
 
 var presets = {};
 presets["End repair"] = {
@@ -79,8 +80,17 @@ presets["Ligation cleanup 1"] = {
 presets["Ligation cleanup 2"] = {
 	sampleVolume:50,
 	beadVolume:50,
-	elutionVolume:20,
+	elutionVolume: (nanoMode) ? 20 : 25,
 	keepSeal:true
+};
+
+// For TruSeq Nano only:
+presets["PCR setup"] = {
+	tipColumn:5,
+	reagentColumn:5,
+	sampleVolume:25,
+	reagentVolume:20,
+	primerVolume:5
 };
 
 presets["qPCR setup"] = {};
@@ -98,7 +108,8 @@ fileNames["Ligation cleanup 1"] = "illumina_spri.pro";
 fileNames["Ligation cleanup 2"] = "illumina_spri.pro";
 fileNames["Library prep"] = "truseq_pcr-free.rst";
 fileNames["Ligation cleanup"] = "truseq_pcr-free_cleanup.rst";
-fileNames["qPCR setup"] = "../qpcr-384/qpcr-384_setup_ver3.pro";
+fileNames["qPCR setup"] = "../qpcr-384/qpcr-384_setup_ver4.pro";
+fileNames["PCR setup"] = "truseq_nano_pcr.pro";
 
 if(extended) {
 	for(var p in fileNames) {
@@ -114,6 +125,9 @@ if(formProtocol === "Library prep") {
 	runsetMode = true;
 	runsetOrder = ["Fragmentation cleanup","End repair","Size selection "+formInsertSize,
 			"A-tailing","Ligation","Ligation cleanup 1","Ligation cleanup 2"];
+	if(!extended) {
+		runsetOrder.shift();
+	}
 	runset.openRunsetFile(path+fileNames[formProtocol], form);
 } else if(formProtocol === "Size selection") {
 	runsetMode = false;

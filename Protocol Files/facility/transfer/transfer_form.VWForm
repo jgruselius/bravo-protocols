@@ -5,6 +5,254 @@
   <Property name="ShowLogInFullScreen" value="1" />
   <Property name="FormBackgroundColor" value="-1" />
   <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic15" children="Controls">
+      <Property name="TabIndex">24</Property>
+      <Property name="Name">operatorConsoleStatic15</Property>
+      <Property name="Size">79, 23</Property>
+      <Property name="Text">Buffer plate:</Property>
+      <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">15, 189</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Buffer plate:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="9" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Buffer plate:" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist2" children="Controls">
+      <Property name="DropDownStyle">DropDownList</Property>
+      <Property name="FormattingEnabled">True</Property>
+      <Property name="Size">193, 22</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="Name">operatorConsoleDroplist2</Property>
+      <Property name="Items">
+        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Reservoir</Item>
+        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Nunc Deepwell</Item>
+      </Property>
+      <Property name="Location">100, 186</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="TabIndex">23</Property>
+      <Property name="Font">Tahoma, 9pt</Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formDiluentPlate" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="Reservoir;Nunc Deepwell" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
+      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="Reservoir" ValueToDisplay="" Hide_if="Const(0)" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="9" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic14" children="Controls">
+      <Property name="TabIndex">22</Property>
+      <Property name="Name">operatorConsoleStatic14</Property>
+      <Property name="Size">132, 60</Property>
+      <Property name="Text">When using a Nunc plate: Put buffer in A1 and calculate that volume is sufficient for all dilutions.</Property>
+      <Property name="Font">Tahoma, 8pt</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">102, 102, 102</Property>
+      <Property name="Location">299, 177</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="When using a Nunc plate: Put buffer in A1 and calculate that volume is sufficient for all dilutions." ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="8" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="6710886" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="When using a Nunc plate: Put buffer in A1 and calculate that volume is sufficient for all dilutions." ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox1" children="Controls">
+      <Property name="Size">168, 20</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="Font">Tahoma, 8pt</Property>
+      <Property name="Name">operatorConsoleTextBox1</Property>
+      <Property name="Location">96, 496</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="TabIndex">21</Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formEmail" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
+      <Parameter Name="Mandatory" Description="If checked, the operator MUST enter something in this field prior to running" Type="0" Value="0" ValueToDisplay="" Hide_if="Variable(Read only) == Const(1) || Variable(Data entry) == Const(0)" />
+      <Parameter Name="Min. value" Description="The min value of this edit" Type="12" Value="" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
+      <Parameter Name="Max. value" Description="The max value of this edit" Type="12" Value="" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
+      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="8" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic13" children="Controls">
+      <Property name="TabIndex">20</Property>
+      <Property name="Name">operatorConsoleStatic13</Property>
+      <Property name="Size">175, 16</Property>
+      <Property name="Text">Email this address when finished:</Property>
+      <Property name="Font">Tahoma, 8pt</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">96, 476</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Email this address when finished:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="8" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Email this address when finished:" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic12" children="Controls">
+      <Property name="TabIndex">19</Property>
+      <Property name="Name">operatorConsoleStatic12</Property>
+      <Property name="Size">19, 23</Property>
+      <Property name="Text">of</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">102, 102, 102</Property>
+      <Property name="Location">192, 336</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="of" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="6710886" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="of" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic11" children="Controls">
+      <Property name="TabIndex">18</Property>
+      <Property name="Name">operatorConsoleStatic11</Property>
+      <Property name="Size">107, 23</Property>
+      <Property name="Text">Transfers done:</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">102, 102, 102</Property>
+      <Property name="Location">11, 336</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Transfers done:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="6710886" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Transfers done:" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic10" children="Controls">
+      <Property name="TabIndex">17</Property>
+      <Property name="Name">operatorConsoleStatic10</Property>
+      <Property name="Size">62, 41</Property>
+      <Property name="Font">Tahoma, 23pt</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">217, 318</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="totalTransfers" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="0" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="23" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic9" children="Controls">
+      <Property name="TabIndex">16</Property>
+      <Property name="Name">operatorConsoleStatic9</Property>
+      <Property name="Size">62, 41</Property>
+      <Property name="Font">Tahoma, 23pt</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="ForeColor">0, 118, 196</Property>
+      <Property name="Location">124, 318</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="transfersDone" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="0" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="23" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="12875264" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+    </Object>
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic8" children="Controls">
       <Property name="TabIndex">15</Property>
       <Property name="Name">operatorConsoleStatic8</Property>
@@ -98,7 +346,7 @@
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="Name">operatorConsoleCheckbox2</Property>
       <Property name="UseVisualStyleBackColor">True</Property>
-      <Property name="Location">281, 218</Property>
+      <Property name="Location">277, 243</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -129,7 +377,7 @@
       <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">166, 221</Property>
+      <Property name="Location">162, 246</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -153,7 +401,7 @@
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="Name">operatorConsoleCheckbox1</Property>
       <Property name="UseVisualStyleBackColor">True</Property>
-      <Property name="Location">281, 248</Property>
+      <Property name="Location">277, 273</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -184,7 +432,7 @@
       <Property name="Font">Tahoma, 8pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">127, 127, 127</Property>
-      <Property name="Location">89, 253</Property>
+      <Property name="Location">85, 278</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -245,7 +493,7 @@
       <Property name="Font">Tahoma, 7pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="ForeColor">127, 127, 127</Property>
-      <Property name="Location">24, 395</Property>
+      <Property name="Location">11, 557</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -275,7 +523,7 @@
       <Property name="Size">80, 33</Property>
       <Property name="TabIndex">6</Property>
       <Property name="Text"> PAUSE</Property>
-      <Property name="Location">204, 309</Property>
+      <Property name="Location">191, 411</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -305,7 +553,7 @@
       <Property name="Size">75, 33</Property>
       <Property name="TabIndex">5</Property>
       <Property name="Text"> START</Property>
-      <Property name="Location">109, 309</Property>
+      <Property name="Location">96, 411</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
@@ -415,7 +663,7 @@
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="Aliquotation;Dilution;Dilution (LIMS);Adapter;" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="Aliquotation;Dilution;Setup Workset/Plate (LIMS);Library Normalization (LIMS);Adapter;" ValueToDisplay="" Hide_if="" />
     </Object>
     <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4577.5912, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic2" children="Controls">
       <Property name="TabIndex">1</Property>

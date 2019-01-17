@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='536b7355b628fe2cd32b22d6b51be1ee' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='835b8ff3306b10d3e3cad59484c37d35' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\SureSelect\XT_Illumina\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -35,11 +35,13 @@ if(!tm.errorState) {
 
 var MAX_VOLUME = 170;
 
-var sourcePlate, destinationPlate;
+var sourcePlate, destinationPlate, diluentPlate;
 var plateSet = {
 	&quot;Eppendorf twin.tec 96&quot;: &quot;96 Eppendorf Twin.tec PCR&quot;,
 	&quot;Thermo-Fast skirted 96 (AB-0800)&quot;: &quot;96 Thermo-Fast Skirted PCR&quot;,
-	&quot;ABgene TF LP 96 (AB-1300)&quot;: &quot;96 ABgene Thermo-Fast LP PCR&quot;
+	&quot;ABgene TF LP 96 (AB-1300)&quot;: &quot;96 ABgene Thermo-Fast LP PCR&quot;,
+	&quot;Nunc Deepwell&quot;: &quot;96 Nunc Deep Well 1 mL&quot;,
+   &quot;Reservoir&quot;: &quot;96 Matrix open reservoir movable&quot;
 };
 if(global.formDestinationPlate in plateSet) {
 	destinationPlate = plateSet[global.formDestinationPlate];
@@ -51,8 +53,14 @@ if(global.formSourcePlate in plateSet) {
 } else {
 	sourcePlate = &quot;96 Eppendorf Twin.tec PCR&quot;;
 }
+if(global.formDiluentPlate in plateSet) {
+	diluentPlate = plateSet[global.formDiluentPlate];
+} else {
+	diluentPlate = &quot;96 Matrix open reservoir movable&quot;;
+}
 print(&quot;sourcePlate=&quot;+sourcePlate);
 print(&quot;destinationPlate=&quot;+destinationPlate);
+print(&quot;diluentPlate=&quot;+diluentPlate);
 
 if(global.formLog) {
 	print(&quot;Input file: &quot; + filePath);
@@ -69,7 +77,8 @@ if(global.formLog) {
 var ignoreBarcodes = !!global.formIgnoreBarcodes;
 var bc = new BarcodeManager(3);
 
-' />
+global.transfersDone = 0;
+global.totalTransfers = tm.getSize();' />
 				</Task>
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
@@ -244,7 +253,7 @@ if(global.formLog) bc.printBc(plate);
 // since the first source in the transfer list will be buffer:
 var expected = (tm.plate === 0) ? tm.transfers[1][0].sourcePlate : tm.current.sourcePlate;
 if(!bc.hasBc(plate)) {
-   msg = &quot;It appears the plate has no barcode or the barcode could not be read. Check plate identity and either abort or proceed with the run anyway.&quot;;
+   msg = &quot;It appears the plate has no barcode or the barcode could not be read , expected [&quot; + expected + &quot;]. Check plate identity and either abort or proceed with the run anyway.&quot;;
    bc.logBc(plate, task, &quot;Barcode could not be read (expected: &quot; + expected + &quot;)&quot;);
 } else if(!bc.bcMatches(plate, expected)) {
    msg = &quot;The read plate barcode [&quot; + plate.barcode[3] +
@@ -273,6 +282,19 @@ task.Body = msg;
 						<Setting Name='Estimated time' Value='5.0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
+					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
 					</Parameters>
@@ -326,7 +348,7 @@ task.Body = msg;
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
+					<TaskScript Name='TaskScript' Value='plate.labware = diluentPlate;' />
 					<Parameters >
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='6' />
@@ -429,6 +451,16 @@ task.Body = msg;
 						<Parameter Category='' Name='Free empty stackers' Value='0' />
 					</Parameters>
 				</Task>
+				<Task Name='BuiltIn::Signal' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Waitfors_To_Signal >
+						<Waitfor Name='SIGNAL_TIPS' />
+					</Waitfors_To_Signal>
+				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='2' />
@@ -517,6 +549,13 @@ task.Body = msg;
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
 						<Parameter Category='' Name='Location to use' Value='1' />
 					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Wait For' Waitfor='SIGNAL_TIPS' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
 				</Task>
 				<Task Name='Bravo::SubProcess' >
 					<Enable_Backup >0</Enable_Backup>
@@ -709,6 +748,7 @@ var counter = 0;' />
 	task.Volume = (vol &lt;= MAX_VOLUME) ? vol : MAX_VOLUME;
 	task.Wellselection = buffer96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];
 	counter++;
+	global.transfersDone++;
 } else {
 	task.skip();
 }' />
@@ -1055,6 +1095,7 @@ if(buffer96Mode) {
 					<TaskScript Name='TaskScript' Value='// Blowout
 if(hasTransfer) {
 	task.Wellselection =  sample96Mode ? [[1,1]] : [tm.getWellSelectionTransferDestination()];
+	global.transfersDone++;
 } else {
 	task.skip();
 }' />
@@ -1214,5 +1255,40 @@ if(sample96Mode) {
 				</Dependencies>
 			</Pipette_Process>
 		</Main_Processes>
+		<Cleanup_Processes >
+			<Process >
+				<Minimized >0</Minimized>
+				<Task Name='BuiltIn::JavaScript' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='var email = global.formEmail;
+var protocolName = &quot;Dilution/normalization&quot;;
+
+if(typeof email === &quot;string&quot; &amp;&amp; email.match(/[\w\d\.]+@[\w\d\.]+/)) {
+	(function() {
+		var msg = {
+			body: protocolName+&quot; completed on &quot;+new Date().toLocaleString(),
+			sub: protocolName+&quot; has completed&quot;,
+			to: email
+		};
+		// Quote-ilize:
+		for(var i in msg) msg[i] = msg[i].replace(/.+/, &quot;\&quot;$&amp;\&quot;&quot;);
+		var script = &quot;C:\\VWorks Workspace\\bravo_mailer.bat&quot;
+		run([script, msg.to, msg.sub, msg.body].join(&quot; &quot;));
+	})();
+}
+
+global.formEmail = &quot;&quot;;' />
+				</Task>
+				<Plate_Parameters >
+					<Parameter Name='Plate name' Value='finish' />
+				</Plate_Parameters>
+				<Quarantine_After_Process >0</Quarantine_After_Process>
+			</Process>
+		</Cleanup_Processes>
 	</Processes>
 </Velocity11>

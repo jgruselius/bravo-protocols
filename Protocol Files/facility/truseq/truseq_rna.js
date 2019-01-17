@@ -1,7 +1,7 @@
 /*
  truseq_rna.js
  Author: Joel Gruselius
- Version: 2016-01
+ Version: 2017-10
  Description: Helper functions for TruSeq runset
 */
 
@@ -53,65 +53,40 @@ presets["PCR setup"] = {
 		reagentColumn: 1,
 		finalHold: !!formFinalHold
 };
-presets["CA default"] = {
+presets["cDNA cleanup"] = {
 		sampleVolume: 50,
-		beadVolume: 20,
-		precipVolume: 100,
-		beadResuspVolume: 10,
+		beadVolume: 90,
 		bindTime: 600,
-		elutionVolume: 30,
+		elutionVolume: 18,
 		sealFinalPlate: false,
 		finalHold: false,
 		beadPlateToUse: 1
 };
-presets["cDNA cleanup"] = {
-		sampleVolume: 50,
-		beadVolume: 15,
-		precipVolume: 100,
-		beadResuspVolume: 10,
-		bindTime: 600,
-		elutionVolume: 18,
-		transferSample: false,
-		sealFinalPlate: false,
-		finalHold: false,
-		beadPlateToUse: 1,
-		precipBuffer: 1
-};
 presets["Ligation cleanup 1"] = {
 		sampleVolume: 42.5,
-		beadVolume: 20,
-		precipVolume: 100,
-		beadResuspVolume: 17.5,
-		bindTime: 600,
+		beadVolume: 34,
+		bindTime: 300,
 		elutionVolume: 52,
-		transferSample: true,
 		sealFinalPlate: false,
 		finalHold: false,
-		beadPlateToUse: 2,
-		precipBuffer: 2
+		beadPlateToUse: 2
 };
 presets["Ligation cleanup 2"] = {
 		sampleVolume: 50,
-		beadVolume: 20,
-		precipVolume: 100,
-		beadResuspVolume: 10,
-		bindTime: 600,
+		beadVolume: 40,
+		bindTime: 300,
 		elutionVolume: 22,
-		transferSample: false,
 		sealFinalPlate: true,
 		finalHold: !!formFinalHold,
-		beadPlateToUse: 3,
-		precipBuffer: 2
+		beadPlateToUse: 3
 };
 presets["PCR cleanup"] = {
 		sampleVolume: 50,
-		beadVolume: 50,
-		precipVolume: 100,
-		beadResuspVolume: 10,
-		bindTime: 600,
+		beadVolume: 40,
+		bindTime: 300,
 		elutionVolume: 32,
-		transferSample: true,
 		sealFinalPlate: true,
+		beadPlateToUse: 1,
 		finalHold: !!formFinalHold
 };
 
@@ -119,20 +94,18 @@ var settings = {};
 
 var fileNames = {};
 fileNames["mRNA purification"] = "rna_prep_v1511.pro";
-fileNames["cDNA cleanup"] = "ca_purification_runset.pro";
+fileNames["cDNA cleanup"] = "illumina_spri.pro";
 fileNames["Adenylation"] = "truseq_rna_adenylation.pro";
 fileNames["PCR setup"] = "truseq_rna_pcr.pro";
-fileNames["PCR cleanup"] = "ca_purification_runset.pro";
+fileNames["PCR cleanup"] = "illumina_spri.pro";
 fileNames["Ligation"] = "truseq_rna_ligation.pro";
 fileNames["Adapter ligation"] = "truseq_rna_adapter_ligation.rst";
 fileNames["Adapter ligation (no cDNA cleanup)"] = "truseq_rna_adapter_ligation_short.rst";
-fileNames["Ligation cleanup"] = "ca_double-purification.rst";
+fileNames["Ligation cleanup"] = "illumina_spri_runset_twice.rst";
 
 if(extended) {
 	for(var p in fileNames) {
-		if(!~p.indexOf("Ligation cleanup")) {
-			fileNames[p] = "extended/" + fileNames[p];
-		}
+		fileNames[p] = "extended/" + fileNames[p];
 	}
 }
 

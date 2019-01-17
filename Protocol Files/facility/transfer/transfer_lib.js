@@ -2,18 +2,18 @@
  transfer_lib.js
  Author: Joel Gruselius
  Description: Helper functions and classes for VWorks scripts, requires
- the VWorks-defined global functions 
+ the VWorks-defined global functions
 */
 
 /*
  CHANGED in this version:
- --parseDilutionTransfersLims can now handle multiple source plates
+ -- Numeric conversion of LIMS ID's (P1234P1, 27-12345) when sorting
 
  TODO
- --Make a common function for assigning sourceVolume, sourcePlate etc. 
+ --Make a common function for assigning sourceVolume, sourcePlate etc.
  --Methods to prototype properties
  */
- 
+
  var testing = false;
 
 // CLASSES =====================================================================
@@ -32,9 +32,9 @@ function Transfer(sourcePlate, sourceWell, volume, destinationWell, destinationP
 }
 
 Transfer.prototype.toString = function() {
-	var str = ["{" + 
+	var str = ["{" +
 			"sourcePlate: " + this.sourcePlate,
-			"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) + 
+			"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) +
 					this.sourceWell[1],
 			"volume: " + this.volume,
 			"destinationPlate: " + this.destinationPlate,
@@ -173,10 +173,10 @@ function columnFromIndexReverse(n) { return 12 - ((n-1) - (n-1) % 8) / 8; }
 */
 function convertCoords(wellPos) {
 	// parseNumber function is used here to work both when wellPos
-	// has format 'A5' as well as 'A05'
+	// has format 'A5' as well as 'A05', 'A:5' or 'A:05'
 	try {
-		var row = parseNumber(wellPos.toUpperCase().charCodeAt(0) - 64);
-		var column = parseNumber(wellPos.substr(1));
+		var row = parseNumber(wellPos.trim().toUpperCase().charCodeAt(0) - 64);
+		var column = parseNumber(wellPos.trim().replace(":","").substr(1));
 	} catch(e) {
 		throw "InvalidCoordinatesException: \"" + wellPos + "\": " + e;
 	}
@@ -191,7 +191,7 @@ function convertCoords(wellPos) {
  supports formats 'C4', 'C04', 'C:4', 'C:04' and returns [3, 4]
 */
 function convertCoordsRegExp(wellPos) {
-	var match = wellPos.match(/^([A-Ha-h])(?:\:)?((?:0)?[1-9]|1[0-2])$/);
+	var match = wellPos.trim().match(/^([A-Ha-h])(?:\:)?((?:0)?[1-9]|1[0-2])$/);
 	if(!match) throw "InvalidCoordinatesException: \"" + wellPos + "\"";
 	try {
 		var row = parseNumber(match[1].toUpperCase().charCodeAt(0) - 64);
@@ -209,20 +209,35 @@ function convertCoordsRegExp(wellPos) {
 function transferSorter(plateCol, wellCol) {
 	return (function(row1, row2) {
 		var a = {}, b = {};
-		a.id = row1[plateCol].toLowerCase();
-		b.id = row2[plateCol].toLowerCase();
+		a.id = row1[plateCol].trim().toLowerCase();
+		b.id = row2[plateCol].trim().toLowerCase();
 		// If plate ID is a number, convert from string to int/double:
 		if(isNumber(a.id) && isNumber(b.id)) {
 			a.id = parseNumber(a.id);
 			b.id = parseNumber(b.id);
+		} else {
+			var p = /\d\d\-\d{4,}/;
+			// If plate ID is a LIMS ID, convert from string to int:
+			if(a.id.match(p) && b.id.match(p)) {
+				a.id = parseNumber(a.id.replace("-",""));
+				b.id = parseNumber(b.id.replace("-",""));
+			} else {
+				p = /P\d{3,}P\d{1,2}/i;
+				// If plate ID is a project plate ID, e.g. P4568P2,
+				// covert to int by removing 'P', e.g. 45682:
+				if(a.id.match(p) && b.id.match(p)) {
+					a.id = parseNumber(a.id.replace(/P/gi,""));
+					b.id = parseNumber(b.id.replace(/P/gi,""));
+				}
+			}
 		}
 		// Sort alphabetically/numerically on plate ID, then source well:
 		if(a.id !== b.id) {
 			return (a.id < b.id) ? -1 : (a.id > b.id ? 1 : 0);
 		} else {
-			a.coords = convertCoordsRegExp(row1[wellCol]);
-			b.coords = convertCoordsRegExp(row2[wellCol]);
-			return (a.coords[1] === b.coords[1]) ? a.coords[0] - b.coords[0] : a.coords[1] - b.coords[1];
+			a.pos = convertCoordsRegExp(row1[wellCol]);
+			b.pos = convertCoordsRegExp(row2[wellCol]);
+			return (a.pos[1] === b.pos[1]) ? a.pos[0]-b.pos[0] : a.pos[1]-b.pos[1];
 		}
 	});
 }
@@ -241,7 +256,7 @@ function parseCsv(str, delim) {
 	var rawRowArray = str.replace(/"/g,"").split("\n");
 	// Remove all empty rows:
 	var rowArray = [];
-	for(var i in rawRowArray) {
+	for(var i=0, n=rawRowArray.length; i<n; i++) {
 		var row = rawRowArray[i];
 		if(row) rowArray.push(row.split(delimiter));
 	}
@@ -262,17 +277,17 @@ function parseTransfers(str) {
 	var transferArrays = [];
 	var plateSet = {};
 	var plateIndex = 0;
-	for(var i in rowArray) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
 		var sourcePlate, sourceWell, volume, destinationWell, destinationPlate;
 		try {
-			sourcePlate = row[0];
+			sourcePlate = row[0].trim();
 			sourceWell = convertCoordsRegExp(row[1]);
 			volume = parseNumber(row[2], 3);
 			// Temporary fix to also handle format with destination plate ID:
 			try {
 				destinationWell = convertCoordsRegExp(row[4]);
-				destinationPlate = row[3];
+				destinationPlate = row[3].trim();
 			} catch(e) {
 				destinationPlate = "aliquot_plate";
 				destinationWell = convertCoordsRegExp(row[3]);
@@ -285,7 +300,7 @@ function parseTransfers(str) {
 				plateSet[sourcePlate] = sourcePlate;
 				plateIndex = transferArrays.push([]) - 1;
 			}
-			transferArrays[plateIndex].push(new Transfer(sourcePlate, 
+			transferArrays[plateIndex].push(new Transfer(sourcePlate,
 				sourceWell, volume, destinationWell, destinationPlate, true));
 		}
 	}
@@ -298,18 +313,20 @@ function parseTransfers(str) {
  where well is given in well coordinates, e.g. 'D4'
 */
 function parseAdapterTransfers(str, indexSet) {
-	// Tables mapping the plate positions of the different adapters: 
+	// Tables mapping the plate positions of the different adapters:
 	var INDEX_SETS = {};
-	
-	INDEX_SETS["truseq"] = {1:"A1", 2:"B1", 3:"C1", 4:"D1", 5:"E1", 6:"F1",
-							7:"G1", 8:"H1", 9:"A2", 10:"B2", 11:"C2", 12:"D2",
-							13:"E2", 14:"F2", 15:"G2", 16:"H2", 18:"A3",
-							19:"B3", 20:"C3", 21:"D3", 22:"E3", 23:"F3",
-							25:"G3", 27:"H3"};
-	
-	INDEX_SETS["sureselect"] = {1:"A1", 2:"B1", 3:"C1", 4:"D1", 5:"E1", 6:"F1",
-							7:"G1", 8:"H1", 9:"A2", 10:"B2", 11:"C2", 12:"D2",
-							13:"E2"};
+
+	INDEX_SETS["truseq"] = {
+		1:"A1", 2:"B1", 3:"C1", 4:"D1", 5:"E1", 6:"F1", 7:"G1", 8:"H1",
+		9:"A2", 10:"B2", 11:"C2", 12:"D2", 13:"E2", 14:"F2", 15:"G2",
+		16:"H2", 18:"A3", 19:"B3", 20:"C3", 21:"D3", 22:"E3", 23:"F3",
+		25:"G3", 27:"H3"
+	};
+
+	INDEX_SETS["sureselect"] = {
+		1:"A1", 2:"B1", 3:"C1", 4:"D1", 5:"E1", 6:"F1", 7:"G1", 8:"H1",
+		9:"A2", 10:"B2", 11:"C2", 12:"D2", 13:"E2"
+	};
 	// TruSeq dual indexes are numbered column-wise for the SciLife ID (dualNN)
 	INDEX_SETS["truseq_dual"] = {};
 	for(var i=1; i<=96; i++) {
@@ -321,7 +338,7 @@ function parseAdapterTransfers(str, indexSet) {
 	// SciLife ID (halohtNN), in other words the same as TruSeq Dual
 	INDEX_SETS["agilent96"] = INDEX_SETS["truseq_dual"];
 
-	var plateMap; 
+	var plateMap;
 	if(indexSet in INDEX_SETS) {
 		plateMap = INDEX_SETS[indexSet];
 	} else {
@@ -330,12 +347,12 @@ function parseAdapterTransfers(str, indexSet) {
 	var rowArray = parseCsv(str, ",");
 	// Sort the array by index:
 	rowArray.sort(function(a, b) {
-		// Assumes a, b is [(string) well, (int) index] 
+		// Assumes a, b is [(string) well, (int) index]
 		return parseInt(a[1], 10) - parseInt(b[1], 10);
 	});
 	// Create transfer objects from sorted array:
 	var transferArray = [];
-	for(var i in rowArray) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
 		var source, volume, destinationWell;
 		try {
@@ -370,18 +387,18 @@ function parseDilutionTransfers(str) {
 	var plateSet = {};
 	var sourceIndex;
 	var diluentWell = convertCoords("A1");
-	for(var i in rowArray) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
 		var sourcePlate, sourceWell, sourceVolume;
 		var destinationPlate, destinationWell, diluentVolume;
 		try {
-			sourcePlate = row[0];
+			sourcePlate = row[0].trim();
 			sourceWell = convertCoordsRegExp(row[1]);
 			sourceVolume = parseNumber(row[2], 3);
 			// Temporary fix to also handle format with destination plate ID:
 			try {
 				destinationWell = convertCoordsRegExp(row[4]);
-				destinationPlate = row[3];
+				destinationPlate = row[3].trim();
 				// The substraction float may contain many dec so it is rounded:
 				diluentVolume = +(parseNumber(row[5], 3) - sourceVolume).toFixed(3);
 			} catch(e) {
@@ -438,14 +455,14 @@ function parseDilutionTransfersLims(str) {
 	var plateSet = {};
 	var sourceIndex;
 	var diluentWell = convertCoords("A1");
-	for(var i in rowArray) {
+	for(var i=0, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
 		var sourcePlate, sourceWell, sourceVolume;
 		var destinationPlate, destinationWell, diluentVolume;
 		try {
-			sourcePlate = row[1];
+			sourcePlate = row[1].trim();
 			sourceWell = convertCoordsRegExp(row[2]);
-			destinationPlate = row[6];
+			destinationPlate = row[6].trim();
 			destinationWell = convertCoordsRegExp(row[7]);
 			// A missing value should be treated as 0 volume:
 			try {
@@ -561,15 +578,17 @@ function writeFile(filePath, content) {
 
 // MANAGERS ====================================================================
 
-// Transfer/tip manager, mode can be string "transfer" "dilution" "adapter" 
+// Transfer/tip manager, mode can be string "transfer" "dilution" "adapter"
 function TransferManager(transferMode, tipMode) {
 	// Error state is set to false if an exception is caught:
 	this.errorState = true;
-	this.functionMap = {"transfer":parseTransfers,
-						"dilution":parseDilutionTransfers,
-						"adapter":parseAdapterTransfers,
-						"lims_dilution": parseDilutionTransfersLims };
-	if(transferMode in this.functionMap) { 
+	this.functionMap = {
+		"transfer":parseTransfers,
+		"dilution":parseDilutionTransfers,
+		"adapter":parseAdapterTransfers,
+		"lims_dilution": parseDilutionTransfersLims
+	};
+	if(transferMode in this.functionMap) {
 		this.parseFunction = this.functionMap[transferMode];
 	} else {
 		throw "UnknownParseModeException: \"" + transferMode + "\"";
@@ -646,8 +665,12 @@ function TransferManager(transferMode, tipMode) {
 	this.getAll = function() {
 		var all = [];
 		for(var i=0, n=this.transfers.length; i<n; i++) {
-			all = all.concat(this.transfers[i]);
+			var x = this.transfers[i];
+			for(var j=0, m=x.length; j<m; j++) {
+				all.push(x[j]);
+			}
 		}
+		// Alt: Array.prototype.concat.apply([],this.transfers);
 		return all;
 	}
 	// Return whether the transfer array of the current plate has a next element:
@@ -673,7 +696,7 @@ function TransferManager(transferMode, tipMode) {
 			this.current = this.next;
 			this.index++;
 			if(this.hasNextTransfer()) {
-				this.next = temp[this.index+1];	  
+				this.next = temp[this.index+1];
 			} else if(this.hasNextPlate()) {
 				temp = this.transfers[++this.plate];
 				this.index = -1;
@@ -800,22 +823,22 @@ function BarcodeManager(side, logPath) {
 		var date = [d.getFullYear(), d.getMonth()+1, d.getDate(), d.getHours(),
 				d.getMinutes(), d.getSeconds()];
 		// Convert to string and pad with zeroes, i.e. 8 -> "08":
-		for(var i = date.length; i-->0;) {
+		for(var i=date.length; i-->0;) {
 			var x = date[i];
 			date[i] = (x > 9) ? x + "" : "0" + x;
 		}
-		return date.slice(0,3).join("-") + " " + date.slice(3).join(":"); 
+		return date.slice(0,3).join("-") + " " + date.slice(3).join(":");
 	};
-	
+
 	this.datestamp = function() {
 		var d = new Date();
 		var date = [d.getFullYear(), d.getMonth()+1, d.getDate()];
 		// Convert to string and pad with zeroes, i.e. 8 -> "08":
-		for(var i = date.length; i-->0;) {
+		for(var i=date.length; i-->0;) {
 			var x = date[i];
 			date[i] = (x > 9) ? x + "" : "0" + x;
 		}
-		return date.slice(0,3).join("-"); 
+		return date.slice(0,3).join("-");
 	};
 
 	this.hasBc = function(plateObj) {

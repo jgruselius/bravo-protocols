@@ -3,7 +3,7 @@
 	<Runsets >
 		<Runset Name='' >
 			<Parameters >
-				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\facility\truseq\extended\ca_purification_runset.pro' />
+				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\facility\truseq\extended\illumina_spri_runset.pro' />
 				<Parameter Name='Runs' Value='1' />
 				<Parameter Name='Protocol Notes' Value='' />
 				<Parameter Name='Priority' Value='1' />
@@ -66,7 +66,7 @@
 		</Runset>
 		<Runset Name='' >
 			<Parameters >
-				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\facility\truseq\extended\ca_purification_runset.pro' />
+				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\facility\truseq\extended\illumina_spri_runset.pro' />
 				<Parameter Name='Runs' Value='1' />
 				<Parameter Name='Protocol Notes' Value='' />
 				<Parameter Name='Priority' Value='4' />
@@ -87,7 +87,7 @@
 		</Runset>
 		<Runset Name='' >
 			<Parameters >
-				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\facility\truseq\extended\ca_purification_runset.pro' />
+				<Parameter Name='Protocol Name' Value='C:\VWorks Workspace\Protocol Files\facility\truseq\extended\illumina_spri_runset.pro' />
 				<Parameter Name='Runs' Value='1' />
 				<Parameter Name='Protocol Notes' Value='' />
 				<Parameter Name='Priority' Value='5' />

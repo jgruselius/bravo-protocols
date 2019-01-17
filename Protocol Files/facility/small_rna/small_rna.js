@@ -1,6 +1,6 @@
 runset.clear();
 
-var path = "C:/VWorks Workspace/Protocol Files/development/sebastian/small_rna/";
+var path = "C:/VWorks Workspace/Protocol Files/facility/small_rna/";
 var form = "small_rna.VWForm";
 var protocolToBeRun = "Adapter Ligation + Reverse Transcribe";
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
