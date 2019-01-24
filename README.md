@@ -20,6 +20,8 @@ Previosly there was a `master` and a `production` branch, the first containing a
 Clone the desired branch of the repository and place the files and folders of the resulting `bravo-protocols/` into `VWorks Workspace/`. Note that for many protocols the appropriate device files are required under `VWorks Workspace/Device Files/`. Also, the associated labware and liquid class entries are required in the Windows registry.
 
 ### License
+The protocols and files in this repo have all been created at the National Genomics Infrastructure Stockholm and can be used according to the license below, with the exception of files in folders where a separate LICENSE file indicates something else.
+
 ```
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
