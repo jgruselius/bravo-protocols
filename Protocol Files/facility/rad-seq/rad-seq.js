@@ -1,6 +1,6 @@
 runset.clear();
 
-var path = "C:/VWorks Workspace/Protocol Files/development/jgr/rad-seq/";
+var path = "C:/VWorks Workspace/Protocol Files/facility/rad-seq/";
 var form = "rad-seq.VWForm";
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);

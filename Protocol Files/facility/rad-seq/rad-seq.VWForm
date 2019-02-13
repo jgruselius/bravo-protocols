@@ -219,7 +219,7 @@
       <Property name="Name">pauseResume1</Property>
       <Property name="TextImageRelation">ImageBeforeText</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Parameter Name="Icon" Description="Choose icon for this button" Type="9" Value="C:\VWorks Workspace\Protocol Files\development\jgr\icons\1313497192_media_controls_light_pause.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp;*.ico)|*.jpg;*.png;*.bmp;*.ico||" Hide_if="" />
+      <Parameter Name="Icon" Description="Choose icon for this button" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\resources\1313497192_media_controls_light_pause.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp;*.ico)|*.jpg;*.png;*.bmp;*.ico||" Hide_if="" />
       <Parameter Name="Caption" Description="The string to display in the button" Type="1" Value=" PAUSE" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
         <Ranges>
@@ -249,9 +249,9 @@
       <Property name="Name">operatorConsoleButton1</Property>
       <Property name="TextImageRelation">ImageBeforeText</Property>
       <Property name="ForeColor">0, 0, 0</Property>
-      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="open( 'C:/VWorks Workspace/Protocol Files/development/jgr/rad-seq/rad-seq.js');&#xD;&#xA;" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="open( 'C:/VWorks Workspace/Protocol Files/facility/rad-seq/rad-seq.js');&#xD;&#xA;" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the Script above will always execute in the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Icon" Description="A graphical image file to display in the button" Type="9" Value="C:\VWorks Workspace\Protocol Files\development\jgr\icons\1313497517_media_controls_light_play.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp;*.ico)|*.jpg;*.png;*.bmp;*.ico||" Hide_if="" />
+      <Parameter Name="Icon" Description="A graphical image file to display in the button" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\resources\1313497517_media_controls_light_play.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp;*.ico)|*.jpg;*.png;*.bmp;*.ico||" Hide_if="" />
       <Parameter Name="Disable when running" Description="the button is disabled whenever a protocol is running" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Caption" Description="The string to display in the button" Type="1" Value=" START" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
