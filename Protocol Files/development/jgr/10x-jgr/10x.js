@@ -42,7 +42,9 @@ protocols["Ligation"] = {
 		sampleVolume: 75,
 		bufferVolume: 0,
 		reagentVolume: 35.5,
-		doOffDeckIncubation: true
+		doOffDeckIncubation: false,
+		incubationTime: 15*60,
+		incubationTemperature: 20
 	}
 };
 
@@ -60,6 +62,7 @@ protocols["PCR setup"] = {
 	settings: {
 		tipColumn:3,
 		reagentColumn:3,
+		indexColumn: 1,
 		sampleVolume:40,
 		reagentVolume:55,
 		primerVolume:5
