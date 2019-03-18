@@ -7,11 +7,10 @@
 
 /*
  CHANGED in this version:
- -- Numeric conversion of LIMS ID's (P1234P1, 27-12345) when sorting
+ -- Modification where buffer and sample are aspirated in the same tip. 
 
  TODO
- --Make a common function for assigning sourceVolume, sourcePlate etc.
- --Methods to prototype properties
+ --
  */
 
  var testing = false;
@@ -22,10 +21,11 @@
  Object containing information of a liquid transfer; a set of source
  coordinates (row, columnn), a volume and destination coordinates
 */
-function Transfer(sourcePlate, sourceWell, volume, destinationWell, destinationPlate, newTip) {
+function Transfer(sourcePlate, sourceWell, volume, destinationWell, destinationPlate, newTip, diluentVolume) {
 	this.sourcePlate = sourcePlate;
 	this.sourceWell = sourceWell;
 	this.volume = volume;
+	this.diluentVolume = (typeof diluentVolume !== "undefined") ? diluentVolume : 0;
 	this.destinationWell = destinationWell;
 	this.destinationPlate = destinationPlate;
 	this.newTip = newTip;
@@ -37,6 +37,7 @@ Transfer.prototype.toString = function() {
 			"sourceWell: " + String.fromCharCode(this.sourceWell[0]+64) +
 					this.sourceWell[1],
 			"volume: " + this.volume,
+			"diluentVolume: " + this.diluentVolume,
 			"destinationPlate: " + this.destinationPlate,
 			"destinationWell: " + String.fromCharCode(this.destinationWell[0]+64) +
 					this.destinationWell[1],
@@ -376,6 +377,7 @@ function parseAdapterTransfers(str, indexSet) {
  Creates an array of Transfer objects from a csv file with format:
 	sourcePlate,sourceWell,sourceVolume,destinationWell,finalVolume
  where sourceWell and destinationWell are given in plate coordinates, e.g. 'D4'
+ Creates one Transfer object for the source transfer and one for the diluent.
 */
 function parseDilutionTransfers(str) {
 	var rowArray = parseCsv(str, ",");
@@ -505,6 +507,65 @@ function parseDilutionTransfersLims(str) {
 	return transferArrays;
 }
 
+
+/*
+ Creates an array of Transfer objects from a csv file with format:
+	sourcePlate,sourceWell,sourceVolume,destinationWell,finalVolume
+ where sourceWell and destinationWell are given in plate coordinates, e.g. 'D4'
+ This variant puts the diluent volume in the same Transfer object.
+*/
+function parseDilutionTransfersSingle(str) {
+	var rowArray = parseCsv(str, ",");
+	// Order the arrray on plate ID:
+	rowArray.sort(transferSorter(0,1));
+	var transferArrays = [];
+	// Add the array that will hold the buffer transfers:
+	transferArrays.push([]);
+	var plateSet = {};
+	var sourceIndex;
+	var diluentWell = convertCoords("A1");
+	for(var i=0, n=rowArray.length; i<n; i++) {
+		var row = rowArray[i];
+		var sourcePlate, sourceWell, sourceVolume;
+		var destinationPlate, destinationWell, diluentVolume;
+		try {
+			sourcePlate = row[0].trim();
+			sourceWell = convertCoordsRegExp(row[1]);
+			sourceVolume = parseNumber(row[2], 3);
+			// Temporary fix to also handle format with destination plate ID:
+			try {
+				destinationWell = convertCoordsRegExp(row[4]);
+				destinationPlate = row[3].trim();
+				// The substraction float may contain many dec so it is rounded:
+				diluentVolume = +(parseNumber(row[5], 3) - sourceVolume).toFixed(3);
+			} catch(e) {
+				destinationPlate = "diluted_plate";
+				destinationWell = convertCoordsRegExp(row[3]);
+				// The substraction float may contain many dec so it is rounded:
+				diluentVolume = +(parseNumber(row[4], 3) - sourceVolume).toFixed(3);
+			}
+		} catch(e) {
+			throw "UnableToParseTransferTableException:" + e;
+		}
+		var newTip;
+		// if(diluentVolume > 0) {
+		// 	newTip = (transferArrays[0].length === 0);
+		// 	transferArrays[0].push(new Transfer("diluent_reservoir",
+		// 		diluentWell, diluentVolume, destinationWell, destinationPlate, newTip));
+		// }
+		if(!(sourcePlate in plateSet)) {
+			plateSet[sourcePlate] = sourcePlate;
+			sourceIndex = transferArrays.push([]) - 1;
+		}
+		if(diluentVolume > 0 || sourceVolume > 0) {
+			newTip = (sourceIndex > 1 || transferArrays[sourceIndex].length > 0);
+			transferArrays[sourceIndex].push(new Transfer(sourcePlate, sourceWell,
+				sourceVolume, destinationWell, destinationPlate, newTip, diluentVolume));
+		}
+	}
+	return transferArrays;
+}
+
 // FILE_OPERATIONS==============================================================
 
 /*
@@ -586,7 +647,8 @@ function TransferManager(transferMode, tipMode) {
 		"transfer":parseTransfers,
 		"dilution":parseDilutionTransfers,
 		"adapter":parseAdapterTransfers,
-		"lims_dilution": parseDilutionTransfersLims
+		"lims_dilution": parseDilutionTransfersLims,
+		"single_tip_dilution": parseDilutionTransfersSingle
 	};
 	if(transferMode in this.functionMap) {
 		this.parseFunction = this.functionMap[transferMode];
@@ -632,7 +694,6 @@ function TransferManager(transferMode, tipMode) {
 		this.plate = 0;
 		this.index = -1;
 	}
-	// Calculate number of transfers for each source ID:
 	// Calculate number of transfers for each source ID:
 	this.updateSize = function() {
 		var n = this.transfers.length
@@ -766,6 +827,9 @@ function TransferManager(transferMode, tipMode) {
 	}
 	this.getVolume = function() {
 		return this.current.volume;
+	}
+	this.getDiluentVolume = function() {
+		return this.current.diluentVolume;
 	}
 	this.useNewTip = function() {
 		return this.current.newTip;

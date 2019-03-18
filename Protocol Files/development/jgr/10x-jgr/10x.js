@@ -82,6 +82,13 @@ protocols["Post-PCR size selection"] = {
 	}
 };
 
+protocols["Mixing"] = {
+	file: "10x_mixing.pro",
+	settings: {
+		mixVolume: parseInt(formMixVolume, 10)
+	}
+};
+
 protocols["Library prep"] = {
 	file: "10x_library_prep.rst"
 };
