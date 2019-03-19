@@ -46,7 +46,7 @@ protocols["PCR cleanup 1"] = {
 		sampleVolume: 21,
 		beadVolume: 37.8,
 		bindTime: 300,
-		elutionVolume: 12,
+		elutionVolume: 30,
 		beadPlateToUse: 1,
 		altBindPlate: true,
 		splitEluateVolume: 6
@@ -57,7 +57,7 @@ protocols["PCR cleanup 2"] = {
 	file: "16s_ampure_xp.pro",
 	settings: {
 		sampleVolume: 20,
-		beadVolume: 36,
+		beadVolume: 20,
 		bindTime: 300,
 		elutionVolume: 20,
 		altBindPlate: true
