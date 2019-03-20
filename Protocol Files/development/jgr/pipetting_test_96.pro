@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='7ad8c006153ed8d919dd0f37f4476eb4' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='921755239f558a077311fde304ca6416' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='0' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -82,7 +82,7 @@
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='43' />
+						<Setting Name='Estimated time' Value='35' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -467,7 +467,7 @@
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -577,7 +577,7 @@
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -614,6 +614,25 @@
 						<Parameter Category='Task Description' Name='Task description' Value='Group End' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
+				</Task>
+				<Task Name='Bravo::secondary::Move To Location' Task_Type='1024' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Location' Value='1' />
+						<Parameter Category='Task Description' Name='Task number' Value='8' />
+						<Parameter Category='Task Description' Name='Task description' Value='Move To Location (Bravo)' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+					</Parameters>
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+						<PipetteHeadMode Channels='0' ColumnCount='12' RowCount='8' SubsetConfig='0' SubsetType='0' TipType='0' />
+					</PipetteHead>
 				</Task>
 				<Devices >
 					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
@@ -672,7 +691,7 @@
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='12' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -702,7 +721,7 @@
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -742,7 +761,7 @@
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='4' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -782,7 +801,7 @@
 					<Task_Skipped >0</Task_Skipped>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
