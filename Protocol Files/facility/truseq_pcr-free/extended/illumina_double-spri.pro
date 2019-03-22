@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='76c297c5a13064b5531829218fcd2a89' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='e979bb961553018c636469ec873de435' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Full_System_Magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -847,143 +847,7 @@ print(&quot;beadVolume1=&quot;+beadVolume1+&quot;;sampleVolume=&quot;+sampleVolu
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >0</Minimized>
-				<Task Name='BuiltIn::Place Plate' >
-					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='1' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings />
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='1' />
-						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='1' />
-					</Parameters>
-				</Task>
-				<Task Name='Bravo::SubProcess' >
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-					</Parameters>
-					<Parameters >
-						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='removeBindMix' />
-					</Parameters>
-				</Task>
-				<Task Name='Bravo::SubProcess' >
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='wash' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
-						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='wash' />
-					</Parameters>
-				</Task>
-				<Task Name='Bravo::SubProcess' >
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='rinseTips' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
-					</Parameters>
-					<Parameters >
-						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='rinseTips' />
-					</Parameters>
-				</Task>
-				<Task Name='BuiltIn::Load' >
-					<Devices >
-						<Device Device_Name='Agilent Labware MiniHub - 1' Location_Name='' />
-					</Devices>
-					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
-					<Task_Skipped >0</Task_Skipped>
-					<Has_Breakpoint >0</Has_Breakpoint>
-					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
-					</Advanced_Settings>
-					<TaskScript Name='TaskScript' Value='' />
-					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='4' />
-						<Parameter Category='Task Description' Name='Task description' Value='Load' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-						<Parameter Category='' Name='loadIntoByLocation' Value='' />
-						<Parameter Category='' Name='loadIntoByGroup' Value='' />
-					</Parameters>
-					<Parameter >
-						<useOriginalLocations Name='useOriginalLocations' Value='0' />
-						<AssignedLocations_Node >
-							<LocationInfo Value='Agilent Labware MiniHub - 1, cassette 3, slot 5' />
-						</AssignedLocations_Node>
-					</Parameter>
-				</Task>
-				<Plate_Parameters >
-					<Parameter Name='Plate name' Value='Waste' />
-					<Parameter Name='Plate type' Value='96 Deep Well PP Sqr Well V Btm' />
-					<Parameter Name='Simultaneous plates' Value='1' />
-					<Parameter Name='Plates have lids' Value='0' />
-					<Parameter Name='Plates enter the system sealed' Value='0' />
-					<Parameter Name='Use single instance of plate' Value='0' />
-					<Parameter Name='Automatically update labware' Value='0' />
-					<Parameter Name='Enable timed release' Value='0' />
-					<Parameter Name='Release time' Value='30' />
-					<Parameter Name='Auto managed counterweight' Value='' />
-					<Parameter Name='Barcode filename' Value='No Selection' />
-					<Parameter Name='Has header' Value='' />
-					<Parameter Name='Barcode or header South' Value='No Selection' />
-					<Parameter Name='Barcode or header West' Value='No Selection' />
-					<Parameter Name='Barcode or header North' Value='No Selection' />
-					<Parameter Name='Barcode or header East' Value='No Selection' />
-				</Plate_Parameters>
-				<Quarantine_After_Process >0</Quarantine_After_Process>
-			</Process>
-			<Process >
-				<Minimized >0</Minimized>
+				<Minimized >1</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='6' />
@@ -1041,7 +905,7 @@ print(&quot;beadVolume1=&quot;+beadVolume1+&quot;;sampleVolume=&quot;+sampleVolu
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >0</Minimized>
+				<Minimized >1</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
 						<Device Device_Name='Bravo - 1' Location_Name='8' />
@@ -1070,17 +934,9 @@ print(&quot;beadVolume1=&quot;+beadVolume1+&quot;;sampleVolume=&quot;+sampleVolu
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='addDiluent' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='addDiluent' />
@@ -1096,17 +952,9 @@ print(&quot;beadVolume1=&quot;+beadVolume1+&quot;;sampleVolume=&quot;+sampleVolu
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Sub-process name' Value='rinseTips' />
-						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
-						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
-						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
+						<Parameter Category='Task Description' Name='Task number' Value='0' />
+						<Parameter Category='Task Description' Name='Task description' Value='' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='rinseTips' />
@@ -1151,7 +999,7 @@ print(&quot;beadVolume1=&quot;+beadVolume1+&quot;;sampleVolume=&quot;+sampleVolu
 				<Quarantine_After_Process >0</Quarantine_After_Process>
 			</Process>
 			<Process >
-				<Minimized >0</Minimized>
+				<Minimized >1</Minimized>
 				<Task Name='BuiltIn::Downstack' >
 					<Devices >
 						<Device Device_Name='BenchCel - 1' Location_Name='Stacker 2' />
@@ -1425,12 +1273,116 @@ print(&quot;beadVolume1=&quot;+beadVolume1+&quot;;sampleVolume=&quot;+sampleVolu
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='transferBindMix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transferBindMix' />
+					</Parameters>
+				</Task>
+				<Task Name='BuiltIn::Place Plate' >
+					<Devices >
+						<Device Device_Name='Bravo - 1' Location_Name='1' />
+					</Devices>
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings />
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='Task Description' Name='Task number' Value='9' />
+						<Parameter Category='Task Description' Name='Task description' Value='Place Plate' />
+						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
+						<Parameter Category='' Name='Location to use' Value='1' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::SubProcess' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='removeBindMix' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
+					</Parameters>
+					<Parameters >
+						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='removeBindMix' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::SubProcess' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='wash' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
+					</Parameters>
+					<Parameters >
+						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='wash' />
+					</Parameters>
+				</Task>
+				<Task Name='Bravo::SubProcess' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Task_Skipped >0</Task_Skipped>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Sub-process name' Value='rinseTips' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='96 Nunc Deep Well 1 mL' />
+					</Parameters>
+					<Parameters >
+						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='rinseTips' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Load' >
@@ -3846,8 +3798,8 @@ var mLiquidClass = &quot;j_slow_medium_vol&quot;;
 var mPreAspVolume = PRE_ASP_LARGE;
 var mTransferVolume = transferVolume + beadVolume2 + 10;
 var mAspDistance = 0.75;
-var mDispDistance = 30;
-var mBlowoutHeight = 30;
+var mDispDistance = 25;
+var mBlowoutHeight = 25;
 var mDoTipTouch = true;
 var mTouchRetract = 0;' />
 					<Parameters >
@@ -4044,7 +3996,7 @@ task.Distancefromwellbottom = mDispDistance;
 task.Performtiptouch = true;
 task.Whichsidestousefortiptouch = &quot;South/North&quot;;' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='Waste' />
+						<Parameter Category='' Name='Location, plate' Value='BindPlate1' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
@@ -4103,7 +4055,7 @@ if(mDoTipTouch) {
    task.Whichsidestousefortiptouch = &quot;South/North&quot;;
 }' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='Waste' />
+						<Parameter Category='' Name='Location, plate' Value='BindPlate1' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
@@ -4182,7 +4134,7 @@ if(mDoTipTouch) {
 					</Parameters>
 				</Task>
 				<Devices >
-					<Device Device_Name='Bravo - 1' Location_Name='1' />
+					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
 				</Devices>
 				<Parameters >
 					<Parameter Name='Display confirmation' Value='Don&apos;t display' />
@@ -4230,7 +4182,7 @@ var mLiquidClass = &quot;j_normal_medium_vol&quot;;
 var mPreAspVolume = 10;
 var mTransferVolume = MAX_VOLUME;
 var mAspDistance = 1;
-var mDispDistance = 30;
+var mDispDistance = 20;
 var mDoTipTouch = true;
 var mTouchRetract = 5;' />
 					<Parameters >
@@ -4352,11 +4304,11 @@ task.Liquidclass = mLiquidClass;
 if(mDoTipTouch) {
     task.Performtiptouch = true;
     task.Tiptouchretractdistance = mTouchRetract;
-    task.Whichsidestousefortiptouch = &quot;South/North&quot;;
+    task.Whichsidestousefortiptouch = &quot;West/East&quot;;
 }
 ' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='Waste' />
+						<Parameter Category='' Name='Location, plate' Value='BindPlate1' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='1' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
@@ -5760,7 +5712,7 @@ if(mDoTipTouch) {
 					</Parameters>
 				</Task>
 				<Devices >
-					<Device Device_Name='Bravo - 1' Location_Name='1' />
+					<Device Device_Name='Bravo - 1' Location_Name='Default Location' />
 				</Devices>
 				<Parameters >
 					<Parameter Name='Display confirmation' Value='Don&apos;t display' />
@@ -6457,13 +6409,13 @@ task.Dynamictipextension = global.dph(sampleVolume, 0.5);' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Volume = (washVolume + 10) / steps;' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='Waste' />
+						<Parameter Category='' Name='Location, plate' Value='BindPlate1' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_large_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='25' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='20' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
@@ -6505,13 +6457,13 @@ task.Dynamictipextension = global.dph(sampleVolume, 0.5);' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='' Name='Location, plate' Value='Waste' />
+						<Parameter Category='' Name='Location, plate' Value='BindPlate1' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
 						<Parameter Category='Volume' Name='Volume' TaskParameterScript='=PRE_ASP;' Value='' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_blowout' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='30' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='25' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
