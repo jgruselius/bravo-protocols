@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='66845f9a57968e3477f160def3d9db6f' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='80dbe5a69923354dcb75180985237d8a' version='2.0' >
 	<File_Info AllowSimultaneousRun='0' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='0' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -96,7 +96,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 				<Minimized >0</Minimized>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='7' />
+						<Device Device_Name='Bravo - 1' Location_Name='5' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -105,7 +105,7 @@ global.statusString = protocolName + &quot; started&quot;;' />
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='7' />
+						<Parameter Category='' Name='Location to use' Value='5' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Spawn Process' >
@@ -298,9 +298,9 @@ task.Incubationtime = incubationTime;' />
 
 task.Body = &quot;When the robots has finished, &quot; +
 	&quot;take the Eppendorf plate from &quot; +
-	&quot;position 5 of the Bravo deck, seal, place in a thermal &quot; +
+	&quot;position 4 of the Bravo deck, seal, place in a thermal &quot; +
 	&quot;cycler and run the &quot; + protocolName + &quot; program. Once &quot; +
-	&quot;the incubation has finished, return the plate to position 5 &quot;
+	&quot;the incubation has finished, return the plate to position 4 &quot;
 	&quot;and choose &apos;Continue&apos;.&quot;;' />
 					<Parameters >
 						<Parameter Category='' Name='Title' Value='Transfer plate' />
@@ -337,7 +337,7 @@ task.Body = &quot;When the robots has finished, &quot; +
 				</Task>
 				<Task Name='BuiltIn::Place Plate' >
 					<Devices >
-						<Device Device_Name='Bravo - 1' Location_Name='6' />
+						<Device Device_Name='Bravo - 1' Location_Name='5' />
 					</Devices>
 					<Enable_Backup >0</Enable_Backup>
 					<Task_Disabled >0</Task_Disabled>
@@ -346,7 +346,7 @@ task.Body = &quot;When the robots has finished, &quot; +
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Device to use' Value='Bravo - 1' />
-						<Parameter Category='' Name='Location to use' Value='6' />
+						<Parameter Category='' Name='Location to use' Value='5' />
 					</Parameters>
 				</Task>
 				<Plate_Parameters >
