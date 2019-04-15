@@ -9,6 +9,7 @@ run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat",
 
 var runsetMode = false;	// Alt settings for library prep runset (true/false)
 var formColumns = parseInt(formColumns, 10);
+var doSpriSetup = !!formDoSpriSetup;
 
 var testMode = !!(typeof formTestMode !== "undefined" && formTestMode);
 if(testMode) print("Skipping incubations!");
@@ -90,7 +91,7 @@ protocols["Mixing"] = {
 };
 
 protocols["Library prep"] = {
-	file: "10x_library_prep.rst"
+	file: doSpriSetup ? "10x_library_prep_spri_setup.rst" : "10x_library_prep.rst"
 };
 
 var settings = {};
