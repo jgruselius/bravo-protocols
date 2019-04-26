@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='065d6eff18bf9172b5652a1735901a40' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='f5f7fe96bfb3a861fb1701c3fbf57f3c' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/development/jgr/10x-jgr/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -173,7 +173,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='16' />
+						<Setting Name='Estimated time' Value='15' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(ignoreBarcodes) task.skip();
 var msg = &quot;&quot;;
@@ -646,6 +646,7 @@ if(vol.src+vol.dil &gt; MAX_VOLUME) {
 }
 // No need to  check for 0-volume transfers,
 // those are ignored in the parsing.
+// Redundant check
 ' />
 				</Task>
 				<Task Name='BuiltIn::Group Begin' >
@@ -672,11 +673,11 @@ if(vol.src+vol.dil &gt; MAX_VOLUME) {
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;fce8ee0fee995fa167b75a1156ab8968&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;9545abaef591bae8a0cff4a3902e0cff&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;11&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -690,11 +691,11 @@ if(vol.src+vol.dil &gt; MAX_VOLUME) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='11' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(hasTransfer &amp;&amp; vol.dil &gt; 0) {
 	task.Volume = (vol.dil &lt;= MAX_VOLUME) ? vol.dil : MAX_VOLUME;
-	task.Wellselection = [tm.getWellSelectionTransferSource()];
+	task.Wellselection = [[1,1]];
 	task.Preaspiratevolume = 5;
 	task.Postaspiratevolume = 1;
 } else {
@@ -734,7 +735,7 @@ if(vol.src+vol.dil &gt; MAX_VOLUME) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='13' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
 	var preAsp = 0;
@@ -751,7 +752,7 @@ if(vol.src+vol.dil &gt; MAX_VOLUME) {
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Pre-aspirate volume' Value='0' />
 						<Parameter Category='Volume' Name='Post-aspirate volume' Value='0' />
-						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_small_vol' />
+						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_small_vol' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.75' />
 						<Parameter Category='Properties' Name='Dynamic tip extension' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
@@ -778,13 +779,11 @@ if(vol.src+vol.dil &gt; MAX_VOLUME) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='9' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
-	var vol = tm.getVolume() + tm.getDiluentVolume;
-	task.Volume = (vol &lt;= MAX_VOLUME) ? vol : MAX_VOLUME;
+	task.Volume =  vol.src;
 	task.Wellselection = [tm.getWellSelectionTransferDestination()];
-	task.Blowoutvolume = vol.dil ? 1 : 0;
 } else {
 	task.skip();
 }
@@ -795,7 +794,50 @@ if(vol.src+vol.dil &gt; MAX_VOLUME) {
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
 						<Parameter Category='Volume' Name='Volume' Value='' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='' />
-						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_small_vol' />
+						<Parameter Category='Properties' Name='Liquid class' Value='j_slow_small_vol' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.75' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
+						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
+						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='South/North' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
+						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
+						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;a82ac5e2a2a220ec08b692701134f1da&apos; version=&apos;1.0&apos; &gt;
+	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
+		&lt;Wells &gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+		&lt;/Wells&gt;
+	&lt;/WellSelection&gt;
+&lt;/Velocity11&gt;' />
+						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+					</Parameters>
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 µL Series III' >
+						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='1' SubsetConfig='2' SubsetType='4' TipType='0' />
+					</PipetteHead>
+				</Task>
+				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='7' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='if(hasTransfer &amp;&amp; vol.dil &gt; 0) {
+	task.Volume = vol.dil;
+	task.Wellselection = [tm.getWellSelectionTransferDestination()];
+	task.Blowoutvolume = 1;
+} else {
+	task.skip();
+}
+' />
+					<Parameters >
+						<Parameter Category='' Name='Location, plate' Value='destination' />
+						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='Volume' Name='Empty tips' Value='0' />
+						<Parameter Category='Volume' Name='Volume' Value='' />
+						<Parameter Category='Volume' Name='Blowout volume' Value='' />
+						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_medium_vol' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.75' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
@@ -878,11 +920,11 @@ if(hasTransfer) {
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;c46e8fd7c818106cca86b32d56951939&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;8e6db7041976e3e43da2c1ec108f0188&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;5&apos; Row=&apos;7&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;7&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -974,7 +1016,7 @@ print(&quot;Completed transfer &quot; + index + &quot;/&quot; + tm.getSize());' 
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var email = global.formEmail;
 var protocolName = &quot;Aliquotation/pooling&quot;;

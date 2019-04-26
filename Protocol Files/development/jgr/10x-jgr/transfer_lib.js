@@ -519,8 +519,6 @@ function parseDilutionTransfersSingle(str) {
 	// Order the arrray on plate ID:
 	rowArray.sort(transferSorter(0,1));
 	var transferArrays = [];
-	// Add the array that will hold the buffer transfers:
-	transferArrays.push([]);
 	var plateSet = {};
 	var sourceIndex;
 	var diluentWell = convertCoords("A1");
@@ -547,20 +545,13 @@ function parseDilutionTransfersSingle(str) {
 		} catch(e) {
 			throw "UnableToParseTransferTableException:" + e;
 		}
-		var newTip;
-		// if(diluentVolume > 0) {
-		// 	newTip = (transferArrays[0].length === 0);
-		// 	transferArrays[0].push(new Transfer("diluent_reservoir",
-		// 		diluentWell, diluentVolume, destinationWell, destinationPlate, newTip));
-		// }
 		if(!(sourcePlate in plateSet)) {
 			plateSet[sourcePlate] = sourcePlate;
 			sourceIndex = transferArrays.push([]) - 1;
 		}
 		if(diluentVolume > 0 || sourceVolume > 0) {
-			newTip = (sourceIndex > 1 || transferArrays[sourceIndex].length > 0);
 			transferArrays[sourceIndex].push(new Transfer(sourcePlate, sourceWell,
-				sourceVolume, destinationWell, destinationPlate, newTip, diluentVolume));
+				sourceVolume, destinationWell, destinationPlate, true, diluentVolume));
 		}
 	}
 	return transferArrays;
@@ -801,7 +792,7 @@ function TransferManager(transferMode, tipMode) {
 			for(var i=this.transfers.length; i-->0 && test;) {
 				var temp = this.transfers[i];
 				for(var j=temp.length; j-->0 && test;) {
-					test = temp[j].volume <= limit;
+					test = (temp[j].volume + temp[j].diluentVolume) <= limit;
 				}
 			}
 		}
