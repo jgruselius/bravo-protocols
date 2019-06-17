@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='7c388c9e95c9e20d241eafe5231553a9' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='6307892bf5b3cc0dfec092cc12d63a9b' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='0' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\BravoMiniPHBenchCel_round_magnet.dev' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='0' Protocol_Alias='' StartScript='' Use_Global_JS_Context='0' />
 	<Processes >
 		<Startup_Processes >
@@ -426,7 +426,7 @@
 				</Task>
 				<Task Name='BuiltIn::User Message' >
 					<Enable_Backup >0</Enable_Backup>
-					<Task_Disabled >0</Task_Disabled>
+					<Task_Disabled >1</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
 						<Setting Name='Estimated time' Value='376' />
@@ -1461,7 +1461,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='9' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,13-numColumns]];' />
 					<Parameters >
@@ -1469,17 +1469,17 @@
 						<Parameter Category='' Name='Location, location' Value='2' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;dff59e2b09e6985a98d85691a85668aa&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;751c4144b7519e33712e8c0af4e44905&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;11&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
@@ -1518,7 +1518,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -1554,7 +1554,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -1590,7 +1590,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -1626,7 +1626,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
@@ -1665,7 +1665,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
@@ -1704,7 +1704,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
@@ -1743,7 +1743,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -1779,7 +1779,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -1876,17 +1876,17 @@
 						<Parameter Category='' Name='Location, location' Value='2' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;dff59e2b09e6985a98d85691a85668aa&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;751c4144b7519e33712e8c0af4e44905&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;11&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -1922,7 +1922,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -1930,7 +1930,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='11' />
+						<Setting Name='Estimated time' Value='12' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -1958,7 +1958,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -2120,7 +2120,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -2128,7 +2128,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='3' />
+						<Setting Name='Estimated time' Value='4' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2156,7 +2156,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='offset 25% - Left' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -2164,7 +2164,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='7' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2192,7 +2192,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -2200,7 +2200,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='3' />
+						<Setting Name='Estimated time' Value='4' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2228,7 +2228,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='offset 25% - Right' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -2236,7 +2236,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2264,7 +2264,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -2272,7 +2272,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='3' />
+						<Setting Name='Estimated time' Value='4' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2300,7 +2300,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='offset 25% - Back' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -2308,7 +2308,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2336,7 +2336,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -2344,7 +2344,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='3' />
+						<Setting Name='Estimated time' Value='4' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2372,7 +2372,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='offset 25% - Front' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -2380,7 +2380,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2408,7 +2408,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -2416,7 +2416,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='3' />
+						<Setting Name='Estimated time' Value='4' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2444,7 +2444,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='offset 25% - Left' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -2452,7 +2452,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2480,7 +2480,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -2488,7 +2488,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='3' />
+						<Setting Name='Estimated time' Value='4' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2516,7 +2516,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='offset 25% - Right' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -2646,17 +2646,17 @@
 						<Parameter Category='' Name='Location, location' Value='2' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;f629d054f37c1057531ccc552ae82fc1&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;10&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -2664,7 +2664,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='12' />
+						<Setting Name='Estimated time' Value='13' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='//task.Wellselection = [[1, (12+index)]];' />
 					<Parameters >
@@ -2692,7 +2692,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -2700,7 +2700,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='19' />
+						<Setting Name='Estimated time' Value='20' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -2728,7 +2728,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -2764,7 +2764,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -2800,7 +2800,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Reserve Location' >
@@ -2848,7 +2848,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -2856,7 +2856,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='21' />
+						<Setting Name='Estimated time' Value='20' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='//task.Wellselection = [[1, index]];' />
 					<Parameters >
@@ -2884,7 +2884,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -2920,7 +2920,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -2956,7 +2956,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -3096,7 +3096,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -3132,7 +3132,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Reserve Location' >
@@ -3180,7 +3180,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -3216,7 +3216,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -3377,17 +3377,17 @@
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;014c9d5cb1f7592471b6f0d87545c3c1&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;a06c12f5f4c8251ea01fa0336c87abf9&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;1&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Group End' >
@@ -3510,7 +3510,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='130' />
+						<Setting Name='Estimated time' Value='151' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -3541,7 +3541,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Mix [Dual Height]' Task_Type='4096' >
@@ -3588,7 +3588,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='72' />
+						<Setting Name='Estimated time' Value='76' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -3619,7 +3619,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -3655,7 +3655,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -3691,7 +3691,43 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+					</PipetteHead>
+				</Task>
+				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
+					<Enable_Backup >0</Enable_Backup>
+					<Task_Disabled >0</Task_Disabled>
+					<Has_Breakpoint >0</Has_Breakpoint>
+					<Advanced_Settings >
+						<Setting Name='Estimated time' Value='5.0' />
+					</Advanced_Settings>
+					<TaskScript Name='TaskScript' Value='' />
+					<Parameters >
+						<Parameter Category='' Name='Location, plate' Value='BindPlate' />
+						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
+						<Parameter Category='Volume' Name='Empty tips' Value='1' />
+						<Parameter Category='Volume' Name='Volume' Value='10' />
+						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
+						<Parameter Category='Properties' Name='Liquid class' Value='' />
+						<Parameter Category='Properties' Name='Distance from well bottom' Value='5' />
+						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
+						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='0' />
+						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
+						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
+						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
+	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;Wells &gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+		&lt;/Wells&gt;
+	&lt;/WellSelection&gt;
+&lt;/Velocity11&gt;' />
+						<Parameter Category='Properties' Name='Pipette technique' Value='' />
+					</Parameters>
+					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -3708,9 +3744,9 @@
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;54677744773571b70228eb3bd8d24bc5&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -3718,7 +3754,7 @@
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Group End' >
@@ -3746,7 +3782,7 @@
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Set temperature - Position' Task_Type='1024' >
@@ -3767,7 +3803,7 @@
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Shake' Task_Type='1024' >
@@ -3788,7 +3824,7 @@
 						<Parameter Category='' Name='Allow concurrent operation' Value='0' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Devices >
@@ -3848,9 +3884,9 @@
 						<Parameter Category='' Name='Location, location' Value='1' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;af077a40bd579ea246a280f2eaf5895d&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;93d085c2152bfca96e9f815262c59c84&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -3858,7 +3894,7 @@
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -3875,17 +3911,17 @@
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;812ce9bf7b9363fb6b34371789069713&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;93d085c2152bfca96e9f815262c59c84&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;10&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Group End' >
@@ -3999,7 +4035,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Loop' >
@@ -4047,7 +4083,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -4083,7 +4119,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Loop End' >
@@ -4126,7 +4162,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -4213,7 +4249,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='9' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,13-2*numColumns]];' />
 					<Parameters >
@@ -4221,17 +4257,17 @@
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;f629d054f37c1057531ccc552ae82fc1&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;10&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -4239,7 +4275,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='275' />
+						<Setting Name='Estimated time' Value='19' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -4256,9 +4292,9 @@
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;54677744773571b70228eb3bd8d24bc5&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -4267,7 +4303,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -4275,16 +4311,16 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='11' />
+						<Setting Name='Estimated time' Value='241' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
 						<Parameter Category='' Name='Location, plate' Value='Output Plate' />
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Volume' Name='Empty tips' Value='0' />
-						<Parameter Category='Volume' Name='Volume' Value='55' />
-						<Parameter Category='Volume' Name='Blowout volume' Value='0' />
-						<Parameter Category='Properties' Name='Liquid class' Value='15 ul/s Fast-Z' />
+						<Parameter Category='Volume' Name='Volume' Value='54' />
+						<Parameter Category='Volume' Name='Blowout volume' Value='1' />
+						<Parameter Category='Properties' Name='Liquid class' Value='10 ul/s Fast-Z' />
 						<Parameter Category='Properties' Name='Distance from well bottom' Value='0.5' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0.039' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
@@ -4292,9 +4328,9 @@
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='-2' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;54677744773571b70228eb3bd8d24bc5&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -4303,7 +4339,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -4311,7 +4347,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Wellselection = [[1,numColumns+1]];' />
 					<Parameters >
@@ -4320,17 +4356,17 @@
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;03f0068f3ed97265877442d47d20e288&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;751c4144b7519e33712e8c0af4e44905&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;1&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Group End' >
@@ -4352,7 +4388,7 @@
 						<Parameter Category='' Name='Location' Value='2' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Devices >
@@ -4447,9 +4483,9 @@
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='0' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;ba3c7a26dc9e5163173a7e5f473a8fa3&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;aa00a232313ae90cdc7b5a5ed2fcd827&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;3&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -4458,7 +4494,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -4483,9 +4519,9 @@
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='15' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;7f9564f1336fa407945962379bced2a5&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;751c4144b7519e33712e8c0af4e44905&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;3&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -4494,7 +4530,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Aspirate' Task_Type='1' >
@@ -4530,7 +4566,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Dispense' Task_Type='2' >
@@ -4538,7 +4574,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='11' />
+						<Setting Name='Estimated time' Value='12' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='//task.Wellselection = [[1, numColumns+1]];' />
 					<Parameters >
@@ -4555,9 +4591,9 @@
 						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='15' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;7f9564f1336fa407945962379bced2a5&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;751c4144b7519e33712e8c0af4e44905&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;0&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;3&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;6&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -4566,7 +4602,7 @@
 						<Parameter Category='Properties' Name='Pipette technique' Value='' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='Bravo::secondary::Tips Off' Task_Type='32' >
@@ -4574,7 +4610,7 @@
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -4583,9 +4619,9 @@
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;af077a40bd579ea246a280f2eaf5895d&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;93d085c2152bfca96e9f815262c59c84&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
-		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
+		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;6&apos; RowCount=&apos;8&apos; SubsetConfig=&apos;2&apos; SubsetType=&apos;1&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
 			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
 		&lt;/Wells&gt;
@@ -4593,7 +4629,7 @@
 &lt;/Velocity11&gt;' />
 					</Parameters>
 					<PipetteHead AssayMap='0' Disposable='1' HasTips='1' MaxRange='251' MinRange='-41' Name='96LT, 200 킠 Series III' >
-						<PipetteHeadMode Channels='0' ColumnCount='1' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
+						<PipetteHeadMode Channels='0' ColumnCount='6' RowCount='8' SubsetConfig='2' SubsetType='1' TipType='0' />
 					</PipetteHead>
 				</Task>
 				<Task Name='BuiltIn::Group End' >
