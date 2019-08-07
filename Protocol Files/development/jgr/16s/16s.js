@@ -1,6 +1,8 @@
 /* Joel Gruselius, 2016, National Genomics Infrastructure */
 
-runset.clear();
+var g = GetGlobalObject();
+
+g.runset.clear();
 
 var path = "C:/VWorks Workspace/Protocol Files/development/jgr/16s/";
 var form = "16s.VWForm"
@@ -9,6 +11,7 @@ run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat",
 
 var columns = parseInt(formColumns, 10);
 var originalIndexPlate = !!formOriginalIndexPlate;
+var customVolumes = !!formCustomVolumes;
 
 var testMode = !!(typeof formTestMode !== "undefined" && formTestMode);
 if(testMode) print("Running in test mode: Skipping incubations!");
@@ -57,7 +60,7 @@ protocols["PCR cleanup 2"] = {
 	file: "16s_ampure_xp.pro",
 	settings: {
 		sampleVolume: 20,
-		beadVolume: 20,
+		beadVolume: 36,
 		bindTime: 300,
 		elutionVolume: 20,
 		altBindPlate: true
@@ -69,9 +72,9 @@ var settings = {};
 updateSettings(formProtocol);
 
 if(formProtocol === "PCR cleanup 1" && settings.splitEluateVolume > 0) {
-	runset.openRunsetFile(path+"16s_ampure_and_transfer.rst", form);
+	g.runset.openRunsetFile(path+"16s_ampure_and_transfer.rst", form);
 } else {
-	runset.appendProtocolFileToRunset(path+protocols[formProtocol].file, 1, "", form);
+	g.runset.appendProtocolFileToRunset(path+protocols[formProtocol].file, 1, "", form);
 }
 
 function updateSettings(protocol) {
@@ -82,6 +85,22 @@ function updateSettings(protocol) {
 	} else {
 		settings = {};
 		throw "EXCEPTION__UndefinedSetting:"+protocol;
+	}
+	if(customVolumes && formProtocol.indexOf("PCR cleanup") !== -1) {
+		var temp = { 
+			"sampleVolume": formCustomSampleVolume,
+			"beadVolume": formCustomBeadVolume,
+			"elutionVolume": formCustomElutionVolume
+		};
+		for(var p in temp) {
+			var x = validate(temp[p]);
+			if(x > 0) {
+				settings[p] = x;
+				print("Using custom value for " + p + " (" + x + ")")
+			} else {
+				print("Invalid value for " + p + " (" + temp[p] + "); using default")
+			}
+		}
 	}
 }
 
@@ -99,4 +118,12 @@ function dph(vol, endHeight) {
 	} else {
 		throw "ValueException";
 	}
+}
+
+/*
+ Checks if n is a valid number (including 0) and return that number else null
+*/
+function validate(n) {
+	var x = parseFloat(n);
+	return (!isNaN(x) && isFinite(x)) ? x : null;
 }
