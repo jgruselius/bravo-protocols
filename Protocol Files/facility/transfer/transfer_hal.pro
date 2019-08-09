@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='8a0002865ab7c5a4191eb98f00c3528b' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='b796f52c850eedab56e00fe788b4edb8' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Bravo 96LT magnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -58,7 +58,8 @@ var sourcePlate, destinationPlate;
 var plateSet = {
 	&quot;Eppendorf twin.tec 96&quot;: &quot;96 Eppendorf Twin.tec PCR&quot;,
 	&quot;Thermo-Fast skirted 96 (AB-0800)&quot;: &quot;96 Thermo-Fast Skirted PCR&quot;,
-	&quot;ABgene TF LP 96 (AB-1300)&quot;: &quot;96 ABgene Thermo-Fast LP PCR&quot;
+	&quot;ABgene TF LP 96 (AB-1300)&quot;: &quot;96 ABgene Thermo-Fast LP PCR&quot;,
+   &quot;Nunc Deepwell&quot;: &quot;96 Nunc Deep Well 1 mL&quot;
 };
 if(global.formDestinationPlate in plateSet) {
 	destinationPlate = plateSet[global.formDestinationPlate];
@@ -174,7 +175,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='34' />
+						<Setting Name='Estimated time' Value='18' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='task.Body = &quot;Place plate &quot; + tm.next.sourcePlate + &quot; on position 5.&quot;;' />
 					<Parameters >
@@ -197,9 +198,17 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
@@ -253,9 +262,17 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
@@ -305,7 +322,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='5.0' />
+						<Setting Name='Estimated time' Value='8' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -328,9 +345,17 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
@@ -384,9 +409,17 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
-						<Parameter Category='Task Description' Name='Task number' Value='0' />
-						<Parameter Category='Task Description' Name='Task description' Value='' />
-						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
+						<Parameter Category='' Name='Sub-process name' Value='transfer' />
+						<Parameter Category='Static labware configuration' Name='Display confirmation' Value='Don&apos;t display' />
+						<Parameter Category='Static labware configuration' Name='1' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='2' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='3' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='4' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='5' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='6' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='7' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='8' Value='&lt;use default&gt;' />
+						<Parameter Category='Static labware configuration' Name='9' Value='&lt;use default&gt;' />
 					</Parameters>
 					<Parameters >
 						<Parameter Centrifuge='0' Name='SubProcess_Name' Pipettor='1' Value='transfer' />
@@ -419,7 +452,7 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='14' />
+						<Setting Name='Estimated time' Value='0' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='' />
 					<Parameters >
@@ -444,7 +477,10 @@ if(tm.errorState &amp;&amp; tm.getSize() &amp;&amp; typeof filePath !== &quot;un
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='var index = 0;
 var hasTransfer = !!tm.getSize();
-	' />
+var blowoutHeight = 10;
+if(destinationPlate === &quot;96 Nunc Deep Well 1 mL&quot;) {
+	blowoutHeight = 20;
+}' />
 					<Parameters >
 						<Parameter Category='Task Description' Name='Task number' Value='2' />
 						<Parameter Category='Task Description' Name='Task description' Value='JavaScript' />
@@ -511,11 +547,11 @@ var hasTransfer = !!tm.getSize();
 						<Parameter Category='' Name='Location, location' Value='&lt;auto-select&gt;' />
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;ab99b0c18d761e0a5915f3aaa41401fe&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;b4a3b031f296ad0b0a739379f6d67492&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;0&apos; Row=&apos;0&apos; /&gt;
+			&lt;Well Column=&apos;0&apos; Row=&apos;1&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -576,7 +612,7 @@ var hasTransfer = !!tm.getSize();
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(hasTransfer) {
 	task.Volume = tm.getVolume();
@@ -621,7 +657,7 @@ var hasTransfer = !!tm.getSize();
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='6' />
+						<Setting Name='Estimated time' Value='5' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='// Blowout
 if(hasTransfer) {
@@ -636,11 +672,11 @@ if(hasTransfer) {
 						<Parameter Category='Volume' Name='Volume' Value='5' />
 						<Parameter Category='Volume' Name='Blowout volume' Value='' />
 						<Parameter Category='Properties' Name='Liquid class' Value='j_normal_small_vol' />
-						<Parameter Category='Properties' Name='Distance from well bottom' Value='10' />
+						<Parameter Category='Properties' Name='Distance from well bottom' TaskParameterScript='=blowoutHeight' Value='10' />
 						<Parameter Category='Properties' Name='Dynamic tip retraction' Value='0' />
 						<Parameter Category='Tip Touch' Name='Perform tip touch' Value='1' />
 						<Parameter Category='Tip Touch' Name='Which sides to use for tip touch' Value='None' />
-						<Parameter Category='Tip Touch' Name='Tip touch retract distance' Value='-9' />
+						<Parameter Category='Tip Touch' Name='Tip touch retract distance' TaskParameterScript='=1-blowoutHeight' Value='-9' />
 						<Parameter Category='Tip Touch' Name='Tip touch horizontal offset' Value='0' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
 &lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;c11e6d6b068be97a72100ad9b9de9bfe&apos; version=&apos;1.0&apos; &gt;
@@ -665,7 +701,7 @@ if(hasTransfer) {
 					<Task_Disabled >0</Task_Disabled>
 					<Has_Breakpoint >0</Has_Breakpoint>
 					<Advanced_Settings >
-						<Setting Name='Estimated time' Value='7' />
+						<Setting Name='Estimated time' Value='6' />
 					</Advanced_Settings>
 					<TaskScript Name='TaskScript' Value='if(hasTransfer &amp;&amp; tm.returnTip()) {
 	task.Wellselection = [tm.putTip()];
@@ -678,11 +714,11 @@ if(hasTransfer) {
 						<Parameter Category='Properties' Name='Allow automatic tracking of tip usage' Value='0' />
 						<Parameter Category='Properties' Name='Mark tips as used' Value='1' />
 						<Parameter Category='Properties' Name='Well selection' Value='&lt;?xml version=&apos;1.0&apos; encoding=&apos;ASCII&apos; ?&gt;
-&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;f1398bdb240ae4d7e29273f0645fe362&apos; version=&apos;1.0&apos; &gt;
+&lt;Velocity11 file=&apos;MetaData&apos; md5sum=&apos;70ad39b8e55bc5c655786a027aeff56f&apos; version=&apos;1.0&apos; &gt;
 	&lt;WellSelection CanBe16QuadrantPattern=&apos;0&apos; CanBeLinked=&apos;0&apos; CanBeQuadrantPattern=&apos;0&apos; IsLinked=&apos;0&apos; IsQuadrantPattern=&apos;0&apos; OnlyOneSelection=&apos;1&apos; OverwriteHeadMode=&apos;0&apos; QuadrantPattern=&apos;0&apos; StartingQuadrant=&apos;1&apos; &gt;
 		&lt;PipetteHeadMode Channels=&apos;0&apos; ColumnCount=&apos;1&apos; RowCount=&apos;1&apos; SubsetConfig=&apos;0&apos; SubsetType=&apos;4&apos; TipType=&apos;0&apos; /&gt;
 		&lt;Wells &gt;
-			&lt;Well Column=&apos;11&apos; Row=&apos;7&apos; /&gt;
+			&lt;Well Column=&apos;11&apos; Row=&apos;6&apos; /&gt;
 		&lt;/Wells&gt;
 	&lt;/WellSelection&gt;
 &lt;/Velocity11&gt;' />
@@ -713,11 +749,11 @@ if(hasTransfer) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(!tm.changePlate()) task.skip();' />
 					<Parameters >
+						<Parameter Category='' Name='Plate to change' Value='source' />
+						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 						<Parameter Category='Task Description' Name='Task number' Value='12' />
 						<Parameter Category='Task Description' Name='Task description' Value='Change Instance' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-						<Parameter Category='' Name='Plate to change' Value='source' />
-						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Change Instance' >
@@ -727,11 +763,11 @@ if(hasTransfer) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(tm.hasTip()) task.skip();' />
 					<Parameters >
+						<Parameter Category='' Name='Plate to change' Value='newTips' />
+						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 						<Parameter Category='Task Description' Name='Task number' Value='13' />
 						<Parameter Category='Task Description' Name='Task description' Value='Change Instance' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-						<Parameter Category='' Name='Plate to change' Value='newTips' />
-						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::Change Instance' >
@@ -741,11 +777,11 @@ if(hasTransfer) {
 					<Advanced_Settings />
 					<TaskScript Name='TaskScript' Value='if(tm.hasTip()) task.skip();' />
 					<Parameters >
+						<Parameter Category='' Name='Plate to change' Value='usedTips' />
+						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 						<Parameter Category='Task Description' Name='Task number' Value='14' />
 						<Parameter Category='Task Description' Name='Task description' Value='Change Instance' />
 						<Parameter Category='Task Description' Name='Use default task description' Value='1' />
-						<Parameter Category='' Name='Plate to change' Value='usedTips' />
-						<Parameter Category='' Name='Spawn control' Value='Spawn new plates when task runs ' />
 					</Parameters>
 				</Task>
 				<Task Name='BuiltIn::JavaScript' >
