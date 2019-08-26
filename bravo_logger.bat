@@ -1,6 +1,6 @@
 @ECHO OFF
 SETLOCAL
-SET LOG_PATH="H:\bravo_logs\"
+SET LOG_PATH="Y:\Bravo\bravo_logs\"
 SET LOG_FILE="marvin_errors.log"
 IF NOT EXIST %LOG_PATH% (SET LOG_PATH="%USERPROFILE%\Desktop\")
 SET SCRIPT="%USERPROFILE%\Repos\standalone_scripts\upload_robot_logs.py"
