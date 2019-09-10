@@ -1,7 +1,7 @@
 @ECHO OFF
 SETLOCAL
 SET SMTP="send.ki.se"
-SET FROM="marvin@scilifelab.se"
+SET FROM="ash@scilifelab.se"
 SET TO=%1
 SET SUB=%2
 SET BODY=%3
