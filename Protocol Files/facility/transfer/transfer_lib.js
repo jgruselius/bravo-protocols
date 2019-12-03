@@ -217,13 +217,13 @@ function transferSorter(plateCol, wellCol) {
 			a.id = parseNumber(a.id);
 			b.id = parseNumber(b.id);
 		} else {
-			var p = /\d\d\-\d{4,}/;
+			var p = /^\d\d\-\d{4,}$/;
 			// If plate ID is a LIMS ID, convert from string to int:
 			if(a.id.match(p) && b.id.match(p)) {
 				a.id = parseNumber(a.id.replace("-",""));
 				b.id = parseNumber(b.id.replace("-",""));
 			} else {
-				p = /P\d{3,}P\d{1,2}/i;
+				p = /^P\d{3,}P\d{1,2}$/i;
 				// If plate ID is a project plate ID, e.g. P4568P2,
 				// covert to int by removing 'P', e.g. 45682:
 				if(a.id.match(p) && b.id.match(p)) {
