@@ -2,8 +2,8 @@
 
 runset.clear();
 
-var path = "C:/VWorks Workspace/Protocol Files/development/jgr/newtera/";
-var form = "newtera.VWForm";
+var path = "C:/VWorks Workspace/Protocol Files/development/jgr/nextera_flex/";
+var form = "nextera_flex.VWForm";
 
 run("C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat", true);
 
@@ -17,14 +17,14 @@ if(testMode) print("Running in test mode: Skipping incubations!");
 var protocols = {};
 
 protocols["Plate filler"] = {
-	file: "newtera_filler.pro",
+	file: "nextera_flex_filler.pro",
 	settings: {
 		volumes: [400]
 	}
 };
 
 protocols["Tagmentation"] = {
-	file: "newtera.pro",
+	file: "nextera_flex.pro",
 	settings: {
 		tipColumn: 12,
 		reagentColumn: 1,
@@ -37,7 +37,7 @@ protocols["Tagmentation"] = {
 };
 
 protocols["Denaturation wash"] = {
-	file: "newtera_wash.pro",
+	file: "nextera_flex_wash.pro",
 	settings: {
 		sampleVolume: 60,
 		washVolume: 100,
@@ -48,7 +48,7 @@ protocols["Denaturation wash"] = {
 };
 
 protocols["PCR setup"] = {
-	file: "newtera_pcr.pro",
+	file: "nextera_flex_pcr.pro",
 	settings: {
 		tipColumn: 1,
 		reagentColumn: 1,
@@ -60,7 +60,7 @@ protocols["PCR setup"] = {
 };
 
 protocols["PCR cleanup"] = {
-	file: "newtera_spri.pro",
+	file: "nextera_flex_spri.pro",
 	settings: {
 		sampleVolume: 50,
 		beadVolume: 35,
@@ -69,7 +69,7 @@ protocols["PCR cleanup"] = {
 };
 
 protocols["Size selection"] = {
-	file: "newtera_double-spri.pro",
+	file: "nextera_flex_double-spri.pro",
 	settings: {
 		sampleVolume: 45,
 		beadVolume1: 42.5,
@@ -82,7 +82,7 @@ protocols["Size selection"] = {
 };
 
 protocols["Library prep"] = {
-	file: "newtera.rst"
+	file: "nextera_flex.rst"
 };
 
 var settings = {};
