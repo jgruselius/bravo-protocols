@@ -4,19 +4,108 @@
   <Property name="RestoreDefaultsOnLoad" value="1" />
   <Property name="ShowLogInFullScreen" value="1" />
   <Property name="FormBackgroundColor" value="-1" />
-  <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic15" children="Controls">
-      <Property name="TabIndex">24</Property>
-      <Property name="Name">operatorConsoleStatic15</Property>
-      <Property name="Size">79, 23</Property>
-      <Property name="Text">Buffer plate:</Property>
-      <Property name="Font">Tahoma, 9pt</Property>
+  <Object type="ToolboxLibrary.MainContainer, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="mainContainer1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic17" children="Controls">
+      <Property name="Text">Check this box to disable prompt to place first plate.</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">15, 189</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 8pt</Property>
+      <Property name="ForeColor">102, 102, 102</Property>
+      <Property name="Location">299, 256</Property>
+      <Property name="Name">operatorConsoleStatic17</Property>
+      <Property name="Size">145, 30</Property>
+      <Property name="TabIndex">27</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic17" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Check this box to disable prompt to place first plate." ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="8" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="6710886" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Check this box to disable prompt to place first plate." ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic16" children="Controls">
+      <Property name="Text">Don't pause for first plate:</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">112, 263</Property>
+      <Property name="Name">operatorConsoleStatic16</Property>
+      <Property name="Size">164, 23</Property>
+      <Property name="TabIndex">26</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic16" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
+      <Parameter Name="Display string" Description="The string to display in the static text control" Type="1" Value="Don't pause for first plate:" ValueToDisplay="" Hide_if="Variable(JavaScript variable) != Const(&quot;&quot;)" />
+      <Parameter Name="Border" Description="If the static text control is to be drawn with a border around it" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="Don't pause for first plate:" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox3" children="Controls">
+      <Property name="Checked">True</Property>
+      <Property name="CheckState">Checked</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="UseVisualStyleBackColor">True</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">278, 260</Property>
+      <Property name="MinimumSize">13, 13</Property>
+      <Property name="Name">operatorConsoleCheckbox3</Property>
+      <Property name="Size">13, 24</Property>
+      <Property name="TabIndex">25</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleCheckbox3" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formProceedWithSource1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
+      <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="8" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Caption" Description="The string to display in the button" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
+        <Ranges>
+          <Range Value="1" />
+          <Range Value="72" />
+        </Ranges>
+      </Parameter>
+      <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+    </Object>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic15" children="Controls">
+      <Property name="Text">Buffer plate:</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">15, 189</Property>
+      <Property name="Name">operatorConsoleStatic15</Property>
+      <Property name="Size">79, 23</Property>
+      <Property name="TabIndex">24</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic15" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -32,28 +121,30 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Buffer plate:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist2" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist2" children="Controls">
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Items">
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Reservoir</Item>
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Nunc Deepwell</Item>
+      </Property>
       <Property name="DropDownStyle">DropDownList</Property>
       <Property name="FormattingEnabled">True</Property>
-      <Property name="Size">193, 22</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleDroplist2</Property>
-      <Property name="Items">
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Reservoir</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Nunc Deepwell</Item>
-      </Property>
-      <Property name="Location">100, 186</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="TabIndex">23</Property>
       <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="Location">100, 186</Property>
+      <Property name="Name">operatorConsoleDroplist2</Property>
+      <Property name="Size">193, 22</Property>
+      <Property name="TabIndex">23</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleDroplist2" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formDiluentPlate" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="Reservoir;Nunc Deepwell" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
       <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="Reservoir" ValueToDisplay="" Hide_if="Const(0)" />
+      <Parameter Name="Disable when running" Description="the droplist is disabled whenever a protocol is running" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
       <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="9" ValueToDisplay="" Hide_if="">
         <Ranges>
           <Range Value="1" />
@@ -65,18 +156,19 @@
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic14" children="Controls">
-      <Property name="TabIndex">22</Property>
-      <Property name="Name">operatorConsoleStatic14</Property>
-      <Property name="Size">132, 60</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic14" children="Controls">
       <Property name="Text">When using a Nunc plate: Put buffer in A1 and calculate that volume is sufficient for all dilutions.</Property>
-      <Property name="Font">Tahoma, 8pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">102, 102, 102</Property>
-      <Property name="Location">299, 177</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 8pt</Property>
+      <Property name="ForeColor">102, 102, 102</Property>
+      <Property name="Location">299, 177</Property>
+      <Property name="Name">operatorConsoleStatic14</Property>
+      <Property name="Size">132, 60</Property>
+      <Property name="TabIndex">22</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic14" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -92,16 +184,17 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="When using a Nunc plate: Put buffer in A1 and calculate that volume is sufficient for all dilutions." ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox1" children="Controls">
-      <Property name="Size">168, 20</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleTextBox, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleTextBox1" children="Controls">
+      <Property name="ForeColor">0, 0, 0</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
       <Property name="Font">Tahoma, 8pt</Property>
+      <Property name="Location">97, 543</Property>
       <Property name="Name">operatorConsoleTextBox1</Property>
-      <Property name="Location">96, 496</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Size">168, 20</Property>
       <Property name="TabIndex">21</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleTextBox1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formEmail" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
@@ -120,18 +213,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic13" children="Controls">
-      <Property name="TabIndex">20</Property>
-      <Property name="Name">operatorConsoleStatic13</Property>
-      <Property name="Size">175, 16</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic13" children="Controls">
       <Property name="Text">Email this address when finished:</Property>
-      <Property name="Font">Tahoma, 8pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">96, 476</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 8pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">97, 523</Property>
+      <Property name="Name">operatorConsoleStatic13</Property>
+      <Property name="Size">175, 16</Property>
+      <Property name="TabIndex">20</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic13" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -147,18 +241,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Email this address when finished:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic12" children="Controls">
-      <Property name="TabIndex">19</Property>
-      <Property name="Name">operatorConsoleStatic12</Property>
-      <Property name="Size">19, 23</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic12" children="Controls">
       <Property name="Text">of</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">102, 102, 102</Property>
-      <Property name="Location">192, 336</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">102, 102, 102</Property>
+      <Property name="Location">193, 383</Property>
+      <Property name="Name">operatorConsoleStatic12</Property>
+      <Property name="Size">19, 23</Property>
+      <Property name="TabIndex">19</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic12" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -174,18 +269,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="of" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic11" children="Controls">
-      <Property name="TabIndex">18</Property>
-      <Property name="Name">operatorConsoleStatic11</Property>
-      <Property name="Size">107, 23</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic11" children="Controls">
       <Property name="Text">Transfers done:</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">102, 102, 102</Property>
-      <Property name="Location">11, 336</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">102, 102, 102</Property>
+      <Property name="Location">12, 383</Property>
+      <Property name="Name">operatorConsoleStatic11</Property>
+      <Property name="Size">107, 23</Property>
+      <Property name="TabIndex">18</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic11" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -201,17 +297,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Transfers done:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic10" children="Controls">
-      <Property name="TabIndex">17</Property>
-      <Property name="Name">operatorConsoleStatic10</Property>
-      <Property name="Size">62, 41</Property>
-      <Property name="Font">Tahoma, 23pt</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic10" children="Controls">
+      <Property name="Text">0</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">217, 318</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 23pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">218, 365</Property>
+      <Property name="Name">operatorConsoleStatic10</Property>
+      <Property name="Size">62, 41</Property>
+      <Property name="TabIndex">17</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic10" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="totalTransfers" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="0" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -227,17 +325,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic9" children="Controls">
-      <Property name="TabIndex">16</Property>
-      <Property name="Name">operatorConsoleStatic9</Property>
-      <Property name="Size">62, 41</Property>
-      <Property name="Font">Tahoma, 23pt</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic9" children="Controls">
+      <Property name="Text">0</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">0, 118, 196</Property>
-      <Property name="Location">124, 318</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 23pt</Property>
+      <Property name="ForeColor">0, 118, 196</Property>
+      <Property name="Location">125, 365</Property>
+      <Property name="Name">operatorConsoleStatic9</Property>
+      <Property name="Size">62, 41</Property>
+      <Property name="TabIndex">16</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic9" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="transfersDone" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="0" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -253,18 +353,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic8" children="Controls">
-      <Property name="TabIndex">15</Property>
-      <Property name="Name">operatorConsoleStatic8</Property>
-      <Property name="Size">79, 23</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic8" children="Controls">
       <Property name="Text">Dest. plate:</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">15, 160</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">15, 160</Property>
+      <Property name="Name">operatorConsoleStatic8</Property>
+      <Property name="Size">79, 23</Property>
+      <Property name="TabIndex">15</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic8" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -280,18 +381,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Dest. plate:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic7" children="Controls">
-      <Property name="TabIndex">14</Property>
-      <Property name="Name">operatorConsoleStatic7</Property>
-      <Property name="Size">85, 23</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic7" children="Controls">
       <Property name="Text">Source plate:</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">15, 132</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">15, 132</Property>
+      <Property name="Name">operatorConsoleStatic7</Property>
+      <Property name="Size">85, 23</Property>
+      <Property name="TabIndex">14</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic7" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -307,24 +409,25 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Source plate:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleDropdown, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDropdown2" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleDropdown, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDropdown2" children="Controls">
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Items">
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Eppendorf twin.tec 96</Item>
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Thermo-Fast skirted 96 (AB-0800)</Item>
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ABgene TF LP 96 (AB-1300)</Item>
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Nunc Deepwell</Item>
+      </Property>
+      <Property name="Text">Eppendorf twin.tec 96</Property>
       <Property name="FormattingEnabled">True</Property>
-      <Property name="Size">193, 22</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleDropdown2</Property>
-      <Property name="Items">
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Eppendorf twin.tec 96</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Thermo-Fast skirted 96 (AB-0800)</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ABgene TF LP 96 (AB-1300)</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Nunc Deepwell</Item>
-      </Property>
-      <Property name="Text">Eppendorf twin.tec 96</Property>
-      <Property name="Location">100, 158</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="TabIndex">13</Property>
       <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="Location">100, 158</Property>
+      <Property name="Name">operatorConsoleDropdown2</Property>
+      <Property name="Size">193, 22</Property>
+      <Property name="TabIndex">13</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleDropdown2" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formDestinationPlate" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="Eppendorf twin.tec 96;Thermo-Fast skirted 96 (AB-0800);ABgene TF LP 96 (AB-1300);Nunc Deepwell" ValueToDisplay="" Hide_if="" />
@@ -332,6 +435,7 @@
       <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
       <Parameter Name="Mandatory" Description="If checked, the operator MUST enter something in this field prior to running" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) == Const(1) || Variable(Data entry) == Const(0)" />
       <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="Eppendorf twin.tec 96" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Disable when running" Description="the dropdown is disabled whenever a protocol is running" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
       <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="9" ValueToDisplay="" Hide_if="">
         <Ranges>
           <Range Value="1" />
@@ -342,18 +446,20 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox2" children="Controls">
-      <Property name="Size">12, 24</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox2" children="Controls">
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="Name">operatorConsoleCheckbox2</Property>
       <Property name="UseVisualStyleBackColor">True</Property>
-      <Property name="Location">277, 243</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="TabIndex">12</Property>
       <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">278, 290</Property>
+      <Property name="MinimumSize">13, 13</Property>
+      <Property name="Name">operatorConsoleCheckbox2</Property>
+      <Property name="Size">13, 24</Property>
+      <Property name="TabIndex">12</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleCheckbox2" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formIgnoreBarcodes" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
@@ -370,18 +476,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic6" children="Controls">
-      <Property name="TabIndex">11</Property>
-      <Property name="Name">operatorConsoleStatic6</Property>
-      <Property name="Size">109, 23</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic6" children="Controls">
       <Property name="Text">Ignore barcodes:</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">162, 246</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">163, 293</Property>
+      <Property name="Name">operatorConsoleStatic6</Property>
+      <Property name="Size">109, 23</Property>
+      <Property name="TabIndex">11</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic6" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -397,18 +504,20 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Ignore barcodes:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox1" children="Controls">
-      <Property name="Size">18, 24</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleCheckbox, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleCheckbox1" children="Controls">
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="Name">operatorConsoleCheckbox1</Property>
       <Property name="UseVisualStyleBackColor">True</Property>
-      <Property name="Location">277, 273</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="ForeColor">127, 127, 127</Property>
-      <Property name="TabIndex">10</Property>
       <Property name="Font">Tahoma, 8pt</Property>
+      <Property name="ForeColor">127, 127, 127</Property>
+      <Property name="Location">278, 320</Property>
+      <Property name="MinimumSize">13, 13</Property>
+      <Property name="Name">operatorConsoleCheckbox1</Property>
+      <Property name="Size">18, 24</Property>
+      <Property name="TabIndex">10</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleCheckbox1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formLog" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
@@ -425,18 +534,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic5" children="Controls">
-      <Property name="TabIndex">9</Property>
-      <Property name="Name">operatorConsoleStatic5</Property>
-      <Property name="Size">179, 16</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic5" children="Controls">
       <Property name="Text">Print transfers and barcodes to log:</Property>
-      <Property name="Font">Tahoma, 8pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">127, 127, 127</Property>
-      <Property name="Location">85, 278</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 8pt</Property>
+      <Property name="ForeColor">127, 127, 127</Property>
+      <Property name="Location">86, 325</Property>
+      <Property name="Name">operatorConsoleStatic5</Property>
+      <Property name="Size">179, 16</Property>
+      <Property name="TabIndex">9</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic5" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -452,23 +562,24 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Print transfers and barcodes to log:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleDropdown, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDropdown1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleDropdown, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDropdown1" children="Controls">
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Items">
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Eppendorf twin.tec 96</Item>
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Thermo-Fast skirted 96 (AB-0800)</Item>
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ABgene TF LP 96 (AB-1300)</Item>
+      </Property>
+      <Property name="Text">Eppendorf twin.tec 96</Property>
       <Property name="FormattingEnabled">True</Property>
-      <Property name="Size">193, 22</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleDropdown1</Property>
-      <Property name="Items">
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Eppendorf twin.tec 96</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Thermo-Fast skirted 96 (AB-0800)</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">ABgene TF LP 96 (AB-1300)</Item>
-      </Property>
-      <Property name="Text">Eppendorf twin.tec 96</Property>
-      <Property name="Location">100, 130</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="TabIndex">8</Property>
       <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="Location">100, 130</Property>
+      <Property name="Name">operatorConsoleDropdown1</Property>
+      <Property name="Size">193, 22</Property>
+      <Property name="TabIndex">8</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleDropdown1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formSourcePlate" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="Eppendorf twin.tec 96;Thermo-Fast skirted 96 (AB-0800);ABgene TF LP 96 (AB-1300)" ValueToDisplay="" Hide_if="" />
@@ -476,6 +587,7 @@
       <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
       <Parameter Name="Mandatory" Description="If checked, the operator MUST enter something in this field prior to running" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) == Const(1) || Variable(Data entry) == Const(0)" />
       <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="Eppendorf twin.tec 96" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Disable when running" Description="the dropdown is disabled whenever a protocol is running" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
       <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="9" ValueToDisplay="" Hide_if="">
         <Ranges>
           <Range Value="1" />
@@ -486,18 +598,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic4" children="Controls">
-      <Property name="TabIndex">7</Property>
-      <Property name="Name">operatorConsoleStatic4</Property>
-      <Property name="Size">294, 14</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic4" children="Controls">
       <Property name="Text">Joel Gruselius (2015) National Genomics Infrastructure | SciLifeLab</Property>
-      <Property name="Font">Tahoma, 7pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">127, 127, 127</Property>
-      <Property name="Location">11, 557</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 7pt</Property>
+      <Property name="ForeColor">127, 127, 127</Property>
+      <Property name="Location">12, 604</Property>
+      <Property name="Name">operatorConsoleStatic4</Property>
+      <Property name="Size">294, 14</Property>
+      <Property name="TabIndex">7</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic4" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -513,24 +626,25 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Joel Gruselius (2015) National Genomics Infrastructure | SciLifeLab" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
+    <Object type="ToolboxLibrary.PauseResume, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="pauseResume1" children="Controls">
+      <Property name="BackColor">240, 240, 240</Property>
       <Property name="Image">
         <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE8SURBVDhPnZLBqoJQEIZ7o+4LSz1CyyxDMhDNhBZCi8JEUXHhQqNIWkz8c88McaHFdeCDI/P9P5xTk9ls9jOfz2kMyE5weL1eo0CWC4ZhoK7r/gUyWvB8PqltW6YoCoqiiMH577d4yGjB4/GgpmmYMAxJJkkSRgY78ZDRgvv9TlVVMdvt1uhEcRwzMtiJh4wW3G43yvOccV3X6ET7/Z6RwU48ZLSg73tK05TZbDZGJwqCgJHBTjxktAB3Op/PzHq9NjqR7/uMDHbiIaMFdV3T6XRibNs2OtFut2NksBMPGS0oy1JffLlcGv330T4fFTvxkNEC/L7H45FZrVZGJ/I8j5HBTjxktCDLMjocDgzuvFgsGMdxGPnGTjxktOB6vfKfBEjoG+IhowWXy0WRO37j0+UCy7KmOIzBsqzpG3j2bdwSxTLSAAAAAElFTkSuQmCC</Binary>
       </Property>
+      <Property name="Text"> PAUSE</Property>
+      <Property name="TextImageRelation">ImageBeforeText</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="BackColor">240, 240, 240</Property>
-      <Property name="Size">80, 33</Property>
-      <Property name="TabIndex">6</Property>
-      <Property name="Text"> PAUSE</Property>
-      <Property name="Location">191, 411</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">pauseResume1</Property>
-      <Property name="TextImageRelation">ImageBeforeText</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">192, 458</Property>
+      <Property name="Name">pauseResume1</Property>
+      <Property name="Size">80, 33</Property>
+      <Property name="TabIndex">6</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="pauseResume1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Icon" Description="Choose icon for this button" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\resources\1313497192_media_controls_light_pause.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp;*.ico)|*.jpg;*.png;*.bmp;*.ico||" Hide_if="" />
       <Parameter Name="Caption" Description="The string to display in the button" Type="1" Value=" PAUSE" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="10" ValueToDisplay="" Hide_if="">
@@ -543,26 +657,29 @@
       <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="15790320" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Enabled" Description="" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleButton, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleButton1" children="Controls">
+      <Property name="BackColor">240, 240, 240</Property>
       <Property name="Image">
         <Binary>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPnZHbioJQFIZ7o+aFJZ8ggkDSjhppWhddCEJFB6OisouKpPBiDf8aXTU1MzBu+GGX//ftU6FUKn2oqkp5AraASZIkuQKWBff7nU6n078CRgS3242OxyOtVisaDAac5XLJ//0WMCKI45h2ux25rssfPc+jdrvNv2ezGX97DRgRXK9X2mw2ZJomZSOKIha0Wi1yHIcmkwl3soARweVyoTAMedXXAVG/36dGo0G9Xo/G4zF3wYjgfD7zVpvNZoq9D4iwE8uyuAtGBDgTtliv19P6+zgcDmTbNh8TXTAi2G63FAQB6bqe1h9jv9/zqpqm8X2MRiPughHBer0m3/epVqul2BeI1SqVCsPdbpc7WcCIAO8Ps2EYDOIyy+UyVatVnuPyEHSygBHBYrGg4XDIZ8QusCruo9PpfAs6WcCIYD6f85sjeK6/kvXAiGA6nUqez/lTnrssUBSliEmeKIpS/AQbPmuu0fJ9NAAAAABJRU5ErkJggg==</Binary>
       </Property>
+      <Property name="Text"> START</Property>
+      <Property name="TextImageRelation">ImageBeforeText</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
       <Property name="UseVisualStyleBackColor">False</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
-      <Property name="BackColor">240, 240, 240</Property>
-      <Property name="Size">75, 33</Property>
-      <Property name="TabIndex">5</Property>
-      <Property name="Text"> START</Property>
-      <Property name="Location">96, 411</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleButton1</Property>
-      <Property name="TextImageRelation">ImageBeforeText</Property>
+      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">97, 458</Property>
+      <Property name="Name">operatorConsoleButton1</Property>
+      <Property name="Size">75, 33</Property>
+      <Property name="TabIndex">5</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleButton1" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
+      <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
       <Parameter Name="Script" Description="The JavaScript to execute when this button is pressed" Type="31" Value="// Load the correct protocol depending on what the user&#xA;// selected in the form:&#xA;var path = &quot;C:/VWorks Workspace/Protocol files/facility/transfer/&quot;;&#xA;var fileMap = {&#xA;	&quot;Aliquotation&quot;: &quot;transfer_ash.pro&quot;,&#xA;	&quot;Dilution&quot;: &quot;transfer_dilution_ash.pro&quot;,&#xA;	&quot;Setup Workset/Plate (LIMS)&quot;: &quot;transfer_dilution_ash.pro&quot;,&#xA;	&quot;Library Normalization (LIMS)&quot;: &quot;transfer_dilution_ash.pro&quot;,&#xA;	&quot;Adapter&quot;: &quot;transfer_adapter_ash.pro&quot;&#xA;};&#xA;var file = path + fileMap[formMode];&#xA;runset.clear();&#xA;runset.appendProtocolFileToRunset(file, 1, &quot;&quot;, &quot;transfer_form_ash.VWForm&quot;);&#xA;&#xA;run(&quot;C:/VWorks Workspace/Protocol Files/facility/resources/clear_inventory.bat&quot;, true);" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Always use global context" Description="If checked, the Script above will always execute in the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Icon" Description="A graphical image file to display in the button" Type="9" Value="C:\VWorks Workspace\Protocol Files\facility\resources\1313497517_media_controls_light_play.png" ValueToDisplay="Image Files(*.jpg;*.png;*.bmp;*.ico)|*.jpg;*.png;*.bmp;*.ico||" Hide_if="" />
       <Parameter Name="Disable when running" Description="the button is disabled whenever a protocol is running" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Caption" Description="The string to display in the button" Type="1" Value=" START" ValueToDisplay="" Hide_if="" />
@@ -574,19 +691,19 @@
       </Parameter>
       <Parameter Name="Font color" Description="The color of the font used to display text in this field" Type="32" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Background color" Description="The color of this button's background" Type="32" Value="15790320" ValueToDisplay="" Hide_if="" />
-      <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleFileBrowsing, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleFileBrowsing1" children="Controls">
-      <Property name="Font">Tahoma, 9pt</Property>
-      <Property name="Size">237, 21</Property>
-      <Property name="TabIndex">4</Property>
-      <Property name="Location">100, 101</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleFileBrowsing, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleFileBrowsing1" children="Controls">
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleFileBrowsing1</Property>
-      <Property name="Margin">3, 4, 3, 4</Property>
+      <Property name="Font">Tahoma, 9pt</Property>
       <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">100, 101</Property>
+      <Property name="Margin">3, 4, 3, 4</Property>
+      <Property name="Name">operatorConsoleFileBrowsing1</Property>
+      <Property name="Size">237, 21</Property>
+      <Property name="TabIndex">4</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleFileBrowsing1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formFile" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
@@ -603,18 +720,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic3" children="Controls">
-      <Property name="TabIndex">3</Property>
-      <Property name="Name">operatorConsoleStatic3</Property>
-      <Property name="Size">42, 23</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic3" children="Controls">
       <Property name="Text">File:</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">15, 101</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">15, 101</Property>
+      <Property name="Name">operatorConsoleStatic3</Property>
+      <Property name="Size">42, 23</Property>
+      <Property name="TabIndex">3</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic3" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -630,31 +748,33 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="File:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist1" children="Controls">
+    <Object type="ToolboxLibrary.OperatorConsoleDroplist, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleDroplist1" children="Controls">
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Items">
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Aliquotation</Item>
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Dilution</Item>
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Setup Workset/Plate (LIMS)</Item>
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Library Normalization (LIMS)</Item>
+        <Item type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Adapter</Item>
+      </Property>
       <Property name="DropDownStyle">DropDownList</Property>
       <Property name="FormattingEnabled">True</Property>
-      <Property name="Size">193, 22</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
-      <Property name="Name">operatorConsoleDroplist1</Property>
-      <Property name="Items">
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Aliquotation</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Dilution</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Setup Workset/Plate (LIMS)</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Library Normalization (LIMS)</Item>
-        <Item type="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Adapter</Item>
-      </Property>
-      <Property name="Location">100, 72</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="TabIndex">2</Property>
       <Property name="Font">Tahoma, 9pt</Property>
+      <Property name="Location">100, 72</Property>
+      <Property name="Name">operatorConsoleDroplist1</Property>
+      <Property name="Size">193, 22</Property>
+      <Property name="TabIndex">2</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleDroplist1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="formMode" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Items" Description=" Values for list. Use &quot;;&quot; to seperate" Type="1" Value="Aliquotation;Dilution;Setup Workset/Plate (LIMS);Library Normalization (LIMS);Adapter;" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Read only" Description="If checked, the operator may never alter the value of this field" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Data entry" Description="If checked, anything the operator enters in this field may be saved" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
       <Parameter Name="Default value" Description="The contents of this field when the form is initially displayed" Type="1" Value="Aliquotation" ValueToDisplay="" Hide_if="Const(0)" />
+      <Parameter Name="Disable when running" Description="the droplist is disabled whenever a protocol is running" Type="0" Value="1" ValueToDisplay="" Hide_if="Variable(Read only) != Const(0)" />
       <Parameter Name="Font size" Description="The point size of the font used to display text in this field" Type="8" Value="9" ValueToDisplay="" Hide_if="">
         <Ranges>
           <Range Value="1" />
@@ -666,18 +786,19 @@
       <Parameter Name="Value" Description="" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Item selections variable" Description=" JavaScript variable that will hold the selections that appear in the droplist." Type="1" Value="Aliquotation;Dilution;Setup Workset/Plate (LIMS);Library Normalization (LIMS);Adapter;" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic2" children="Controls">
-      <Property name="TabIndex">1</Property>
-      <Property name="Name">operatorConsoleStatic2</Property>
-      <Property name="Size">52, 23</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic2" children="Controls">
       <Property name="Text">Mode:</Property>
-      <Property name="Font">Tahoma, 10pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">15, 74</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 10pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">15, 74</Property>
+      <Property name="Name">operatorConsoleStatic2</Property>
+      <Property name="Size">52, 23</Property>
+      <Property name="TabIndex">1</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic2" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -693,18 +814,19 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Mode:" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=1.0.4532.5899, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
-      <Property name="TabIndex">0</Property>
-      <Property name="Name">operatorConsoleStatic1</Property>
-      <Property name="Size">278, 39</Property>
+    <Object type="ToolboxLibrary.OperatorConsoleStatic, Toolbox, Version=13.1.3.1395, Culture=neutral, PublicKeyToken=null" name="operatorConsoleStatic1" children="Controls">
       <Property name="Text">Transfer protocols</Property>
-      <Property name="Font">Tahoma, 20pt</Property>
       <Property name="UseCompatibleTextRendering">True</Property>
-      <Property name="ForeColor">0, 0, 0</Property>
-      <Property name="Location">15, 11</Property>
       <Property name="DataBindings">
         <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
       </Property>
+      <Property name="Font">Tahoma, 20pt</Property>
+      <Property name="ForeColor">0, 0, 0</Property>
+      <Property name="Location">15, 11</Property>
+      <Property name="Name">operatorConsoleStatic1</Property>
+      <Property name="Size">278, 39</Property>
+      <Property name="TabIndex">0</Property>
+      <Parameter Name="Control name" Description="" Type="1" Value="operatorConsoleStatic1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="JavaScript variable" Description="The variable whose value is displayed in this field" Type="1" Value="" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Always use global context" Description="If checked, the variable above will always be retrieved from the Global context" Type="0" Value="0" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Default value" Description="The default value of the Javascript variable" Type="1" Value="" ValueToDisplay="" Hide_if="Variable(JavaScript variable) == Const(&quot;&quot;)" />
@@ -720,10 +842,10 @@
       <Parameter Name="Enabled" Description="" Type="0" Value="1" ValueToDisplay="" Hide_if="" />
       <Parameter Name="Value" Description="" Type="1" Value="Transfer protocols" ValueToDisplay="" Hide_if="" />
     </Object>
-    <Property name="Size">10000, 30000</Property>
     <Property name="DataBindings">
       <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
     </Property>
     <Property name="Name">mainContainer1</Property>
+    <Property name="Size">10000, 30000</Property>
   </Object>
 </velocity11>
