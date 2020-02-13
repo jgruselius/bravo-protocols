@@ -281,6 +281,7 @@ function parseTransfers(str) {
 	for(var i=0, n=rowArray.length; i<n; i++) {
 		var row = rowArray[i];
 		var sourcePlate, sourceWell, volume, destinationWell, destinationPlate;
+		var expectedFields = 5;
 		try {
 			sourcePlate = row[0].trim();
 			sourceWell = convertCoordsRegExp(row[1]);
@@ -292,9 +293,15 @@ function parseTransfers(str) {
 			} catch(e) {
 				destinationPlate = "aliquot_plate";
 				destinationWell = convertCoordsRegExp(row[3]);
+				expectedFields = 4;
+			} finally {
+				if(row.length > expectedFields) {
+					throw "Too many fields. The format does not match the" +
+						" selected mode.";
+				}
 			}
 		} catch(e) {
-			throw "UnableToParseTransferTableException:" + e;
+			throw "UnableToParseTransferTableException " + "[" + (i+1) + "]: " + e;
 		}
 		if(volume > 0) {
 			if(!(sourcePlate in plateSet)) {
@@ -369,7 +376,7 @@ function parseAdapterTransfers(str, indexSet) {
 			volume = parseNumber(row[2], 3);
 			destinationWell = convertCoordsRegExp(row[0]);
 		} catch(e) {
-			throw "UnableToParseTransferTableException:" + e;
+			throw "UnableToParseTransferTableException " + "[" + (i+1) + "]: " + e;
 		}
 		// Keep tip between transfers of the same index:
 		var newTip = (i == 0) || (row[1] != rowArray[i-1][1]);
@@ -418,7 +425,7 @@ function parseDilutionTransfers(str) {
 				diluentVolume = +(parseNumber(row[4], 3) - sourceVolume).toFixed(3);
 			}
 		} catch(e) {
-			throw "UnableToParseTransferTableException:" + e;
+			throw "UnableToParseTransferTableException " + "[" + (i+1) + "]: " + e;
 		}
 		var newTip;
 		if(diluentVolume > 0) {
@@ -494,7 +501,7 @@ function parseDilutionTransfersLims(str) {
 				}
 			}
 		} catch(e) {
-			throw "UnableToParseTransferTableException:" + e;
+			throw "UnableToParseTransferTableException " + "[" + (i+1) + "]: " + e;
 		}
 		var newTip;
 		if(diluentVolume > 0) {
@@ -551,7 +558,7 @@ function parseDilutionTransfersSingle(str) {
 				diluentVolume = +(parseNumber(row[4], 3) - sourceVolume).toFixed(3);
 			}
 		} catch(e) {
-			throw "UnableToParseTransferTableException:" + e;
+			throw "UnableToParseTransferTableException" + "[" + (i+1) + "]: " + e;
 		}
 		if(!(sourcePlate in plateSet)) {
 			plateSet[sourcePlate] = sourcePlate;
