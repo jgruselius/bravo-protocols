@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='ASCII' ?>
-<Velocity11 file='Protocol_Data' md5sum='7a12ec25ad061c962006e248417e1212' version='2.0' >
+<Velocity11 file='Protocol_Data' md5sum='ac2d318d5e8b5851b893cf1fc07e79ab' version='2.0' >
 	<File_Info AllowSimultaneousRun='1' AutoExportGanttChart='0' AutoLoadRacks='When the main protocol starts' AutoUnloadRacks='1' AutomaticallyLoadFormFile='1' Barcodes_Directory='' ClearInventory='0' DeleteHitpickFiles='1' Description='' Device_File='C:\VWorks Workspace\Device Files\Bravo_RoundMagnet.dev' Display_User_Task_Descriptions='1' DynamicAssignPlateStorageLoad='0' FinishScript='' Form_File='' HandlePlatesInInstance='1' ImportInventory='0' InventoryFile='' Notes='' PipettePlatesInInstanceOrder='1' Protocol_Alias='' StartScript='open( &apos;C:/VWorks Workspace/Protocol Files/facility/transfer/transfer_lib.js&apos;);
 
 ' Use_Global_JS_Context='0' />
@@ -35,8 +35,10 @@ var filePath = global.formFile;' />
 tm.openTransferFile(filePath);
 
 // Add compability for old Library Normalization file format:
+// (if there was an error parsing the file - try again using
+// settings for old format).
 if(!tm.errorState) {
-   tm = new TransferManager(&quot;lims_dilution&quot;);
+   tm = new TransferManager(&quot;lims_dilution&quot;, {&quot;row&quot;: 1, &quot;column&quot;:1});
    tm.openTransferFile(filePath);
 }
 

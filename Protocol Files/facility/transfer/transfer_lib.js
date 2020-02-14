@@ -7,10 +7,11 @@
 
 /*
  CHANGED in this version:
- -- Modification where buffer and sample are aspirated in the same tip. 
+  - Check for extra fields in parseTransfers.
+  - Add row index to parsing exceptions.
 
  TODO
- --
+  -
  */
 
  var testing = false;
@@ -56,14 +57,14 @@ function Tipbox(tips, origin) {
 	} else if(origin.row === 8) {
 		this.getRow = rowFromIndex;
 	} else {
-		throw "UnknownStartPositionException: \"" + origin.row + "\"";
+		throw 'UnknownStartPositionException: "' + origin.row + '"';
 	}
 	if(origin.column === 1) {
 		this.getColumn = columnFromIndexReverse;
 	} else if(origin.column === 12) {
 		this.getColumn = columnFromIndex;
 	} else {
-		throw "UnknownStartPositionException: \"" + origin.column + "\"";
+		throw 'UnknownStartPositionException: "' + origin.column + '"';
 	}
 	this.tipCount = parseInt(tips, 10) || 0;
 	this.hasTip = function() {
@@ -140,7 +141,7 @@ function parseNumber(value, places) {
 	var floatValue = parseFloat(value);
 	var number = (intValue == floatValue) ? intValue : floatValue;
 	if(isNaN(number) || !isFinite(number)) {
-		throw "UnexpectedValueException: \"" + value + "\"";
+		throw 'UnexpectedValueException: "' + value + '"';
 	}
 	if(typeof places === "number") number = parseFloat(number.toFixed(places));
 	return number;
@@ -179,10 +180,10 @@ function convertCoords(wellPos) {
 		var row = parseNumber(wellPos.trim().toUpperCase().charCodeAt(0) - 64);
 		var column = parseNumber(wellPos.trim().replace(":","").substr(1));
 	} catch(e) {
-		throw "InvalidCoordinatesException: \"" + wellPos + "\": " + e;
+		throw 'InvalidCoordinatesException: "' + wellPos + '": ' + e;
 	}
 	if(column < 1 || column > 24 || row < 1 || row > 16) {
-		throw "InvalidCoordinatesException: \"" + wellPos + "\"";
+		throw 'InvalidCoordinatesException: "' + wellPos + '"';
 	}
 	return [row, column];
 }
@@ -193,12 +194,12 @@ function convertCoords(wellPos) {
 */
 function convertCoordsRegExp(wellPos) {
 	var match = wellPos.trim().match(/^([A-Ha-h])(?:\:)?((?:0)?[1-9]|1[0-2])$/);
-	if(!match) throw "InvalidCoordinatesException: \"" + wellPos + "\"";
+	if(!match) throw 'InvalidCoordinatesException: "' + wellPos + '"';
 	try {
 		var row = parseNumber(match[1].toUpperCase().charCodeAt(0) - 64);
 		var column = parseNumber(match[2]);
 	} catch(e) {
-		throw "InvalidCoordinatesException: \"" + wellPos + "\": " + e;
+		throw 'InvalidCoordinatesException: "' + wellPos + '": ' + e;
 	}
 	return [row, column];
 }
@@ -217,13 +218,13 @@ function transferSorter(plateCol, wellCol) {
 			a.id = parseNumber(a.id);
 			b.id = parseNumber(b.id);
 		} else {
-			var p = /\d\d\-\d{4,}/;
+			var p = /^\d\d\-\d{4,}$/;
 			// If plate ID is a LIMS ID, convert from string to int:
 			if(a.id.match(p) && b.id.match(p)) {
 				a.id = parseNumber(a.id.replace("-",""));
 				b.id = parseNumber(b.id.replace("-",""));
 			} else {
-				p = /P\d{3,}P\d{1,2}/i;
+				p = /^P\d{3,}P\d{1,2}$/i;
 				// If plate ID is a project plate ID, e.g. P4568P2,
 				// covert to int by removing 'P', e.g. 45682:
 				if(a.id.match(p) && b.id.match(p)) {
@@ -358,7 +359,7 @@ function parseAdapterTransfers(str, indexSet) {
 	if(indexSet in INDEX_SETS) {
 		plateMap = INDEX_SETS[indexSet];
 	} else {
-		throw "UnknownIndexSetIdException: \"" + indexSet + "\"";
+		throw 'UnknownIndexSetIdException: "' + indexSet + '"';
 	}
 	var rowArray = parseCsv(str, ",");
 	// Sort the array by index:
@@ -659,7 +660,7 @@ function TransferManager(transferMode, tipMode) {
 	if(transferMode in this.functionMap) {
 		this.parseFunction = this.functionMap[transferMode];
 	} else {
-		throw "UnknownParseModeException: \"" + transferMode + "\"";
+		throw 'UnknownParseModeException: "' + transferMode + '"';
 	}
 	// Array of Transfer object arrays:
 	this.transfers;
